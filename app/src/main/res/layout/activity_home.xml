@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.iblood.ui.HomeActivity">
+
+    <View
+        android:id="@+id/mTop"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/top_notification"
+        android:background="@color/colorGreen" />
+
+    <FrameLayout
+        android:id="@+id/mFrame"
+        android:layout_width="match_parent"
+        android:layout_height="560dp"
+        android:layout_below="@id/mTop"></FrameLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/mFrame"
+        android:background="@color/colorGreyBottom" />
+
+    <RadioGroup
+        android:id="@+id/mBottomGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:background="@color/colorGreyFill"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:weightSum="3">
+
+        <RadioButton
+            android:id="@+id/mOLBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_online"
+            android:gravity="center_horizontal"
+            android:text="医生在线"
+            android:textColor="@drawable/selector_text"
+            android:textSize="11sp" />
+
+        <RadioButton
+            android:id="@+id/mMangerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/selector_manger"
+            android:gravity="center_horizontal"
+            android:text="血压管理"
+            android:textColor="@drawable/selector_text"
+            android:textSize="11sp" />
+
+
+        <RadioButton
+            android:id="@+id/mPersonalBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5dp"
+
+            android:drawableTop="@drawable/selector_personal"
+            android:gravity="center_horizontal"
+            android:text="个人中心"
+            android:textColor="@drawable/selector_text"
+            android:textSize="11sp" />
+    </RadioGroup>
+</RelativeLayout>
