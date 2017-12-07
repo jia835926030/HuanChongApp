@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <TextView
+        android:text="其他服务"
+        android:layout_margin="15px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:text="洗澡"
+            android:button="@null"
+            android:id="@+id/personal_xizao"
+            android:background="@drawable/fuwu_personal"
+            android:checked="true"
+            android:gravity="center"
+            android:layout_marginLeft="30px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="60px" />
+        <CheckBox
+            android:text="接/送"
+            android:button="@null"
+            android:background="@drawable/fuwu_personal"
+            android:layout_marginLeft="30px"
+            android:gravity="center"
+            android:id="@+id/personal_jiesong"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="60px" />
+        <CheckBox
+            android:text=""
+            android:button="@null"
+            android:gravity="center"
+            android:layout_margin="15px"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_marginLeft="30px"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_marginTop="15px"
+        android:background="#a0786868"
+        android:layout_width="match_parent"
+        android:layout_height="0.01px" />
+
+</LinearLayout>

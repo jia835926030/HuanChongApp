@@ -20,10 +20,8 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     //Retrofit和rxjava
-
     //加载图片
     compile 'com.android.support:appcompat-v7:26.1.0'
     compile 'com.android.support:multidex:1.0.1'
@@ -39,4 +37,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //屏幕适配autoLayout依赖
     compile 'com.zhy:autolayout:1.4.3'
+    implementation 'com.android.support:design:27.0.2'
 }

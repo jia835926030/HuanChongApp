@@ -75,7 +75,16 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //允许条目点击
                 item.setCheckable(true);
+                switch (item.getItemId()){
+                    case R.id.cehua_xiaoxi:
+                        Toast.makeText(HomeActivity.this, "11111111111111", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.cehua_chongwu:
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        break;
+                }
                 return false;
             }
         });

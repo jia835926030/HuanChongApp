@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.iblood.ui.HomeActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/rel_home"
+        android:layout_marginTop="10px"
+        android:layout_width="match_parent"
+        android:layout_height="50px">
+
+        <ImageView
+            android:id="@+id/my_home"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15px"
+            android:layout_marginStart="15px"
+            android:src="@drawable/my" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="70px"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/login_ed"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="40px"
+                android:layout_height="40px"
+                android:layout_gravity="center"
+                android:layout_marginLeft="10px"
+                android:layout_marginRight="10px"
+                android:src="@drawable/search" />
+
+            <EditText
+                android:id="@+id/ed_home"
+                android:layout_width="350px"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center"
+                android:background="@null"
+                android:hint="地区/街道/小区"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/dingwei_hoem"
+            android:layout_width="50px"
+            android:layout_height="50px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignTop="@+id/my_home"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:src="@drawable/map" />
+    </RelativeLayout>
+    <TextView
+        android:background="#a0786868"
+        android:layout_width="match_parent"
+        android:layout_marginBottom="10px"
+        android:layout_marginTop="10px"
+        android:layout_height="0.01dp" />
+
+    <RadioGroup
+        android:id="@+id/mBottomGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:background="@color/colorGreyFill"
+        android:orientation="horizontal"
+        android:padding="5px"
+        android:weightSum="3">
+
+        <RadioButton
+            android:id="@+id/mOLBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="5px"
+
+            android:gravity="center_horizontal"
+            android:text="附近优先"
+            android:textColor="@drawable/selector_text"
+            android:textSize="18sp" />
+        <!--android:drawableRight="@drawable/selector_online"-->
+
+        <RadioButton
+            android:id="@+id/mMangerBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5px"
+
+            android:gravity="center_horizontal"
+            android:text="宠物类型"
+            android:textColor="@drawable/selector_text"
+            android:textSize="18sp" />
+
+
+        <RadioButton
+            android:id="@+id/mPersonalBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2px"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="5px"
+
+            android:gravity="center_horizontal"
+            android:text="筛选"
+            android:textColor="@drawable/selector_text"
+            android:textSize="18sp" />
+    </RadioGroup>
+    <TextView
+        android:background="#a0786868"
+        android:layout_width="match_parent"
+        android:layout_height="0.01dp"
+        android:layout_marginBottom="10px"
+        android:layout_marginTop="10px"/>
+    <FrameLayout
+        android:id="@+id/mFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></FrameLayout>
+</LinearLayout>
+
