@@ -1,5 +1,7 @@
 package com.iblood.ui;
 
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -8,14 +10,18 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.DatePicker;
 import android.widget.PopupWindow;
+import android.widget.RadioButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.ui.personal.PersonalAddress;
 
 import java.io.File;
+import java.util.Calendar;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -41,10 +47,20 @@ public class PersonalInformation extends BaseActivity {
             RelativeLayout modification_QQ;
     @BindView(R.id.modification_address)//联系地址
             RelativeLayout modification_address;
+    @BindView(R.id.user_sexy)
+    TextView user_sexy;
+    @BindView(R.id.user_time)
+    TextView user_time;
     private PopupWindow window;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
+    private TextView men;
+    private TextView women;
+    final int DATE_DIALOG = 1;
+    private int mYear;
+    private int mMonth;
+    private int mDay;
 
 
     @Override
@@ -68,7 +84,7 @@ public class PersonalInformation extends BaseActivity {
     }
 
     @OnClick({R.id.modification_face, R.id.modification_name, R.id.modification_sexy, R.id.modification_ddyymm,
-    R.id.modification_phone,R.id.modification_QQ,R.id.modification_wachat,R.id.modification_address})
+            R.id.modification_phone, R.id.modification_QQ, R.id.modification_wachat, R.id.modification_address})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.modification_face:
@@ -82,14 +98,16 @@ public class PersonalInformation extends BaseActivity {
                         .putExtra("hint", "请输入16字以内的名称（中文，数字，字母）"));
                 break;
             case R.id.modification_sexy:
-//性别弹窗
-
-
-
+                //性别弹窗
+                showSexyPop();
                 break;
             case R.id.modification_ddyymm:
-//年月日弹窗
-
+                //年月日弹窗
+                showDialog(DATE_DIALOG);
+                Calendar ca = Calendar.getInstance();
+                mYear = ca.get(Calendar.YEAR);
+                mMonth = ca.get(Calendar.MONTH);
+                mDay = ca.get(Calendar.DAY_OF_MONTH);
                 break;
             case R.id.modification_wachat:
                 startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
@@ -101,16 +119,87 @@ public class PersonalInformation extends BaseActivity {
                         .putExtra("title", "QQ")
                         .putExtra("hint", "请输入您的QQ账户（数字）"));
                 break;
-            case R.id.modification_phone :
+            case R.id.modification_phone:
                 startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "手机号码")
                         .putExtra("hint", "请输入您的手机号码"));
                 break;
-            case R.id.modification_address :
+            case R.id.modification_address:
                 //联系地址
-
+                startActivity(new Intent(PersonalInformation.this, PersonalAddress.class)
+                        .putExtra("title", "联系地址")
+                        );
                 break;
         }
+    }
+//展示年月日  这里不用了，因为用了系统自带的
+//    private void showTimePop( ) {
+//        View view = View.inflate(this, R.layout.timedialog, null);
+//        window = new PopupWindow(view, ActionBar.LayoutParams.MATCH_PARENT,
+//                android.support.v4.view.ViewPager.LayoutParams.WRAP_CONTENT,
+//                true);
+//        window.setAnimationStyle(R.style.style_dialog);
+//        window.setBackgroundDrawable(new BitmapDrawable());
+//        window.showAtLocation(modification_ddyymm, Gravity.BOTTOM, 0, 0);
+//
+//
+//    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DATE_DIALOG:
+                return new DatePickerDialog(this, mdateListener, mYear, mMonth, mDay);
+        }
+        return null;
+    }
+
+    public void display() {
+        //控件设置时间
+        textToast("修改成功");
+        user_time.setText(new StringBuffer().append(mMonth + 1).append("-").append(mDay).append("-").append(mYear).append(" "));
+    }
+
+    private DatePickerDialog.OnDateSetListener mdateListener = new DatePickerDialog.OnDateSetListener() {
+
+        @Override
+        public void onDateSet(DatePicker view, int year, int monthOfYear,
+                              int dayOfMonth) {
+            mYear = year;
+            mMonth = monthOfYear;
+            mDay = dayOfMonth;
+            display();
+        }
+    };
+
+    //展示性别窗口
+    private void showSexyPop() {
+        View view = View.inflate(this, R.layout.sexydialog, null);
+        window = new PopupWindow(view, ActionBar.LayoutParams.MATCH_PARENT,
+                android.support.v4.view.ViewPager.LayoutParams.WRAP_CONTENT,
+                true);
+        window.setAnimationStyle(R.style.style_dialog);
+        window.setBackgroundDrawable(new BitmapDrawable());
+        window.showAtLocation(modification_sexy, Gravity.BOTTOM, 0, 0);
+        men = view.findViewById(R.id.but_men);
+        men.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textToast("修改成功");
+                user_sexy.setText(men.getText().toString().trim());
+                window.dismiss();
+            }
+        });
+        women = view.findViewById(R.id.but_women);
+        women.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textToast("修改成功");
+                user_sexy.setText(women.getText().toString().trim());
+                window.dismiss();
+            }
+        });
+
     }
 
     //当点击头像时
