@@ -1,5 +1,6 @@
 package com.iblood.ui.setmodoule;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -78,7 +79,8 @@ public class SetUpActivity extends BaseActivity {
     public void onViewClicked(View view){
         switch (view.getId()){
             case R.id.proposal:
-                Toast.makeText(this, "Adas", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(SetUpActivity.this,ProposalActivity.class);
+                startActivity(intent);
                 break;
 
         }

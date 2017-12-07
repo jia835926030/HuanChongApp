@@ -2,7 +2,6 @@ package com.iblood.ui;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
@@ -32,14 +31,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeActivity extends BaseActivity implements View.OnClickListener {
+public class HomeActivity /*extends BaseActivity implements View.OnClickListener*/ {
     @BindView(R.id.mOLBtn)
     RadioButton mOLBtn;
     @BindView(R.id.mMangerBtn)
     RadioButton mMangerBtn;
     @BindView(R.id.mPersonalBtn)
     RadioButton mPersonalBtn;
-    @BindView(R.id.my_home)
+   /* @BindView(R.id.my_home)
     ImageView myHome;
     @BindView(R.id.ed_home)
     EditText edHome;
@@ -162,5 +161,5 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.cehua_tou:
                 break;
         }
-    }
+    }*/
 }
