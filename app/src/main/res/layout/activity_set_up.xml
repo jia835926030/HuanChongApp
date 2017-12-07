@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40px"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/return_img"
+            android:layout_width="30px"
+            android:layout_height="match_parent"
+            android:background="@drawable/back_gray" />
+
+        <TextView
+            android:textStyle="normal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="设置" />
+    </com.zhy.autolayout.AutoRelativeLayout>
+<View
+    android:layout_width="match_parent"
+    android:layout_height="15dp"
+    android:background="#1bd6d4d3"
+    />
+<com.zhy.autolayout.AutoRelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="80px"
+    android:id="@+id/proposal"
+    android:gravity="center"
+    >
+    <View
+        android:layout_alignParentLeft="true"
+        android:layout_width="30px"
+        android:id="@+id/i1"
+        android:layout_alignParentStart="true"
+        android:layout_height="55px"/>
+    <ImageView
+        android:layout_toRightOf="@+id/i1"
+        android:background="@drawable/publish_stories"
+        android:layout_width="55px"
+        android:layout_height="60px"
+        android:id="@+id/proposal_img"/>
+    <TextView
+        android:gravity="center"
+        android:layout_width="200px"
+        android:layout_height="55px"
+        android:text="产品建议"
+        android:textStyle="bold"
+        android:layout_marginLeft="80px"
+        android:id="@+id/product_proposal_text"/>
+
+    <ImageView
+        android:layout_width="50px"
+        android:layout_height="55px"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/enter" />
+
+</com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#d9dad8"
+        android:layout_height="2px"/>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:gravity="center"
+        android:id="@+id/introduce"
+        >
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="30px"
+            android:id="@+id/i2"
+            android:layout_alignParentStart="true"
+            android:layout_height="55px"/>
+        <ImageView
+            android:background="@drawable/new_function"
+            android:layout_width="55px"
+            android:layout_height="60px"
+            android:layout_toRightOf="@id/i2"
+          />
+        <TextView
+            android:gravity="center"
+            android:layout_width="200px"
+            android:layout_height="55px"
+            android:text="新功能介绍"
+            android:textStyle="bold"
+            android:layout_marginLeft="80px"
+          />
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="55px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/enter" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#d9dad8"
+        android:layout_height="2px"/>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:id="@+id/score"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        >
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="30px"
+            android:id="@+id/i3"
+            android:layout_alignParentStart="true"
+            android:layout_height="55px"/>
+        <ImageView
+            android:layout_toRightOf="@id/i3"
+            android:background="@drawable/praise"
+            android:layout_width="55px"
+            android:layout_height="60px"
+     />
+        <TextView
+            android:gravity="center"
+            android:layout_width="200px"
+            android:layout_height="55px"
+            android:text="去评分"
+            android:textStyle="bold"
+            android:layout_marginLeft="80px"
+          />
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="55px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/enter" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#d9dad8"
+        android:layout_height="2px"/>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="80px"
+        android:id="@+id/about"
+        >
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="30px"
+            android:id="@+id/i4"
+            android:layout_alignParentStart="true"
+            android:layout_height="55px"/>
+        <ImageView
+            android:layout_toRightOf="@id/i4"
+            android:background="@drawable/know"
+            android:layout_width="55px"
+            android:layout_height="60px"
+         />
+        <TextView
+            android:gravity="center"
+            android:layout_width="200px"
+            android:layout_height="55px"
+            android:text="关于欢欢"
+            android:textStyle="bold"
+            android:layout_marginLeft="80px"
+           />
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="55px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/enter" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+<View
+    android:layout_width="match_parent"
+    android:background="#77bcbeba"
+    android:layout_height="10px"/>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:gravity="center"
+        android:id="@+id/wifi_display"
+        >
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="30px"
+            android:id="@+id/i5"
+            android:layout_alignParentStart="true"
+            android:layout_height="55px"/>
+        <ImageView
+            android:layout_toRightOf="@id/i5"
+            android:background="@drawable/picture_wifi"
+            android:layout_width="55px"
+            android:layout_height="60px"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_width="270px"
+            android:layout_height="60px"
+            android:text="仅在WIFI下显示图片"
+            android:textStyle="bold"
+            android:layout_marginLeft="80px"
+            />
+
+        <ToggleButton
+            android:layout_width="120px"
+            android:layout_height="50px"
+            android:checked="true"
+            android:textOff=""
+            android:textOn=""
+            android:gravity="center"
+            android:background="@drawable/switch_icon_on"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:button="@drawable/switch_icon_on"
+            android:id="@+id/toggleButton" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:gravity="center"
+        android:id="@+id/cache"
+        >
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="30px"
+            android:id="@+id/i6"
+            android:layout_alignParentStart="true"
+            android:layout_height="55px"/>
+
+        <ImageView
+            android:layout_toRightOf="@id/i6"
+            android:background="@drawable/delete_pet"
+            android:layout_width="55px"
+            android:layout_height="60px"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_width="270px"
+            android:layout_height="60px"
+            android:text="图片缓存 文件大小"
+            android:textStyle="bold"
+            android:layout_marginLeft="80px"
+            />
+
+        <TextView
+            android:layout_width="120px"
+            android:layout_height="55px"
+            android:gravity="center"
+            android:layout_alignLeft="@+id/toggleButton"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@id/cache_img"
+            android:layout_alignStart="@+id/toggleButton"
+            android:text="14.58MB" />
+        <ImageView
+            android:id="@+id/cache_img"
+            android:layout_width="50px"
+            android:layout_height="55px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/enter" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px"
+        android:gravity="center"
+        android:id="@+id/scavenging_cache"
+        >
+        <View
+            android:layout_alignParentLeft="true"
+            android:layout_width="30px"
+            android:id="@+id/i7"
+            android:layout_alignParentStart="true"
+            android:layout_height="55px"/>
+        <ImageView
+            android:layout_toRightOf="@id/i7"
+            android:background="@drawable/cache"
+            android:layout_width="55px"
+            android:layout_height="60px"
+            />
+        <TextView
+            android:gravity="center"
+            android:layout_width="200px"
+            android:layout_height="55px"
+            android:text="清除缓存"
+            android:textStyle="bold"
+            android:layout_marginLeft="80px"
+            />
+
+        <ImageView
+            android:layout_width="50px"
+            android:layout_height="55px"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/enter" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+<View
+    android:layout_width="match_parent"
+    android:background="#05c9c8c6"
+    android:layout_height="20px"/>
+    <Button
+        android:layout_width="690px"
+        android:text="退出登录"
+        android:id="@+id/sign_out"
+        android:textColor="#77f5051d"
+        android:background="#77dadad8"
+        android:layout_gravity="center"
+        android:layout_height="90px" />
+</com.zhy.autolayout.AutoLinearLayout>

@@ -32,7 +32,7 @@
         <LinearLayout
             android:background="#e59707"
             android:padding="10px"
-            android:layout_marginLeft="30px"
+            android:layout_marginLeft="15px"
             android:orientation="horizontal"
             android:layout_width="0dp"
             android:layout_weight="1"
@@ -53,12 +53,12 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="30px"
+            android:layout_margin="15px"
             android:layout_height="wrap_content"></LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="1"
-            android:layout_marginLeft="30px"
+            android:layout_margin="15px"
             android:layout_height="wrap_content"></LinearLayout>
     </LinearLayout>
 
@@ -73,8 +73,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
-    <GridLayout
-        android:rowCount="3"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <CheckBox
@@ -84,30 +84,30 @@
             android:background="@drawable/fuwu_personal"
             android:checked="true"
             android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="60px" />
         <CheckBox
             android:text="接/送"
             android:button="@null"
             android:background="@drawable/fuwu_personal"
-            android:layout_marginLeft="30px"
+            android:layout_margin="15px"
             android:gravity="center"
             android:id="@+id/personal_jiesong"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="60px" />
         <CheckBox
-            android:text="kongbai"
+            android:text="喂养"
             android:button="@null"
             android:gravity="center"
-            android:layout_marginLeft="30px"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
-            android:layout_marginRight="30px"
+            android:background="@drawable/fuwu_personal"
+            android:layout_margin="15px"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="60px" />
-    </GridLayout>
+    </LinearLayout>
     <TextView
         android:layout_marginTop="15px"
         android:background="#a0786868"
@@ -118,57 +118,139 @@
         android:layout_margin="15px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <GridLayout
-        android:rowCount="3"
-        android:columnCount="3"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <CheckBox
             android:text="元旦可接送"
             android:button="@null"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/personal_yuandan"
+            android:layout_margin="15px"
             android:background="@drawable/fuwu_personal"
             android:checked="true"
             android:gravity="center"
-
-            android:layout_marginLeft="30px"
             android:layout_height="60px" />
         <CheckBox
             android:text="春节可接送"
             android:button="@null"
             android:background="@drawable/fuwu_personal"
-            android:layout_marginLeft="30px"
+            android:layout_margin="15px"
             android:gravity="center"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/personal_cunjie"
             android:layout_height="60px" />
         <CheckBox
-            android:text="清明节可接送"
+            android:text="清明节接送"
             android:button="@null"
             android:background="@drawable/fuwu_personal"
-            android:layout_marginLeft="30px"
-            android:layout_marginRight="30px"
+            android:layout_margin="15px"
             android:gravity="center"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/personal_qingming"
             android:layout_height="60px" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
         <CheckBox
-            android:text="劳动节可接送"
+            android:text="劳动节接送"
             android:button="@null"
             android:background="@drawable/fuwu_personal"
-            android:layout_marginLeft="30px"
+            android:layout_margin="15px"
             android:gravity="center"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:id="@+id/personal_laodong"
             android:layout_height="60px" />
+        <CheckBox
+            android:text="端午节接送"
+            android:button="@null"
+            android:background="@drawable/fuwu_personal"
+            android:layout_margin="15px"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/personal_duanwu"
+            android:layout_height="60px" />
+        <CheckBox
+            android:text="中秋节接送"
+            android:button="@null"
+            android:background="@drawable/fuwu_personal"
+            android:layout_margin="15px"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/personal_zhongqiu"
+            android:layout_height="60px" />
 
-    </GridLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <CheckBox
+            android:text="国庆节接送"
+            android:button="@null"
+            android:background="@drawable/fuwu_personal"
+            android:layout_margin="15px"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:id="@+id/personal_guoqing"
+            android:layout_height="60px" />
+        <CheckBox
+            android:text=""
+            android:button="@null"
+            android:layout_margin="15px"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
 
+            android:layout_height="60px" />
+        <CheckBox
+            android:text=""
+            android:button="@null"
+            android:layout_margin="15px"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+
+            android:layout_height="60px" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="15px"
+        android:background="#a0786868"
+        android:layout_width="match_parent"
+        android:layout_height="0.01px" />
+    <Button
+        android:text="重置"
+        android:layout_gravity="center"
+        android:layout_marginTop="30px"
+        android:id="@+id/personal_chongzhi"
+        android:layout_width="300px"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+    <Button
+        android:text="确定"
+        android:background="#e59707"
+        android:id="@+id/personal_queding"
+        android:layout_marginLeft="30px"
+        android:layout_marginRight="30px"
+        android:layout_marginBottom="10px"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom" />
 
 </LinearLayout>
