@@ -11,41 +11,56 @@
         <RadioButton
             android:text="附近优先"
             android:button="@null"
-
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="好评优先"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="订单优先"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="价格从高到低"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="价格从低到高"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
