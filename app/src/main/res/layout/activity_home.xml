@@ -20,6 +20,7 @@
         app:headerLayout="@layout/cehua_head"
         app:menu="@menu/menu">
         <Button
+            android:id="@+id/cehua_shenqing"
             android:text="申请成为寄养家庭"
             android:background="#e59707"
             android:paddingLeft="40px"

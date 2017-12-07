@@ -8,6 +8,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -57,6 +58,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     NavigationView navView;
     @BindView(R.id.activity_home)
     DrawerLayout activityHome;
+    @BindView(R.id.cehua_shenqing)
+    Button cehuaShenqing;
     private FragmentManager fragmentManager;
     private long mExitTime;
 
@@ -77,7 +80,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 //允许条目点击
                 item.setCheckable(true);
-                switch (item.getItemId()){
+                switch (item.getItemId()) {
                     case R.id.cehua_xiaoxi:
                         Toast.makeText(HomeActivity.this, "11111111111111", Toast.LENGTH_SHORT).show();
                         break;
@@ -88,6 +91,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 return false;
             }
         });
+        myHome.setOnClickListener(this);
+        dingweiHoem.setOnClickListener(this);
+        cehuaShenqing.setOnClickListener(this);
     }
 
     //添加初始Fragment
@@ -102,6 +108,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     protected void initListener() {
 
     }
+
     //Fragment切换
     @OnClick({R.id.mOLBtn, R.id.mMangerBtn, R.id.mPersonalBtn})
     public void onViewClicked(View view) {
@@ -167,8 +174,18 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.cehua_tou:
+                Toast.makeText(this, "ttttttttt", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.my_home:
+                Toast.makeText(this, "mmmmmmmmmmmm", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.dingwei_hoem:
+                Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.cehua_shenqing:
+                Toast.makeText(this, "ssssssssssss", Toast.LENGTH_SHORT).show();
                 break;
         }
     }
