@@ -28,9 +28,9 @@
             android:value="1280" />
 
         <activity android:name=".ui.setmodoule.SetUpActivity">
-
         </activity>
         <activity android:name=".ui.setmodoule.ProposalActivity"></activity>
     </application>
+
 
 </manifest>
