@@ -12,49 +12,68 @@
         <RadioButton
             android:text="小型犬"
             android:button="@null"
-
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="中型犬"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="大型犬"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="猫"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="小宠"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
         <RadioButton
             android:text="幼犬"
             android:button="@null"
             android:textColor="#cd333333"
-            android:layout_margin="15px"
+            android:layout_marginLeft="15px"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:drawableRight="@drawable/online_one"/>

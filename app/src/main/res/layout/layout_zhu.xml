@@ -76,7 +76,6 @@
         android:id="@+id/mBottomGroup"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/colorGreyFill"
         android:orientation="horizontal"
         android:padding="5px"
@@ -88,9 +87,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:button="@null"
-            android:checked="true"
             android:drawablePadding="5px"
-
             android:gravity="center_horizontal"
             android:text="附近优先"
             android:textColor="@drawable/selector_text"
@@ -105,7 +102,6 @@
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5px"
-
             android:gravity="center_horizontal"
             android:text="宠物类型"
             android:textColor="@drawable/selector_text"
@@ -120,7 +116,6 @@
             android:layout_weight="1"
             android:button="@null"
             android:drawablePadding="5px"
-
             android:gravity="center_horizontal"
             android:text="筛选"
             android:textColor="@drawable/selector_text"
@@ -132,10 +127,10 @@
         android:layout_height="0.01dp"
         android:layout_marginBottom="10px"
         android:layout_marginTop="10px"/>
-    <FrameLayout
-        android:id="@+id/mFrame"
+    <ListView
+        android:id="@+id/list_home"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ></FrameLayout>
+        ></ListView>
 </LinearLayout>
 
