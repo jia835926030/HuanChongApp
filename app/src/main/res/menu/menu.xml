@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <group android:id="@+id/a" >
+        <item
+            android:id="@+id/cehua_xiaoxi"
+            android:icon="@drawable/messages"
+            android:title="消息"/>
+        <item
+            android:id="@+id/cehua_chongwu"
+            android:icon="@drawable/pet"
+            android:title="宠物"/>
+    </group>
+
+    <group android:id="@+id/b">
+        <item
+            android:id="@+id/cehua_dingdan"
+            android:icon="@drawable/order_details"
+            android:title="订单"/>
+        <item
+            android:id="@+id/cehua_qianbao"
+            android:icon="@drawable/collection_account"
+            android:title="钱包"/>
+        <item
+            android:id="@+id/cehua_xuzhi"
+            android:icon="@drawable/about"
+            android:title="须知"/>
+    </group>
+
+    <group android:id="@+id/c">
+        <item
+            android:id="@+id/cehua_shezhi"
+            android:icon="@drawable/setting"
+            android:title="设置"/>
+
+    </group>
+
+    <group android:id="@+id/d">
+        <item
+            android:title=""/>
+    </group>
+
+
+</menu>

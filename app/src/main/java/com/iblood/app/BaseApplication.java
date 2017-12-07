@@ -7,8 +7,6 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.multidex.MultiDexApplication;
 
-import com.zhy.autolayout.config.AutoLayoutConifg;
-
 
 public class BaseApplication extends MultiDexApplication {
     public static class Config {
@@ -18,7 +16,6 @@ public class BaseApplication extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
-        AutoLayoutConifg.getInstance().useDeviceSize();
         if (com.iblood.app.BaseApplication.Config.DEVELOPER_MORE && Build.VERSION.SDK_INT <= Build.VERSION_CODES.GINGERBREAD) {
             //设置线程的严苛模式
             StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().detectAll().penaltyDialog().build());

@@ -3,14 +3,15 @@ package com.iblood.base;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.AppCompatActivity;
+
 import com.iblood.app.App;
-import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 
-public abstract class BaseActivity extends AutoLayoutActivity {
+public abstract class BaseActivity extends AppCompatActivity {
     private Unbinder unbinder;
 
     @Override
