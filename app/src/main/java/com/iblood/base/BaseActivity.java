@@ -4,6 +4,7 @@ import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.iblood.app.App;
 
@@ -50,6 +51,9 @@ public abstract class BaseActivity extends AppCompatActivity {
         App.mBaseActivity = this;
     }
 
+    public void textToast(String str){
+        Toast.makeText(App.mBaseActivity,str,Toast.LENGTH_SHORT).show();
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
