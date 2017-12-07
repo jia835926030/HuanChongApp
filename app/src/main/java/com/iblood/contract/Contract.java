@@ -11,7 +11,6 @@ public class Contract {
         void showHotData(HotBean hotBean);
 
     }
-
     public interface MangerView extends IBaseView<Presenter> {
 
     }
