@@ -195,45 +195,6 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
 
 
     @Override
-    public void onBackPressed() {
-        String simpleName = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-        if ("HomePageFragment".equals(simpleName) ||
-                "LivePageFragment".equals(simpleName) ||
-                "VideoFragment".equals(simpleName) ||
-                "BoBaoFragment".equals(simpleName)
-                ) {
-            finish();
-        } else {
-            if (fragmentManager.getBackStackEntryCount() > 1) {
-                fragmentManager.popBackStackImmediate();//
-                String name = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-                App.mBaseFragment = (BaseFragment) fragmentManager.findFragmentByTag(name);
-            }
-        }
-    }
-
-
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        String name = fragmentManager.getBackStackEntryAt(fragmentManager.getBackStackEntryCount() - 1).getName();
-        if ("HomePageFragment".equals(name) ||
-                "LivePageFragment".equals(name) ||
-                "VideoFragment".equals(name) ||
-                "BoBaoFragment".equals(name)
-                ) {
-            if (keyCode == KeyEvent.KEYCODE_BACK) {
-                if ((System.currentTimeMillis() - mExitTime) > 100) {
-                    Toast.makeText(this, "-------------", Toast.LENGTH_SHORT).show();
-                    mExitTime = System.currentTimeMillis();
-                } else {
-                    ActivityCollector.getInstance().exit(App.mBaseActivity);
-                }
-                return true;
-            }
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
