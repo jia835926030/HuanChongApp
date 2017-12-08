@@ -1,5 +1,6 @@
 package com.iblood.ui.setmodoule;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,8 +34,6 @@ public class SetUpActivity extends BaseActivity {
     AutoRelativeLayout score;
     @BindView(R.id.about)
     AutoRelativeLayout about;
-    @BindView(R.id.toggleButton)
-    ToggleButton toggleButton;
     @BindView(R.id.wifi_display)
     AutoRelativeLayout wifiDisplay;
     @BindView(R.id.cache_img)
@@ -63,6 +62,7 @@ public class SetUpActivity extends BaseActivity {
     protected void initView() {
         setContentView(R.layout.activity_set_up);
 
+
     }
 
     @Override
@@ -82,6 +82,33 @@ public class SetUpActivity extends BaseActivity {
                 Intent intent=new Intent(SetUpActivity.this,ProposalActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.introduce:
+                Toast.makeText(this, "新功能介绍", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.score:
+                Toast.makeText(this, "去评分", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.about:
+                Toast.makeText(this, "关于欢欢", Toast.LENGTH_SHORT).show();
+                break;
+
+
+            case  R.id.cache:
+                Toast.makeText(this, "图片缓存，文件缓存", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.scavenging_cache:
+                Toast.makeText(this, "清除缓存", Toast.LENGTH_SHORT).show();
+                break;
+
+            case R.id.sign_out:
+                Toast.makeText(this, "退出登录", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.wifi_display:
+                Toast.makeText(this, "仅在WIFI下显示图片", Toast.LENGTH_SHORT).show();
+                break;
+
 
         }
 
