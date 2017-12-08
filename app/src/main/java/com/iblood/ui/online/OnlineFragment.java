@@ -36,6 +36,7 @@ public class OnlineFragment extends BaseFragment implements Contract.OnlineView 
     @Override
     public void showHotData(HotBean hotBean) {
 
+
     }
 
     @Override

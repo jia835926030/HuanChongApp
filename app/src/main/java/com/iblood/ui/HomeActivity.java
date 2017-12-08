@@ -1,7 +1,9 @@
 package com.iblood.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.KeyEvent;
@@ -27,19 +29,20 @@ import com.iblood.contract.OnlinePresenter;
 import com.iblood.ui.manage.ManageFragment;
 import com.iblood.ui.online.OnlineFragment;
 import com.iblood.ui.personal.PersonalFragment;
+import com.iblood.ui.setmodoule.SetUpActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class HomeActivity /*extends BaseActivity implements View.OnClickListener*/ {
+public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.mOLBtn)
     RadioButton mOLBtn;
     @BindView(R.id.mMangerBtn)
     RadioButton mMangerBtn;
     @BindView(R.id.mPersonalBtn)
     RadioButton mPersonalBtn;
-   /* @BindView(R.id.my_home)
+    @BindView(R.id.my_home)
     ImageView myHome;
     @BindView(R.id.ed_home)
     EditText edHome;
@@ -86,6 +89,15 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
                     case R.id.cehua_chongwu:
                         Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.cehua_shezhi:
+                        Intent intent=new Intent(HomeActivity.this, SetUpActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.cehua_qianbao:
+                        Intent intent1=new Intent(HomeActivity.this,WalletActivity.class);
+                        startActivity(intent1);
+                        break;
+
                 }
                 return false;
             }
@@ -175,7 +187,8 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.cehua_tou:
-                Toast.makeText(this, "ttttttttt", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(this,PersonalInformation.class);
+                startActivity(intent);
                 break;
             case R.id.my_home:
                 Toast.makeText(this, "mmmmmmmmmmmm", Toast.LENGTH_SHORT).show();
@@ -184,8 +197,9 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
                 Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cehua_shenqing:
-                Toast.makeText(this, "ssssssssssss", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "不好使", Toast.LENGTH_SHORT).show();
+
                 break;
         }
-    }*/
+    }
 }
