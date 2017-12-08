@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorGreyDark"
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
             android:gravity="center"
-            android:text="更换用户头像"
+            android:text="性别"
             android:textColor="@color/colorGreyDark"
             android:textSize="@dimen/text_title" />
 
@@ -25,13 +25,14 @@
             android:layout_height="2px"
             android:background="@color/colorGreyDark" />
 
+
         <TextView
-            android:id="@+id/but_Take_pictures"
+            android:id="@+id/but_men"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
             android:gravity="center"
-            android:text="@string/Take_pictures"
+            android:text="@string/men"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_title"/>
         <View
@@ -40,36 +41,15 @@
             android:background="@color/colorGreyDark" />
 
         <TextView
-            android:id="@+id/but_album"
+            android:id="@+id/but_women"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="15sp"
             android:gravity="center"
-            android:text="@string/album"
-            android:textColor="@color/colorBlack"
-            android:textSize="@dimen/text_title"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_marginTop="@dimen/text_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/bg_corners"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/but_cancel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15sp"
-            android:gravity="center"
-            android:text="@string/cancel"
+            android:text="@string/women"
             android:textColor="@color/colorBlack"
             android:textSize="@dimen/text_title"/>
 
     </LinearLayout>
 
-
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>
