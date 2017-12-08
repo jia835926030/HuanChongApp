@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_home"
     android:layout_width="match_parent"
@@ -79,4 +79,4 @@
             android:textColor="@drawable/selector_text"
             android:textSize="11sp" />
     </RadioGroup>
-</RelativeLayout>
+</com.zhy.autolayout.AutoRelativeLayout>
