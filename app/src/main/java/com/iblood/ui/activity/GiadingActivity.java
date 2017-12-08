@@ -1,4 +1,4 @@
-package com.iblood.ui.LoginActivity;
+package com.iblood.ui.activity;
 
 import android.content.Intent;
 import android.view.KeyEvent;
@@ -83,6 +83,8 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.login_wx:
                 Toast.makeText(this, "微信", Toast.LENGTH_SHORT).show();
+   startActivity(new Intent(GiadingActivity.this,WxActivity.class));
+
                 break;
 
         }

@@ -13,7 +13,7 @@ import com.iblood.dbprefents.frament.OneFramentImage;
 import com.iblood.dbprefents.frament.ThreFramentsImage;
 import com.iblood.dbprefents.frament.TwoFramentsImage;
 import com.iblood.dbprefents.shipei.ViewPagerAdapter;
-import com.iblood.ui.LoginActivity.GiadingActivity;
+import com.iblood.ui.activity.GiadingActivity;
 
 import java.util.ArrayList;
 import java.util.List;

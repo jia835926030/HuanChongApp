@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.app.App;
-import com.iblood.ui.LoginActivity.GiadingActivity;
+import com.iblood.ui.activity.GiadingActivity;
 
 /**
  * Created by dell on 2017/12/6.

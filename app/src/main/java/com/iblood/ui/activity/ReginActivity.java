@@ -1,4 +1,4 @@
-package com.iblood.ui.LoginActivity;
+package com.iblood.ui.activity;
 
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,7 +9,6 @@ import com.iblood.R;
 import com.iblood.base.BaseActivity;
 
 public class ReginActivity extends BaseActivity {
-
     private TextView reg_fnishi;
     private TextView regin_login;
     private EditText regin_phone;
