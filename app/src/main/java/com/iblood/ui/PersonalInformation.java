@@ -1,7 +1,10 @@
 package com.iblood.ui;
 
+
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+
+
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -10,18 +13,27 @@ import android.provider.MediaStore;
 import android.support.v7.app.ActionBar;
 import android.view.Gravity;
 import android.view.View;
+
 import android.widget.DatePicker;
 import android.widget.PopupWindow;
 import android.widget.RadioButton;
+
+import android.widget.PopupWindow;
+
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+
 import com.iblood.ui.personal.PersonalAddress;
 
 import java.io.File;
 import java.util.Calendar;
+
+
+import java.io.File;
+
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -32,6 +44,7 @@ import butterknife.OnClick;
 
 public class PersonalInformation extends BaseActivity {
     @BindView(R.id.modification_face)//修改头像
+
             RelativeLayout modification_face;
     @BindView(R.id.modification_name)//名称
             RelativeLayout modification_name;
@@ -51,16 +64,21 @@ public class PersonalInformation extends BaseActivity {
     TextView user_sexy;
     @BindView(R.id.user_time)
     TextView user_time;
+
+    RelativeLayout modification_face;
+
     private PopupWindow window;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
+
     private TextView men;
     private TextView women;
     final int DATE_DIALOG = 1;
     private int mYear;
     private int mMonth;
     private int mDay;
+
 
 
     @Override
@@ -83,14 +101,21 @@ public class PersonalInformation extends BaseActivity {
 
     }
 
+
     @OnClick({R.id.modification_face, R.id.modification_name, R.id.modification_sexy, R.id.modification_ddyymm,
             R.id.modification_phone, R.id.modification_QQ, R.id.modification_wachat, R.id.modification_address})
     public void onViewClicked(View view) {
         switch (view.getId()) {
+
+    @OnClick({R.id.modification_face})
+    public void onViewClicked(View view){
+        switch (view.getId()){
+
             case R.id.modification_face:
                 //弹窗
                 showTipPop();
                 break;
+
             case R.id.modification_name:
                 //跳转修改名称
                 startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
@@ -201,6 +226,10 @@ public class PersonalInformation extends BaseActivity {
 
     }
 
+
+        }
+    }
+
     //当点击头像时
     private void showTipPop() {
 
@@ -238,6 +267,7 @@ public class PersonalInformation extends BaseActivity {
             }
         });
     }
+
 
 
     //拍照

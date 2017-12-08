@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.ui.setmodoule.SetUpActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -48,7 +49,7 @@ public class WelcomeActivity extends BaseActivity implements Animator.AnimatorLi
 
     @Override
     public void onAnimationEnd(Animator animation) {
-        startActivity(new Intent(this,HomeActivity.class));
+        startActivity(new Intent(this,SetUpActivity.class));
 		finish();
     }
 
