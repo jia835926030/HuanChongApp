@@ -1,5 +1,6 @@
 package com.iblood.ui;
 
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -27,6 +28,7 @@ import com.iblood.app.ActivityCollector;
 import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
 import com.iblood.base.BaseFragment;
+import com.iblood.ui.filter.FilterActivity;
 
 import java.util.List;
 
@@ -63,7 +65,9 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
     ListView listHome;
     private FragmentManager fragmentManager;
     private long mExitTime;
-    private View v;
+    private View v1;
+    private View v2;
+    private View v3;
 
     @Override
     protected int getLayoutId() {
@@ -89,6 +93,18 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
                     case R.id.cehua_chongwu:
                         Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
                         break;
+                    case R.id.cehua_dingdan:
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.cehua_qianbao :
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.cehua_xuzhi:
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.cehua_shezhi:
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        break;
                 }
                 return false;
             }
@@ -108,53 +124,73 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
 
     }
 
-    //Fragment切换
     @OnClick({R.id.mOLBtn, R.id.mMangerBtn, R.id.mPersonalBtn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mOLBtn:
-                //显示popuwindow
-                v = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_online, null);
-                //创建一个popuwindow对象
-                PopupWindow popu = new PopupWindow(v, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //默认获取不到焦点，设置获取焦点
-                popu.setFocusable(true);
-                //点击窗口以外区域，窗口消失
-                popu.setBackgroundDrawable(new BitmapDrawable());
-                //弹出或者消失的时候带动画效果
-//                popu.setAnimationStyle(R.style.mypopu);
-                //显示popuwindow
-                popu.showAsDropDown(mBottomGroup, 0, 0);
+                popu1();
                 break;
             case R.id.mMangerBtn:
-                //显示popuwindow
-                v = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_manage, null);
-                //创建一个popuwindow对象
-                PopupWindow popu1 = new PopupWindow(v, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //默认获取不到焦点，设置获取焦点
-                popu1.setFocusable(true);
-                //点击窗口以外区域，窗口消失
-                popu1.setBackgroundDrawable(new BitmapDrawable());
-                //弹出或者消失的时候带动画效果
-//                popu.setAnimationStyle(R.style.mypopu);
-                //显示popuwindow
-                popu1.showAsDropDown(mBottomGroup, 0, 0);
+                popu2();
                 break;
             case R.id.mPersonalBtn:
-                //显示popuwindow
-                v = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_personal, null);
-                //创建一个popuwindow对象
-                PopupWindow popu2 = new PopupWindow(v, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                //默认获取不到焦点，设置获取焦点
-                popu2.setFocusable(true);
-                //点击窗口以外区域，窗口消失
-                popu2.setBackgroundDrawable(new BitmapDrawable());
-                //弹出或者消失的时候带动画效果
-//                popu.setAnimationStyle(R.style.mypopu);
-                //显示popuwindow
-                popu2.showAsDropDown(mBottomGroup, 0, 0);
+                popu3();
                 break;
         }
+    }
+
+    //选择城市
+    private void popu1() {
+        //显示popuwindow
+        v1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_online, null);
+        //创建一个popuwindow对象
+        PopupWindow popu1 = new PopupWindow(v1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //默认获取不到焦点，设置获取焦点
+        popu1.setFocusable(true);
+        //点击窗口以外区域，窗口消失
+        popu1.setBackgroundDrawable(new BitmapDrawable());
+        //弹出或者消失的时候带动画效果
+//                popu.setAnimationStyle(R.style.mypopu);
+        //显示popuwindow
+        popu1.showAsDropDown(mBottomGroup, 0, 0);
+    }
+    //重置
+    private void popu2() {
+        //显示popuwindow
+        v2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_manage, null);
+        //创建一个popuwindow对象
+        PopupWindow popu1 = new PopupWindow(v2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //默认获取不到焦点，设置获取焦点
+        popu1.setFocusable(true);
+        //点击窗口以外区域，窗口消失
+        popu1.setBackgroundDrawable(new BitmapDrawable());
+        //弹出或者消失的时候带动画效果
+//                popu.setAnimationStyle(R.style.mypopu);
+        //显示popuwindow
+        popu1.showAsDropDown(mBottomGroup, 0, 0);
+    }
+    //确定
+    private void popu3() {
+        //显示popuwindow
+        v3 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_personal, null);
+        //创建一个popuwindow对象
+        PopupWindow popu1 = new PopupWindow(v3, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        //默认获取不到焦点，设置获取焦点
+        popu1.setFocusable(true);
+        //点击窗口以外区域，窗口消失
+        popu1.setBackgroundDrawable(new BitmapDrawable());
+        //弹出或者消失的时候带动画效果
+//                popu.setAnimationStyle(R.style.mypopu);
+        //显示popuwindow
+        popu1.showAsDropDown(mBottomGroup, 0, 0);
+
+        ImageView personal_saixuan = v3.findViewById(R.id.personal_saixuan);
+
+        Button personal_chongzhi = v3.findViewById(R.id.personal_chongzhi);
+        Button personal_queding = v3.findViewById(R.id.personal_queding);
+        personal_saixuan.setOnClickListener(this);
+        personal_chongzhi.setOnClickListener(this);
+        personal_queding.setOnClickListener(this);
     }
 
 
@@ -207,17 +243,27 @@ public class HomeActivity /*extends BaseActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.cehua_tou:
-                Toast.makeText(this, "ttttttttt", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.my_home:
                 Toast.makeText(this, "mmmmmmmmmmmm", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.dingwei_hoem:
                 Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.cehua_tou:
+                Toast.makeText(this, "ttttttttt", Toast.LENGTH_SHORT).show();
+                break;
             case R.id.cehua_shenqing:
                 Toast.makeText(this, "ssssssssssss", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.personal_saixuan:
+                Intent intent = new Intent(HomeActivity.this, FilterActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.personal_chongzhi:
+                Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.personal_queding:
+                Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
                 break;
         }
     }*/
