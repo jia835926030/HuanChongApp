@@ -5,5 +5,51 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.iblood.ui.activity.WxActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<include layout="@layout/item_top"></include>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="480px"
+        android:id="@+id/relativeLayout">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="92px"
+            android:src="@mipmap/pet_icon" />
+    </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/relativeLayout"
+            android:layout_marginTop="29dp"
+            android:text="登录后该应用将获得以下权限"
+            android:textSize="25sp"
+            android:id="@+id/textView9" />
+        <CheckBox
+            android:checked="true"
+            android:id="@+id/wx_check"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView9"
+            android:layout_marginTop="37dp"
+            android:text="获得你的公开信息（昵称，头像等）" />
 
+        <Button
+            android:background="#04BE02"
+            android:id="@+id/wx_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/wx_check"
+            android:layout_marginTop="53dp"
+            android:textColor="#E8E8E8"
+            android:text="确认登录" />
+    </RelativeLayout>
 </com.zhy.autolayout.AutoLinearLayout>
