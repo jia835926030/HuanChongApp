@@ -211,6 +211,7 @@
             android:divider="@color/colorBlack"
             android:layout_weight="1">
 
+
             <TextView
                 android:id="@+id/textView11"
                 android:layout_width="wrap_content"
@@ -370,5 +371,7 @@
             android:layout_height="2px"
             android:background="@color/colorGreyDark"></View>
     </LinearLayout>
+
+
 
 </com.zhy.autolayout.AutoLinearLayout>

@@ -26,6 +26,7 @@ public class ModificationActivity extends BaseActivity {
     @Override
     protected void initView() {
         Intent intent = getIntent();
+        //获取传过来的值
         String titletext = intent.getStringExtra("title");
         String hint = intent.getStringExtra("hint");
         mTitle.setText(titletext);

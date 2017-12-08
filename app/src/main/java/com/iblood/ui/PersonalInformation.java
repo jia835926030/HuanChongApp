@@ -127,8 +127,7 @@ public class PersonalInformation extends BaseActivity {
             case R.id.modification_address:
                 //联系地址
                 startActivity(new Intent(PersonalInformation.this, PersonalAddress.class)
-                        .putExtra("title", "联系地址")
-                        );
+                        .putExtra("title", "联系地址"));
                 break;
         }
     }
