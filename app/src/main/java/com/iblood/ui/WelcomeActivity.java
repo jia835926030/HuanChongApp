@@ -24,7 +24,7 @@ public class WelcomeActivity extends FragmentActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+           super.onCreate(savedInstanceState);
         if (App.preferences.getString("domeYinDao", "2").equals("1")) {
             Intent intent = new Intent(WelcomeActivity.this, GiadingActivity.class);
             startActivityForResult(intent, 1);

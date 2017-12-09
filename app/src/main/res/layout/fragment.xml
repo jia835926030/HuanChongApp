@@ -5,7 +5,7 @@
     android:id="@+id/fragment_background"
     android:background="@mipmap/pager01"
     >
-    <TextView
+     <TextView
         android:id="@+id/fragment_text"
         android:layout_width="166dp"
         android:layout_height="32dp"

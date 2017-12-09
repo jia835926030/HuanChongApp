@@ -7,7 +7,7 @@ import android.content.SharedPreferences;
  *
  */
 public class ApplicationDB extends Application{
-	/**
+	 /**
 	 * 小型数据库读取
 	 */
 	public static SharedPreferences preferences;
