@@ -20,7 +20,7 @@ import com.umeng.socialize.bean.SHARE_MEDIA;
 import java.util.Map;
 
 public class GiadingActivity extends BaseActivity implements View.OnClickListener {
-    private TextView reg_fnishi;
+        private TextView reg_fnishi;
     private TextView regin_zhu;
     private EditText login_phone;
     private EditText login_paswd;

@@ -46,7 +46,7 @@ public class ThreFramentsImage extends Fragment {
                editor.putString("domeYinDao","1");
                 editor.commit();
                 Intent intent=new Intent(getActivity(),GiadingActivity.class);
-                startActivityForResult(intent,1);
+                    startActivityForResult(intent,1);
             }
         });
     }

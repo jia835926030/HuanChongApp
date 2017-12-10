@@ -116,7 +116,7 @@
     android:layout_height="110px">
 
     <ImageView
-        android:layout_marginLeft="450px"
+          android:layout_marginLeft="450px"
          android:id="@+id/regin_wx"
         android:layout_width="106px"
         android:layout_height="106px"

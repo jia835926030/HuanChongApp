@@ -26,7 +26,7 @@ public class WxActivity extends BaseActivity implements View.OnClickListener {
         top_left = (TextView) findViewById(R.id.top_left);
         top_right = (TextView) findViewById(R.id.top_right);
         wx_check = (CheckBox) findViewById(R.id.wx_check);
-         wx_login = (Button) findViewById(R.id.wx_login);
+           wx_login = (Button) findViewById(R.id.wx_login);
 
     }
 

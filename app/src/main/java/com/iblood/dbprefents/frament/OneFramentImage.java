@@ -16,7 +16,7 @@ import com.iblood.R;
 
 public class OneFramentImage extends Fragment {
      private View view;
-    private RelativeLayout mRelativeLayout;
+       private RelativeLayout mRelativeLayout;
 
 
     @Override
