@@ -38,7 +38,7 @@ public class WelcomeActivity extends FragmentActivity{
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new ViewPagerAdapter(getSupportFragmentManager(), showView()));
         listImg = new ArrayList<View>();
-        listImg.add(findViewById(R.id.y1));
+             listImg.add(findViewById(R.id.y1));
           listImg.add(findViewById(R.id.y2));
           listImg.add(findViewById(R.id.y3));
         viewPager.setOnPageChangeListener(showPageChange);

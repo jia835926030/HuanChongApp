@@ -11,8 +11,8 @@ import com.iblood.base.BaseActivity;
 
 public class WxActivity extends BaseActivity implements View.OnClickListener {
 
-     private TextView top_left;
-    private TextView top_right;
+        private TextView top_left;
+       private TextView top_right;
     private CheckBox wx_check;
     private Button wx_login;
 

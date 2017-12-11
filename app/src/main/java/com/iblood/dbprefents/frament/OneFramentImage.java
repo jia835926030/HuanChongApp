@@ -14,7 +14,7 @@ import com.iblood.R;
  * Created by dell on 2017/12/6.
  */
 
-public class OneFramentImage extends Fragment {
+   public class OneFramentImage extends Fragment {
         private View view;
         private RelativeLayout mRelativeLayout;
 

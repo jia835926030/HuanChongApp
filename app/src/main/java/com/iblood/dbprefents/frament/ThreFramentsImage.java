@@ -39,7 +39,7 @@ public class ThreFramentsImage extends Fragment {
         mRelativeLayout.setBackgroundResource(R.mipmap.pager03);
         mTextView = (TextView) view.findViewById(R.id.fragment_text);
         mTextView.setVisibility(View.VISIBLE);
-         mTextView.setOnClickListener(new View.OnClickListener() {
+            mTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = App.editor;

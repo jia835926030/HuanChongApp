@@ -23,7 +23,7 @@
             android:value="5a2a4bbbf43e4839b300017f" >
         </meta-data>
         <!-- 注明设计稿的尺寸 -->
-        <meta-data
+          <meta-data
             android:name="design_width"
             android:value="768"></meta-data>
         <meta-data
