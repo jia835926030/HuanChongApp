@@ -39,4 +39,6 @@ dependencies {
     //屏幕适配autoLayout依赖
     compile 'com.zhy:autolayout:1.4.3'
     implementation 'com.android.support:design:26.1.0'
+    //城市筛选
+    compile 'com.zaaach:citypicker:1.1'
 }

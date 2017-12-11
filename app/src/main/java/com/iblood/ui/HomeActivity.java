@@ -21,6 +21,7 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iblood.R;
@@ -28,6 +29,7 @@ import com.iblood.base.BaseActivity;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
+import com.zaaach.citypicker.CityPickerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -65,6 +67,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private View v1;
     private View v2;
     private View v3;
+    private TextView personal_dizhi;
+    private static final int REQUEST_CODE_PICK_CITY = 233;
 
     @Override
     protected int getLayoutId() {
@@ -138,7 +142,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    //选择城市
+    //附近优先
     private void popu1() {
         //显示popuwindow
         v1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_online, null);
@@ -154,7 +158,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         popu1.showAsDropDown(mBottomGroup, 0, 0);
     }
 
-    //重置
+    //宠物类型
     private void popu2() {
         //显示popuwindow
         v2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_manage, null);
@@ -170,7 +174,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         popu1.showAsDropDown(mBottomGroup, 0, 0);
     }
 
-    //确定
+    //筛选城市
     private void popu3() {
         //显示popuwindow
         v3 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_personal, null);
@@ -189,7 +193,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
         Button personal_chongzhi = v3.findViewById(R.id.personal_chongzhi);
         Button personal_queding = v3.findViewById(R.id.personal_queding);
-        //personal_saixuan.setOnClickListener(this);
+        ImageView personal_tiaozhuan = v3.findViewById(R.id.personal_tiaozhuan);
+        personal_dizhi = v3.findViewById(R.id.personal_dizhi);
+        personal_tiaozhuan.setOnClickListener(this);
         personal_chongzhi.setOnClickListener(this);
         personal_queding.setOnClickListener(this);
     }
@@ -224,6 +230,21 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.personal_queding:
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
                 break;
+            case R.id.personal_tiaozhuan:
+                startActivityForResult(new Intent(HomeActivity.this, CityPickerActivity.class),
+                        REQUEST_CODE_PICK_CITY);
+                break;
+        }
+    }
+
+    //城市筛选
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK){
+            if (data != null){
+                String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
+                personal_dizhi.setText(city);
+            }
         }
     }
     @Override
