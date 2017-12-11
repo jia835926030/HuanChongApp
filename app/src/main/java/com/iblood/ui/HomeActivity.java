@@ -1,5 +1,36 @@
 package com.iblood.ui;
 
+import android.content.Intent;
+import android.graphics.drawable.BitmapDrawable;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.widget.DrawerLayout;
+import android.view.LayoutInflater;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
+import android.widget.Toast;
+
+import com.iblood.R;
+import com.iblood.base.BaseActivity;
+import com.iblood.ui.filter.FilterActivity;
+import com.iblood.ui.setmodoule.SetUpActivity;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.mOLBtn)
     RadioButton mOLBtn;
@@ -44,7 +75,35 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         View headerView = navView.getHeaderView(0);
         View cehua_tou = headerView.findViewById(R.id.cehua_tou);
         cehua_tou.setOnClickListener(this);
-    事
+        //侧滑item点击事件
+        navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                //允许条目点击
+                item.setCheckable(true);
+                switch (item.getItemId()) {
+                    case R.id.cehua_xiaoxi:
+                        Toast.makeText(HomeActivity.this, "11111111111111", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.cehua_chongwu:
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.cehua_shezhi:
+                        Intent intent = new Intent(HomeActivity.this, SetUpActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.cehua_qianbao:
+                        Intent intent1 = new Intent(HomeActivity.this, WalletActivity.class);
+                        startActivity(intent1);
+                        break;
+
+                }
+                return false;
+            }
+        });
+        myHome.setOnClickListener(this);
+        dingweiHoem.setOnClickListener(this);
+        cehuaShenqing.setOnClickListener(this);
     }
 
     @Override
@@ -87,6 +146,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         popu1.showAsDropDown(mBottomGroup, 0, 0);
     }
+
     //重置
     private void popu2() {
         //显示popuwindow
@@ -102,6 +162,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         popu1.showAsDropDown(mBottomGroup, 0, 0);
     }
+
     //确定
     private void popu3() {
         //显示popuwindow
@@ -117,11 +178,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         popu1.showAsDropDown(mBottomGroup, 0, 0);
 
-        ImageView personal_saixuan = v3.findViewById(R.id.personal_saixuan);
+        //ImageView personal_saixuan = v3.findViewById(R.id.personal_saixuan);
 
         Button personal_chongzhi = v3.findViewById(R.id.personal_chongzhi);
         Button personal_queding = v3.findViewById(R.id.personal_queding);
-        personal_saixuan.setOnClickListener(this);
+        //personal_saixuan.setOnClickListener(this);
         personal_chongzhi.setOnClickListener(this);
         personal_queding.setOnClickListener(this);
     }
@@ -130,14 +191,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
             case R.id.my_home:
                 Toast.makeText(this, "mmmmmmmmmmmm", Toast.LENGTH_SHORT).show();
                 break;
@@ -145,15 +204,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.cehua_tou:
-                Toast.makeText(this, "ttttttttt", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(HomeActivity.this, PersonalInformation.class);
+                startActivity(intent);
                 break;
             case R.id.cehua_shenqing:
                 Toast.makeText(this, "不好使", Toast.LENGTH_SHORT).show();
-
-                break;
-            case R.id.personal_saixuan:
-                Intent intent = new Intent(HomeActivity.this, FilterActivity.class);
-                startActivity(intent);
                 break;
             case R.id.personal_chongzhi:
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();

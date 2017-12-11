@@ -10,7 +10,7 @@
         <item name="android:progressDrawable">@drawable/ratingbar</item>
         <item name="android:minHeight">24dip</item>
         <item name="android:maxHeight">24dip</item>
-
+    </style>
 
     <!-- 自定义对话框样式 -->
     <style name="style_dialog">

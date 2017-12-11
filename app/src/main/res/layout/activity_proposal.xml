@@ -37,8 +37,12 @@
         android:layout_alignParentLeft="true"/>
 </com.zhy.autolayout.AutoRelativeLayout>
     <EditText
+        android:gravity="top"
         android:layout_width="match_parent"
-        android:layout_height="500px"
+        android:autoText="true"
+        android:autoLink="all"
+        android:layout_height="300px"
+        android:hint="写下你的建议让我们做的更好"
         android:id="@+id/proposal_edittext"/>
     <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
