@@ -85,8 +85,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 item.setCheckable(true);
                 switch (item.getItemId()) {
                     case R.id.cehua_xiaoxi:
-                        Toast.makeText(HomeActivity.this, "11111111111111", Toast.LENGTH_SHORT).show();
-                        break;
+                      Intent intent11=new Intent(HomeActivity.this,MessageActivity.class);
+                      startActivity(intent11);
+                      break;
                     case R.id.cehua_chongwu:
                         Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
                         break;

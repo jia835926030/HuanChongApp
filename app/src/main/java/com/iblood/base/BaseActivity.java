@@ -46,7 +46,6 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     @Override
     protected void onResume() {
         super.onResume();
-
         //这里添加需要重复执行的内容
         App.mBaseActivity = this;
     }
