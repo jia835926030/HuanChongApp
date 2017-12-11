@@ -17,6 +17,9 @@ public class App extends BaseApplication implements Thread.UncaughtExceptionHand
         //设备的物理高度进行百分比化：
         AutoLayoutConifg.getInstance().useDeviceSize();
 
+        //设备的物理高度进行百分比化：
+        AutoLayoutConifg.getInstance().useDeviceSize();
+
     }
 
     @Override

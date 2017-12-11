@@ -1,13 +1,82 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.iblood.ui.manage.ManageFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RadioGroup
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content">
+        <RadioButton
+            android:text="小型犬"
+            android:button="@null"
+            android:textColor="#cd333333"
+            android:layout_marginLeft="15px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
+        <RadioButton
+            android:text="中型犬"
+            android:button="@null"
+            android:textColor="#cd333333"
+            android:layout_marginLeft="15px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
+        <RadioButton
+            android:text="大型犬"
+            android:button="@null"
+            android:textColor="#cd333333"
+            android:layout_marginLeft="15px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
+        <RadioButton
+            android:text="猫"
+            android:button="@null"
+            android:textColor="#cd333333"
+            android:layout_marginLeft="15px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
+        <RadioButton
+            android:text="小宠"
+            android:button="@null"
+            android:textColor="#cd333333"
+            android:layout_marginLeft="15px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/online_one"/>
+        <TextView
+            android:background="#7b716060"
+            android:layout_width="match_parent"
+            android:layout_height="0.01px" />
+        <RadioButton
+            android:text="幼犬"
+            android:button="@null"
+            android:textColor="#cd333333"
+            android:layout_marginLeft="15px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableRight="@drawable/online_one"/>
+    </RadioGroup>
 
-</FrameLayout>
+</LinearLayout>
