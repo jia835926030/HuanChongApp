@@ -23,12 +23,24 @@
         <!-- 注明你的设计稿的尺寸 -->
         <meta-data
             android:name="design_width"
-            android:value="768"></meta-data>
+            android:value="768" />
         <meta-data
             android:name="design_height"
-            android:value="1280"></meta-data>
+            android:value="1280" />
+        <activity android:name=".ui.menu.MainActivity" />
 
-        <activity android:name=".ui.menu.MainActivity"></activity>
+
+        <!--城市筛选-->
+        <activity
+            android:name="com.zaaach.citypicker.CityPickerActivity"
+            android:theme="@style/CityPicker.NoActionBar"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"/>
+
+        <!--这里的value要替换成你项目的-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="138e5cf1e8961ae326ff0908c03d1ae1"/>
     </application>
 
 </manifest>

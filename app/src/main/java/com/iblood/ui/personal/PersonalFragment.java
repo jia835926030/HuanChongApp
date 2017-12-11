@@ -1,7 +1,6 @@
 package com.iblood.ui.personal;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -14,7 +13,6 @@ import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.base.BaseFragment;
-import com.iblood.ui.filter.FilterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

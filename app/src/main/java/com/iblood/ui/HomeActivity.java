@@ -7,14 +7,12 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,16 +20,12 @@ import android.widget.PopupWindow;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iblood.R;
-import com.iblood.app.ActivityCollector;
-import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
-import com.iblood.base.BaseFragment;
-import com.iblood.ui.filter.FilterActivity;
-
-import java.util.List;
+import com.zaaach.citypicker.CityPickerActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,6 +63,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private View v1;
     private View v2;
     private View v3;
+
+    private static final int REQUEST_CODE_PICK_CITY = 233;
+    private TextView personal_dizhi;
 
     @Override
     protected int getLayoutId() {
@@ -140,7 +137,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         }
     }
 
-    //选择城市
+    //附近优先
     private void popu1() {
         //显示popuwindow
         v1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_online, null);
@@ -155,7 +152,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         popu1.showAsDropDown(mBottomGroup, 0, 0);
     }
-    //重置
+    //宠物类型
     private void popu2() {
         //显示popuwindow
         v2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_manage, null);
@@ -170,7 +167,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         popu1.showAsDropDown(mBottomGroup, 0, 0);
     }
-    //确定
+    //筛选
     private void popu3() {
         //显示popuwindow
         v3 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_personal, null);
@@ -186,6 +183,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         popu1.showAsDropDown(mBottomGroup, 0, 0);
 
         ImageView personal_saixuan = v3.findViewById(R.id.personal_saixuan);
+        personal_dizhi = v3.findViewById(R.id.personal_dizhi);
 
         Button personal_chongzhi = v3.findViewById(R.id.personal_chongzhi);
         Button personal_queding = v3.findViewById(R.id.personal_queding);
@@ -218,8 +216,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Toast.makeText(this, "ssssssssssss", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.personal_saixuan:
-                Intent intent = new Intent(HomeActivity.this, FilterActivity.class);
-                startActivity(intent);
+                startActivityForResult(new Intent(HomeActivity.this, CityPickerActivity.class),
+                        REQUEST_CODE_PICK_CITY);
                 break;
             case R.id.personal_chongzhi:
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
@@ -227,6 +225,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.personal_queding:
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
                 break;
+        }
+    }
+
+    //选择的城市传回来设置
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK){
+            if (data != null){
+                String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
+                personal_dizhi.setText(city);
+            }
         }
     }
 }

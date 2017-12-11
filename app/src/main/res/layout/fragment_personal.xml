@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <ImageView
-            android:id="@+id/personal_tianzhuan"
+            android:id="@+id/personal_saixuan"
             android:src="@drawable/enter"
             android:layout_width="35px"
             android:layout_height="35px" />

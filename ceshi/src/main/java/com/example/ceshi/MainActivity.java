@@ -1,16 +1,13 @@
-package com.iblood.ui.filter;
+package com.example.ceshi;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.iblood.R;
-
-//筛选类
-public class FilterActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_filter);
+        setContentView(R.layout.activity_main);
     }
 }
