@@ -24,9 +24,9 @@ import butterknife.Unbinder;
  * A simple {@link Fragment} subclass.
  */
 public class PersonalFragment extends BaseFragment implements View.OnClickListener {
-
+/*
     @BindView(R.id.personal_saixuan)
-    ImageView personalSaixuan;
+    ImageView personalSaixuan;*/
     @BindView(R.id.personal_dizhi)
     TextView personalDizhi;
     @BindView(R.id.personal_xizao)
@@ -60,7 +60,7 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
 
     @Override
     protected void initView(View view) {
-        personalSaixuan.setOnClickListener(this);
+       // personalSaixuan.setOnClickListener(this);
         personalChongzhi.setOnClickListener(this);
         personalQueding.setOnClickListener(this);
 
@@ -93,9 +93,9 @@ public class PersonalFragment extends BaseFragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.personal_saixuan:
+          /*  case R.id.personal_saixuan:
 
-                break;
+                break;*/
             case R.id.personal_chongzhi:
                 break;
             case R.id.personal_queding:

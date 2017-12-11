@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HuanChongApp.iml" filepath="$PROJECT_DIR$/HuanChongApp.iml" />
+      <module fileurl="file://D:\HuanHuanApp\HuanChongAppa\HuanChongApp.iml" filepath="D:\HuanHuanApp\HuanChongAppa\HuanChongApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HuanChongAppa.iml" filepath="$PROJECT_DIR$/HuanChongAppa.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
