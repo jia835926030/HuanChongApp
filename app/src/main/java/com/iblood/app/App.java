@@ -14,7 +14,7 @@ public class App extends BaseApplication implements Thread.UncaughtExceptionHand
     public static BaseActivity mBaseActivity;
     public static BaseFragment mBaseFragment;
     /**
-      * 小型数据库读取
+       小型数据库读取
      */
       public static SharedPreferences preferences;
     /**

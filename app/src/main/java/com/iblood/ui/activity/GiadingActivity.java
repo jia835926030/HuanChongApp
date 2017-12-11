@@ -24,7 +24,7 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
     private TextView regin_zhu;
     private EditText login_phone;
     private EditText login_paswd;
-    private TextView login_wang;
+       private TextView login_wang;
     private Button login_star;
     private ImageView Login_QQ;
     private ImageView login_wx;

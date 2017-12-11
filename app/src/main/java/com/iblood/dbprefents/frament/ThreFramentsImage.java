@@ -43,7 +43,7 @@ public class ThreFramentsImage extends Fragment {
             @Override
             public void onClick(View v) {
                 SharedPreferences.Editor editor = App.editor;
-               editor.putString("domeYinDao","1");
+                  editor.putString("domeYinDao","1");
                 editor.commit();
                 Intent intent=new Intent(getActivity(),GiadingActivity.class);
                     startActivityForResult(intent,1);

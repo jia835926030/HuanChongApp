@@ -10,7 +10,7 @@ import com.iblood.base.BaseActivity;
 
 public class ReginActivity extends BaseActivity {
     private TextView reg_fnishi;
-    private TextView regin_login;
+       private TextView regin_login;
     private EditText regin_phone;
     private EditText regin_yan;
     private TextView regin_huoqu;

@@ -32,7 +32,7 @@ public class WxActivity extends BaseActivity implements View.OnClickListener {
 
     @Override
     protected void initData() {
-     top_left.setOnClickListener(this);
+       top_left.setOnClickListener(this);
      top_right.setOnClickListener(this);
      wx_check.setOnClickListener(this);
      wx_login.setOnClickListener(this);

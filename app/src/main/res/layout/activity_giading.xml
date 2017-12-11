@@ -106,7 +106,7 @@
             android:id="@+id/Login_QQ"
             android:layout_width="106px"
             android:layout_height="106px"
-           android:layout_marginLeft="430px"
+             android:layout_marginLeft="430px"
             android:src="@mipmap/login_qq" />
     </RelativeLayout>
 <RelativeLayout

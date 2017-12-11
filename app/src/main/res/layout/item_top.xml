@@ -5,7 +5,7 @@
     android:background="#323130"
        android:layout_height="75dp">
 
-    <TextView
+       <TextView
         android:id="@+id/top_left"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
