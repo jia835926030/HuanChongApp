@@ -107,8 +107,8 @@
             android:layout_width="106px"
             android:layout_height="106px"
              android:layout_marginLeft="430px"
-            android:src="@mipmap/login_qq" />
-    </RelativeLayout>
+             android:src="@mipmap/login_qq" />
+     </RelativeLayout>
 <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content">

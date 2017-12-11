@@ -45,7 +45,7 @@ public class ReginActivity extends BaseActivity {
     }
 
     @Override
-    protected void initData() {
+     protected void initData() {
 
     }
     @Override

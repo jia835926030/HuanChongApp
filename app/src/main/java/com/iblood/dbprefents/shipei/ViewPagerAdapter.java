@@ -9,7 +9,7 @@ import java.util.List;
 
     public class ViewPagerAdapter extends FragmentPagerAdapter{
 
-	   List<Fragment> fragmentList;
+	      List<Fragment> fragmentList;
 
 	public ViewPagerAdapter(FragmentManager fm , List<Fragment> fragmentss) {
 		super(fm);

@@ -69,7 +69,7 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
 
     }
-    @Override
+      @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.reg_fnishi:

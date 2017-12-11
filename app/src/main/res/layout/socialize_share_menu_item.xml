@@ -4,7 +4,6 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:orientation="vertical">
-
     <com.umeng.socialize.shareboard.SocializeImageView
         android:id="@+id/socialize_image_view"
         android:layout_width="50dp"
