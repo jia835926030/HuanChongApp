@@ -26,7 +26,10 @@
         <meta-data
             android:name="design_height"
             android:value="1280" />
-
+        <activity android:name=".ui.loginactivity.DefilyActivity"></activity>
+        <activity android:name=".ui.loginactivity.GiadingActivity" />
+        <activity android:name=".ui.loginactivity.ReginActivity" />
+        <activity android:name=".ui.loginactivity.WxActivity"></activity>
         <activity android:name=".ui.PersonalInformation" />
         <activity android:name=".ui.setmodoule.SetUpActivity" />
         <activity android:name=".ui.setmodoule.ProposalActivity" />

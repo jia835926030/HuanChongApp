@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +25,7 @@ import android.widget.Toast;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 
@@ -202,7 +204,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.my_home:
-                Toast.makeText(this, "mmmmmmmmmmmm", Toast.LENGTH_SHORT).show();
+               startActivity(new Intent(this, GiadingActivity.class));
                 break;
             case R.id.dingwei_hoem:
                 Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();
@@ -222,5 +224,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
                 break;
         }
+    }
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+            if (event.getAction() == KeyEvent.ACTION_DOWN
+                    && event.getRepeatCount() == 0) {
+                setResult(1);
+                finish();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 }

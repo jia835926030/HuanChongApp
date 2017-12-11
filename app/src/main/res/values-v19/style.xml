@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
-
     <style name="AppTheme" parent="@style/BaseAppTheme">
         <item name="android:windowTranslucentStatus">true</item>
     </style>
-
-
     <!-- 自定义对话框样式 -->
     <style name="style_dialog">
         <item name="android:windowFrame">@null</item>

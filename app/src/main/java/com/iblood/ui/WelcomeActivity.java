@@ -3,17 +3,14 @@ package com.iblood.ui;
 import android.animation.Animator;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.os.Bundle;
-import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
-import com.iblood.ui.setmodoule.SetUpActivity;
+import com.iblood.ui.loginactivity.DefilyActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 
 public class WelcomeActivity extends BaseActivity implements Animator.AnimatorListener {
 
@@ -51,7 +48,7 @@ public class WelcomeActivity extends BaseActivity implements Animator.AnimatorLi
 
     @Override
     public void onAnimationEnd(Animator animation) {
-        startActivity(new Intent(this,HomeActivity.class));
+        startActivity(new Intent(this,DefilyActivity.class));
 		finish();
     }
 
