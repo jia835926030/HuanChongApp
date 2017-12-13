@@ -3,28 +3,34 @@ package com.iblood.ui.ordermodole;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.iblood.R;
+import com.iblood.base.BaseFragment;
 
 /**
+ * 待确认
  * A simple {@link Fragment} subclass.
  */
-public class ConfirmFragment extends Fragment {
-
-
-    public ConfirmFragment() {
-        // Required empty public constructor
-    }
-
+public class ConfirmFragment extends BaseFragment {
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_confirm, container, false);
+    protected int getLayoutRes() {
+        return R.layout.fragment_confirm;
     }
 
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    public void setBundle(Bundle bundle) {
+
+    }
 }

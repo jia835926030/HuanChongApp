@@ -3,28 +3,35 @@ package com.iblood.ui.ordermodole;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 
 import com.iblood.R;
+import com.iblood.base.BaseFragment;
 
 /**
+ * 评价
  * A simple {@link Fragment} subclass.
  */
-public class FosterFragment extends Fragment {
-
-
-    public FosterFragment() {
-        // Required empty public constructor
-    }
+public class FosterFragment extends BaseFragment {
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_foster, container, false);
+    protected int getLayoutRes() {
+        return R.layout.fragment_foster;
     }
 
+    @Override
+    protected void initView(View view) {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    public void setBundle(Bundle bundle) {
+
+    }
 }
