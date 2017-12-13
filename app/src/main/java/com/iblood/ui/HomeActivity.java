@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -26,10 +27,18 @@ import android.widget.Toast;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.fellow.FellowActivity;
+import com.iblood.fellow.FellowAdapter;
+import com.iblood.fellow.FellowBean;
+import com.iblood.ui.filter.FilterActivity;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 import com.zaaach.citypicker.CityPickerActivity;
+import com.zhy.autolayout.utils.L;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -75,6 +84,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         return R.layout.activity_home;
     }
 
+    //侧滑
     @Override
     protected void initView() {
         //侧滑头布局
@@ -117,9 +127,25 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         cehuaShenqing.setOnClickListener(this);
     }
 
+    //主体ListView
     @Override
     protected void initData() {
+        final List<FellowBean> list = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            list.add(new FellowBean(R.mipmap.ic_launcher,"米妮捷豹的家"+i,"双井桥东北角东波街东南角天之蓝...","$50起","距 0.1km"));
+        }
+        FellowAdapter adapter = new FellowAdapter(this,list);
+        listHome.setAdapter(adapter);
 
+        listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(HomeActivity.this, FellowActivity.class);
+                intent.putExtra("name",list.get(position).getName());
+                Toast.makeText(HomeActivity.this, list.get(position).getName(), Toast.LENGTH_SHORT).show();
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -127,6 +153,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
+    //弹出popu
     @OnClick({R.id.mOLBtn, R.id.mMangerBtn, R.id.mPersonalBtn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -207,6 +234,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         ButterKnife.bind(this);
     }
 
+    //侧滑栏点击事件
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
