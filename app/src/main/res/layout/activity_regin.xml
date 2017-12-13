@@ -102,14 +102,14 @@
         android:text="注册" />
 
     <TextView
+        android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/regin_star"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="23dp"
-        android:text="               ------------------使用第三方账号注册------------------"
-        android:textColor="#B9B9B9"
-        android:id="@+id/textView6" />
+        android:layout_marginTop="50px"
+        android:text="-------------使用第三方账号注册-------------"
+        android:textColor="#B9B9B9" />
        <RelativeLayout
     android:layout_width="match_parent"
     android:layout_height="110px">

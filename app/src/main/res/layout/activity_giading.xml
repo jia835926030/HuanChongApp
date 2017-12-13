@@ -88,7 +88,7 @@
         android:layout_below="@+id/login_star"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="44px"
-        android:text="------------------使用第三方账号登录------------------"
+        android:text="-------------使用第三方账号登录-------------"
         android:id="@+id/textView2" />
 </RelativeLayout>
     <RelativeLayout

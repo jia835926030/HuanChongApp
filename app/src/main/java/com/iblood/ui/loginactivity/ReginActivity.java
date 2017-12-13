@@ -1,5 +1,6 @@
 package com.iblood.ui.loginactivity;
 
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -50,6 +51,11 @@ public class ReginActivity extends BaseActivity {
     }
     @Override
     protected void initListener() {
+        regin_star.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+            }
+        });
     }
 }
