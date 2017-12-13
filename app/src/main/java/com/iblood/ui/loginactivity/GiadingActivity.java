@@ -3,6 +3,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,26 @@ import android.widget.Toast;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.config.Urls;
+import com.iblood.ui.menu.MainActivity;
+import com.iblood.utils.AppUtils;
+import com.iblood.utils.CJSON;
+import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.Md5Encrypt;
+import com.iblood.utils.SignUtil;
+import com.iblood.utils.ToastUtil;
+import com.iblood.utils.TokenUtil;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
+
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class GiadingActivity extends BaseActivity implements View.OnClickListener {
         private TextView reg_fnishi;
@@ -63,6 +84,59 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
        public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
 
     }
+
+    public void login(String number,String pass) {
+        OkHttpClient okHttpClient=new OkHttpClient();
+        FormBody.Builder builder = new FormBody.Builder();
+        TokenUtil.init(GiadingActivity.this);
+        String token = TokenUtil.createToken();
+        Log.e("to",token);
+        Request.Builder request= new Request.Builder();
+        MainActivity mainActivity=new MainActivity();
+        String ip = ConnectionUtils.getIp(this);
+        Map<String,Object> map=new HashMap<>();
+        String s = Md5Encrypt.md5(pass, "UTF-8");
+        map.put("userPhone",number);
+        map.put("password",s);
+        AppUtils.setAppContext(GiadingActivity.this);
+        String s1 = CJSON.toJSONMap(map);
+        Log.e("DA",s1);
+        builder.add("data",s1);
+
+        for (String key: map.keySet()){
+            Object value = map.get(key);
+            builder.add(key, (String) value);
+            Log.e("TAG",value+"---------");
+        }
+        String linkString = SignUtil.createLinkString(map);
+        request.addHeader("sign",linkString);
+        request.addHeader("ip",ip);
+        request.addHeader("token",token);
+        request.addHeader("channel","android");
+
+        Request build1 = request.url(Urls.BASE+Urls.LOGINURL).post(builder.build()).build();
+        okHttpClient.newCall(build1).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+                String message = e.getMessage();
+                Toast.makeText(GiadingActivity.this, message, Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String data = response.body().string();
+                Log.e( "onResponse: ",data );
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(GiadingActivity.this, data, Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
+    }
       @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -84,6 +158,9 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.login_star:
                 Toast.makeText(this, "登录", Toast.LENGTH_SHORT).show();
+                String phone = login_phone.getText().toString();
+                String password = login_paswd.getText().toString();
+                login(phone,password);
                 break;
             case R.id.Login_QQ:
 //         UMShareAPI.get(GiadingActivity.this).getPlatformInfo(GiadingActivity.this, SHARE_MEDIA.QQ, new UMAuthListener() {
