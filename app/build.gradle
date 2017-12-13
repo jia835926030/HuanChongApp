@@ -1,8 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 26
     buildToolsVersion '26.0.2'
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.iblood.dao'
+        targetGenDir 'src/main/java'
+    }
     defaultConfig {
         applicationId "com.iblood"
         minSdkVersion 15
@@ -38,7 +44,11 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
     //屏幕适配autoLayout依赖
     compile 'com.zhy:autolayout:1.4.3'
-    implementation 'com.android.support:design:26.1.0'
+    compile 'org.greenrobot:greendao:3.2.0'
     //城市筛选
     compile 'com.zaaach:citypicker:1.1'
+    //日期选择
+    compile 'cn.qqtheme.framework:AndroidPicker:latest.integration'
+    implementation 'com.android.support:design:26.1.0'
+
 }

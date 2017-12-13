@@ -25,21 +25,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
-import com.iblood.ui.filter.FilterActivity;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 import com.zaaach.citypicker.CityPickerActivity;
-import com.zhy.autolayout.utils.L;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -99,22 +96,26 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 item.setCheckable(true);
                 switch (item.getItemId()) {
                     case R.id.cehua_xiaoxi:
+                        textToast("消息");
                       Intent intent11=new Intent(HomeActivity.this,MessageActivity.class);
                       startActivity(intent11);
                       break;
                     case R.id.cehua_chongwu:
-                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        textToast("宠物");
+                        startActivity(new Intent(HomeActivity.this,LateralspreadsPetActivity.class));
                         break;
                     case R.id.cehua_shezhi:
+                        textToast("设置");
                         Intent intent = new Intent(HomeActivity.this, SetUpActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.cehua_qianbao:
+                        textToast("钱包");
                         Intent intent1 = new Intent(HomeActivity.this, WalletActivity.class);
                         startActivity(intent1);
                         break;
                     case R.id.cehua_dingdan:
-
+                        textToast("订单");
                         Intent intent2=new Intent(HomeActivity.this,MyOrderActivity.class);
                         startActivity(intent2);
                         break;

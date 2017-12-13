@@ -1,15 +1,20 @@
 package com.iblood.base;
 
 import android.content.pm.ActivityInfo;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iblood.app.App;
+import com.iblood.ui.PetAddActivity;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
+import cn.qqtheme.framework.picker.DatePicker;
 
 
 public abstract class BaseActivity extends AutoLayoutActivity {
@@ -57,6 +62,27 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     public void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
+    }
+//选择日期
+    public void Date_selection(final TextView view) {
+        DatePicker picker = new DatePicker(App.mBaseActivity);
+        picker.setRange(1990, 2030);//年份范围
+        picker.setSubmitTextColor(Color.BLUE);
+        picker.setCancelTextColor(Color.BLUE);
+        picker.setTextColor(Color.BLACK);
+        picker.setOnDatePickListener(new DatePicker.OnYearMonthDayPickListener() {
+            @Override
+            public void onDatePicked(String year, String month, String day) {
+                if (!year.isEmpty() || !month.isEmpty() || !day.isEmpty()) {
+                    textToast("修改成功");
+                    view.setText(year + "年" + month + "月" + day + "日");
+                } else {
+                    textToast("网络不佳,请稍后重试");
+                }
+
+            }
+        });
+        picker.show();
     }
 
 }

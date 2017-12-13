@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <RelativeLayout
+        android:id="@+id/mitem"
+        android:layout_width="match_parent"
+        android:layout_height="110px">
+
+        <ImageView
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="25px"
+            android:layout_marginStart="25px"
+            android:src="@mipmap/ic_launcher"
+            android:id="@+id/imageView2" />
+
+        <TextView
+            android:id="@+id/pet_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView2"
+            android:layout_marginLeft="19dp"
+            android:layout_marginStart="19dp"
+            android:layout_toEndOf="@+id/imageView2"
+            android:layout_toRightOf="@+id/imageView2"
+            android:text="丽丽"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/pet_sexy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/pet_name"
+            android:layout_marginLeft="13dp"
+            android:layout_marginStart="13dp"
+            android:layout_toEndOf="@+id/pet_name"
+            android:layout_toRightOf="@+id/pet_name"
+            android:src="@mipmap/male" />
+
+        <TextView
+            android:id="@+id/petintroduce"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/pet_name"
+            android:layout_alignStart="@+id/pet_name"
+            android:layout_below="@+id/pet_name"
+            android:text="这里是得Pet的一个简单介绍" />
+    </RelativeLayout>
+</com.zhy.autolayout.AutoLinearLayout>

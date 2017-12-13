@@ -60,7 +60,7 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        setContentView(R.layout.activity_set_up);
+//        setContentView(R.layout.activity_set_up);
 
 
     }

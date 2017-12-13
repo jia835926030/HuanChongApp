@@ -4,11 +4,14 @@ package com.iblood.ui;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.ActionBar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.DatePicker;
@@ -16,6 +19,7 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.iblood.R;
+import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
 import com.iblood.ui.personal.PersonalAddress;
 import java.io.File;
@@ -25,6 +29,7 @@ import butterknife.OnClick;
 
 /**
  * Created by 刘贵河 on 2017/12/6.
+ *   个人信息
  */
 
 public class PersonalInformation extends BaseActivity {
@@ -55,6 +60,12 @@ public class PersonalInformation extends BaseActivity {
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
+    protected static final int NAME_CODE = 100;
+    protected static final int WACHAT_CODE = 101;
+    protected static final int  QQ_CODE = 102;
+    protected static final int  PHONE_CODE = 103;
+    protected static final int ADDRESS_CODE  = 104;
+
 
     private TextView men;
     private TextView women;
@@ -98,9 +109,10 @@ public class PersonalInformation extends BaseActivity {
 
             case R.id.modification_name:
                 //跳转修改名称
-                startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
+                startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "名称")
-                        .putExtra("hint", "请输入16字以内的名称（中文，数字，字母）"));
+                        .putExtra("hint", "请输入16字以内的名称（中文，数字，字母）"),NAME_CODE);
+
                 break;
             case R.id.modification_sexy:
                 //性别弹窗
@@ -108,62 +120,32 @@ public class PersonalInformation extends BaseActivity {
                 break;
             case R.id.modification_ddyymm:
                 //年月日弹窗
-                showDialog(DATE_DIALOG);
-                Calendar ca = Calendar.getInstance();
-                mYear = ca.get(Calendar.YEAR);
-                mMonth = ca.get(Calendar.MONTH);
-                mDay = ca.get(Calendar.DAY_OF_MONTH);
+                Date_selection(user_time);
+
                 break;
             case R.id.modification_wachat:
-                startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
+                startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "微信")
-                        .putExtra("hint", "请输入您的微信账户（中文，数字，字母）"));
+                        .putExtra("hint", "请输入您的微信账户（中文，数字，字母）"),WACHAT_CODE);
                 break;
             case R.id.modification_QQ:
-                startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
+                startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "QQ")
-                        .putExtra("hint", "请输入您的QQ账户（数字）"));
+                        .putExtra("hint", "请输入您的QQ账户（数字）"),QQ_CODE);
                 break;
             case R.id.modification_phone:
-                startActivity(new Intent(PersonalInformation.this, ModificationActivity.class)
+                startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "手机号码")
-                        .putExtra("hint", "请输入您的手机号码"));
+                        .putExtra("hint", "请输入您的手机号码"),PHONE_CODE);
                 break;
             case R.id.modification_address:
                 //联系地址
-                startActivity(new Intent(PersonalInformation.this, PersonalAddress.class)
-                        .putExtra("title", "联系地址"));
+                startActivityForResult(new Intent(PersonalInformation.this, PersonalAddress.class)
+                        .putExtra("title", "联系地址"),ADDRESS_CODE);
                 break;
         }
     }
 
-
-    @Override
-    protected Dialog onCreateDialog(int id) {
-        switch (id) {
-            case DATE_DIALOG:
-                return new DatePickerDialog(this, mdateListener, mYear, mMonth, mDay);
-        }
-        return null;
-    }
-
-    public void display() {
-        //控件设置时间
-        textToast("修改成功");
-        user_time.setText(new StringBuffer().append(mMonth + 1).append("-").append(mDay).append("-").append(mYear).append(" "));
-    }
-
-    private DatePickerDialog.OnDateSetListener mdateListener = new DatePickerDialog.OnDateSetListener() {
-
-        @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                              int dayOfMonth) {
-            mYear = year;
-            mMonth = monthOfYear;
-            mDay = dayOfMonth;
-            display();
-        }
-    };
 
     //展示性别窗口
     private void showSexyPop() {
@@ -240,13 +222,41 @@ public class PersonalInformation extends BaseActivity {
 
     //拍照
     private void myTakePictures() {
-        Intent openCameraIntent = new Intent(
-                MediaStore.ACTION_IMAGE_CAPTURE);
-        Uri tempUri = Uri.fromFile(new File(Environment
-                .getExternalStorageDirectory(), "image.jpg"));
-        // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
-        startActivityForResult(openCameraIntent, TAKE_PICTURE);
+//        Intent openCameraIntent = new Intent(
+//                MediaStore.ACTION_IMAGE_CAPTURE);
+//        Uri tempUri = Uri.fromFile(new File(Environment
+//                .getExternalStorageDirectory(), "image.jpg"));
+//        // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
+//        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
+//        startActivityForResult(openCameraIntent, TAKE_PICTURE);
+//只用来拍照 android7.0
+        File file=new File(Environment.getExternalStorageDirectory(), "/temp/"+System.currentTimeMillis() + ".jpg");
+        if (!file.getParentFile().exists())file.getParentFile().mkdirs();
+        Uri imageUri = FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider", file);//通过FileProvider创建一个content类型的Uri
+        Log.e("uuu",imageUri+"");
+        Intent intent = new Intent();
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); //添加这一句表示对目标应用临时授权该Uri所代表的文件
+        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);//设置Action为拍照
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//将拍取的照片保存到指定URI
+        startActivityForResult(intent,TAKE_PICTURE);
+
+//        //拍照并裁剪 Android7.0
+//        File file=new File(Environment.getExternalStorageDirectory(), "/temp/"+System.currentTimeMillis() + ".jpg");
+//        if (!file.getParentFile().exists())file.getParentFile().mkdirs();
+//        Uri outputUri = FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider",file);
+//        //通过FileProvider创建一个content类型的Uri
+//        Uri imageUri=FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider", new File("/storage/emulated/0/temp/1474960080319.jpg"));
+//        Intent intent = new Intent("com.android.camera.action.CROP");
+//        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+//        intent.setDataAndType(imageUri, "image/*");
+//        intent.putExtra("crop", "true");
+//        intent.putExtra("aspectX", 1);
+//        intent.putExtra("aspectY", 1);
+//        intent.putExtra("scale", true);
+//        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
+//        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
+//        intent.putExtra("noFaceDetection", true); // no face detection
+//        startActivityForResult(intent,TAKE_PICTURE);
     }
 
     //相册
@@ -275,6 +285,15 @@ public class PersonalInformation extends BaseActivity {
 //                        setImageToView(data); // 让刚才选择裁剪得到的图片显示在界面上
                     }
                     break;
+                case NAME_CODE:
+                    //昵称
+                    break;
+                case WACHAT_CODE:
+                    //微信
+                    break;
+
+
+
             }
         }
     }
