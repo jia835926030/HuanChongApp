@@ -28,7 +28,6 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
     protected int getLayoutId() {
         return R.layout.activity_giading;
     }
-
     @Override
     protected void initView() {
         reg_fnishi = (TextView) findViewById(R.id.reg_fnishi);

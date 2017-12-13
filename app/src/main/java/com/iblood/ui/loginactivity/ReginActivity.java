@@ -1,5 +1,6 @@
 package com.iblood.ui.loginactivity;
 
+import android.view.View;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
@@ -64,55 +65,7 @@ public class ReginActivity extends BaseActivity {
       regin_qq =  (ImageView) findViewById(R.id.regin_qq);
       regin_wx =  (ImageView) findViewById(R.id.regin_wx);
     }
-    public void gethttpdata() {
-        OkHttpClient okHttpClient=new OkHttpClient();
-        FormBody.Builder builder = new FormBody.Builder();
-        TokenUtil.init(ReginActivity.this);
-        String token = TokenUtil.createToken();
-        Log.e("to",token);
-        Request.Builder request= new Request.Builder();
-        String ip = ConnectionUtils.getIp(this);
-        Map<String,Object> map=new HashMap<>();
-        String pass="17647572011qc";
-        String s = Md5Encrypt.md5(pass, "UTF-8");
-        map.put("userPhone","17647572011");
-        map.put("userName","qingchunyeye");
-        map.put("password",s);
-        AppUtils.setAppContext(ReginActivity.this);
-        String s1 = CJSON.toJSONMap(map);
-        Log.e("DA",s1);
-        builder.add("data",s1);
 
-//       String s1 = CJSON.toJSONMap(map);
-//       Log.e("DD",o.toString());
-        for (String key: map.keySet()){
-            Object value = map.get(key);
-            builder.add(key, (String) value);
-            Log.e("TAG",value+"---------");
-        }
-        String linkString = SignUtil.createLinkString(map);
-        request.addHeader("sign",linkString);
-        request.addHeader("ip",ip);
-        request.addHeader("token",token);
-        request.addHeader("channel","android");
-
-        Request build1 = request.url(Urls.HOT).post(builder.build()).build();
-        okHttpClient.newCall(build1).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, IOException e) {
-                String message = e.getMessage();
-                Toast.makeText(ReginActivity.this, message, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                final String data = response.body().string();
-                Log.e( "onResponse: ",data );
-
-            }
-        });
-
-    }
     @Override
          protected void initData() {
 

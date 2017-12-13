@@ -13,13 +13,10 @@ import com.iblood.base.BaseFragment;
  * A simple {@link Fragment} subclass.
  */
 public class EvaluateFragment extends BaseFragment {
-
-
     @Override
     protected int getLayoutRes() {
         return R.layout.fragment_evaluate;
     }
-
     @Override
     protected void initView(View view) {
 
