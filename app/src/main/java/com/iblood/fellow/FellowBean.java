@@ -11,6 +11,8 @@ public class FellowBean {
     private String jiage;
     private String juli;
 
+
+
     public FellowBean(int img, String name, String dizhi, String jiage, String juli) {
         this.img = img;
         this.name = name;

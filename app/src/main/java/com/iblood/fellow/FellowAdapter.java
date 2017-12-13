@@ -52,6 +52,7 @@ public class FellowAdapter extends BaseAdapter {
             holder = new ViewHolder(convertView);
             convertView.setTag(holder);
         }else {
+
             holder = (ViewHolder) convertView.getTag();
         }
         holder.nameHome.setText(list.get(position).getName());

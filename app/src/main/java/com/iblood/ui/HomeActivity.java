@@ -130,6 +130,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     //主体ListView
     @Override
     protected void initData() {
+
         final List<FellowBean> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(new FellowBean(R.mipmap.ic_launcher,"米妮捷豹的家"+i,"双井桥东北角东波街东南角天之蓝...","$50起","距 0.1km"));

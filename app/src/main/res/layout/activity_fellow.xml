@@ -366,7 +366,6 @@
                     android:layout_weight="1"
                     android:text="北京市昌平区沙河" />
 
-
             </LinearLayout>
 
             <TextView
