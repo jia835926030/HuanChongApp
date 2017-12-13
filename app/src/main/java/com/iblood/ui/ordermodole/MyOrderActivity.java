@@ -5,8 +5,10 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
@@ -17,7 +19,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MyOrderActivity extends BaseActivity {
+public class MyOrderActivity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.text_title)
     TextView textTitle;
@@ -74,6 +76,21 @@ public class MyOrderActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        textTitle.setText("我的订单");
+  textTitle.setOnClickListener(this);
+    }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()){
+            case  R.id.text_title:
+                break;
+            case  R.id.button_backward:
+                finish();
+                break;
+            case R.id.button_forward:
+                Toast.makeText(MyOrderActivity.this,"提交",Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 }

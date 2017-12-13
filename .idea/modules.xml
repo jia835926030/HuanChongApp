@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HuanChong.iml" filepath="$PROJECT_DIR$/HuanChong.iml" />
-      <module fileurl="file://D:\HuanHuanApp\HuanChongAppa\HuanChongApp.iml" filepath="D:\HuanHuanApp\HuanChongAppa\HuanChongApp.iml" />
-      <module fileurl="file://D:\Android DaShiXun\HuanChong\HuanChongAppa.iml" filepath="D:\Android DaShiXun\HuanChong\HuanChongAppa.iml" />
-      <module fileurl="file://H:\studioDaima\HuanChongDemo\HuanChongAppa.iml" filepath="H:\studioDaima\HuanChongDemo\HuanChongAppa.iml" />
-      <module fileurl="file://D:\HuanHuanApp\HuanChongAppa\HuanChongDemo.iml" filepath="D:\HuanHuanApp\HuanChongAppa\HuanChongDemo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HuanChongDemo.iml" filepath="$PROJECT_DIR$/HuanChongDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://H:\studioDaima\HuanChongDemo\app\app.iml" filepath="H:\studioDaima\HuanChongDemo\app\app.iml" />
-      <module fileurl="file://D:\Android DaShiXun\HuanChong\app\app.iml" filepath="D:\Android DaShiXun\HuanChong\app\app.iml" />
     </modules>
   </component>
 </project>
