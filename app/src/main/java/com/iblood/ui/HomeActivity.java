@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -25,24 +26,43 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.config.Urls;
+import com.iblood.entity.Screen;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.filter.FilterActivity;
 import com.iblood.ui.loginactivity.GiadingActivity;
+import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
+import com.iblood.utils.AppUtils;
+import com.iblood.utils.CJSON;
+import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.OkHttpUtils;
+import com.iblood.utils.SignUtil;
+import com.iblood.utils.TokenUtil;
 import com.zaaach.citypicker.CityPickerActivity;
 import com.zhy.autolayout.utils.L;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.mOLBtn)
@@ -126,17 +146,74 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         dingweiHoem.setOnClickListener(this);
         cehuaShenqing.setOnClickListener(this);
     }
+    public void login() {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        FormBody.Builder builder = new FormBody.Builder();
+        TokenUtil.init(HomeActivity.this);
+        String token = TokenUtil.createToken();
+        Request.Builder request = new Request.Builder();
+        String ip = ConnectionUtils.getIp(this);
+        Map<String, Object> map = new HashMap<>();
+//       String pass="17647572011qc";
+//       String s = Md5Encrypt.md5(pass, "UTF-8");
+        map.put("beginIndex", 0);
+        map.put("endIndex", 15);
+        map.put("coordX", 40.116384);
+        map.put("coordY", 116.250374);
+        map.put("orderBy", "distance asc");
+        //map.put("userName","qingchunyeye");
+        //map.put("password",s);
+        AppUtils.setAppContext(HomeActivity.this);
+        String s1 = CJSON.toJSONMap(map);
+        Log.e("DA", s1);
+        builder.add("data", s1);
+        String linkString = SignUtil.createLinkString(map);
+        request.addHeader("sign", linkString);
+        request.addHeader("ip", ip);
+        request.addHeader("token", token);
+        request.addHeader("channel", "android");
+        Log.e("DA", linkString);
+        Log.e("DA", ip);
+        Log.e("DA", token);
+        Request build1 = request.url(Urls.BASE+Urls.CHONGWU).post(builder.build()).build();
+        okHttpClient.newCall(build1).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
 
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String data = response.body().string();
+                Log.e("onResponse: ", data);
+            /*   Message message = handler.obtainMessage();
+               message.what=1;
+               message.obj=data;
+               handler.sendMessage(message);*/
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Gson gson = new Gson();
+                        Screen dAta = gson.fromJson(data, Screen.class);
+                        List<Screen.DescBean> desc = dAta.getDesc();
+                        Log.e("data111111--====",desc.size()+"");
+                        FellowAdapter adapter = new FellowAdapter(HomeActivity.this,desc);
+                        listHome.setAdapter(adapter);
+                    }
+                });
+            }
+        });
+
+    }
     //主体ListView
     @Override
     protected void initData() {
-
+login();
         final List<FellowBean> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(new FellowBean(R.mipmap.ic_launcher,"米妮捷豹的家"+i,"双井桥东北角东波街东南角天之蓝...","$50起","距 0.1km"));
         }
-        FellowAdapter adapter = new FellowAdapter(this,list);
-        listHome.setAdapter(adapter);
+
+
 
         listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

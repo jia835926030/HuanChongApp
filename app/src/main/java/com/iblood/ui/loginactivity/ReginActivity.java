@@ -1,5 +1,6 @@
 package com.iblood.ui.loginactivity;
 
+import android.content.Intent;
 import android.view.View;
 import android.util.Log;
 import android.widget.Button;
@@ -127,6 +128,13 @@ public class ReginActivity extends BaseActivity {
                 String name = regin_photo.getText().toString();
 
                 gethttpdata(phone,password,name);
+            }
+        });
+        regin_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ReginActivity.this,GiadingActivity.class);
+                startActivity(intent);
             }
         });
     }
