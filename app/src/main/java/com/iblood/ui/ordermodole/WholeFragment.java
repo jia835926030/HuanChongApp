@@ -54,7 +54,6 @@ public class WholeFragment extends BaseFragment {
             }
         });
     }
-
     @Override
     public void setBundle(Bundle bundle) {
 

@@ -15,7 +15,7 @@ import com.iblood.entity.PetAddBean;
 /** 
  * DAO for table "PET_ADD_BEAN".
 */
-public class PetAddBeanDao  extends AbstractDao<PetAddBean, Long> {
+public class PetAddBeanDao extends AbstractDao<PetAddBean, Long> {
 
     public static final String TABLENAME = "PET_ADD_BEAN";
 
