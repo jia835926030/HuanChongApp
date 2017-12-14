@@ -238,6 +238,7 @@ login();
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mOLBtn:
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
                 popu1();
                 break;
             case R.id.mMangerBtn:
