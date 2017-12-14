@@ -30,12 +30,11 @@ import com.iblood.base.BaseActivity;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
-import com.iblood.ui.filter.FilterActivity;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
+import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 import com.zaaach.citypicker.CityPickerActivity;
-import com.zhy.autolayout.utils.L;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -117,6 +116,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
                         Intent intent2=new Intent(HomeActivity.this,MyOrderActivity.class);
                         startActivity(intent2);
+                        break;
+                    case  R.id.cehua_xuzhi:
+                        startActivity(new Intent(HomeActivity.this, OrderActivity.class));
                         break;
                 }
                 return false;

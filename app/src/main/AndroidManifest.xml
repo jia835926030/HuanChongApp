@@ -39,7 +39,10 @@
         <activity android:name=".ui.ModificationActivity" />
         <activity android:name=".ui.personal.PersonalAddress" />
         <activity android:name=".ui.MessageActivity" />
-
+<activity android:name=".ui.setmodoule.FunctionActivity"></activity>
+        <activity android:name=".ui.setmodoule.OrderActivity"></activity>
+        <activity android:name=".ui.setmodoule.ReagardActivity"></activity>
+     <activity android:name=".ui.setmodoule.TiaokuanActivity"></activity>
         <!-- 城市筛选 -->
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"

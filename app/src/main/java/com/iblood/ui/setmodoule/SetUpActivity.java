@@ -1,6 +1,5 @@
 package com.iblood.ui.setmodoule;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
@@ -60,7 +58,7 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        setContentView(R.layout.activity_set_up);
+
 
 
     }
@@ -83,14 +81,14 @@ public class SetUpActivity extends BaseActivity {
                 startActivity(intent);
                 break;
             case R.id.introduce:
-                Toast.makeText(this, "新功能介绍", Toast.LENGTH_SHORT).show();
+              startActivity(new Intent(SetUpActivity.this,FunctionActivity.class));
                 break;
             case R.id.score:
                 Toast.makeText(this, "去评分", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.about:
-                Toast.makeText(this, "关于欢欢", Toast.LENGTH_SHORT).show();
+               startActivity(new Intent(SetUpActivity.this,ReagardActivity.class));
                 break;
 
 
