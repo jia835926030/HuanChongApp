@@ -31,6 +31,7 @@ import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
 import com.iblood.entity.Screen;
+import com.iblood.entity.UserInfo;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
@@ -42,7 +43,9 @@ import com.iblood.ui.setmodoule.SetUpActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.FileUtil;
 import com.iblood.utils.OkHttpUtils;
+import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
 import com.zaaach.citypicker.CityPickerActivity;
@@ -98,6 +101,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView personal_dizhi;
     private static final int REQUEST_CODE_PICK_CITY = 233;
 
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_home;
@@ -109,6 +113,25 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //侧滑头布局
         View headerView = navView.getHeaderView(0);
         View cehua_tou = headerView.findViewById(R.id.cehua_tou);
+        AppUtils.setAppContext(HomeActivity.this);
+        TextView cehua_dianhua = headerView.findViewById(R.id.cehua_dianhua);
+        TextView cehua_name = headerView.findViewById(R.id.cehua_name);
+       AppUtils.setAppContext(HomeActivity.this);
+        UserInfo user = FileUtil.getUser();
+        if(user!=null){
+            String userName = user.getUserName();
+            String userPhone = user.getUserPhone();
+            if(userName!=null){
+                cehua_name.setText(userName);
+            }
+            cehua_dianhua.setText(userPhone +"");
+        }
+
+
+
+
+
+
         cehua_tou.setOnClickListener(this);
         //侧滑item点击事件
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -156,15 +179,11 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         Request.Builder request = new Request.Builder();
         String ip = ConnectionUtils.getIp(this);
         Map<String, Object> map = new HashMap<>();
-//       String pass="17647572011qc";
-//       String s = Md5Encrypt.md5(pass, "UTF-8");
         map.put("beginIndex", 0);
         map.put("endIndex", 15);
         map.put("coordX", 40.116384);
         map.put("coordY", 116.250374);
         map.put("orderBy", "distance asc");
-        //map.put("userName","qingchunyeye");
-        //map.put("password",s);
         AppUtils.setAppContext(HomeActivity.this);
         String s1 = CJSON.toJSONMap(map);
         Log.e("DA", s1);
@@ -174,9 +193,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         request.addHeader("ip", ip);
         request.addHeader("token", token);
         request.addHeader("channel", "android");
-        Log.e("DA", linkString);
-        Log.e("DA", ip);
-        Log.e("DA", token);
         Request build1 = request.url(Urls.BASE+Urls.CHONGWU).post(builder.build()).build();
         okHttpClient.newCall(build1).enqueue(new Callback() {
             @Override
@@ -187,17 +203,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             public void onResponse(Call call, Response response) throws IOException {
                 final String data = response.body().string();
                 Log.e("onResponse: ", data);
-            /*   Message message = handler.obtainMessage();
-               message.what=1;
-               message.obj=data;
-               handler.sendMessage(message);*/
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
                         Gson gson = new Gson();
                         Screen dAta = gson.fromJson(data, Screen.class);
                         List<Screen.DescBean> desc = dAta.getDesc();
-                        Log.e("data111111--====",desc.size()+"");
                         FellowAdapter adapter = new FellowAdapter(HomeActivity.this,desc);
                         listHome.setAdapter(adapter);
                     }

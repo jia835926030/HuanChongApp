@@ -22,12 +22,12 @@
         android:layout_height="wrap_content">
 
         <TextView
-            android:text="aaa"
+            android:text="name"
             android:id="@+id/cehua_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
-            android:text="aaa"
+            android:text="phone"
             android:id="@+id/cehua_dianhua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />

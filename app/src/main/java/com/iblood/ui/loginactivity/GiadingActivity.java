@@ -26,10 +26,11 @@ import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
 import com.iblood.utils.FileUtil;
 import com.iblood.utils.Md5Encrypt;
+import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.ToastUtil;
 import com.iblood.utils.TokenUtil;
-import com.iblood.utils.UserManager;
+
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -54,8 +55,8 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
     private Button login_star;
     private ImageView Login_QQ;
     private ImageView login_wx;
+@SuppressLint("HandlerLeak")
 private Handler handler=new Handler(){
-    @SuppressLint("LongLogTag")
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
@@ -63,21 +64,24 @@ private Handler handler=new Handler(){
         try {
             JSONObject jsonObject=new JSONObject(data);
             String ret = jsonObject.getString("ret");
-            Log.e("--------345-------------------",ret);
             JSONObject result = jsonObject.getJSONObject("result");
              String userName = result.getString("userName");
-            Log.e("da",userName);
-             String userPhone = result.getString("userPhone");
-            int userSex = result.getInt("userSex");
-             int userId = result.getInt("userId");
-             int position = result.getInt("position");
-            int qq = result.getInt("qq");
+            String userId = result.getString("userId");
+AppUtils.setAppContext(GiadingActivity.this);
+            Log.e("us",userId+"userid");
+            Log.e("us",userName+"");
+//            Long userPhone = jsonObject.getLong("userPhone");
+            long userPhone = result.getLong("userPhone");
+            Log.i("tag",userPhone+"22222222222");
             UserInfo userInfo=new UserInfo();
-            userInfo.setUserId(userId+"");
-            userInfo.setQq(qq);
-            userInfo.setUserSex(userSex);
-            userInfo.setUserPhone(userPhone);
-            if(result.equals("true")){
+            userInfo.setUserPhone(userPhone+"");
+            userInfo.setUserName(userName);
+            userInfo.setUserId(userId);
+            FileUtil.saveUser(userInfo);
+            //SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
+//            SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone);
+            if(ret.equals("true")){
+                Log.e("-------",ret);
                 Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
                 startActivity(intent);
             }else {
@@ -88,6 +92,8 @@ private Handler handler=new Handler(){
         }
     }
 };
+    private String s1;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_giading;
@@ -135,22 +141,15 @@ private Handler handler=new Handler(){
         String token = TokenUtil.createToken();
         Log.e("to",token);
         Request.Builder request= new Request.Builder();
-        MainActivity mainActivity=new MainActivity();
         String ip = ConnectionUtils.getIp(this);
         Map<String,Object> map=new HashMap<>();
         String s = Md5Encrypt.md5(pass, "UTF-8");
         map.put("userPhone",number);
         map.put("password",s);
         AppUtils.setAppContext(GiadingActivity.this);
-        String s1 = CJSON.toJSONMap(map);
-        Log.e("DA",s1);
-        builder.add("data",s1);
-
-        for (String key: map.keySet()){
-            Object value = map.get(key);
-            builder.add(key, (String) value);
-            Log.e("TAG",value+"---------");
-        }
+        s1 = CJSON.toJSONMap(map);
+        Log.e("DA", s1);
+        builder.add("data", s1);
         String linkString = SignUtil.createLinkString(map);
         request.addHeader("sign",linkString);
         request.addHeader("ip",ip);
@@ -161,8 +160,6 @@ private Handler handler=new Handler(){
         okHttpClient.newCall(build1).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
-                String message = e.getMessage();
-                Toast.makeText(GiadingActivity.this, message, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -187,17 +184,10 @@ private Handler handler=new Handler(){
                 startActivity(new Intent(GiadingActivity.this, ReginActivity.class));
                 Toast.makeText(this, "注册", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.login_phone:
-                Toast.makeText(this, "账号", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.login_paswd:
-                Toast.makeText(this, "密码", Toast.LENGTH_SHORT).show();
-                break;
             case R.id.login_wang:
                 Toast.makeText(this, "忘记", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.login_star:
-                Toast.makeText(this, "登录", Toast.LENGTH_SHORT).show();
                 String phone = login_phone.getText().toString();
                 String password = login_paswd.getText().toString();
                 login(phone,password);

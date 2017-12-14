@@ -65,6 +65,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     }
 //选择日期
     public void Date_selection(final TextView view) {
+
         DatePicker picker = new DatePicker(App.mBaseActivity);
         picker.setRange(1990, 2030);//年份范围
         picker.setSubmitTextColor(Color.BLUE);
