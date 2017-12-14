@@ -15,14 +15,20 @@ import android.widget.Toast;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
+import com.iblood.entity.UserInfo;
 import com.iblood.ui.menu.MainActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.FileUtil;
 import com.iblood.utils.Md5Encrypt;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.ToastUtil;
 import com.iblood.utils.TokenUtil;
+import com.iblood.utils.UserManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -126,12 +132,24 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
             public void onResponse(Call call, Response response) throws IOException {
                 final String data = response.body().string();
                 Log.e( "onResponse: ",data );
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        Toast.makeText(GiadingActivity.this, data, Toast.LENGTH_SHORT).show();
-                    }
-                });
+                try {
+                    JSONObject jsonObject=new JSONObject(data);
+                    JSONObject result = jsonObject.getJSONObject("result");
+                    final String userName = result.getString("userName");
+                    Log.e("da",userName);
+                    final String userPhone = result.getString("userPhone");
+                    int userSex = result.getInt("userSex");
+                    final int userId = result.getInt("userId");
+                    int qq = result.getInt("qq");
+                    UserInfo userInfo=new UserInfo();
+                    userInfo.setUserId(userId+"");
+                    UserManager um = UserManager.getInstance();
+                    um.saveUserId(userId+"");
+                    String userId1 = um.getUserId();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
 
             }
         });
