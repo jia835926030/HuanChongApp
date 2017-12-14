@@ -10,8 +10,8 @@
     <ImageView
         android:src="@mipmap/ic_launcher"
         android:id="@+id/my_topimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_width="100px"
+        android:layout_height="100px" />
 
     <ImageView
         android:layout_marginTop="23px"
@@ -27,8 +27,8 @@
 
     <ImageView
         android:id="@+id/titleimage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100px"
+        android:layout_height="100px"
         android:layout_alignParentTop="true"
         android:layout_marginLeft="24px"
         android:layout_marginStart="24px"

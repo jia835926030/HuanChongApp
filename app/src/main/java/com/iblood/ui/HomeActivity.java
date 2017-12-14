@@ -33,8 +33,10 @@ import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
+import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 import com.zaaach.citypicker.CityPickerActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.BindView;
@@ -118,6 +120,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         textToast("订单");
                         Intent intent2=new Intent(HomeActivity.this,MyOrderActivity.class);
                         startActivity(intent2);
+                        break;
+                    case  R.id.cehua_xuzhi:
+                        startActivity(new Intent(HomeActivity.this, OrderActivity.class));
                         break;
                 }
                 return false;
