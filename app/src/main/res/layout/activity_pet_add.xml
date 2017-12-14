@@ -71,6 +71,7 @@
             android:layout_weight="1"
             android:divider="@color/colorBlack">
 
+
             <TextView
                 android:id="@+id/textView6"
                 android:layout_width="wrap_content"
@@ -84,7 +85,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/user_name"
+                android:id="@+id/pet_user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/textView6"
@@ -134,7 +135,7 @@
                 android:textColor="@color/colorBlack" />
 
             <TextView
-                android:id="@+id/user_sexy"
+                android:id="@+id/pet_user_sexy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/textView9"
@@ -182,7 +183,7 @@
 
 
             <TextView
-                android:id="@+id/user_time"
+                android:id="@+id/pet_user_steri"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/textView10"

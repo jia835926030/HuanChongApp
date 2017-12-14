@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 <ImageView
-    android:src="@mipmap/fanhui"
+    android:src="@mipmap/back_gray"
     android:layout_width="75px"
     android:layout_height="55px"
     android:id="@+id/imageView" />

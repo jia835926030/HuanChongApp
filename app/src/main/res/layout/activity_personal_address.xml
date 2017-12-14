@@ -5,12 +5,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/mTitleaddress"
-        android:layout_width="match_parent"
-        android:layout_height="110px"
-        android:gravity="center"
-        android:text="引用头布局"/>
+    <include layout="@layout/title_layout"/>
     <RelativeLayout
         android:id="@+id/modification_name"
         android:layout_width="match_parent"
@@ -31,17 +26,18 @@
             android:textColor="@color/colorBlack"
             android:id="@+id/textView" />
 
-        <TextView
-            android:id="@+id/user_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/textView"
-            android:layout_alignBottom="@+id/textView"
-            android:layout_marginLeft="38dp"
-            android:layout_marginStart="38dp"
-            android:layout_toEndOf="@+id/textView"
-            android:layout_toRightOf="@+id/textView"
-            android:text="数据加载中..." />
+        <!--<TextView-->
+            <!--android:id="@+id/user_name"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignBaseline="@+id/textView"-->
+            <!--android:layout_alignBottom="@+id/textView"-->
+            <!--android:layout_marginLeft="38dp"-->
+            <!--android:layout_marginStart="38dp"-->
+            <!--android:layout_toEndOf="@+id/textView"-->
+            <!--android:layout_toRightOf="@+id/textView"-->
+            <!--android:text="定位中..." />-->
+
 
 
         <TextView
