@@ -20,7 +20,7 @@
         android:layout_marginLeft="19px"
         android:layout_marginStart="19px"
         android:layout_marginTop="52px"
-        android:background="@mipmap/fanhui"
+        android:background="@mipmap/back_gray"
         android:textColor="#E8E8E8" />
 
     <TextView

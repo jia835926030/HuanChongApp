@@ -7,13 +7,16 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="50px" />
-    <TextView
-        android:id="@+id/mTitle"
+    <View
         android:layout_width="match_parent"
-        android:layout_height="110px"
-        android:gravity="center"
-        android:text="引用头布局"/>
+        android:layout_height="2px"
+        android:background="@color/colorBlack"/>
+    <include layout="@layout/title_layout"/>
 
+<View
+    android:layout_width="match_parent"
+    android:layout_height="2px"
+    android:background="@color/colorBlack"/>
     <EditText
         android:id="@+id/mEditText"
         android:layout_width="match_parent"

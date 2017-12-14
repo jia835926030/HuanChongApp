@@ -54,8 +54,6 @@
         <activity android:name=".ui.PetTypeActivity" />
 
 
-
-
 <activity android:name=".ui.setmodoule.FunctionActivity"></activity>
         <activity android:name=".ui.setmodoule.OrderActivity"></activity>
         <activity android:name=".ui.setmodoule.ReagardActivity"></activity>
