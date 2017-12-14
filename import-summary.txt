@@ -1,0 +1,1005 @@
+ECLIPSE ANDROID PROJECT IMPORT SUMMARY
+======================================
+
+Risky Project Location:
+-----------------------
+The tools *should* handle project locations in any directory. However,
+due to bugs, placing projects in directories containing spaces in the
+path, or characters like ", ' and &, have had issues. We're working to
+eliminate these bugs, but to save yourself headaches you may want to
+move your project to a location where this is not a problem.
+D:\Android DaShiXun\HuanChong
+          -                  
+
+Ignored Files:
+--------------
+The following files were *not* copied into the new Gradle project; you
+should evaluate whether these are still needed in your project and if
+so manually move them:
+
+* PetV1.3\
+* PetV1.3\.classpath
+* PetV1.3\.project
+* PetV1.3\.settings\
+* PetV1.3\.settings\org.eclipse.core.resources.prefs
+* PetV1.3\.settings\org.eclipse.jdt.core.prefs
+* PetV1.3\.svn\
+* PetV1.3\.svn\entries
+* PetV1.3\.svn\format
+* PetV1.3\.svn\pristine\
+* PetV1.3\.svn\pristine\00\
+* PetV1.3\.svn\pristine\00\0018282caa6b97b195d6c22d397d32c891b09010.svn-base
+* PetV1.3\.svn\pristine\00\00602a99e3f4b57352a4281a6478caf6592e85e5.svn-base
+* PetV1.3\.svn\pristine\00\008dddd0fee1e3de2f82c0e01cad7b5696fba314.svn-base
+* PetV1.3\.svn\pristine\00\00c966858ff7f87e7d993dd85cee816c5c44dbaf.svn-base
+* PetV1.3\.svn\pristine\00\00d82f3e45e3a21a7ece41a778fdc75e334671c9.svn-base
+* PetV1.3\.svn\pristine\00\00eea6661ab7fd7d8745edc78a7626de68244fb0.svn-base
+* PetV1.3\.svn\pristine\01\
+* PetV1.3\.svn\pristine\01\0116dfef71543a1277421526aa6036c71e4a81de.svn-base
+* PetV1.3\.svn\pristine\01\0146ef2fbb558853a950a6458dd4afcff8d483cc.svn-base
+* PetV1.3\.svn\pristine\01\01487fdd948cd1c012d61ff6bffe9dd8cb413e00.svn-base
+* PetV1.3\.svn\pristine\01\01552d20202df2cf8c196d6f21ce25fe7a89c041.svn-base
+* PetV1.3\.svn\pristine\01\01a5f40debb34c7297dde1c7277610df8bd97699.svn-base
+* PetV1.3\.svn\pristine\01\01b4d7fc8da879f53d325bf84228a0c04ff75d42.svn-base
+* PetV1.3\.svn\pristine\02\
+* PetV1.3\.svn\pristine\02\02552dfc4dadb9ab52d84f0b88b0d61613cc8d37.svn-base
+* PetV1.3\.svn\pristine\02\025736a467b18e827c2b9d30258bb3f6ece08f76.svn-base
+* PetV1.3\.svn\pristine\02\02910cc2c1c701aaa53480f5c840243c65d93980.svn-base
+* PetV1.3\.svn\pristine\02\02a22c37a5149419de2e509db8b95574f02ea4b0.svn-base
+* PetV1.3\.svn\pristine\02\02be7d31ca5a5d207cc98be63b79c98615a7c828.svn-base
+* PetV1.3\.svn\pristine\02\02f6f52eea5ee0107bf7f9615710e331088ce90f.svn-base
+* PetV1.3\.svn\pristine\03\
+* PetV1.3\.svn\pristine\03\0321ec83236a6ed42f25f18ba80a6c482af83920.svn-base
+* PetV1.3\.svn\pristine\03\0339c5e898b24acd1f38bc9b6b4f07d3dd97eae8.svn-base
+* PetV1.3\.svn\pristine\03\03589c364c3f694cbe558098429da836b245e5c8.svn-base
+* PetV1.3\.svn\pristine\03\0360c161b396baccc887f852614d6c7610185212.svn-base
+* PetV1.3\.svn\pristine\03\038000449dc38a14f73e4b2444db8f7e5984b334.svn-base
+* PetV1.3\.svn\pristine\03\03c07ff9c720159ee374aeaffb8232171426bb16.svn-base
+* PetV1.3\.svn\pristine\04\
+* PetV1.3\.svn\pristine\04\040152f582019046d47e87d2ee40dcedb4c9e219.svn-base
+* PetV1.3\.svn\pristine\04\0427b199c22f7a8d1773423237c64a9a42f4f9bf.svn-base
+* PetV1.3\.svn\pristine\04\04320c4fca3ba0bd135851a2aea96e77dfbded4f.svn-base
+* PetV1.3\.svn\pristine\04\044852592876a5d5386b18edb842af391c602b37.svn-base
+* PetV1.3\.svn\pristine\04\045420befcd955199fb287fa6c22bd270c2a9d09.svn-base
+* PetV1.3\.svn\pristine\04\0462ff11eaa6e58a0d0057d2c0b84f00a02cb192.svn-base
+* PetV1.3\.svn\pristine\04\047c8ad1df91264941cd550c8a71e01bc4a29101.svn-base
+* PetV1.3\.svn\pristine\04\048b59ffac388dc46aaa6b85ddf5957066ba302f.svn-base
+* PetV1.3\.svn\pristine\04\04d26bedc9a693f7d28df2ecae8f8fc5e1fb7ce4.svn-base
+* PetV1.3\.svn\pristine\04\04d6003a677f7a3b054bd3a21cada641ed43007e.svn-base
+* PetV1.3\.svn\pristine\04\04fe9e1177e9b7266a9c4ddaa8fad723d7ed8378.svn-base
+* PetV1.3\.svn\pristine\05\
+* PetV1.3\.svn\pristine\05\052f646b4d036e3b82a6375fba0a1d06abed2802.svn-base
+* PetV1.3\.svn\pristine\05\0539802a11d14717ce9473f29d32dd6b3c85e68d.svn-base
+* PetV1.3\.svn\pristine\05\053ab4d96299cafa02473eb0aa9c678f6bd32776.svn-base
+* PetV1.3\.svn\pristine\05\05470aa1438015a359d502d16b60bc82eedc137e.svn-base
+* PetV1.3\.svn\pristine\05\0570353b498ac6d0afa7a2aa02b78343b4f6e399.svn-base
+* PetV1.3\.svn\pristine\05\059b686e9e9378b057e353ef9cffa6a874c1cb0d.svn-base
+* PetV1.3\.svn\pristine\05\05af7d83b946b14c86b3e1849ae1242d0f60afff.svn-base
+* PetV1.3\.svn\pristine\05\05d9b81367a6625d1e60aee329e42faf605ba7a5.svn-base
+* PetV1.3\.svn\pristine\06\
+* PetV1.3\.svn\pristine\06\06039c3fca80d03366d4fe84535897779a0d1dcb.svn-base
+* PetV1.3\.svn\pristine\06\0619a77cc88ca4b7d9b99d133ca2d988bf7af50a.svn-base
+* PetV1.3\.svn\pristine\06\0619ed95aee5025d6de49b9f182c7ed9e6f2d3bd.svn-base
+* PetV1.3\.svn\pristine\06\065dc3d3e53ffcf1487e8f3eb68307600cd578d8.svn-base
+* PetV1.3\.svn\pristine\06\0698bf3138e53be5c17d3156e75f2ba179a3d9c4.svn-base
+* PetV1.3\.svn\pristine\07\
+* PetV1.3\.svn\pristine\07\0714a31744eef2b3c05290385f45ffaf7744d302.svn-base
+* PetV1.3\.svn\pristine\07\074df3de7fc9237102f314a89b710e95a3688589.svn-base
+* PetV1.3\.svn\pristine\07\0795a5a440b3e8e96d0c8170389a3267d78a2709.svn-base
+* PetV1.3\.svn\pristine\08\
+* PetV1.3\.svn\pristine\08\080a617f0739faef34f533f4fd6e66402f814e32.svn-base
+* PetV1.3\.svn\pristine\08\08589dd6ba113a36450ca5f24a731aad9048e0ab.svn-base
+* PetV1.3\.svn\pristine\08\0863160e2600f90f57679c3a5612221c61ffb46f.svn-base
+* PetV1.3\.svn\pristine\08\086e6ad5593778d7619186cd344064d169ccca40.svn-base
+* PetV1.3\.svn\pristine\08\089a77c91c1fc78d6e19a51ec3dfb70c55e17486.svn-base
+* PetV1.3\.svn\pristine\08\08b32666a21e7798b1ef78223f93fdc05b940a51.svn-base
+* PetV1.3\.svn\pristine\08\08e3ecb5b9a36d03bdc9cd54078e221fd2ef401d.svn-base
+* PetV1.3\.svn\pristine\08\08ed6ac12c4d868f0c0b99c4f9294486c0ba4254.svn-base
+* PetV1.3\.svn\pristine\08\08f7699970e2c188856e3e24d6dcbaed6ac8f9fb.svn-base
+* PetV1.3\.svn\pristine\09\
+* PetV1.3\.svn\pristine\09\09377f1c356dc902d31e1dec5feabeb6a5a4a735.svn-base
+* PetV1.3\.svn\pristine\09\093d5f396d67679384d553ac784554686c678cee.svn-base
+* PetV1.3\.svn\pristine\09\09b077bebbe20d76488ffea6edfd27f1051f4e86.svn-base
+* PetV1.3\.svn\pristine\09\09ced1d7cd9ccf56c9a83b08333bc6d5ca42f36a.svn-base
+* PetV1.3\.svn\pristine\0a\
+* PetV1.3\.svn\pristine\0a\0a352b91ecdfa8030e5b8f7a47fba67e6d5fc680.svn-base
+* PetV1.3\.svn\pristine\0a\0a35c35504a0e4e32187f1b252d2c8244a9f4de7.svn-base
+* PetV1.3\.svn\pristine\0a\0aebfb88aed806bc3336dff4887d8400e481ca78.svn-base
+* PetV1.3\.svn\pristine\0b\
+* PetV1.3\.svn\pristine\0b\0b0598b1ae1de3fb9c20220b5fe994154c2c9d32.svn-base
+* PetV1.3\.svn\pristine\0b\0b105e8b718a97231336e780bb52c16b1f6d50e0.svn-base
+* PetV1.3\.svn\pristine\0b\0b5d51f19e9d96a1b754a2c8dca801670ef8473d.svn-base
+* PetV1.3\.svn\pristine\0b\0b8a220f9b0dbf3f97f4e3f61d3c32be05dfd345.svn-base
+* PetV1.3\.svn\pristine\0b\0bbf7ac86c7880d01a54b651dcc7a9d78ad3b0e1.svn-base
+* PetV1.3\.svn\pristine\0c\
+* PetV1.3\.svn\pristine\0c\0c1568c46e204e38ab5a3c78547014e4fee835ee.svn-base
+* PetV1.3\.svn\pristine\0c\0c40c12d661126e63857f1664bb7f95e2939c02b.svn-base
+* PetV1.3\.svn\pristine\0c\0c978ffbcd888e9cf502fdefa2679e0087d60c9d.svn-base
+* PetV1.3\.svn\pristine\0c\0cb761fb0d40e692467463de913b4ff742986502.svn-base
+* PetV1.3\.svn\pristine\0c\0cba7e041777c4dd84c450f75f64a7e2704bc937.svn-base
+* PetV1.3\.svn\pristine\0c\0cbe1806c714cae705106e1a32c041d6951dad94.svn-base
+* PetV1.3\.svn\pristine\0c\0cc7332556fa5841286bb9f13aa9a488d3bc3d27.svn-base
+* PetV1.3\.svn\pristine\0c\0cccedcbc5b20ecc81966a7ba363ed75675ec59f.svn-base
+* PetV1.3\.svn\pristine\0d\
+* PetV1.3\.svn\pristine\0d\0d1695f78a88c744ea013c1f6a36fcc14a554f73.svn-base
+* PetV1.3\.svn\pristine\0d\0d6a2f5accbb310e0c19dd2962ecb4edea513d8d.svn-base
+* PetV1.3\.svn\pristine\0d\0d8693d7f529c514741b512e51387e3547e5f71d.svn-base
+* PetV1.3\.svn\pristine\0d\0dbab75d7f5899fbe41bd40fe0890e16ef187ca9.svn-base
+* PetV1.3\.svn\pristine\0d\0dd4ab239b204fee07895ceea4c9b062326e3a2b.svn-base
+* PetV1.3\.svn\pristine\0d\0ddc2a7a5708aff149d613e6b84fee229d96f431.svn-base
+* PetV1.3\.svn\pristine\0d\0dfe0a575c3b6c39e2e4b3a74f1bac84b618cca0.svn-base
+* PetV1.3\.svn\pristine\0e\
+* PetV1.3\.svn\pristine\0e\0e365019a4d9db15f3a133c23c82d67dbdddcbee.svn-base
+* PetV1.3\.svn\pristine\0e\0e494f39c35ac1ea8214d12097e8b637e19ee4a4.svn-base
+* PetV1.3\.svn\pristine\0e\0e543a8168f6f6f3d12a1416de55351802fcb89f.svn-base
+* PetV1.3\.svn\pristine\0e\0e61a48bb584788a3350851fabaa0d4f6d74dd0d.svn-base
+* PetV1.3\.svn\pristine\0e\0e77c8aa0de519cbc9ade3647b5aa7cfe54d4a76.svn-base
+* PetV1.3\.svn\pristine\0e\0ee229d4171b3d9faf5fa1ef1f12cace35cc43b5.svn-base
+* PetV1.3\.svn\pristine\0e\0ee83355b4e2d825c2da01c7bcfc216640a62348.svn-base
+* PetV1.3\.svn\pristine\0f\
+* PetV1.3\.svn\pristine\0f\0f0748aed86691bf19d2f1b6949c0464b8475efb.svn-base
+* PetV1.3\.svn\pristine\0f\0f12f4aac77b94ec2b459258e1360a9741543b70.svn-base
+* PetV1.3\.svn\pristine\0f\0f6054371ee07fabf2330b090f13fc5805627972.svn-base
+* PetV1.3\.svn\pristine\0f\0f615b1af1ff972136f43ffbc64fa553836be808.svn-base
+* PetV1.3\.svn\pristine\0f\0fa746fbac9d606fc3c8f1cc0aaf71172b737eb3.svn-base
+* PetV1.3\.svn\pristine\0f\0fc408662bed98e8bc70fa7d4ecaffac1e8d8506.svn-base
+* PetV1.3\.svn\pristine\0f\0fd685ff71c3be54d1ac854646fef96d0f43ef5c.svn-base
+* PetV1.3\.svn\pristine\0f\0fe332af542944c54e2d72c68f3d5a6ad0496c4d.svn-base
+* PetV1.3\.svn\pristine\0f\0feb92013d589729840be09103cb8b2224bf2956.svn-base
+* PetV1.3\.svn\pristine\0f\0ff2b420ddce2efdab181bbb165a7b512c2d8da8.svn-base
+* PetV1.3\.svn\pristine\10\
+* PetV1.3\.svn\pristine\10\10260c10f2aa7f4a2e3e2a560e3bc5148da12c3c.svn-base
+* PetV1.3\.svn\pristine\10\103b9d9c461ad5281a8a484260a976dd107f6f49.svn-base
+* PetV1.3\.svn\pristine\10\103dbb8b17ea74ffe566259150a74b40879776cf.svn-base
+* PetV1.3\.svn\pristine\10\103dddf67f512ac4067fb77eccc5189c2b66bc88.svn-base
+* PetV1.3\.svn\pristine\10\10569ebb159fe8e4bd6d727a03a333811fce4396.svn-base
+* PetV1.3\.svn\pristine\10\10632a9c27023e91f6bfe0556d6b9d5416e879ae.svn-base
+* PetV1.3\.svn\pristine\10\1066ebf12824c565bff28beadfb0943c77d46471.svn-base
+* PetV1.3\.svn\pristine\10\107b44aec7f0696d72e007d8ce915e61843fc65e.svn-base
+* PetV1.3\.svn\pristine\10\10893bc05d9e306a30efd21bc3031ef8b30cb13e.svn-base
+* PetV1.3\.svn\pristine\10\1096182c264870f723d9f8d35aea5dd8490f51c7.svn-base
+* PetV1.3\.svn\pristine\10\10d96debb0a87d303bbed7d908c3a6f9a01b3307.svn-base
+* PetV1.3\.svn\pristine\10\10df965a12406a034b24a2071b78bb5b1d7a2c28.svn-base
+* PetV1.3\.svn\pristine\10\10e6e2e4786dc34083c47b574d164731f1fd9db0.svn-base
+* PetV1.3\.svn\pristine\11\
+* PetV1.3\.svn\pristine\11\110f323e5e59c7fd3d9a7962fd68ec6b398a30fb.svn-base
+* PetV1.3\.svn\pristine\11\11226a57535eaeaed462f2cfad3e3811a4dea391.svn-base
+* PetV1.3\.svn\pristine\11\11232429ceff4f0a7fa940adfb98bae63a1f50b6.svn-base
+* PetV1.3\.svn\pristine\11\1193c850f1eb5024f125dac03719d3b50c13ce13.svn-base
+* PetV1.3\.svn\pristine\11\11ab2580ec13b9fa547238ccf31e5f227b4d388a.svn-base
+* PetV1.3\.svn\pristine\11\11e5b69939936353150896dbfc29b9ae4b1dc087.svn-base
+* PetV1.3\.svn\pristine\11\11ea2b2afe8dbc8e6933fd201b1de6f2f0ec36a9.svn-base
+* PetV1.3\.svn\pristine\11\11f8fe7acda5c18dafd31616017ebc6fab8a8eeb.svn-base
+* PetV1.3\.svn\pristine\12\
+* PetV1.3\.svn\pristine\12\121563c6edced7089f77d8e1c9317b0b9215bc5c.svn-base
+* PetV1.3\.svn\pristine\12\121e470f98e40997fad3f038539fe725b6092b65.svn-base
+* PetV1.3\.svn\pristine\12\121e6e5da06ab784ccb8fc7765d6b8ea31e50abd.svn-base
+* PetV1.3\.svn\pristine\12\126ff31ed4e0ff2d0d1eca26785ce473f13272b0.svn-base
+* PetV1.3\.svn\pristine\12\1298d52d68c3bb1238030a330dd1b4ca0d54d7bf.svn-base
+* PetV1.3\.svn\pristine\12\12d92e7d8a076f285d31b46ad1a0d6cb82628e9a.svn-base
+* PetV1.3\.svn\pristine\13\
+* PetV1.3\.svn\pristine\13\1346c28a18e13522927bb2272e534dfc94cc3e12.svn-base
+* PetV1.3\.svn\pristine\13\13569e6f1f0f37ed8eb0d76aedc383fcb2ac76e4.svn-base
+* PetV1.3\.svn\pristine\13\137843e0ef2838c9650b510dd07dff9080da997f.svn-base
+* PetV1.3\.svn\pristine\13\13b148ea1e802278468fee5a661dea2be15e2c21.svn-base
+* PetV1.3\.svn\pristine\13\13b1ee7679a107e6635acc9207dea82ba8b66435.svn-base
+* PetV1.3\.svn\pristine\13\13db9e79412f27507d0ba34a225bea69ab7fae5e.svn-base
+* PetV1.3\.svn\pristine\14\
+* PetV1.3\.svn\pristine\14\147f9429c983cb55a54ea0188cf3803bb1cafac2.svn-base
+* PetV1.3\.svn\pristine\14\1490f91a6f93b9897932ea44f006320096f7b294.svn-base
+* PetV1.3\.svn\pristine\14\14fe40f0b1b284d15c5b88eca2d5e5b89a080096.svn-base
+* PetV1.3\.svn\pristine\15\
+* PetV1.3\.svn\pristine\15\151b72ae60b12628f3e24db54391feebe5651696.svn-base
+* PetV1.3\.svn\pristine\15\153942a367532561518a508823105925d9d9319c.svn-base
+* PetV1.3\.svn\pristine\15\153dc49e1d01d3a6050990d08fcefd18e69ed9bd.svn-base
+* PetV1.3\.svn\pristine\15\1555bc75f238a5d5d2316f130f5fb70a04bf77f8.svn-base
+* PetV1.3\.svn\pristine\15\1571313c5b708a68a7121faa74b9817b087777c1.svn-base
+* PetV1.3\.svn\pristine\15\157bb4864861787ad3f46db60f6466671ccbbbff.svn-base
+* PetV1.3\.svn\pristine\15\15ae2f09bde8fda7ae0c3669059d38363ba604ea.svn-base
+* PetV1.3\.svn\pristine\15\15d4a27c57eec7e6896f8fa2601e1154158c3eb1.svn-base
+* PetV1.3\.svn\pristine\15\15e96d9b7faf521d83e4d368d6783a6b10488f3a.svn-base
+* PetV1.3\.svn\pristine\16\
+* PetV1.3\.svn\pristine\16\163b7746c68bc9f2f5b12e35bbbf60a4e00837d4.svn-base
+* PetV1.3\.svn\pristine\16\163ee1fab8a2bfc205110db2ee823806ce98ee81.svn-base
+* PetV1.3\.svn\pristine\16\165ae2024099a04da0163a535792969c8b6bb05f.svn-base
+* PetV1.3\.svn\pristine\16\1697322ef70053518737bdc47f36b27f47e4e643.svn-base
+* PetV1.3\.svn\pristine\16\16f87949d0052eb9dcc52191057b51992fb1ed1e.svn-base
+* PetV1.3\.svn\pristine\17\
+* PetV1.3\.svn\pristine\17\1738f633fc4a9029a9b29c54a7d3fc9dfb4ca9cf.svn-base
+* PetV1.3\.svn\pristine\17\177187349b4f6c6b8f099d8f0774c659c84bf54e.svn-base
+* PetV1.3\.svn\pristine\17\179c893089a5d3086054f0badd0e87565b9b611b.svn-base
+* PetV1.3\.svn\pristine\18\
+* PetV1.3\.svn\pristine\18\1829ee70318ba3b2becf40cd95b6102c0bd88f49.svn-base
+* PetV1.3\.svn\pristine\18\1882e610bc31b056d50f95eb07b77835cea47bd4.svn-base
+* PetV1.3\.svn\pristine\18\18b1d36109c4d8edf17ffcb3612ca3a48016a7e9.svn-base
+* PetV1.3\.svn\pristine\18\18c675a3858e72131ec7f2144056a084161b9e52.svn-base
+* PetV1.3\.svn\pristine\18\18ee27faaeec1224bc99e84cbb9ba5ccf320d5c5.svn-base
+* PetV1.3\.svn\pristine\19\
+* PetV1.3\.svn\pristine\19\191d229a038b666486c0ce83618d012adb8525e6.svn-base
+* PetV1.3\.svn\pristine\19\197f3ad3c6ec8b8a875292f1681360dee7de7204.svn-base
+* PetV1.3\.svn\pristine\19\19e6cb0db7106d5ea09affcec901f85e0634c4d8.svn-base
+* PetV1.3\.svn\pristine\1a\
+* PetV1.3\.svn\pristine\1a\1a581b6bc0c62aaed8fc84ea1a9f39b44b7a90a6.svn-base
+* PetV1.3\.svn\pristine\1a\1a6047dee4f0a121afb078858a89563b7d51f7b6.svn-base
+* PetV1.3\.svn\pristine\1a\1a6c53e42b6ef1f51156dd0b3b9cff88ef3dbf44.svn-base
+* PetV1.3\.svn\pristine\1a\1a783635d3226437b16a428c56d4c4d62044b729.svn-base
+* PetV1.3\.svn\pristine\1a\1a9db7f4abd384f7e71689aab5b17286df0b7796.svn-base
+* PetV1.3\.svn\pristine\1a\1aa7980da115487b4cf9614bfdba39e4e7674283.svn-base
+* PetV1.3\.svn\pristine\1a\1ad23dfca8102ac88b3e4cf69b99d169808e5e61.svn-base
+* PetV1.3\.svn\pristine\1a\1aea80f1417d55f7bb1abacb30d2233948fac3be.svn-base
+* PetV1.3\.svn\pristine\1a\1afd314beb6bf89bcc0ef5aa52a5627f0b512cf5.svn-base
+* PetV1.3\.svn\pristine\1b\
+* PetV1.3\.svn\pristine\1b\1b0396c47abca40247652334110372481eb2b948.svn-base
+* PetV1.3\.svn\pristine\1b\1b03f92c7ad2f248c189a7d0bf09b1854e63cd9d.svn-base
+* PetV1.3\.svn\pristine\1b\1b713e361a271d38197d84e87d9a5c27d5122a5e.svn-base
+* PetV1.3\.svn\pristine\1b\1b71a6d82a27a7ef3122228ed7ebeb215aa24565.svn-base
+* PetV1.3\.svn\pristine\1b\1bc219afeda03404d2f4dd397bda53d6089ef999.svn-base
+* PetV1.3\.svn\pristine\1b\1be9784508fd89af2a39ec15c0d93a96d2992f7c.svn-base
+* PetV1.3\.svn\pristine\1c\
+* PetV1.3\.svn\pristine\1c\1c1d6fe8c79f535e5d7603d8bc3deecb28c35336.svn-base
+* PetV1.3\.svn\pristine\1c\1c6474d0161945905f7b9a43fa92c6753fcd9c16.svn-base
+* PetV1.3\.svn\pristine\1c\1c69605c2dddb85aa01d5f2b84d75368bc4211a0.svn-base
+* PetV1.3\.svn\pristine\1c\1c7737284dfc455ffb0763ca5e3d9f8af231e19f.svn-base
+* PetV1.3\.svn\pristine\1c\1ca35cb21f61159c2a62fbdf82e686d7815d8a50.svn-base
+* PetV1.3\.svn\pristine\1c\1cfe8722c75b2a53df3ecb56f876c413fc464ab6.svn-base
+* PetV1.3\.svn\pristine\1c\1cff9f979ec5a76abc85f4f49d10dea39bd7f784.svn-base
+* PetV1.3\.svn\pristine\1d\
+* PetV1.3\.svn\pristine\1d\1d075854748b72b3f92ed709a3ff7052f628fe3a.svn-base
+* PetV1.3\.svn\pristine\1d\1d835667b8ee682807c215302727f3d2ee2eb264.svn-base
+* PetV1.3\.svn\pristine\1d\1dd30e52318506beadb1aefbd7cfd9dd5cc6eb65.svn-base
+* PetV1.3\.svn\pristine\1d\1dde4c63ee3da31969ef5f6e17c67aee5a6db0e1.svn-base
+* PetV1.3\.svn\pristine\1d\1df96be8e10c1277214daab96c52df1eefe5808c.svn-base
+* PetV1.3\.svn\pristine\1e\
+* PetV1.3\.svn\pristine\1e\1e09cbc76fecd467ceae45a3ee80b29a36f99669.svn-base
+* PetV1.3\.svn\pristine\1e\1e0a859d66305865996c5ca2116ffbfff8d72dbe.svn-base
+* PetV1.3\.svn\pristine\1e\1e257ba3be08f11287dc5b7e098c6b615d3a2fa2.svn-base
+* PetV1.3\.svn\pristine\1e\1e460dc34fc6ef04147093d18c6755df79537b11.svn-base
+* PetV1.3\.svn\pristine\1e\1e4bf3c8210315bf9c95561dc84650d4b5104482.svn-base
+* PetV1.3\.svn\pristine\1e\1e502d0eabc9f39ed4120117d9704c1438ef7966.svn-base
+* PetV1.3\.svn\pristine\1e\1e50b40e2215886d3b6bf15187b166cf6c4ddcc1.svn-base
+* PetV1.3\.svn\pristine\1e\1e9307d65e79478f75d6d437a4544686b3939ff1.svn-base
+* PetV1.3\.svn\pristine\1e\1ec5ba2a622642b0834d07d7291f84ca8a75d848.svn-base
+* PetV1.3\.svn\pristine\1e\1eecafadc25bf2601e0b655e7289a158d2276ba2.svn-base
+* PetV1.3\.svn\pristine\1f\
+* PetV1.3\.svn\pristine\1f\1f1f97a2ec381fe89b8d5a66d8275ed26c305264.svn-base
+* PetV1.3\.svn\pristine\1f\1f2fc65860a25fba2d8d1bd5e9dd9dd1cd8a53a2.svn-base
+* PetV1.3\.svn\pristine\1f\1f49075c6ce110c923175116b950e1d411c71f79.svn-base
+* PetV1.3\.svn\pristine\1f\1f636730435612be21d9c8094056a0ad915323d2.svn-base
+* PetV1.3\.svn\pristine\1f\1f7dabe76d39aea194eb6e2911793e2d0e0eccb1.svn-base
+* PetV1.3\.svn\pristine\1f\1f819577d67a91de795f30ce1f3bccb531451d93.svn-base
+* PetV1.3\.svn\pristine\1f\1f96b986a19850206c4c02ef188b87d1728cbd91.svn-base
+* PetV1.3\.svn\pristine\1f\1fb50242213f5a17c65ae2cf80930178e2986b87.svn-base
+* PetV1.3\.svn\pristine\1f\1ff0a4309d9f2f229724aea88af3616adea3d210.svn-base
+* PetV1.3\.svn\pristine\20\
+* PetV1.3\.svn\pristine\20\2003f3eba188ebaa54fcdbe59ff5f383e6400bd0.svn-base
+* PetV1.3\.svn\pristine\20\200584f5997600f31420597362e48a1dcb43e5e0.svn-base
+* PetV1.3\.svn\pristine\20\20729869916ee06306f8c1a5c6df7484a7d1970f.svn-base
+* PetV1.3\.svn\pristine\21\
+* PetV1.3\.svn\pristine\21\2103778cc2854bbcec9bd5418ca7db6e6f8bb89c.svn-base
+* PetV1.3\.svn\pristine\21\21b79ff32d141d03134d1f5d41e78204761f6a0f.svn-base
+* PetV1.3\.svn\pristine\21\21c8ba354c9ddf84aa351be65f73c92d7ca5117d.svn-base
+* PetV1.3\.svn\pristine\21\21c8e0cd0b0b77118b6ca720f2a6e1a51d07dd8a.svn-base
+* PetV1.3\.svn\pristine\22\
+* PetV1.3\.svn\pristine\22\2234388af8040ff37d856977275ba29c1609ea18.svn-base
+* PetV1.3\.svn\pristine\22\22381d9514aba932c41b7d7377a9080256614c64.svn-base
+* PetV1.3\.svn\pristine\22\228dfce8ddd5ea393e4bbb7f81b1148ed5ece7a6.svn-base
+* PetV1.3\.svn\pristine\23\
+* PetV1.3\.svn\pristine\23\2320823a8396dae954b66d86c5c15f29f2184279.svn-base
+* PetV1.3\.svn\pristine\23\232705746f036970f9cf4b6dd4f30f36942be098.svn-base
+* PetV1.3\.svn\pristine\23\2328cdfc8620e1d7763af649d98d50670406fe72.svn-base
+* PetV1.3\.svn\pristine\23\237ea48a34634ffd27e37fc04fb7a6a47b23d317.svn-base
+* PetV1.3\.svn\pristine\23\2398bb29996489cb2b8a3faa71b8b042fc77c0a8.svn-base
+* PetV1.3\.svn\pristine\23\23dc340026ad55b16fa4fa70b4bae19644534161.svn-base
+* PetV1.3\.svn\pristine\23\23ef03cbde77f72bc25b644c1f0e21b1582dcc61.svn-base
+* PetV1.3\.svn\pristine\24\
+* PetV1.3\.svn\pristine\24\2403e56ce5de24c55045f5abf70d3ec1d87a3ff1.svn-base
+* PetV1.3\.svn\pristine\24\240fd6eca83b2c9b0afc3e90219b3f5128ae8929.svn-base
+* PetV1.3\.svn\pristine\24\242b41a1c70c7b96cf147b394bee199522321761.svn-base
+* PetV1.3\.svn\pristine\24\244c490369e532999e6dcc9082de206784d1afe9.svn-base
+* PetV1.3\.svn\pristine\24\249f26202f32bcf08598d21c3e8ad153730805c5.svn-base
+* PetV1.3\.svn\pristine\25\
+* PetV1.3\.svn\pristine\25\2502cd124d6f955c811ffb070b36d7e9b0b62911.svn-base
+* PetV1.3\.svn\pristine\25\250c9d09d6ccf3e3001f87c20eeddfc4cf5e56ef.svn-base
+* PetV1.3\.svn\pristine\25\2514a293b0788c72cec41324a91c7b0c9736e581.svn-base
+* PetV1.3\.svn\pristine\25\2533eeac04b8ae3b3032d39eafb3087b36093f27.svn-base
+* PetV1.3\.svn\pristine\25\257ebc93a0797d7cfaca0410fdc551ee1693e30e.svn-base
+* PetV1.3\.svn\pristine\25\25b9de4de60a60e205f7203ba2d83894298ee1b9.svn-base
+* PetV1.3\.svn\pristine\25\25bf3ff79f8d5e8d009d01ca89811e84f60f6f68.svn-base
+* PetV1.3\.svn\pristine\26\
+* PetV1.3\.svn\pristine\26\262426049fecae3ec4844810304c0bf9e28b745b.svn-base
+* PetV1.3\.svn\pristine\26\2626beec555a7ffcf125f02ca06120c555c4f6a0.svn-base
+* PetV1.3\.svn\pristine\26\262cb8dcef9e658979e0d88222ef1a41bbdee609.svn-base
+* PetV1.3\.svn\pristine\26\26548de205ebc187b935d75aed3bd106cc4c0201.svn-base
+* PetV1.3\.svn\pristine\26\2669873f891113a8f45506e825d0215306e95405.svn-base
+* PetV1.3\.svn\pristine\26\2674a4626700e4075deb3bda9a7df5174f99baaa.svn-base
+* PetV1.3\.svn\pristine\26\267a62b550d6df928ae78526eb34404df4831712.svn-base
+* PetV1.3\.svn\pristine\26\26dc741a141d9e702a2479fbf8b142ceb2810794.svn-base
+* PetV1.3\.svn\pristine\26\26e40e13c487c31241f1b8ff32cf069fddb6624e.svn-base
+* PetV1.3\.svn\pristine\27\
+* PetV1.3\.svn\pristine\27\27449b221063c7b68eaf8b9179a7341de0e83fa6.svn-base
+* PetV1.3\.svn\pristine\27\2744e731f6d1d2309882df5a3378277f97c64f77.svn-base
+* PetV1.3\.svn\pristine\27\27b340bfd9e80942a93c4fa74db108f7956dc610.svn-base
+* PetV1.3\.svn\pristine\27\27d412f366e765ff32efc08118171e1da242ee7c.svn-base
+* PetV1.3\.svn\pristine\27\27f1ca0f42421c3711a2af706cd6a3129139c5dc.svn-base
+* PetV1.3\.svn\pristine\28\
+* PetV1.3\.svn\pristine\28\280a320f89f0f3568f6a533080721cd04bf858ff.svn-base
+* PetV1.3\.svn\pristine\28\281ac0eaeab2ed810599fdb5ce8ff6a70c77f86c.svn-base
+* PetV1.3\.svn\pristine\28\285218d206048b8e7a71fa9c962f9c66c2c31ff1.svn-base
+* PetV1.3\.svn\pristine\28\28abfb0d09cc13a6a156977cb95ec4bf42c8b603.svn-base
+* PetV1.3\.svn\pristine\28\28c8f6534b82fb0be3f18ea7fd69a42f119f718f.svn-base
+* PetV1.3\.svn\pristine\28\28cf3957e4666ef7e4c8e203531ead06a25ef486.svn-base
+* PetV1.3\.svn\pristine\28\28fc84860e60ac42f292e11e004069f771c24728.svn-base
+* PetV1.3\.svn\pristine\29\
+* PetV1.3\.svn\pristine\29\291759fc1dc79b467e1e81c24d3acd4477183030.svn-base
+* PetV1.3\.svn\pristine\29\292451e41d4ca65792abea5b1e7ac0d1ab7af796.svn-base
+* PetV1.3\.svn\pristine\29\29358dc1da2fd000017d377b022a9c87541f4e7a.svn-base
+* PetV1.3\.svn\pristine\29\29538c580ec5ef4a6a3ac94e36ee20f3b39fd80d.svn-base
+* PetV1.3\.svn\pristine\29\298591d482d7444d339273934cc530b90abb38fc.svn-base
+* PetV1.3\.svn\pristine\2a\
+* PetV1.3\.svn\pristine\2a\2a1e1f745402978fa9e451dd559654b5dab45b29.svn-base
+* PetV1.3\.svn\pristine\2a\2a546df77256dd1c87f14e595f195bf22dfd6318.svn-base
+* PetV1.3\.svn\pristine\2a\2a6d9418119367f6d886127b023471613a4696ca.svn-base
+* PetV1.3\.svn\pristine\2a\2a82628ce8ac7214274c5b6e47c17e57c98fc671.svn-base
+* PetV1.3\.svn\pristine\2a\2a9948a980c16ff4b89c6c9db7e072f2ce3d4278.svn-base
+* PetV1.3\.svn\pristine\2b\
+* PetV1.3\.svn\pristine\2b\2b00fe28eacbc55bc5f346fd4d2d74a3da11de3e.svn-base
+* PetV1.3\.svn\pristine\2b\2b045ebc7a152c6582b329bbc25d713eab70ca64.svn-base
+* PetV1.3\.svn\pristine\2b\2b31ea6fde5a38034fc77829fd907015877fd876.svn-base
+* PetV1.3\.svn\pristine\2b\2b352590d3f118234c90041a84bc93cdc08978dd.svn-base
+* PetV1.3\.svn\pristine\2b\2b517a89a07cbefc65ff2b189677542a267185ea.svn-base
+* PetV1.3\.svn\pristine\2b\2b5a58be533a184aee2a47984596c4ed1cb94e45.svn-base
+* PetV1.3\.svn\pristine\2b\2b77458179b27c5ecd47c1b3394c598727618f2f.svn-base
+* PetV1.3\.svn\pristine\2b\2b8e7cdade98f500bea815117660e11db3bc11d6.svn-base
+* PetV1.3\.svn\pristine\2b\2b98ac37984960aeaadd783ff0e85774b0e9848c.svn-base
+* PetV1.3\.svn\pristine\2b\2bc3cc2960137a29123bfce254902210115628ca.svn-base
+* PetV1.3\.svn\pristine\2c\
+* PetV1.3\.svn\pristine\2c\2c2a87b70bf8770f8c0a2fae7fa011fe5680a728.svn-base
+* PetV1.3\.svn\pristine\2c\2c2f56563d89e9088cf294a66f630cec04dc8a11.svn-base
+* PetV1.3\.svn\pristine\2c\2c32b52d4577f39fe76e7f2e218988aa233ca68c.svn-base
+* PetV1.3\.svn\pristine\2c\2c3c38c1e079e9a14cc63fdc4a4bc1e42b0644c7.svn-base
+* PetV1.3\.svn\pristine\2c\2c4130b9831756a0b449e36650ae7531d45a13fc.svn-base
+* PetV1.3\.svn\pristine\2c\2ca7971c3e58b371d2aab49ef0e44556509e53eb.svn-base
+* PetV1.3\.svn\pristine\2c\2cae24206174923f86c23342bcd3b7e07e5c5419.svn-base
+* PetV1.3\.svn\pristine\2c\2ccd59c5e85620a4515e37b430a6328025ab7111.svn-base
+* PetV1.3\.svn\pristine\2c\2ce9b8af67a711dfeaed068adcd5488b0927c618.svn-base
+* PetV1.3\.svn\pristine\2d\
+* PetV1.3\.svn\pristine\2d\2d6226f89910345db7ae576080184b8d16fb1848.svn-base
+* PetV1.3\.svn\pristine\2d\2d68e559ab3953fc4cdcc80f14719d438110b59a.svn-base
+* PetV1.3\.svn\pristine\2d\2d8307d2f6730e62b5ddfb0ee63944337668dd64.svn-base
+* PetV1.3\.svn\pristine\2d\2dee99511434fb03ce06d4894fede7052a451934.svn-base
+* PetV1.3\.svn\pristine\2e\
+* PetV1.3\.svn\pristine\2e\2e2d336e6eae16dcf1d6952ea2d4e62199e08bfe.svn-base
+* PetV1.3\.svn\pristine\2e\2e458931d7b883b7943a22dd2870b9554512a90e.svn-base
+* PetV1.3\.svn\pristine\2e\2e5728ef780f7892a050664fc5db0759f84ca79a.svn-base
+* PetV1.3\.svn\pristine\2e\2e7174e6a5e5292f2f5d9bcbc220fdc476fdce37.svn-base
+* PetV1.3\.svn\pristine\2e\2e87d1f757f36f91ec990302e78a633b282aaaa5.svn-base
+* PetV1.3\.svn\pristine\2e\2ee97598d9bb264ec158ed226935e82f720c35cb.svn-base
+* PetV1.3\.svn\pristine\2e\2ef75b5396c9d86054ce397ecad5acd0aabae535.svn-base
+* PetV1.3\.svn\pristine\2f\
+* PetV1.3\.svn\pristine\2f\2f680d797355194cbba50f49c5b0f59939ad36b3.svn-base
+* PetV1.3\.svn\pristine\2f\2f78af74a8d930b31a38c0cb737d0401f2ef54b5.svn-base
+* PetV1.3\.svn\pristine\2f\2f812aa7d4390b6cf5ad1e108ebf0afd4963a3dd.svn-base
+* PetV1.3\.svn\pristine\2f\2f868d32a920a8cb4bdbd6fd8524ce0aa285849b.svn-base
+* PetV1.3\.svn\pristine\2f\2f9581b320ccb9b857b8518357b9171070adee0d.svn-base
+* PetV1.3\.svn\pristine\2f\2fa1e95538a356f251e9c43fbf8f2ca34702a05a.svn-base
+* PetV1.3\.svn\pristine\2f\2fb35b2c1103a05357dc6a105d05c31e747a5028.svn-base
+* PetV1.3\.svn\pristine\2f\2fd3f66cc0dc660de32390433b01fd4b9fe0ca31.svn-base
+* PetV1.3\.svn\pristine\2f\2fdcc41df5ad71fc4d428df46b6dd90a78e6c87e.svn-base
+* PetV1.3\.svn\pristine\30\
+* PetV1.3\.svn\pristine\30\30057bc8985136661804d4d1ae610ba02abab206.svn-base
+* PetV1.3\.svn\pristine\30\3049ab165d37b8ff55bd0ad9b32fbeeb855e3254.svn-base
+* PetV1.3\.svn\pristine\30\3063e5b601fc8c981169a308c0c2ba2f0a5926d2.svn-base
+* PetV1.3\.svn\pristine\30\307665901dd4a7c02248468c84d1573a753ef294.svn-base
+* PetV1.3\.svn\pristine\30\30b25ba0480d438091b4655aba95a3913521c1d4.svn-base
+* PetV1.3\.svn\pristine\30\30bb1d722f6a019bd542b64be3c35c5e11763b68.svn-base
+* PetV1.3\.svn\pristine\30\30d776ff243087e5a398ef0e5b2e37a10ce0d767.svn-base
+* PetV1.3\.svn\pristine\31\
+* PetV1.3\.svn\pristine\31\312efa814c288a816d8ab3cc88208466e98ca4d1.svn-base
+* PetV1.3\.svn\pristine\31\31516437f956a280b84002e37551913ce82c0248.svn-base
+* PetV1.3\.svn\pristine\31\315e9cfc738c6c6fdba573b0596844820902c142.svn-base
+* PetV1.3\.svn\pristine\31\3187cc5603baf3289268019f4bf616d96c132abc.svn-base
+* PetV1.3\.svn\pristine\31\318f541c4cdac3f33d4570d6850f47e8acb60a95.svn-base
+* PetV1.3\.svn\pristine\31\31a8f7f64fdfe4dad5a500a203fc5bceb0ddfe9c.svn-base
+* PetV1.3\.svn\pristine\31\31c5a78fecba489840de9567c80e5f936c7394d9.svn-base
+* PetV1.3\.svn\pristine\31\31f88a2cb1af089164192eb471269861bf118ce2.svn-base
+* PetV1.3\.svn\pristine\32\
+* PetV1.3\.svn\pristine\32\3208957a13293549cb7c9ec391d7261ca642cf05.svn-base
+* PetV1.3\.svn\pristine\32\320e26fb4956cfede298ee3e16d7c972183c010d.svn-base
+* PetV1.3\.svn\pristine\32\322421dd2583db669c2b33b74b40e42580d7a67b.svn-base
+* PetV1.3\.svn\pristine\32\325ee0834e77db88c1b7a2991ed689f97b67bd55.svn-base
+* PetV1.3\.svn\pristine\32\327403991f333ab0b028315bba17b0996ee5d55b.svn-base
+* PetV1.3\.svn\pristine\32\328e331f49840909a07be7ebb3fd42fa7617830e.svn-base
+* PetV1.3\.svn\pristine\32\32ad94748d44f1258c528ac8d338782de4e77596.svn-base
+* PetV1.3\.svn\pristine\33\
+* PetV1.3\.svn\pristine\33\3309259154d16f821dd294b14cef7abcb7cebf44.svn-base
+* PetV1.3\.svn\pristine\33\33114b0cbec0304752c5dc05b5e9db3c59aa7ddf.svn-base
+* PetV1.3\.svn\pristine\33\331817110aaa73c3b9f3985d1dfe91d5aab5d0e9.svn-base
+* PetV1.3\.svn\pristine\33\3326aef0d25a21198e777a2ef4a3e7d9dd133f77.svn-base
+* PetV1.3\.svn\pristine\33\337bc8f6302ac837ae4539e6310c69adbdabab84.svn-base
+* PetV1.3\.svn\pristine\33\33821f9ce99c212d8062c4cc95c795fc4662a6fa.svn-base
+* PetV1.3\.svn\pristine\33\33839033ae8f3f471bd0661d4dd64e9c0fb71385.svn-base
+* PetV1.3\.svn\pristine\33\338ff04135fb33032c9faa4ee5d81de232c7aff7.svn-base
+* PetV1.3\.svn\pristine\33\33b45af22a5653b19000990f19d422b1612addaf.svn-base
+* PetV1.3\.svn\pristine\33\33c1cb28cb38e27354b9e3c18da1bb692c9d20af.svn-base
+* PetV1.3\.svn\pristine\34\
+* PetV1.3\.svn\pristine\34\34400a566d39f359d5c9339adf6d91597abeb215.svn-base
+* PetV1.3\.svn\pristine\34\34612f225b53548ae8f515578a3933a8b076b1da.svn-base
+* PetV1.3\.svn\pristine\34\34aee22617285e156fd86e886e5c4747eb5c2a85.svn-base
+* PetV1.3\.svn\pristine\34\34bbca5f7120fbc00026269ab1d0434c0a201dee.svn-base
+* PetV1.3\.svn\pristine\34\34f4514f42e35de76036fd620b1f758f2a17c13a.svn-base
+* PetV1.3\.svn\pristine\35\
+* PetV1.3\.svn\pristine\35\352e67b1730e6e00b5719bec2324c3723d6bd863.svn-base
+* PetV1.3\.svn\pristine\35\3546c3e79b202543d3057b42fbe500d76c26727a.svn-base
+* PetV1.3\.svn\pristine\35\355e0b9f31e6c1d7c39a47771e4c7027ec8a333b.svn-base
+* PetV1.3\.svn\pristine\35\35605831dc296d73cfd8ca468cfa1b0a31d3b78a.svn-base
+* PetV1.3\.svn\pristine\35\356849d4e4c79c5d0ce476787562604b34ec5084.svn-base
+* PetV1.3\.svn\pristine\35\35957c2a81aee02173dd56562fdbe0598c652b8f.svn-base
+* PetV1.3\.svn\pristine\35\35a0d03ab4958c79c761d247fbbaca4c9c506f8c.svn-base
+* PetV1.3\.svn\pristine\35\35a97496e6f0b5e831557959f9edf48516ec665e.svn-base
+* PetV1.3\.svn\pristine\36\
+* PetV1.3\.svn\pristine\36\3604af0967801ba9723c0972e2c92086ded8d97d.svn-base
+* PetV1.3\.svn\pristine\36\3623ccf74dd6ecca6f0a44305df2f2556a871495.svn-base
+* PetV1.3\.svn\pristine\36\3651714b2abfe6ec8c7eef5da6d515e40f0b9adf.svn-base
+* PetV1.3\.svn\pristine\36\3662ddceef35426481249b647f4bb01b9377c8e4.svn-base
+* PetV1.3\.svn\pristine\36\367a75cfc1c74ed503cae56113d249e8b90270db.svn-base
+* PetV1.3\.svn\pristine\36\36987e86f8a9860c1d69286222757661b17948da.svn-base
+* PetV1.3\.svn\pristine\36\36d663ea60d42aa17878a7dc23e291bc47379e4b.svn-base
+* PetV1.3\.svn\pristine\37\
+* PetV1.3\.svn\pristine\37\371f91ebfe4076538aed703927ea347354928663.svn-base
+* PetV1.3\.svn\pristine\37\37360276faf0a781fedbf14a10ff79bd111c2d18.svn-base
+* PetV1.3\.svn\pristine\37\375bae94da625ab047b16b37101cd68f43707af7.svn-base
+* PetV1.3\.svn\pristine\37\378323d46b6a31a6643eb3cddb626d79c3e4a83a.svn-base
+* PetV1.3\.svn\pristine\37\3790ec254f0ba22babfd2b8958cbda318c7aaeee.svn-base
+* PetV1.3\.svn\pristine\37\379d5998cb44dca452e7c4fbc6fec0aca2616b9a.svn-base
+* PetV1.3\.svn\pristine\37\37a0321a3ac0296a3cbaae2868e6e47a43674aef.svn-base
+* PetV1.3\.svn\pristine\37\37df98baa6ad13450e75615c8e52c9e2f841d4a3.svn-base
+* PetV1.3\.svn\pristine\38\
+* PetV1.3\.svn\pristine\38\3812e488eb9e22f07802678e50266dfed839333c.svn-base
+* PetV1.3\.svn\pristine\38\381601d139ed2af729fe59257e6cc0b145bb424b.svn-base
+* PetV1.3\.svn\pristine\38\38231724a57be5d4d3f5efff7981fde02c589321.svn-base
+* PetV1.3\.svn\pristine\38\384faa82e193d4e4b0546059ca09572654bc3970.svn-base
+* PetV1.3\.svn\pristine\38\3856e42fe8c168b5359543445816572142801bee.svn-base
+* PetV1.3\.svn\pristine\38\385c259122294370838d3bdefc0f334e6c44f1ff.svn-base
+* PetV1.3\.svn\pristine\38\3870d010b46dd0f650c410d27cfab6451951cea2.svn-base
+* PetV1.3\.svn\pristine\38\388a0773cbeedd2ca1d9fd86313466cb82aa6c79.svn-base
+* PetV1.3\.svn\pristine\38\38bddda0d6ddaab0756df886fec65e57b7d464bc.svn-base
+* PetV1.3\.svn\pristine\39\
+* PetV1.3\.svn\pristine\39\392b7d69473e9895aebf283474e0d512e8912888.svn-base
+* PetV1.3\.svn\pristine\39\393a118c5a21fd32ce3006bfc092d4dc0a3332e9.svn-base
+* PetV1.3\.svn\pristine\39\394a2c7e0b650ac1afd4fd5c1de5eb2ef10415fb.svn-base
+* PetV1.3\.svn\pristine\39\399f3c7f0ee200077fd363dcabb922312bb498f5.svn-base
+* PetV1.3\.svn\pristine\39\39a4af7daa262b049ad99695d4cb775beee19a8a.svn-base
+* PetV1.3\.svn\pristine\39\39a6427da9a76da091cdd81ad235b92e346d5ab6.svn-base
+* PetV1.3\.svn\pristine\39\39dda3f018b7267bffe36ad88f75ab76f7bb7a88.svn-base
+* PetV1.3\.svn\pristine\3a\
+* PetV1.3\.svn\pristine\3a\3a3530f623aba69698525312727e9d2e019d3710.svn-base
+* PetV1.3\.svn\pristine\3a\3a73df7aaefb6831e38ea10831d61b29de1bf0d3.svn-base
+* PetV1.3\.svn\pristine\3a\3af548540adc60fbf298f730121541efc3e28c8f.svn-base
+* PetV1.3\.svn\pristine\3b\
+* PetV1.3\.svn\pristine\3b\3b16e62873e092455dd61750c85080bfb04e63e9.svn-base
+* PetV1.3\.svn\pristine\3b\3b3d9ab70ddc813b0211b53148b243ae439a7037.svn-base
+* PetV1.3\.svn\pristine\3b\3b453c2f16ad79ee257e75ec9bc924fbde7c1cfc.svn-base
+* PetV1.3\.svn\pristine\3b\3b4917864bcd12fac3975ce5a36d55c4e90bcc37.svn-base
+* PetV1.3\.svn\pristine\3b\3b8c2bc5aa2b6f462c7930dcdbc3afd218e1e278.svn-base
+* PetV1.3\.svn\pristine\3b\3baf549235a6ec79170af36114f07b388204e77c.svn-base
+* PetV1.3\.svn\pristine\3b\3bb66feb1098e3e85f0cd804005218f469be41b7.svn-base
+* PetV1.3\.svn\pristine\3c\
+* PetV1.3\.svn\pristine\3c\3c0968d26f793bd2bf1eacfdba328d04b6156481.svn-base
+* PetV1.3\.svn\pristine\3c\3c110285336e249d0857b6d89193879d1fc6c288.svn-base
+* PetV1.3\.svn\pristine\3c\3c1a8ae43f00e58d6a131fc69c6a7c4a10811d8c.svn-base
+* PetV1.3\.svn\pristine\3c\3c335945899de596a9bcf7b514cb55f49ff4aff7.svn-base
+* PetV1.3\.svn\pristine\3c\3c55176d1f54aa1887e8cb6c81cdc50fdd256bc9.svn-base
+* PetV1.3\.svn\pristine\3c\3c886a4622df0bdf267dd1fb4a4c5e7dfd7f1884.svn-base
+* PetV1.3\.svn\pristine\3c\3ca00698b076bc1268235dc2267ef316ed4bf7a0.svn-base
+* PetV1.3\.svn\pristine\3c\3cb279fc395264d97100c6c0a2fdddb3f787dc0b.svn-base
+* PetV1.3\.svn\pristine\3c\3cc310788755e62a5d38fed2f1ec49c77fa43706.svn-base
+* PetV1.3\.svn\pristine\3c\3ce9ca2af4a17192ba7ff309d78451a8a2dee049.svn-base
+* PetV1.3\.svn\pristine\3c\3cf9d41c5e14185df813ac6c2ae08ececd34b0fe.svn-base
+* PetV1.3\.svn\pristine\3d\
+* PetV1.3\.svn\pristine\3d\3d4c3d43fdca4bc9b2363d2aa7ab6ddde33a53fb.svn-base
+* PetV1.3\.svn\pristine\3d\3d508206900ed4621a50ebe14bff47330117732f.svn-base
+* PetV1.3\.svn\pristine\3d\3d51cd5302078b844878d29744090cfd65ac4943.svn-base
+* PetV1.3\.svn\pristine\3d\3d80513c66d3d748316915645eb9d1946caec21c.svn-base
+* PetV1.3\.svn\pristine\3d\3d9e9482eaf28a26dd729f14fd139bead65477f9.svn-base
+* PetV1.3\.svn\pristine\3d\3df4886ef3f322085ef153bbf07f059ff708f779.svn-base
+* PetV1.3\.svn\pristine\3d\3df626f19e0994ba9d5a0ce38e73d279cd12f2a3.svn-base
+* PetV1.3\.svn\pristine\3e\
+* PetV1.3\.svn\pristine\3e\3e3ea4bb686d68de8630528b74fb620d7caaeb0b.svn-base
+* PetV1.3\.svn\pristine\3e\3e891976b3af6439920f003686e6737e29330d91.svn-base
+* PetV1.3\.svn\pristine\3e\3e8cc580460b08e11eb6af14be8c90a09d4f7a2e.svn-base
+* PetV1.3\.svn\pristine\3e\3ea41ec8cc9dc71ca2a4f9c96deec4aeb9114905.svn-base
+* PetV1.3\.svn\pristine\3e\3ea651476333e45643bccf1fe8b670ebf80aef96.svn-base
+* PetV1.3\.svn\pristine\3e\3eae90989a1b811111f87ad3bcd3fee4ff4e1a7c.svn-base
+* PetV1.3\.svn\pristine\3e\3ed4ece88e00ddb4a2923440b974efbc2688c768.svn-base
+* PetV1.3\.svn\pristine\3f\
+* PetV1.3\.svn\pristine\3f\3f01ea3120e04359e48af2e630a6c6383df3d478.svn-base
+* PetV1.3\.svn\pristine\3f\3f3490f9fadc400974384cc7ff9008905ecedfe8.svn-base
+* PetV1.3\.svn\pristine\3f\3f39bfd2116b3c913c9cd305fe7d840567d3ad94.svn-base
+* PetV1.3\.svn\pristine\3f\3f65904e5a50512637983f0fac6d8d368aab2082.svn-base
+* PetV1.3\.svn\pristine\3f\3f886668f7a962f92fbd2a0db060cb0f8d619f53.svn-base
+* PetV1.3\.svn\pristine\3f\3ff0dc511895bd3938f492ba709c165da0d2272a.svn-base
+* PetV1.3\.svn\pristine\40\
+* PetV1.3\.svn\pristine\40\40642d8e9bb11dda05c3642c95e26cf37c6759d4.svn-base
+* PetV1.3\.svn\pristine\40\4069039fa001b075f55a5bbaa165c2af9952c137.svn-base
+* PetV1.3\.svn\pristine\40\40c942e439a6ede5137edf996e1293b83370adb2.svn-base
+* PetV1.3\.svn\pristine\41\
+* PetV1.3\.svn\pristine\41\41fae17e548fdd441d07101bc030d3cfcfa477a9.svn-base
+* PetV1.3\.svn\pristine\41\41fc0c12f56904e73b53021faff8d3cde4679af0.svn-base
+* PetV1.3\.svn\pristine\42\
+* PetV1.3\.svn\pristine\42\42241709448b5eb534b7e4f3f1531ff23098f6c0.svn-base
+* PetV1.3\.svn\pristine\42\42278ed0480183e443bac37f8aec3c43a3b13cd9.svn-base
+* PetV1.3\.svn\pristine\42\42673ab1dfcd27639f4e62a1db5910d376e8f620.svn-base
+* PetV1.3\.svn\pristine\42\42b5f17b99c5c52bad177f8945ccd256ad0a9991.svn-base
+* PetV1.3\.svn\pristine\42\42e1c4ae358b8ec6886381ed60550488faaf0a7c.svn-base
+* PetV1.3\.svn\pristine\42\42e8b14453a1781be282fb5291f181933e201bb4.svn-base
+* PetV1.3\.svn\pristine\43\
+* PetV1.3\.svn\pristine\43\43466c0e948ad95cd5f402a9a62f730aba9665a7.svn-base
+* PetV1.3\.svn\pristine\43\435a8a94c25b7590dbaadb4b0ca0d22233710baf.svn-base
+* PetV1.3\.svn\pristine\43\4392cf8b3fe255cb7adf2f845837ddbf78cb219a.svn-base
+* PetV1.3\.svn\pristine\43\439bf92eeae88e6955d7983beb8e84cc12af8c80.svn-base
+* PetV1.3\.svn\pristine\43\43a95f29e53a8da4b20af8dec315b33c02600720.svn-base
+* PetV1.3\.svn\pristine\43\43ffc7f3f41c815606e83179264cfe52b4a674e1.svn-base
+* PetV1.3\.svn\pristine\44\
+* PetV1.3\.svn\pristine\44\441e6c08a737e41a16362cdde11ce1b2c772290f.svn-base
+* PetV1.3\.svn\pristine\44\4436802d05c07a77e3427f9be5ffc810de1ea108.svn-base
+* PetV1.3\.svn\pristine\44\44603f41dd40474d175001f32d69c7d5c939c3ee.svn-base
+* PetV1.3\.svn\pristine\44\4490b6b09423e3c5599d0c7bda254f5435ef23a7.svn-base
+* PetV1.3\.svn\pristine\44\44a449fedd584cd9a3bf3ac663c9ede77e3a5766.svn-base
+* PetV1.3\.svn\pristine\44\44e23e96c645cc82f38547d6c2ad6dba5879e73c.svn-base
+* PetV1.3\.svn\pristine\45\
+* PetV1.3\.svn\pristine\45\45073c6586656cbea6eb2a5d257904acba4fd438.svn-base
+* PetV1.3\.svn\pristine\45\453a58f764dfadcaa091dc773c9395905bf27773.svn-base
+* PetV1.3\.svn\pristine\45\456b160bfcd25d5f515a92d890b6634e58cab9e1.svn-base
+* PetV1.3\.svn\pristine\46\
+* PetV1.3\.svn\pristine\46\4619bbfd7e5f03eb7135e0384eacf64ad75a3598.svn-base
+* PetV1.3\.svn\pristine\46\4663f731ea85933590074844cb60fddff5d58255.svn-base
+* PetV1.3\.svn\pristine\46\467fa1769345f002c0bbf450da175347b2acb52e.svn-base
+* PetV1.3\.svn\pristine\46\4686d09d202193cb3c9ce55d25bfaf15bf80e906.svn-base
+* PetV1.3\.svn\pristine\47\
+* PetV1.3\.svn\pristine\47\470ac90324487538dfaa71197eaafd691349fb07.svn-base
+* PetV1.3\.svn\pristine\47\47142922b95430771fb53078163dcb32504c8f14.svn-base
+* PetV1.3\.svn\pristine\47\471edb8603a1c547df2b9b4f830c97a881d325a6.svn-base
+* PetV1.3\.svn\pristine\47\47459db6a3d1c24fc27a0e7b49cf3ca840840e89.svn-base
+* PetV1.3\.svn\pristine\47\474ac3682e12400b4c95d229d47f4a69857a228e.svn-base
+* PetV1.3\.svn\pristine\47\474ef8d53eb488a97231122467cf0d90279b7166.svn-base
+* PetV1.3\.svn\pristine\47\475558b195ba6fa5da7eb11110f6964ddbc85d59.svn-base
+* PetV1.3\.svn\pristine\47\477c9b52dfaf55637cf7dd16ab87290d9c467ec3.svn-base
+* PetV1.3\.svn\pristine\47\477fcbae5066677769d8a184a7e91584425e0aae.svn-base
+* PetV1.3\.svn\pristine\47\47a44728d9da719fbe90029988fb98207c87d540.svn-base
+* PetV1.3\.svn\pristine\47\47af38767a93962e4b0c5160fba15f49247382a2.svn-base
+* PetV1.3\.svn\pristine\47\47d28cae9acef1d31a0930eaa82fc9375c974e72.svn-base
+* PetV1.3\.svn\pristine\48\
+* PetV1.3\.svn\pristine\48\4813c92eee725f7ab8f808d0b6cf3dd703d741bf.svn-base
+* PetV1.3\.svn\pristine\48\4822b0789cb3e7c24f10eb48f3626f525e94b045.svn-base
+* PetV1.3\.svn\pristine\48\48267fbf3da8b0ea25b8b5ec3d009b779c0c1ce8.svn-base
+* PetV1.3\.svn\pristine\48\4850182ad27ab63facfb4320b6254510fffaf5eb.svn-base
+* PetV1.3\.svn\pristine\48\486150f3eb08837b90afa4d6cae364abd2bc35a7.svn-base
+* PetV1.3\.svn\pristine\48\486b63e8a08df33ed2d044bf9fecb20d5512d69c.svn-base
+* PetV1.3\.svn\pristine\48\487ee92becee404d8941165910bf8fb6f89a29b0.svn-base
+* PetV1.3\.svn\pristine\48\48948145febc6755b6ed5a68fe222cc6ef7f607e.svn-base
+* PetV1.3\.svn\pristine\49\
+* PetV1.3\.svn\pristine\49\490fc4e6ba20e4b2531ec990351cd96187bc54e5.svn-base
+* PetV1.3\.svn\pristine\49\494ffc6c93c988cca455492ec687ca55bbdc691c.svn-base
+* PetV1.3\.svn\pristine\49\49772ed44bee52352168404716b86c29d859d604.svn-base
+* PetV1.3\.svn\pristine\49\4977df96571d28f5c31cd54aef56a706cf7eeef0.svn-base
+* PetV1.3\.svn\pristine\49\49ca9ccd55c4d7bbb7a5eb8451ad581ec734010f.svn-base
+* PetV1.3\.svn\pristine\49\49d31b58fe118408cdc640efb4c9fea65dbd37c3.svn-base
+* PetV1.3\.svn\pristine\4a\
+* PetV1.3\.svn\pristine\4a\4a1a20a567010c94127a2c423a8c584e7d9f2e1b.svn-base
+* PetV1.3\.svn\pristine\4a\4a2472700ab9591d525ea895d7bb1edc9b950ac7.svn-base
+* PetV1.3\.svn\pristine\4a\4a74ca70a3b4ea40ea02991d7ee67a5efa710c17.svn-base
+* PetV1.3\.svn\pristine\4a\4a8716d91832ab3792b53ddb8d4b8ec265767224.svn-base
+* PetV1.3\.svn\pristine\4a\4a89ddeaf1b4accc147b59fcdce591c5262666a4.svn-base
+* PetV1.3\.svn\pristine\4a\4a9d56aa5b50df615996e838f36d18f138fa73c8.svn-base
+* PetV1.3\.svn\pristine\4a\4aaabb174ece6dc8b1dab2b315c962a80e388b5c.svn-base
+* PetV1.3\.svn\pristine\4b\
+* PetV1.3\.svn\pristine\4b\4b1a99936972cdf84927a0f3156f6eeb0cf14f53.svn-base
+* PetV1.3\.svn\pristine\4b\4b1cbd0757d67dd65c9cd9d82b8c0beff5aa10c2.svn-base
+* PetV1.3\.svn\pristine\4b\4b2ffb0f0028e28f36fe6f44f1fcf49d11ebeda9.svn-base
+* PetV1.3\.svn\pristine\4b\4b3660383993460524d7246c28aa3dd3561f7465.svn-base
+* PetV1.3\.svn\pristine\4b\4b38210a0f6e8ea2626ca066c9aa572391d8f1b8.svn-base
+* PetV1.3\.svn\pristine\4b\4b638a4a5d85924bd1958b3b1dd56ee21b5dabd5.svn-base
+* PetV1.3\.svn\pristine\4b\4ba270995b9062e2a87fb53f5030c761f01ef83d.svn-base
+* PetV1.3\.svn\pristine\4c\
+* PetV1.3\.svn\pristine\4c\4c1c8f44bc8dff4df6ebc28096723ae5845a3a92.svn-base
+* PetV1.3\.svn\pristine\4c\4cd17abc6e4495e9a46f4df7899858d1d968f1af.svn-base
+* PetV1.3\.svn\pristine\4c\4cd5e6a0a099814e016a20a5ef46b66193bce211.svn-base
+* PetV1.3\.svn\pristine\4c\4cdc8411fcd7798947727a9ccf851985ae369336.svn-base
+* PetV1.3\.svn\pristine\4d\
+* PetV1.3\.svn\pristine\4d\4d018bfdc532593663f26c91a7a189199b9f4438.svn-base
+* PetV1.3\.svn\pristine\4d\4d1bda0cecfe8cc2cf24b787ac45bc5a96226d91.svn-base
+* PetV1.3\.svn\pristine\4d\4db99f52f10c825dc02eccc6793a956c9f1fbb1c.svn-base
+* PetV1.3\.svn\pristine\4d\4dfada797ffc16a0bda93de93a4211b04879d631.svn-base
+* PetV1.3\.svn\pristine\4e\
+* PetV1.3\.svn\pristine\4e\4e24d4b957b73e2b2e6e59bf6e32214fd4d5aba9.svn-base
+* PetV1.3\.svn\pristine\4e\4e2c3931e04cc2424021a49e8853137bdb10d837.svn-base
+* PetV1.3\.svn\pristine\4e\4e406b0c643cd302ac93b59c620ddce0960aa4d4.svn-base
+* PetV1.3\.svn\pristine\4e\4e72f8d84b4d58dec1f1a0d5b3e716b3923373d5.svn-base
+* PetV1.3\.svn\pristine\4e\4e8d578f70869283384fd4ac7ab87e46c08c69d5.svn-base
+* PetV1.3\.svn\pristine\4e\4ed04a20cd2ffce81554ac11c39c117b66459391.svn-base
+* PetV1.3\.svn\pristine\4e\4ed13778c910c4ac59123a1a275527c31e06d1f6.svn-base
+* PetV1.3\.svn\pristine\4e\4eebad7af6ce575e2bf6ab08163403f270304409.svn-base
+* PetV1.3\.svn\pristine\4f\
+* PetV1.3\.svn\pristine\4f\4f165857868aec2856479fff5f0fae00e4185ea1.svn-base
+* PetV1.3\.svn\pristine\4f\4f47870e456b75fab9262d96740f0fd133e89d3e.svn-base
+* PetV1.3\.svn\pristine\4f\4f5b149ddd1bda72f5ba72e195b9a5949287c1d4.svn-base
+* PetV1.3\.svn\pristine\4f\4f658f43b302dcab52c00714e9f697a85a68abbb.svn-base
+* PetV1.3\.svn\pristine\4f\4f717a6d4dce00e42201f7de6d89d3f04caf7268.svn-base
+* PetV1.3\.svn\pristine\4f\4f71a959dc882f92661ef2c2f1b0844176140852.svn-base
+* PetV1.3\.svn\pristine\4f\4f925e5090950ab0490c557a0c691bf8a588ceae.svn-base
+* PetV1.3\.svn\pristine\4f\4fabd1b4440a6ba1737dd0f9264a90b7cafd0a29.svn-base
+* PetV1.3\.svn\pristine\4f\4feaf979a4f817ca48f0d79c8e346bfe4cde84f2.svn-base
+* PetV1.3\.svn\pristine\4f\4fecbf653d71102cd40ff604c4fff6730b59cb9a.svn-base
+* PetV1.3\.svn\pristine\50\
+* PetV1.3\.svn\pristine\50\5017107f5a315ec1e73a933c95c65dfdc69da7fd.svn-base
+* PetV1.3\.svn\pristine\50\5078a5771f6d453a1559bdc2ba5820bf4005aab0.svn-base
+* PetV1.3\.svn\pristine\50\508a7afe26035c96079bd69025081ab0391ca5ef.svn-base
+* PetV1.3\.svn\pristine\50\50a83781ef4f399f6ad24d5f0f288a35e1678cca.svn-base
+* PetV1.3\.svn\pristine\50\50d9d3d084d92dc6aeb5e327c7cc39d37642f718.svn-base
+* PetV1.3\.svn\pristine\50\50f190067e50b30ccb769894ca72caf01eb7a864.svn-base
+* PetV1.3\.svn\pristine\51\
+* PetV1.3\.svn\pristine\51\51050965002b65d68d72373ded2dce044a597f92.svn-base
+* PetV1.3\.svn\pristine\51\5105ad120d9afac2ca2d6d921b5bd88473731dd3.svn-base
+* PetV1.3\.svn\pristine\51\5125f8bdbb2127704968335788d22b1538e3ebf8.svn-base
+* PetV1.3\.svn\pristine\51\51827da235b5391354fd1bb3757ea8eafa421400.svn-base
+* PetV1.3\.svn\pristine\51\51c93b3f97ab8e30953934c918add6e74b536caa.svn-base
+* PetV1.3\.svn\pristine\52\
+* PetV1.3\.svn\pristine\52\522ee4d26538ca9a6fb6ab43652cd73d2870fec3.svn-base
+* PetV1.3\.svn\pristine\52\522f6c06ebdc329f76189795251df78325fabd74.svn-base
+* PetV1.3\.svn\pristine\52\52ab200f29ce2d45f618fb61e4cabc49e160eee1.svn-base
+* PetV1.3\.svn\pristine\52\52b3ffb415f919cc359761648c6315e73d1a78d8.svn-base
+* PetV1.3\.svn\pristine\52\52c46587dbb336d0bc87c8b75187386d582eac6f.svn-base
+* PetV1.3\.svn\pristine\53\
+* PetV1.3\.svn\pristine\53\53112574d4a0a4217c8901721d071e18fa8eee68.svn-base
+* PetV1.3\.svn\pristine\53\5320fd78dd7f154e586970d4f02befc9b58432aa.svn-base
+* PetV1.3\.svn\pristine\53\5323861f87d9d5f015625495e51bf6a8d30d2d3c.svn-base
+* PetV1.3\.svn\pristine\53\535e2434f0a637480a2a3753777c0fd54b454af6.svn-base
+* PetV1.3\.svn\pristine\53\536fdbb09f11ceefcbf7009b3402c2a640e9ef33.svn-base
+* PetV1.3\.svn\pristine\53\53772171374bef961bf1abae6457ea3ce3cfc877.svn-base
+* PetV1.3\.svn\pristine\53\53a983f1e75b47653610eeb6b543a27c5a7cf514.svn-base
+* PetV1.3\.svn\pristine\53\53af39838ce92204f3c3a9931ce4646f6094f40e.svn-base
+* PetV1.3\.svn\pristine\53\53cb392045cca228b929fe3493527b8dac28541b.svn-base
+* PetV1.3\.svn\pristine\54\
+* PetV1.3\.svn\pristine\54\540d5f72d2ac061a2a1f314d3029d4a8a4fcde4e.svn-base
+* PetV1.3\.svn\pristine\54\54136edeb71048461d6a961b8ca610c16b1421da.svn-base
+* PetV1.3\.svn\pristine\54\54313a59c6bb84830faf4b5ed6899b9a7b7321f5.svn-base
+* PetV1.3\.svn\pristine\54\543df88ed3823f57a79192048855ed001769e78b.svn-base
+* PetV1.3\.svn\pristine\54\5454c83451f16cb0eb1990fb6d2506f2f6d89283.svn-base
+* PetV1.3\.svn\pristine\54\549b568477c3485f17d51065adfc839cb5b1f010.svn-base
+* PetV1.3\.svn\pristine\54\54a9b62e8bca038b11e6e9da92b76f65d4526b1e.svn-base
+* PetV1.3\.svn\pristine\54\54f09ddf3bee6a153299d01b6f03f82718cd7325.svn-base
+* PetV1.3\.svn\pristine\55\
+* PetV1.3\.svn\pristine\55\55272e6eb40a8094fb61f854cc12f71b00eee99d.svn-base
+* PetV1.3\.svn\pristine\55\555add79953d168b020f222175b42b0f0a76eb1e.svn-base
+* PetV1.3\.svn\pristine\55\55950437f49c4f5f293df25eeec38858905e96bf.svn-base
+* PetV1.3\.svn\pristine\55\55a5c34ea0d916161c4eacf1b661a5522024786c.svn-base
+* PetV1.3\.svn\pristine\55\55dedb009441f721bc86e372bb7e312b48d972a4.svn-base
+* PetV1.3\.svn\pristine\55\55ec661795f28ebc2a46879fd22bb0e8d150281b.svn-base
+* PetV1.3\.svn\pristine\55\55edd64cdb518b4c66e8cc772bd8fac70a2a3feb.svn-base
+* PetV1.3\.svn\pristine\56\
+* PetV1.3\.svn\pristine\56\56297aa7f0847f9d47d4ffeda8e3851165be8c27.svn-base
+* PetV1.3\.svn\pristine\56\563df2bf8515e4af94855c33cbb006d2c55db291.svn-base
+* PetV1.3\.svn\pristine\56\56737d3fa5ba9cfa8016958c1d458f0331ad752f.svn-base
+* PetV1.3\.svn\pristine\56\567e89ae56c3af617476c3308432436c73db230b.svn-base
+* PetV1.3\.svn\pristine\56\5690f9af4bb7e6ceca28191e8f91e5269037efe8.svn-base
+* PetV1.3\.svn\pristine\56\56c8ba2ce384ddff09e25a1e359e6369b00565bf.svn-base
+* PetV1.3\.svn\pristine\56\56daec2a780f7f0c21b2657fb659a6d592698eae.svn-base
+* PetV1.3\.svn\pristine\56\56e8f917ee90c658b88d4c40c8f331835a8a1667.svn-base
+* PetV1.3\.svn\pristine\57\
+* PetV1.3\.svn\pristine\57\57291d006e477f016a574d203ac97cde4ec7cae6.svn-base
+* PetV1.3\.svn\pristine\57\57b362046c732d4c3aab2ffc05363b6ed0165285.svn-base
+* PetV1.3\.svn\pristine\57\57c9c1e40b05b4a27e22ba7a72fa392ff1d113bc.svn-base
+* PetV1.3\.svn\pristine\57\57ef77eae40705ef6f49ec1b7a5c1d6571b80287.svn-base
+* PetV1.3\.svn\pristine\58\
+* PetV1.3\.svn\pristine\58\58120247e506d9323442466d497d312a62e73b91.svn-base
+* PetV1.3\.svn\pristine\58\5826354415fca920c47690fc33cc58957a07d097.svn-base
+* PetV1.3\.svn\pristine\58\5834cf23855c0876d549d6ed5518ca2f5dae6a14.svn-base
+* PetV1.3\.svn\pristine\58\584203128ed9bb7740a4daa69b41c66c96d09b8c.svn-base
+* PetV1.3\.svn\pristine\58\585c27eb0529d7c233bbfb735866cb05ef619d07.svn-base
+* PetV1.3\.svn\pristine\58\587946f0bab05ef8819bea9582934dad4c26d18c.svn-base
+* PetV1.3\.svn\pristine\58\58b38fc25f6d9dd90d9ca68361c98b66567a8cd9.svn-base
+* PetV1.3\.svn\pristine\58\58d4de1c02042ab9bd1f6d0d9e5b2213b50bfdef.svn-base
+* PetV1.3\.svn\pristine\59\
+* PetV1.3\.svn\pristine\59\5912498c966a88ef3780df3f2662632d53b1c554.svn-base
+* PetV1.3\.svn\pristine\59\5924cb407d5fc90f6cf1e20bc89fd43a936ee9c0.svn-base
+* PetV1.3\.svn\pristine\59\59280214e748ca419ee632d1b4e871e67d01a4b4.svn-base
+* PetV1.3\.svn\pristine\59\5941243d760b33e7f72ff182f55eaac4850944f6.svn-base
+* PetV1.3\.svn\pristine\59\59b08cc1a7fb8d465f7c2ecc490a279f896a6c0e.svn-base
+* PetV1.3\.svn\pristine\59\59cbbc5c5cd8aa3202c125bbc46810b9ffef10cd.svn-base
+* PetV1.3\.svn\pristine\59\59fb74d2813144f65ec10d90061b4026f1fea0cf.svn-base
+* PetV1.3\.svn\pristine\5a\
+* PetV1.3\.svn\pristine\5a\5a0f98b98a332d1de571982cf9ceeed06efbc5c6.svn-base
+* PetV1.3\.svn\pristine\5a\5a0fb71205fc0afa2038479fd00f87b847ef5d4c.svn-base
+* PetV1.3\.svn\pristine\5a\5a110a1b27d5993e6815cc6af7285fa45548f9b5.svn-base
+* PetV1.3\.svn\pristine\5a\5a479c20dd0344be7833fb4b00f18f0e7eab717e.svn-base
+* PetV1.3\.svn\pristine\5a\5a518235931001b94e87540c99bd13258f614622.svn-base
+* PetV1.3\.svn\pristine\5a\5a57db3e01441ad130a9576e8444380091541205.svn-base
+* PetV1.3\.svn\pristine\5a\5a75c80f03b873b481fbe7681e0bafb152506cb8.svn-base
+* PetV1.3\.svn\pristine\5a\5a7ba59dde07237ad1f448355f195b7faf2d21b9.svn-base
+* PetV1.3\.svn\pristine\5a\5a978353722590218a9d6f98618fde0ca3f40112.svn-base
+* PetV1.3\.svn\pristine\5a\5ab3706d1d4ba2ff438783b8e338ed8a088d6c62.svn-base
+* PetV1.3\.svn\pristine\5a\5ab3929e4d763c2489e5d35a9cee40f31228bc56.svn-base
+* PetV1.3\.svn\pristine\5a\5abb522a4d5c0f6da8f644b900a5f2917a2daa5e.svn-base
+* PetV1.3\.svn\pristine\5a\5af05dfffeeae41f79a21bb013b954d3b200239a.svn-base
+* PetV1.3\.svn\pristine\5a\5af0dca426542d38c9de53352304374ada4b1323.svn-base
+* PetV1.3\.svn\pristine\5b\
+* PetV1.3\.svn\pristine\5b\5b09fe5c62262584eaaf2e2076de74f52afc9c22.svn-base
+* PetV1.3\.svn\pristine\5b\5b5deb7aa965e02bef9853889c8f8e251ef0deac.svn-base
+* PetV1.3\.svn\pristine\5b\5b76895a5f1e9a4b8eb1397a4dbeb44eb032e01c.svn-base
+* PetV1.3\.svn\pristine\5b\5b9203f39e25bc3b61424e97551b36c9a2ba6185.svn-base
+* PetV1.3\.svn\pristine\5b\5bda2a562790d191ba26ef781e6cea68b3a358a6.svn-base
+* PetV1.3\.svn\pristine\5c\
+* PetV1.3\.svn\pristine\5c\5c366debb14cca224ae2b5e748666195f6105493.svn-base
+* PetV1.3\.svn\pristine\5c\5c5c118f65a0703252a3ac3545f8d00c4f92fec5.svn-base
+* PetV1.3\.svn\pristine\5c\5c9ef0a5bc492310a5f63238d677ed514ad0b0c4.svn-base
+* PetV1.3\.svn\pristine\5c\5c9fb497feefc79d4c8da3a2947196a432c0de4e.svn-base
+* PetV1.3\.svn\pristine\5c\5cdcdbaeb5eabda78c7b5d0c8dd7eac8a3a26a9f.svn-base
+* PetV1.3\.svn\pristine\5c\5cf0c72a5b35e8460ca97ce004457641cf34cbed.svn-base
+* PetV1.3\.svn\pristine\5d\
+* PetV1.3\.svn\pristine\5d\5d0f08f71382fc251b0539c1bccff8165569d89a.svn-base
+* PetV1.3\.svn\pristine\5d\5d6886d95560cece6b12aaff60b3403a6f4896a9.svn-base
+* PetV1.3\.svn\pristine\5d\5da38b29776cacbc2effa775a3c5af1fb6d36c63.svn-base
+* PetV1.3\.svn\pristine\5d\5de53378969327a90000047c5b0094cf9901c561.svn-base
+* PetV1.3\.svn\pristine\5d\5deb7446d71b9386d2bb01297d0317a0a41b725b.svn-base
+* PetV1.3\.svn\pristine\5e\
+* PetV1.3\.svn\pristine\5e\5e2ba7b35c98081b056fcaa425a074aacbdb2536.svn-base
+* PetV1.3\.svn\pristine\5e\5e2eb61e3a0c097cd097b96a7c4be359282384ac.svn-base
+* PetV1.3\.svn\pristine\5e\5e3be80fa4f5412e48fb3003149d516a41ebd692.svn-base
+* PetV1.3\.svn\pristine\5e\5e46439742f9f508f6efd2bb0567fc10d816109e.svn-base
+* PetV1.3\.svn\pristine\5e\5e78cda402e05217db7169902113352c9e749e61.svn-base
+* PetV1.3\.svn\pristine\5e\5e79dbcf407cea9b7370c3af7ca91a9e3693d0d3.svn-base
+* PetV1.3\.svn\pristine\5e\5ef93b2dabd272c3ddb375fb33eb26c6792647d4.svn-base
+* PetV1.3\.svn\pristine\5f\
+* PetV1.3\.svn\pristine\5f\5f2d3ecc7cf32cdf2d35ea90c1e97527a1248a3f.svn-base
+* PetV1.3\.svn\pristine\5f\5f37849c309a518ac8dfbf7ddd9cc3a5375f14a1.svn-base
+* PetV1.3\.svn\pristine\5f\5f3c4c5343759e4f87f85fd242f8df6c12b35f6f.svn-base
+* PetV1.3\.svn\pristine\5f\5f58e7ec6c36b67bf7e7dbe7f95c5f0abaf896bd.svn-base
+* PetV1.3\.svn\pristine\5f\5f7461f1e696c44f88fa2dc7124f7007d7c50714.svn-base
+* PetV1.3\.svn\pristine\5f\5fe0303e15577e042cc5537e4fbe863670a529d0.svn-base
+* PetV1.3\.svn\pristine\5f\5ff2af16f3082e68b0cc44f8993b2d7e8207ac4c.svn-base
+* PetV1.3\.svn\pristine\5f\5ff59dbcbcff57df550098882d09e9fff2ea9e5c.svn-base
+* PetV1.3\.svn\pristine\60\
+* PetV1.3\.svn\pristine\60\6012cf145d4380649ae5e973030988b4d4ba925c.svn-base
+* PetV1.3\.svn\pristine\60\606882d2e5711306ddd326f51a6bd230a677ef83.svn-base
+* PetV1.3\.svn\pristine\60\606b14c3941f66a7efd43446f0677e81816e2a7e.svn-base
+* PetV1.3\.svn\pristine\61\
+* PetV1.3\.svn\pristine\61\6102c37104426a47f493280860c6375bd3f503f7.svn-base
+* PetV1.3\.svn\pristine\61\612179f2f3fbb64efee42e6fdde7beadf7da3d7c.svn-base
+* PetV1.3\.svn\pristine\61\612f4e4b4f7eb9520998ee0a5b4dc7c5a6794089.svn-base
+* PetV1.3\.svn\pristine\61\6131eff01aeb4f623fe590839ba11d5966c0d72f.svn-base
+* PetV1.3\.svn\pristine\61\6148f88ea0e6f69fd7692663061298a01ed28871.svn-base
+* PetV1.3\.svn\pristine\61\615a29bbad9e2d6c76a930c2b423035d835c9cc1.svn-base
+* PetV1.3\.svn\pristine\61\6193b5d676b0c68b15f7d6ba9a442a20ef91c7ab.svn-base
+* PetV1.3\.svn\pristine\61\619654a1940afcdeb5d9f98a38fa011dd4312621.svn-base
+* PetV1.3\.svn\pristine\61\61caa1e7adb6b69d0b76571c6f1b5f38cce176d1.svn-base
+* PetV1.3\.svn\pristine\62\
+* PetV1.3\.svn\pristine\62\6200bc6a8c8afd941f60731a61309c85ed24f36b.svn-base
+* PetV1.3\.svn\pristine\62\62432041f5cfabe3f050a5df0cd685ac1425d8cd.svn-base
+* PetV1.3\.svn\pristine\62\625050cdd97a48f78313d9cda507a139537bcf67.svn-base
+* PetV1.3\.svn\pristine\62\62681b8212ca52278feafec31775fd0cb096d99a.svn-base
+* PetV1.3\.svn\pristine\62\627c3231abd72b20928e54aec128d3021dfaf12c.svn-base
+* PetV1.3\.svn\pristine\62\6285e480bde77451a7f2825bd0ca903353d35dd1.svn-base
+* PetV1.3\.svn\pristine\62\6291a68436a9a84de516c22bb44f90e27f1588c8.svn-base
+* PetV1.3\.svn\pristine\62\62bdae21ba12f5662dae96fbe53b590b68997fa1.svn-base
+* PetV1.3\.svn\pristine\63\
+* PetV1.3\.svn\pristine\63\63456acf9698f95fe19c7ed50166671361e3cdb7.svn-base
+* PetV1.3\.svn\pristine\63\63c35acdd57ccca0b669230dc70b877d873175e3.svn-base
+* PetV1.3\.svn\pristine\63\63cedf1c54215132374e1b21850c0178ade41865.svn-base
+* PetV1.3\.svn\pristine\63\63d060bf4b67c67c419e6be041e92e872ad6c6f0.svn-base
+* PetV1.3\.svn\pristine\64\
+* PetV1.3\.svn\pristine\64\64419c2981279f7efcdfff7111da1dabc204c387.svn-base
+* PetV1.3\.svn\pristine\64\64a12ebf6d8f6ac1718d417a2aa51232e8daaf46.svn-base
+* PetV1.3\.svn\pristine\64\64be0f4597c9118c02e2f6ccc211e6536f3e7ca8.svn-base
+* PetV1.3\.svn\pristine\64\64dd9e82870a367caff92631810e0cd757662323.svn-base
+* PetV1.3\.svn\pristine\65\
+* PetV1.3\.svn\pristine\65\652f39e9401705c6685916e07025d224fa6696e1.svn-base
+* PetV1.3\.svn\pristine\65\653427cd41357606e24dca685b971fec2c827925.svn-base
+* PetV1.3\.svn\pristine\65\65666ec5bfcaf652bf78ae29999f1cd03e390f1a.svn-base
+* PetV1.3\.svn\pristine\65\656dc47cc4a55b09dd004828a8c6ecc5cfcd5485.svn-base
+* PetV1.3\.svn\pristine\65\659eea72498740a4c451a6b7af94a26b9b3b5c1c.svn-base
+* PetV1.3\.svn\pristine\65\65bd9bd812870ebe5d05f57d0f99acecb05c7b0b.svn-base
+* PetV1.3\.svn\pristine\65\65c1b943197fb4a2c11eb64d918db277795f2b42.svn-base
+* PetV1.3\.svn\pristine\65\65d05f11beeb9b9e4c6c2c7a3913fd3afcd50529.svn-base
+* PetV1.3\.svn\pristine\65\65e916c20ed9b9334dfcc50531ae821edeefb9e7.svn-base
+* PetV1.3\.svn\pristine\65\65f126d69808484c681698249582c727bd4ec87c.svn-base
+* PetV1.3\.svn\pristine\66\
+* PetV1.3\.svn\pristine\66\66207e661aa1d7455516009a3f89a282de96405c.svn-base
+* PetV1.3\.svn\pristine\66\666275062c72da350e26743a27949046c076b53d.svn-base
+* PetV1.3\.svn\pristine\66\666caaff77a3bc174979d53c91364a0dd7d95389.svn-base
+* PetV1.3\.svn\pristine\66\6690880ae14038f4af166f1af92f4ba86e52c6e4.svn-base
+* PetV1.3\.svn\pristine\66\6691d6a0eb4820f120320e449052919cf657443b.svn-base
+* PetV1.3\.svn\pristine\66\66bfeb30f9dd1e74a1105935808e87cb87b0e6c5.svn-base
+* PetV1.3\.svn\pristine\67\
+* PetV1.3\.svn\pristine\67\67045a2e87db3ed4e4a449089602bae59b893c36.svn-base
+* PetV1.3\.svn\pristine\67\67600638928b8fac59b8b75140728d2c6e0c62de.svn-base
+* PetV1.3\.svn\pristine\67\67a50e3fa8d7a27e727bb5b1528328672899d755.svn-base
+* PetV1.3\.svn\pristine\67\67b6e1f0e088644287514cd72341afdfa395995a.svn-base
+* PetV1.3\.svn\pristine\67\67bfadfd044c1e1bb7be6dccc5723221f52c6a56.svn-base
+* PetV1.3\.svn\pristine\67\67c9055cbe45f35f388ff4d09d707bdf94b6c300.svn-base
+* PetV1.3\.svn\pristine\67\67d1f3e836c3f5bbb84805e8ca0e884443d0c452.svn-base
+* PetV1.3\.svn\pristine\67\67dd99ef64e123811ed335746a1edfcc3e9122df.svn-base
+* PetV1.3\.svn\pristine\67\67e88d23c7e79e569ebb008be14d0f89bb00e785.svn-base
+* PetV1.3\.svn\pristine\68\
+* PetV1.3\.svn\pristine\68\68066dff10fead8471d159509147a3537f3e04c4.svn-base
+* PetV1.3\.svn\pristine\68\68287ac843c13f10c8cecc016455a864caa82784.svn-base
+* PetV1.3\.svn\pristine\68\682a671bf0c3341b115ceb0ff2a7a2d32ebe45cb.svn-base
+* PetV1.3\.svn\pristine\68\6856231b3731cdd00481a1767efae2c32d383cad.svn-base
+* PetV1.3\.svn\pristine\68\6860dc5dc66edc6381bcf64f1048df7a072f4717.svn-base
+* PetV1.3\.svn\pristine\69\
+* PetV1.3\.svn\pristine\69\698d8747f92fc44a5e673fd56248a2d998e400ca.svn-base
+* PetV1.3\.svn\pristine\69\698f2b976debf24612310a891433dcf321f4f396.svn-base
+* PetV1.3\.svn\pristine\69\69bba4d407752ce66f0e8207cf2607a47d23661e.svn-base
+* PetV1.3\.svn\pristine\69\69e44ba54301b9d36cf65c7b220e48ab2ce46e70.svn-base
+* PetV1.3\.svn\pristine\69\69f19dcee8cdf05e7af942100d2ce0fff9278da0.svn-base
+* PetV1.3\.svn\pristine\6a\
+* PetV1.3\.svn\pristine\6a\6a1e0f788f15f9d68a06a1c6825b6586a1886b67.svn-base
+* PetV1.3\.svn\pristine\6a\6a272306a843a02c80d06df700852596924ea68b.svn-base
+* PetV1.3\.svn\pristine\6a\6a2aa91337be5a496fa61b97a7e6b5c1c3babdb4.svn-base
+* PetV1.3\.svn\pristine\6a\6a79b856bb940185217ae67ed3c0b03927f1f6f9.svn-base
+* PetV1.3\.svn\pristine\6a\6af5467cb0da7e22e601deac81edc081fdcdf229.svn-base
+* PetV1.3\.svn\pristine\6b\
+* PetV1.3\.svn\pristine\6b\6b0a40dd979eeae36bb0af391ab2d4d7e91d0676.svn-base
+* PetV1.3\.svn\pristine\6b\6b207b46c38134b40806acf0f07136ebc2031b8e.svn-base
+* PetV1.3\.svn\pristine\6b\6b27dd4466939b4ff04b89e5f908e25fd2da2c3e.svn-base
+* PetV1.3\.svn\pristine\6b\6b802fbfd3b09afcab26a15440575e648c48835e.svn-base
+* PetV1.3\.svn\pristine\6b\6b83b835f4938dfce76e7d5269a0caacac06aa68.svn-base
+* PetV1.3\.svn\pristine\6b\6baee95727704ff49ed701f26886c8c5ec399dc3.svn-base
+* PetV1.3\.svn\pristine\6b\6bb8269b0c7eab340b79651dd318726f9384d078.svn-base
+* PetV1.3\.svn\pristine\6c\
+* PetV1.3\.svn\pristine\6c\6c0cb426a9f343b974ee1c7cec4297664c3482f2.svn-base
+* PetV1.3\.svn\pristine\6c\6c29403a2f9d2b459c3fb26c5a462f0d51fc9184.svn-base
+* PetV1.3\.svn\pristine\6c\6c44e6e8bba1db22a9da3185406dddf29d0c0811.svn-base
+* PetV1.3\.svn\pristine\6c\6c4d142f3f47180324885513433115b4836207f7.svn-base
+* PetV1.3\.svn\pristine\6c\6c53f4284c6eb5d71b22b0635dff3b8b45b256b3.svn-base
+* PetV1.3\.svn\pristine\6c\6c719e3e003a658a30eb59e037aa0350289ac091.svn-base
+* PetV1.3\.svn\pristine\6c\6c8faa6bf4cae686f928f643b285f06b56fd1b6e.svn-base
+* PetV1.3\.svn\pristine\6c\6ca371a7479876be19a700cbd710ff712d832d94.svn-base
+* PetV1.3\.svn\pristine\6c\6cc9721bcbaea438e4dad5d4bc47c1493891e36b.svn-base
+* PetV1.3\.svn\pristine\6c\6ce64490c259e211a5776dcca941a1964eb80ea3.svn-base
+* PetV1.3\.svn\pristine\6c\6cfe6bfe7e7414c5e4ae84e772ce88f505dfcb47.svn-base
+* PetV1.3\.svn\pristine\6d\
+* PetV1.3\.svn\pristine\6d\6d3a0b54532c696b11b3cb7edcc05a08b6315d98.svn-base
+* PetV1.3\.svn\pristine\6d\6d4a6d721b759dd054d2c03da8822b2be3f6b331.svn-base
+* PetV1.3\.svn\pristine\6d\6d70aa916db4ef3e4e38f2a191d4d0af855161af.svn-base
+* PetV1.3\.svn\pristine\6d\6d741a1062c7946d6d15ae575a5d29782bc65ddc.svn-base
+* PetV1.3\.svn\pristine\6d\6db4ba763b7a5f31692d1cb001af9ccbd818666a.svn-base
+* PetV1.3\.svn\pristine\6d\6db667942076679260d6104828a557a9f648a13c.svn-base
+* PetV1.3\.svn\pristine\6e\
+* PetV1.3\.svn\pristine\6e\6e48c5cccebb04de6e22e65f43f19db860816990.svn-base
+* PetV1.3\.svn\pristine\6e\6e7b3e38132d938f0eea3df0407e36469947d45e.svn-base
+* PetV1.3\.svn\pristine\6e\6ebb54a2242112cf7ce5ec3d0e8275a864ee3437.svn-base
+* PetV1.3\.svn\pristine\6e\6ee493b8d8a67a0b5b82766f9291b755b9f0551c.svn-base
+* PetV1.3\.svn\pristine\6e\6ee4fd46309cff2ff3d384c5136e7a0816929d87.svn-base
+* PetV1.3\.svn\pristine\6f\
+* PetV1.3\.svn\pristine\6f\6f23bad55793603b53b39221b8405b3ac37d7850.svn-base
+* PetV1.3\.svn\pristine\6f\6fcaf704a3ba54cdd52b8e49e24b1d7c91958aa1.svn-base
+* PetV1.3\.svn\pristine\70\
+* PetV1.3\.svn\pristine\70\7023c12198fd64ae6377e377bb2d54d623566f7d.svn-base
+* PetV1.3\.svn\pristine\70\705ada7aaf325b8ede97c475d25b69a2aed1f0b9.svn-base
+* PetV1.3\.svn\pristine\70\70b12fc3adc588ac1be1acaa68ecd602e28f5eb3.svn-base
+* PetV1.3\.svn\pristine\70\70b788f96ec72ff8b7be6aa81f735cfe8fb5ddce.svn-base
+* PetV1.3\.svn\pristine\70\70c074f2ffdaa0133368ddfcebb0f9dfc00b9804.svn-base
+* PetV1.3\.svn\pristine\71\
+* PetV1.3\.svn\pristine\71\7153f5f3b5b57e3f491e24cb28115187e27c9987.svn-base
+* PetV1.3\.svn\pristine\71\717cb1bdb16de656c15a8810637ecff820123665.svn-base
+* PetV1.3\.svn\pristine\71\71a08b86e2d746424e12d6dd709de37e93f3fdbe.svn-base
+* PetV1.3\.svn\pristine\71\71a68f6894fe7bdbb35134240561d4c738a64a80.svn-base
+* PetV1.3\.svn\pristine\71\71b20e48fc7675a193db9abb8f9d709e272eec58.svn-base
+* PetV1.3\.svn\pristine\71\71da320b4f647609c8f8de72ae1241a2beff86dd.svn-base
+* PetV1.3\.svn\pristine\71\71ee8d345a639ff456d6d0a57ef587b40c07bb9e.svn-base
+* PetV1.3\.svn\pristine\72\
+* PetV1.3\.svn\pristine\72\720997b5a5a62192cd08abf86bd7ebca5ea9b08d.svn-base
+* PetV1.3\.svn\pristine\72\7248e941e500914f01103aa0ce9a38a190241695.svn-base
+* PetV1.3\.svn\pristine\72\729d8477727f74ed44edd7302bcbb272c5636d82.svn-base
+* PetV1.3\.svn\pristine\72\72aaac8264495ba7954c46bb9fa7770be7c22e81.svn-base
+* PetV1.3\.svn\pristine\72\72c6efe7daa8a5c376d5a415a77bc372e0ed9a78.svn-base
+* PetV1.3\.svn\pristine\72\72cdd30a87af0136765902a59e337523f1537569.svn-base
+* PetV1.3\.svn\pristine\72\72d0925bc818505012d025247e24ce48269f6d6f.svn-base
+* PetV1.3\.svn\pristine\72\72e515262a9757aee7c5c4daace2ba0069f20d84.svn-base
+* PetV1.3\.svn\pristine\73\
+* PetV1.3\.svn\pristine\73\7363e2e9d8e74719e83aad9ddda8af24b6871b98.svn-base
+* PetV1.3\.svn\pristine\73\73716cf3d16c7aa4bb75b411fcc0fa1db0570787.svn-base
+* PetV1.3\.svn\pristine\73\739477ac04e5a57b37731696fff2dd5a2745bf71.svn-base
+* PetV1.3\.svn\pristine\73\73bbe73b79936cbf4e9e5c108f2059aa1a649751.svn-base
+* PetV1.3\.svn\pristine\73\73bdab5a2fdabaafd50beecdbb8180257e8faa10.svn-base
+* PetV1.3\.svn\pristine\73\73f61b123c739c1ef741f6b9a9062f7612baf0c4.svn-base
+* PetV1.3\.svn\pristine\74\
+* PetV1.3\.svn\pristine\74\740214b1a0ad47b706197dd89ceeb7f557ca65b2.svn-base
+* PetV1.3\.svn\pristine\74\7444e5066a3f220216d905b490547ad061e70743.svn-base
+* ic_launcher-web.png
+* proguard-project.txt
+
+Replaced Jars with Dependencies:
+--------------------------------
+The importer recognized the following .jar files as third party
+libraries and replaced them with Gradle dependencies instead. This has
+the advantage that more explicit version information is known, and the
+libraries can be updated automatically. However, it is possible that
+the .jar file in your project was of an older version than the
+dependency we picked, which could render the project not compileable.
+You can disable the jar replacement in the import wizard and try again:
+
+android-support-v4.jar => com.android.support:support-v4:19.+
+
+Moved Files:
+------------
+Android Gradle projects use a different directory structure than ADT
+Eclipse projects. Here's how the projects were restructured:
+
+* AndroidManifest.xml => pet\src\main\AndroidManifest.xml
+* assets\ => pet\src\main\assets\
+* citycascade\ => pet\src\main\java\
+* datetimepicker\ => pet\src\main\java\
+* im\ => pet\src\main\java\
+* imagepicker\ => pet\src\main\java\
+* libs\AMap3DMap_3.3.1_AMapSearch_3.2.1_AMapLocation_2.4.1_20160425.jar => pet\libs\AMap3DMap_3.3.1_AMapSearch_3.2.1_AMapLocation_2.4.1_20160425.jar
+* libs\andbase.jar => pet\libs\andbase.jar
+* libs\armeabi\libgdinamapv4sdk752.so => pet\src\main\jniLibs\armeabi\libgdinamapv4sdk752.so
+* libs\armeabi\libgdinamapv4sdk752ex.so => pet\src\main\jniLibs\armeabi\libgdinamapv4sdk752ex.so
+* libs\armeabi\libhyphenate.so => pet\src\main\jniLibs\armeabi\libhyphenate.so
+* libs\armeabi\libhyphenate_av.so => pet\src\main\jniLibs\armeabi\libhyphenate_av.so
+* libs\armeabi\libjpush217.so => pet\src\main\jniLibs\armeabi\libjpush217.so
+* libs\armeabi\libserphone.so => pet\src\main\jniLibs\armeabi\libserphone.so
+* libs\armeabi\libsmssdk.so => pet\src\main\jniLibs\armeabi\libsmssdk.so
+* libs\commons-fileupload-1.2.1.jar => pet\libs\commons-fileupload-1.2.1.jar
+* libs\commons-io-1.3.2.jar => pet\libs\commons-io-1.3.2.jar
+* libs\fastjson-1.1.34.android.jar => pet\libs\fastjson-1.1.34.android.jar
+* libs\GifView.jar => pet\libs\GifView.jar
+* libs\glide-3.7.0.jar => pet\libs\glide-3.7.0.jar
+* libs\hyphenatechat_3.1.3.jar => pet\libs\hyphenatechat_3.1.3.jar
+* libs\jpush-android-2.1.7.jar => pet\libs\jpush-android-2.1.7.jar
+* libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar => pet\libs\ksoap2-android-assembly-3.3.0-jar-with-dependencies.jar
+* libs\library-1.2.2-sources.jar => pet\libs\library-1.2.2-sources.jar
+* libs\MiPush_SDK_Client_2_2_19.jar => pet\libs\MiPush_SDK_Client_2_2_19.jar
+* libs\MobCommons-2016.0303.1229.jar => pet\libs\MobCommons-2016.0303.1229.jar
+* libs\MobTools-2016.0303.1229.jar => pet\libs\MobTools-2016.0303.1229.jar
+* libs\nineoldandroids-2.4.0.jar => pet\libs\nineoldandroids-2.4.0.jar
+* libs\okhttp-3.2.0.jar => pet\libs\okhttp-3.2.0.jar
+* libs\okhttpserver-0.1.2.jar => pet\libs\okhttpserver-0.1.2.jar
+* libs\okhttputils-1.4.0.jar => pet\libs\okhttputils-1.4.0.jar
+* libs\okio-1.6.0.jar => pet\libs\okio-1.6.0.jar
+* libs\org.apache.http.legacy.jar => pet\libs\org.apache.http.legacy.jar
+* libs\picasso-2.5.2.jar => pet\libs\picasso-2.5.2.jar
+* libs\ShareSDK-Core-2.7.0.jar => pet\libs\ShareSDK-Core-2.7.0.jar
+* libs\ShareSDK-QQ-2.7.0.jar => pet\libs\ShareSDK-QQ-2.7.0.jar
+* libs\ShareSDK-QZone-2.7.0.jar => pet\libs\ShareSDK-QZone-2.7.0.jar
+* libs\ShareSDK-Wechat-2.7.0.jar => pet\libs\ShareSDK-Wechat-2.7.0.jar
+* libs\ShareSDK-Wechat-Core-2.7.0.jar => pet\libs\ShareSDK-Wechat-Core-2.7.0.jar
+* libs\ShareSDK-Wechat-Favorite-2.7.0.jar => pet\libs\ShareSDK-Wechat-Favorite-2.7.0.jar
+* libs\ShareSDK-Wechat-Moments-2.7.0.jar => pet\libs\ShareSDK-Wechat-Moments-2.7.0.jar
+* libs\SMSSDK-1.1.5.jar => pet\libs\SMSSDK-1.1.5.jar
+* libs\universal-image-loader-1.9.3.jar => pet\libs\universal-image-loader-1.9.3.jar
+* lint.xml => pet\lint.xml
+* pulltorefresh\ => pet\src\main\java\
+* res\ => pet\src\main\res\
+* src\ => pet\src\main\java\
+* show_head_toast_bg.9.PNG => show_head_toast_bg.9.png
+
+Missing Android Support Repository:
+-----------------------------------
+Some useful libraries, such as the Android Support Library, are
+installed from a special Maven repository, which should be installed
+via the SDK manager.
+
+It looks like this library is missing from your SDK installation at:
+null
+
+To install it, open the SDK manager, and in the Extras category,
+select "Android Support Repository". You may also want to install the
+"Google Repository" if you want to use libraries like Google Play
+Services.
+
+Next Steps:
+-----------
+You can now build the project. The Gradle project needs network
+connectivity to download dependencies.
+
+Bugs:
+-----
+If for some reason your project does not build, and you determine that
+it is due to a bug or limitation of the Eclipse to Gradle importer,
+please file a bug at http://b.android.com with category
+Component-Tools.
+
+(This import summary is for your information only, and can be deleted
+after import once you are satisfied with the results.)

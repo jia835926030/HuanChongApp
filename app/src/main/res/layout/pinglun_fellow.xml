@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10px"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:layout_margin="20px"
+        android:layout_gravity="center"
+        android:src="@mipmap/ic_launcher"
+        android:id="@+id/img_pinglun"
+        android:layout_width="80px"
+        android:layout_height="80px" />
+    <LinearLayout
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:layout_width="0px"
+        android:layout_weight="1"
+        android:layout_height="wrap_content">
+        <TextView
+            android:text="NAME"
+            android:id="@+id/name_pinglun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@drawable/star" />
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@drawable/star" />
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@drawable/star" />
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@drawable/star" />
+            <ImageView
+                android:layout_width="30px"
+                android:layout_height="30px"
+                android:src="@drawable/star" />
+
+        </LinearLayout>
+        <TextView
+            android:text="还不错"
+            android:textSize="12dp"
+            android:textColor="@color/colorGreyDark"
+            android:id="@+id/pingjia_pinglun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:text="大型犬 1天"
+            android:textSize="12dp"
+            android:textColor="@color/colorGreyDark"
+            android:layout_marginTop="10px"
+            android:layout_marginBottom="10px"
+            android:id="@+id/leixing_pinglun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/shijian_pinglun"
+        android:text="2017-12-12"
+        android:textSize="12dp"
+        android:layout_margin="20px"
+        android:textColor="@color/colorGreyDark"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>
