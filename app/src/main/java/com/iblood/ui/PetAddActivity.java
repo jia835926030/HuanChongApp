@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -25,6 +26,8 @@ import cn.qqtheme.framework.picker.DatePicker;
 public class PetAddActivity extends BaseActivity {
     @BindView(R.id.text_title)
     TextView header_title;//头标题
+    @BindView(R.id.button_forward)
+    Button button_forward;
     @BindView(R.id.pet_face)
     RelativeLayout pet_Face;
     @BindView(R.id.pet_name)
@@ -43,7 +46,19 @@ public class PetAddActivity extends BaseActivity {
     EditText pet_Profile;
     @BindView(R.id.topTime)
     TextView topTime;
+    @BindView(R.id.pet_user_name)
+    TextView pet_user_name;
+    @BindView(R.id.pet_user_sexy)
+    TextView pet_user_sexy;
+    @BindView(R.id.pet_user_steri)
+    TextView pet_user_steri;
 
+    TextView userName;
+    protected static final int PET_NAME_CODE = 11;
+    protected static final int PET_ISNO_CODE = 12;
+    protected static final int PET_WEIGHT_CODE = 13;
+
+    protected static final int RESUL_CODE = 200;
 
     @Override
     protected int getLayoutId() {
@@ -53,6 +68,17 @@ public class PetAddActivity extends BaseActivity {
     @Override
     protected void initView() {
         header_title.setText("添加宠物");
+        button_forward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                textToast("以保存(不好使)");
+
+                String pet_proFile = pet_Profile.getText().toString().trim();
+
+                textToast(pet_proFile);
+                finish();
+            }
+        });
     }
 
     @Override
@@ -72,28 +98,55 @@ public class PetAddActivity extends BaseActivity {
 
                 break;
             case R.id.pet_name:
-
+                //跳转修改Pet名称
+                startActivityForResult(new Intent(PetAddActivity.this, ModificationActivity.class)
+                        .putExtra("title", "宠物名")
+                        .putExtra("hint", "请填写宠物昵称"), PET_NAME_CODE);
                 break;
             case R.id.pet_types:
                 //宠物类型
                 startActivity(new Intent(PetAddActivity.this, PetTypeActivity.class));
                 break;
             case R.id.pet_sterilization:
+                //是否绝育
+                startActivityForResult(new Intent(PetAddActivity.this, ModificationActivity.class)
+                        .putExtra("title", "是否绝育")
+                        .putExtra("hint", "请填写宠物是否绝育"), PET_ISNO_CODE);
                 break;
             case R.id.pet_time:
                 //出生日期
                 Date_selection(topTime);
                 break;
             case R.id.pet_weight:
+                //体重
+                startActivityForResult(new Intent(PetAddActivity.this, ModificationActivity.class)
+                        .putExtra("title", "宠物体重")
+                        .putExtra("hint", "请填写宠物体重"), PET_WEIGHT_CODE);
                 break;
             case R.id.pet_immunizing:
                 //免疫情况
                 startActivity(new Intent(PetAddActivity.this, ImmunizingActivity.class));
                 break;
-            case R.id.pet_profile:
-                break;
+//            case R.id.pet_profile:
+//                //
+//
+//
+//                break;
         }
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        //名字
+        if (requestCode == PET_NAME_CODE && resultCode == RESUL_CODE) {
+            pet_user_name.setText(data.getStringExtra("rcode"));
+        }
+        //是否绝育
+        if (requestCode == PET_ISNO_CODE && resultCode == RESUL_CODE) {
+            pet_user_steri.setText(data.getStringExtra("rcode"));
+        }
 
+
+    }
 }

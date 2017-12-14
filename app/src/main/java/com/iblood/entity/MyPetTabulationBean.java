@@ -6,7 +6,7 @@ package com.iblood.entity;
  * 我的宠物列表   Bean   类
  */
 
-public class MyPetTabulationBean {
+public class  MyPetTabulationBean {
 
 
 }

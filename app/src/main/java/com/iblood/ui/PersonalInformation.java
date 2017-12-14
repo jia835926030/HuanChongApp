@@ -14,25 +14,33 @@ import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.iblood.R;
 import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
 import com.iblood.ui.personal.PersonalAddress;
+
 import java.io.File;
 import java.util.Calendar;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
  * Created by 刘贵河 on 2017/12/6.
- *   个人信息
+ * 个人信息
  */
 
 public class PersonalInformation extends BaseActivity {
+    @BindView(R.id.text_title)
+    TextView header_title;//头标题
+    @BindView(R.id.button_forward)
+    Button button_forward;
     @BindView(R.id.modification_face)//修改头像
             RelativeLayout modification_face;
     @BindView(R.id.modification_name)//名称
@@ -49,31 +57,35 @@ public class PersonalInformation extends BaseActivity {
             RelativeLayout modification_QQ;
     @BindView(R.id.modification_address)//联系地址
             RelativeLayout modification_address;
+    @BindView(R.id.user_name)
+    TextView user_name;
     @BindView(R.id.user_sexy)
     TextView user_sexy;
     @BindView(R.id.user_time)
     TextView user_time;
-
+    @BindView(R.id.user_wachat)
+    TextView user_wachat;
+    @BindView(R.id.user_QQ)
+    TextView user_qq;
+    @BindView(R.id.user_phone)
+    TextView user_phone;
+    @BindView(R.id.user_address)
+    TextView user_address;
 
 
     private PopupWindow window;
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
-    protected static final int NAME_CODE = 100;
-    protected static final int WACHAT_CODE = 101;
-    protected static final int  QQ_CODE = 102;
-    protected static final int  PHONE_CODE = 103;
-    protected static final int ADDRESS_CODE  = 104;
+    protected static final int NAME_CODE = 3;
+    protected static final int WACHAT_CODE = 4;
+    protected static final int QQ_CODE = 5;
+    protected static final int PHONE_CODE = 6;
+    protected static final int ADDRESS_CODE = 7;
 
 
     private TextView men;
     private TextView women;
-    final int DATE_DIALOG = 1;
-    private int mYear;
-    private int mMonth;
-    private int mDay;
-
 
 
     @Override
@@ -82,8 +94,20 @@ public class PersonalInformation extends BaseActivity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        header_title.setText("个人信息");
+    }
+
+    @Override
     protected void initView() {
 
+        button_forward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     @Override
@@ -111,7 +135,7 @@ public class PersonalInformation extends BaseActivity {
                 //跳转修改名称
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "名称")
-                        .putExtra("hint", "请输入16字以内的名称（中文，数字，字母）"),NAME_CODE);
+                        .putExtra("hint", "请输入16字以内的名称（中文，数字，字母）"), NAME_CODE);
 
                 break;
             case R.id.modification_sexy:
@@ -126,22 +150,22 @@ public class PersonalInformation extends BaseActivity {
             case R.id.modification_wachat:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "微信")
-                        .putExtra("hint", "请输入您的微信账户（中文，数字，字母）"),WACHAT_CODE);
+                        .putExtra("hint", "请输入您的微信账户（中文，数字，字母）"), WACHAT_CODE);
                 break;
             case R.id.modification_QQ:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "QQ")
-                        .putExtra("hint", "请输入您的QQ账户（数字）"),QQ_CODE);
+                        .putExtra("hint", "请输入您的QQ账户（数字）"), QQ_CODE);
                 break;
             case R.id.modification_phone:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "手机号码")
-                        .putExtra("hint", "请输入您的手机号码"),PHONE_CODE);
+                        .putExtra("hint", "请输入您的手机号码"), PHONE_CODE);
                 break;
             case R.id.modification_address:
                 //联系地址
                 startActivityForResult(new Intent(PersonalInformation.this, PersonalAddress.class)
-                        .putExtra("title", "联系地址"),ADDRESS_CODE);
+                        .putExtra("title", "联系地址"), ADDRESS_CODE);
                 break;
         }
     }
@@ -176,8 +200,6 @@ public class PersonalInformation extends BaseActivity {
         });
 
     }
-
-
 
 
     //当点击头像时
@@ -219,7 +241,6 @@ public class PersonalInformation extends BaseActivity {
     }
 
 
-
     //拍照
     private void myTakePictures() {
 //        Intent openCameraIntent = new Intent(
@@ -230,15 +251,15 @@ public class PersonalInformation extends BaseActivity {
 //        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
 //        startActivityForResult(openCameraIntent, TAKE_PICTURE);
 //只用来拍照 android7.0
-        File file=new File(Environment.getExternalStorageDirectory(), "/temp/"+System.currentTimeMillis() + ".jpg");
-        if (!file.getParentFile().exists())file.getParentFile().mkdirs();
+        File file = new File(Environment.getExternalStorageDirectory(), "/temp/" + System.currentTimeMillis() + ".jpg");
+        if (!file.getParentFile().exists()) file.getParentFile().mkdirs();
         Uri imageUri = FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider", file);//通过FileProvider创建一个content类型的Uri
-        Log.e("uuu",imageUri+"");
+        Log.e("uuu", imageUri + "");
         Intent intent = new Intent();
         intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); //添加这一句表示对目标应用临时授权该Uri所代表的文件
         intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);//设置Action为拍照
         intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//将拍取的照片保存到指定URI
-        startActivityForResult(intent,TAKE_PICTURE);
+        startActivityForResult(intent, TAKE_PICTURE);
 
 //        //拍照并裁剪 Android7.0
 //        File file=new File(Environment.getExternalStorageDirectory(), "/temp/"+System.currentTimeMillis() + ".jpg");
@@ -272,6 +293,27 @@ public class PersonalInformation extends BaseActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == 3 && resultCode == 200) {
+            user_name.setText(data.getStringExtra("rcode"));
+        }
+        //微信
+        if (requestCode == 4 && resultCode == 200) {
+            user_wachat.setText(data.getStringExtra("rcode"));
+        }
+        //QQ
+        if (requestCode == 5 && resultCode == 200) {
+            user_qq.setText(data.getStringExtra("rcode"));
+        }
+        //电话
+        if (requestCode == 6 && resultCode == 200) {
+            user_phone.setText(data.getStringExtra("rcode"));
+        }
+        //住址
+        if (requestCode == 7 && resultCode == 200) {
+            user_address.setText(data.getStringExtra("rcode"));
+        }
+
         if (resultCode == RESULT_OK) { // 如果返回码是可以用的
             switch (requestCode) {
                 case CHOOSE_PICTURE:
@@ -285,14 +327,6 @@ public class PersonalInformation extends BaseActivity {
 //                        setImageToView(data); // 让刚才选择裁剪得到的图片显示在界面上
                     }
                     break;
-                case NAME_CODE:
-                    //昵称
-                    break;
-                case WACHAT_CODE:
-                    //微信
-                    break;
-
-
 
             }
         }

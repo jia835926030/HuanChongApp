@@ -24,7 +24,7 @@ import butterknife.BindView;
  * 我的宠物 - 添加宠物
  *    刘贵河
  */
-public class LateralspreadsPetActivity extends BaseActivity {
+public class LateralspreadsPetActivity  extends BaseActivity {
     @BindView(R.id.text_title)
     TextView header_title;//头标题
     @BindView(R.id.button_forward)

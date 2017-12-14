@@ -11,7 +11,7 @@ import com.iblood.dao.PetAddBeanDao;
  *   刘贵河
  */
 
-public class DaoManager {
+public class  DaoManager {
     private static DaoManager daoManager;
     private DaoMaster.DevOpenHelper helper;
     private static final String DB_NAME = "petinformation.db";

@@ -16,7 +16,7 @@ import butterknife.BindView;
  *
  *   刘贵河
  */
-public class PetTypeActivity extends BaseActivity {
+public class PetTypeActivity  extends BaseActivity {
     @BindView(R.id.text_title)
     TextView header_title;//头标题
     @BindView(R.id.filter_edit)

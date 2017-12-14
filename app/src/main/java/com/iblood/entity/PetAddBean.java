@@ -12,7 +12,7 @@ import org.greenrobot.greendao.annotation.Generated;
  *     数据库
  */
 @Entity
-public class PetAddBean {
+public class  PetAddBean {
     @Id(autoincrement = true)
     private Long id;
     @Property

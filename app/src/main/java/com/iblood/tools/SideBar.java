@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * 刘贵河
  */
-public class SideBar extends View {
+public class  SideBar extends View {
 	// 触摸事件
 	private OnTouchingLetterChangedListener onTouchingLetterChangedListener;
 	// 26个字母

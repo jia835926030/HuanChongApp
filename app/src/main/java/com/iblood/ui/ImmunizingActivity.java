@@ -11,7 +11,7 @@ import com.iblood.base.BaseActivity;
  *
  *   刘贵河
  */
-public class ImmunizingActivity extends BaseActivity {
+public class  ImmunizingActivity extends BaseActivity {
 
 
     @Override

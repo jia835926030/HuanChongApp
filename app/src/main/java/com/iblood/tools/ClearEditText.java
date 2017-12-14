@@ -23,7 +23,7 @@ import com.iblood.R;
  */
 
 @SuppressLint("AppCompatCustomView")
-public class ClearEditText extends EditText implements OnFocusChangeListener,
+public class  ClearEditText extends EditText implements OnFocusChangeListener,
 		TextWatcher {
 	/**
 	 * 删除按钮的引用
