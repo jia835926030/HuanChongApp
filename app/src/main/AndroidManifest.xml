@@ -26,6 +26,16 @@
         <meta-data
             android:name="design_height"
             android:value="1280" />
+        <!-- 拍照配置 -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.jph.takephoto.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
 
         <activity android:name=".ui.loginactivity.DefilyActivity" />
         <activity android:name=".ui.loginactivity.GiadingActivity" />
@@ -34,11 +44,18 @@
         <activity android:name=".ui.PersonalInformation" />
         <activity android:name=".ui.setmodoule.SetUpActivity" />
         <activity android:name=".ui.setmodoule.ProposalActivity" />
-        <activity android:name=".ui.WalletActivity" />
-        <activity android:name=".ui.ordermodole.MyOrderActivity" />
         <activity android:name=".ui.ModificationActivity" />
         <activity android:name=".ui.personal.PersonalAddress" />
+        <activity android:name=".ui.WalletActivity" />
+        <activity android:name=".ui.LateralspreadsPetActivity" />
+        <activity android:name=".ui.ordermodole.MyOrderActivity" />
         <activity android:name=".ui.MessageActivity" />
+        <activity android:name=".ui.PetAddActivity" />
+        <activity android:name=".ui.PetTypeActivity" />
+
+
+
+
 <activity android:name=".ui.setmodoule.FunctionActivity"></activity>
         <activity android:name=".ui.setmodoule.OrderActivity"></activity>
         <activity android:name=".ui.setmodoule.ReagardActivity"></activity>
@@ -54,6 +71,9 @@
         <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
+
+        <activity android:name=".ui.ImmunizingActivity"
+        android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
 
         <activity android:name=".fellow.FellowActivity" />
         <activity android:name=".ui.ordermodole.activity.ParticularsActivity"></activity>

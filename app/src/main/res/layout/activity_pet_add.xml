@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.iblood.ui.PetAddActivity">
+
+
+    <include layout="@layout/title_layout"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="25px"
+        android:background="@color/colorGreyBottom" />
+
+    <RelativeLayout
+        android:id="@+id/pet_face"
+        android:layout_width="match_parent"
+        android:layout_height="130px">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="21px"
+            android:layout_marginStart="21px"
+            android:text="@string/nike_face"
+            android:textColor="@color/colorBlack" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="14px"
+            android:layout_marginRight="14px"
+            android:layout_toLeftOf="@+id/textView5"
+            android:layout_toStartOf="@+id/textView5"
+            android:background="@mipmap/pet_head" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@mipmap/personal_enter_img" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorGreyDark"></View>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="540px"
+        android:divider="@color/colorBlack"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/pet_name"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:divider="@color/colorBlack">
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21px"
+                android:layout_marginStart="21px"
+                android:text="@string/pet_name"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView6"
+                android:layout_alignBottom="@+id/textView6"
+                android:layout_marginEnd="14px"
+                android:layout_marginRight="14px"
+                android:layout_toLeftOf="@+id/textView12"
+                android:layout_toStartOf="@+id/textView12"
+                android:text="数据加载中..." />
+
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/personal_enter_img" />
+
+
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/colorGreyDark"></View>
+
+        <RelativeLayout
+            android:id="@+id/pet_types"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:divider="@color/colorBlack">
+
+            <TextView
+
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21px"
+                android:layout_marginStart="21px"
+                android:text="@string/pet_type"
+                android:textColor="@color/colorBlack" />
+
+            <TextView
+                android:id="@+id/user_sexy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView9"
+                android:layout_alignBottom="@+id/textView9"
+                android:layout_marginEnd="14px"
+                android:layout_marginRight="14px"
+                android:layout_toLeftOf="@+id/textView13"
+                android:layout_toStartOf="@+id/textView13"
+                android:text="数据加载中..." />
+
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/personal_enter_img" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/colorGreyDark"></View>
+
+        <RelativeLayout
+            android:id="@+id/pet_sterilization"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:divider="@color/colorBlack">
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21px"
+                android:layout_marginStart="21px"
+                android:text="@string/Whether_the_sterilization"
+                android:textColor="@color/colorBlack" />
+
+
+            <TextView
+                android:id="@+id/user_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView10"
+                android:layout_alignBottom="@+id/textView10"
+                android:layout_marginEnd="14px"
+                android:layout_marginRight="14px"
+                android:layout_toLeftOf="@+id/textView17"
+                android:layout_toStartOf="@+id/textView17"
+                android:text="数据加载中..." />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/personal_enter_img" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/colorGreyDark"></View>
+
+        <RelativeLayout
+            android:id="@+id/pet_time"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:divider="@color/colorBlack">
+
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21px"
+                android:layout_marginStart="21px"
+                android:text="@string/Date_of_birth"
+                android:textColor="@color/colorBlack" />
+
+
+            <TextView
+                android:id="@+id/topTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView18"
+                android:layout_alignBottom="@+id/textView18"
+                android:layout_marginEnd="14px"
+                android:layout_marginRight="14px"
+                android:layout_toLeftOf="@+id/textView19"
+                android:layout_toStartOf="@+id/textView19"
+                android:text="数据加载中..." />
+
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/personal_enter_img" />
+        </RelativeLayout>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/colorGreyDark"></View>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:background="@color/colorGreyDark"></View>
+
+        <RelativeLayout
+            android:id="@+id/pet_immunizing"
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="1"
+            android:divider="@color/colorBlack">
+
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="21px"
+                android:layout_marginStart="21px"
+                android:text="@string/The_immune_condition"
+                android:textColor="@color/colorBlack" />
+
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/textView22"
+                android:layout_alignBottom="@+id/textView22"
+                android:layout_marginEnd="14px"
+                android:layout_marginRight="14px"
+                android:layout_toLeftOf="@+id/textView23"
+                android:layout_toStartOf="@+id/textView23"
+                android:text="未完善信息" />
+
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/personal_enter_img" />
+
+            <RelativeLayout
+                android:id="@+id/pet_weight"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_weight="1"
+                android:divider="@color/colorBlack">
+
+
+                <TextView
+                    android:id="@+id/textView20"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="21px"
+                    android:layout_marginStart="21px"
+                    android:text="@string/pet_weight"
+                    android:textColor="@color/colorBlack" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@+id/textView20"
+                    android:layout_alignBottom="@+id/textView20"
+                    android:layout_marginEnd="14px"
+                    android:layout_marginRight="14px"
+                    android:layout_toLeftOf="@+id/textView21"
+                    android:layout_toStartOf="@+id/textView21"
+                    android:text="数据加载中..." />
+
+                <TextView
+                    android:id="@+id/textView21"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:background="@mipmap/personal_enter_img" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25px"
+            android:background="@color/colorGreyBottom" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="21px"
+        android:layout_marginStart="21px"
+        android:text="@string/pet_profile"
+        android:textColor="@color/colorBlack" />
+
+
+    <EditText
+        android:id="@+id/pet_profile"
+        android:layout_width="fill_parent"
+        android:layout_height="0px"
+        android:layout_margin="22px"
+        android:layout_weight="1"
+        android:background="@drawable/bg_edittext"
+        android:gravity="top"
+        android:padding="5px"
+        android:singleLine="true"
+        android:textColorHint="#AAAAAA"
+        android:textSize="15sp" />
+
+</com.zhy.autolayout.AutoLinearLayout>
