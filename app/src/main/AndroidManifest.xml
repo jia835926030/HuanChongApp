@@ -44,20 +44,19 @@
         <activity android:name=".ui.PersonalInformation" />
         <activity android:name=".ui.setmodoule.SetUpActivity" />
         <activity android:name=".ui.setmodoule.ProposalActivity" />
+        <activity android:name=".ui.WalletActivity" />
+        <activity android:name=".ui.ordermodole.MyOrderActivity" />
         <activity android:name=".ui.ModificationActivity" />
         <activity android:name=".ui.personal.PersonalAddress" />
-        <activity android:name=".ui.WalletActivity" />
-        <activity android:name=".ui.LateralspreadsPetActivity" />
-        <activity android:name=".ui.ordermodole.MyOrderActivity" />
         <activity android:name=".ui.MessageActivity" />
         <activity android:name=".ui.PetAddActivity" />
         <activity android:name=".ui.PetTypeActivity" />
 
 
-<activity android:name=".ui.setmodoule.FunctionActivity"></activity>
+        <activity android:name=".ui.setmodoule.FunctionActivity"></activity>
         <activity android:name=".ui.setmodoule.OrderActivity"></activity>
         <activity android:name=".ui.setmodoule.ReagardActivity"></activity>
-     <activity android:name=".ui.setmodoule.TiaokuanActivity"></activity>
+        <activity android:name=".ui.setmodoule.TiaokuanActivity"></activity>
         <!-- 城市筛选 -->
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"
@@ -74,6 +73,9 @@
         android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
 
         <activity android:name=".fellow.FellowActivity" />
+        <activity android:name=".fellow.PingLunActivity" />
+        <activity android:name=".fellow.SuccessActivity" />
+        <activity android:name=".fellow.YuYueActivity" />
         <activity android:name=".ui.ordermodole.activity.ParticularsActivity"></activity>
     </application>
 
