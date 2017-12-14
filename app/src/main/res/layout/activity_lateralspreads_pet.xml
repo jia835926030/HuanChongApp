@@ -6,9 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.iblood.ui.LateralspreadsPetActivity">
 
-
     <include layout="@layout/title_layout"/>
-
 
     <ListView
     android:id="@+id/mPetTabulation"
