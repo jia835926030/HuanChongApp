@@ -68,10 +68,11 @@
             android:name="com.amap.api.v2.apikey"
             android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
 
-        <activity android:name=".ui.ImmunizingActivity"></activity>
-            android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
+        <activity android:name=".ui.ImmunizingActivity"
+        android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
 
-        <activity android:name=".fellow.FellowActivity"></activity>
+        <activity android:name=".fellow.FellowActivity" />
+        <activity android:name=".ui.ordermodole.activity.ParticularsActivity"></activity>
     </application>
 
 </manifest>

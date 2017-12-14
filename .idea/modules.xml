@@ -4,9 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/HuanChongDemo.iml" filepath="$PROJECT_DIR$/HuanChongDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-
-      <module fileurl="file://H:\studioDaima\HuanChongDemo\app\app.iml" filepath="H:\studioDaima\HuanChongDemo\app\app.iml" />
-
     </modules>
   </component>
 </project>

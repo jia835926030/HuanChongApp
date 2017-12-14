@@ -31,8 +31,6 @@ public class ProposalActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
-        setContentView(R.layout.activity_proposal);
     }
 
     @Override
