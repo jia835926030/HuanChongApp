@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:id="@+id/ll_fellow"
     tools:context="com.iblood.fellow.FellowActivity">
 
     <RelativeLayout
@@ -102,6 +103,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/pinglun_fellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10px"
@@ -393,6 +395,7 @@
                     android:layout_height="30px"
                     android:src="@drawable/contact" />
                 <TextView
+                    android:id="@+id/lianxi_fellow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10px"
@@ -402,7 +405,7 @@
                 <TextView
                     android:text="预约寄养"
                     android:background="#e59707"
-                    android:id="@+id/personal_queding"
+                    android:id="@+id/queding_fellow"
                     android:layout_width="250px"
                     android:gravity="center"
                     android:layout_height="50px" />

@@ -19,7 +19,7 @@ import com.iblood.dao.PetAddBeanDao;
  * 
  * @see org.greenrobot.greendao.AbstractDaoSession
  */
-public class DaoSession  extends AbstractDaoSession {
+public class DaoSession extends AbstractDaoSession {
 
     private final DaoConfig petAddBeanDaoConfig;
 
