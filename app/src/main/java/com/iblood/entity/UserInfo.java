@@ -20,7 +20,7 @@ public class UserInfo implements Serializable {
 	private String userId;// 用户id
 	private String userName;// 用户�??
 	private String password;// 密码
-	private long userPhone;// 手机�??
+	private String userPhone;// 手机�??
 	private int position;// 用户身份
 	private String address;// 用户地址
 	private String identify;// 地图标识
@@ -130,11 +130,11 @@ public class UserInfo implements Serializable {
 		this.userId = userId;
 	}
 
-	public long getUserPhone() {
+	public String getUserPhone() {
 		return userPhone;
 	}
 
-	public void setUserPhone(long userPhone) {
+	public void setUserPhone(String userPhone) {
 		this.userPhone = userPhone;
 	}
 

@@ -1,7 +1,10 @@
 package com.iblood.ui.loginactivity;
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -16,6 +19,7 @@ import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
 import com.iblood.entity.UserInfo;
+import com.iblood.ui.HomeActivity;
 import com.iblood.ui.menu.MainActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
@@ -50,7 +54,40 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
     private Button login_star;
     private ImageView Login_QQ;
     private ImageView login_wx;
-
+private Handler handler=new Handler(){
+    @SuppressLint("LongLogTag")
+    @Override
+    public void handleMessage(Message msg) {
+        super.handleMessage(msg);
+        String data = (String) msg.obj;
+        try {
+            JSONObject jsonObject=new JSONObject(data);
+            String ret = jsonObject.getString("ret");
+            Log.e("--------345-------------------",ret);
+            JSONObject result = jsonObject.getJSONObject("result");
+             String userName = result.getString("userName");
+            Log.e("da",userName);
+             String userPhone = result.getString("userPhone");
+            int userSex = result.getInt("userSex");
+             int userId = result.getInt("userId");
+             int position = result.getInt("position");
+            int qq = result.getInt("qq");
+            UserInfo userInfo=new UserInfo();
+            userInfo.setUserId(userId+"");
+            userInfo.setQq(qq);
+            userInfo.setUserSex(userSex);
+            userInfo.setUserPhone(userPhone);
+            if(result.equals("true")){
+                Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }else {
+                Toast.makeText(GiadingActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+};
     @Override
     protected int getLayoutId() {
         return R.layout.activity_giading;
@@ -132,23 +169,8 @@ public class GiadingActivity extends BaseActivity implements View.OnClickListene
             public void onResponse(Call call, Response response) throws IOException {
                 final String data = response.body().string();
                 Log.e( "onResponse: ",data );
-                try {
-                    JSONObject jsonObject=new JSONObject(data);
-                    JSONObject result = jsonObject.getJSONObject("result");
-                    final String userName = result.getString("userName");
-                    Log.e("da",userName);
-                    final String userPhone = result.getString("userPhone");
-                    int userSex = result.getInt("userSex");
-                    final int userId = result.getInt("userId");
-                    int qq = result.getInt("qq");
-                    UserInfo userInfo=new UserInfo();
-                    userInfo.setUserId(userId+"");
-                    UserManager um = UserManager.getInstance();
-                    um.saveUserId(userId+"");
-                    String userId1 = um.getUserId();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
+                handler.obtainMessage(0,data).sendToTarget();
+
 
 
             }
