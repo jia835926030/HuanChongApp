@@ -100,7 +100,7 @@ public class SharedPreferencesUtils {
         SharedPreferences sp = context.getSharedPreferences(FILE_NAME,
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
-        editor.remove("定义的键名");
+        editor.clear();
         editor.commit();
     }
 

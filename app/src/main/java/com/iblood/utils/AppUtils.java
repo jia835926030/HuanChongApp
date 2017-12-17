@@ -124,7 +124,18 @@ public class AppUtils {
 		AppUtils.fosterUserInfo = null;
 
 	}
+	public static void clear() {
+	/*	AppUtils.userInfo = null;
+		AppUtils.currAccount = null;
+		FileUtil.saveUser(null);
+		AppUtils.petListInfos = null;
+		AppUtils.spiList = null;
+		AppUtils.petTypeList = null;
+		AppUtils.fosterUserInfo = null;*/
+		UserInfo userInfo=new UserInfo();
+		AppUtils.setUser(userInfo);
 
+	}
 	/**
 	 * 关闭软键�?
 	 * 

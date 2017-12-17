@@ -2,6 +2,7 @@ package com.iblood.ui.setmodoule;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,6 +11,13 @@ import android.widget.Toast;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.entity.UserInfo;
+import com.iblood.ui.HomeActivity;
+import com.iblood.ui.loginactivity.GiadingActivity;
+import com.iblood.utils.AppUtils;
+import com.iblood.utils.FileUtil;
+import com.iblood.utils.SharedPreferencesUtils;
+import com.iblood.utils.ToastUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import butterknife.BindView;
@@ -102,7 +110,20 @@ public class SetUpActivity extends BaseActivity {
                 break;
 
             case R.id.sign_out:
-                Toast.makeText(this, "退出登录", Toast.LENGTH_SHORT).show();
+                String q = (String) SharedPreferencesUtils.getParam(SetUpActivity.this, "userName", "");
+                String w = (String) SharedPreferencesUtils.getParam(SetUpActivity.this, "userPhone", "");
+             /*   Log.e("name=====",q);
+                Log.e("name=====",w+"");*/
+                if(q==null){
+                    Toast.makeText(this, "您还未登录", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(this, "退出登录", Toast.LENGTH_SHORT).show();
+                    SharedPreferencesUtils.clear(SetUpActivity.this);
+                    Intent intent1=new Intent(SetUpActivity.this,HomeActivity.class);
+                    startActivity(intent1);
+                    finish();
+                }
+
                 break;
             case R.id.wifi_display:
                 Toast.makeText(this, "仅在WIFI下显示图片", Toast.LENGTH_SHORT).show();

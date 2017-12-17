@@ -67,21 +67,17 @@ private Handler handler=new Handler(){
             JSONObject result = jsonObject.getJSONObject("result");
              String userName = result.getString("userName");
             String userId = result.getString("userId");
-AppUtils.setAppContext(GiadingActivity.this);
             Log.e("us",userId+"userid");
             Log.e("us",userName+"");
-//            Long userPhone = jsonObject.getLong("userPhone");
-            long userPhone = result.getLong("userPhone");
-            Log.i("tag",userPhone+"22222222222");
-            UserInfo userInfo=new UserInfo();
-            userInfo.setUserPhone(userPhone+"");
-            userInfo.setUserName(userName);
-            userInfo.setUserId(userId);
-            FileUtil.saveUser(userInfo);
-            //SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
-//            SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone);
+            Long userPhone = result.getLong("userPhone");
+            SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
+            SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone+"");
+            String q = (String) SharedPreferencesUtils.getParam(GiadingActivity.this, "userName", "");
+            String w = (String) SharedPreferencesUtils.getParam(GiadingActivity.this, "userPhone", "");
+            Log.e("name=====",q);
+            Log.e("name=====",w+"");
             if(ret.equals("true")){
-                Log.e("-------",ret);
+
                 Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
                 startActivity(intent);
             }else {
