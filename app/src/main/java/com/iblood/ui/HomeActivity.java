@@ -3,10 +3,13 @@ package com.iblood.ui;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -25,23 +28,45 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-
+import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.config.Urls;
+import com.iblood.entity.Screen;
+import com.iblood.entity.UserInfo;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
+import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
+import com.iblood.utils.AppUtils;
+import com.iblood.utils.CJSON;
+import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.FileUtil;
+import com.iblood.utils.OkHttpUtils;
+import com.iblood.utils.SharedPreferencesUtils;
+import com.iblood.utils.SignUtil;
+import com.iblood.utils.TokenUtil;
 import com.zaaach.citypicker.CityPickerActivity;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.mOLBtn)
@@ -70,17 +95,39 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     Button cehuaShenqing;
     @BindView(R.id.list_home)
     ListView listHome;
-    private FragmentManager fragmentManager;
-    private long mExitTime;
     private View v1;
     private View v2;
     private View v3;
     private TextView personal_dizhi;
     private static final int REQUEST_CODE_PICK_CITY = 233;
+    private TextView cehua_name;
+    private TextView cehua_dianhua;
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
+        super.onCreate(savedInstanceState, persistentState);
+        initView();
+    }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_home;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initView();
+        getdata();
+        String userName = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
+        String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
+        if(userName!=null){
+            cehua_name.setText(userName);
+            cehua_dianhua.setText(userPhone);
+
+        }else if (userPhone.equals("")){
+            cehua_name.setText("还未登录");
+        }
     }
 
     //侧滑
@@ -89,6 +136,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //侧滑头布局
         View headerView = navView.getHeaderView(0);
         View cehua_tou = headerView.findViewById(R.id.cehua_tou);
+        cehua_dianhua = headerView.findViewById(R.id.cehua_dianhua);
+        cehua_name = headerView.findViewById(R.id.cehua_name);
+
         cehua_tou.setOnClickListener(this);
         //侧滑item点击事件
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -98,26 +148,22 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 item.setCheckable(true);
                 switch (item.getItemId()) {
                     case R.id.cehua_xiaoxi:
-                        textToast("消息");
                       Intent intent11=new Intent(HomeActivity.this,MessageActivity.class);
                       startActivity(intent11);
                       break;
                     case R.id.cehua_chongwu:
-                        textToast("宠物");
-                        startActivity(new Intent(HomeActivity.this,LateralspreadsPetActivity.class));
+                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
                         break;
                     case R.id.cehua_shezhi:
-                        textToast("设置");
                         Intent intent = new Intent(HomeActivity.this, SetUpActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.cehua_qianbao:
-                        textToast("钱包");
                         Intent intent1 = new Intent(HomeActivity.this, WalletActivity.class);
                         startActivity(intent1);
                         break;
                     case R.id.cehua_dingdan:
-                        textToast("订单");
+
                         Intent intent2=new Intent(HomeActivity.this,MyOrderActivity.class);
                         startActivity(intent2);
                         break;
@@ -132,17 +178,58 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         dingweiHoem.setOnClickListener(this);
         cehuaShenqing.setOnClickListener(this);
     }
+    public void getdata() {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        FormBody.Builder builder = new FormBody.Builder();
+        TokenUtil.init(HomeActivity.this);
+        String token = TokenUtil.createToken();
+        Request.Builder request = new Request.Builder();
+        String ip = ConnectionUtils.getIp(this);
+        Map<String, Object> map = new HashMap<>();
 
+        AppUtils.setAppContext(HomeActivity.this);
+        String s1 = CJSON.toJSONMap(map);
+        Log.e("DA", s1);
+        builder.add("data", s1);
+        String linkString = SignUtil.createLinkString(map);
+        request.addHeader("sign", linkString);
+        request.addHeader("ip", ip);
+        request.addHeader("token", token);
+        request.addHeader("channel", "android");
+        Request build1 = request.url(Urls.BASE+Urls.CHONGWU).post(builder.build()).build();
+        okHttpClient.newCall(build1).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String data = response.body().string();
+                Log.e("onResponse=====: ", data);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Gson gson = new Gson();
+                        Screen dAta = gson.fromJson(data, Screen.class);
+                        List<Screen.DescBean> desc = dAta.getDesc();
+                        FellowAdapter adapter = new FellowAdapter(HomeActivity.this,desc);
+                        listHome.setAdapter(adapter);
+                    }
+                });
+            }
+        });
+
+    }
     //主体ListView
     @Override
     protected void initData() {
-
+            getdata();
         final List<FellowBean> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(new FellowBean(R.mipmap.ic_launcher,"米妮捷豹的家"+i,"双井桥东北角东波街东南角天之蓝...","$50起","距 0.1km"));
         }
-        FellowAdapter adapter = new FellowAdapter(this,list);
-        listHome.setAdapter(adapter);
+
+
 
         listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -165,6 +252,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mOLBtn:
+                Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
                 popu1();
                 break;
             case R.id.mMangerBtn:
@@ -246,7 +334,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.my_home:
-               startActivity(new Intent(this, GiadingActivity.class));
+              /*  String userName = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
+                String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
+                Log.e("name=====",userName);
+                Log.e("name=====",userPhone);*/
+
+                startActivity(new Intent(this, GiadingActivity.class));
+
+
                 break;
             case R.id.dingwei_hoem:
                 Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();

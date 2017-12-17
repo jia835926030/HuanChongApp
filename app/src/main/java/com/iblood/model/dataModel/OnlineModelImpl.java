@@ -6,6 +6,6 @@ import com.iblood.model.net.NetWorkCallBack;
 public class OnlineModelImpl implements IOnlineModel {
     @Override
     public void loadHotList(NetWorkCallBack<HotBean> callback) {
-//        iHttp.get(Urls.HOT, null, callback);
+        iHttp.get(Urls.BASE, null, callback);
     }
 }

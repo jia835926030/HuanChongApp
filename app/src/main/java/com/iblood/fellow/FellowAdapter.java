@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iblood.R;
+import com.iblood.entity.Screen;
 
 import java.util.List;
 
@@ -22,21 +23,21 @@ import butterknife.ButterKnife;
 
 public class FellowAdapter extends BaseAdapter {
     private Context context;
-    private List<FellowBean> list;
+    List<Screen.DescBean> desc;
 
-    public FellowAdapter(Context context, List<FellowBean> list) {
+    public FellowAdapter(Context context, List<Screen.DescBean> desc) {
         this.context = context;
-        this.list = list;
+        this.desc = desc;
     }
 
     @Override
     public int getCount() {
-        return list.size();
+        return desc.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return list.get(position);
+        return desc.get(position);
     }
 
     @Override
@@ -55,11 +56,11 @@ public class FellowAdapter extends BaseAdapter {
 
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.nameHome.setText(list.get(position).getName());
-        holder.dizhiHome.setText(list.get(position).getDizhi());
-        holder.jiageHome.setText(list.get(position).getJiage());
-        holder.juliHome.setText(list.get(position).getJuli());
-        Glide.with(context).load(list.get(position).getImg()).into(holder.imgHomelv);
+        holder.nameHome.setText(desc.get(position).getFamily());
+        holder.dizhiHome.setText(desc.get(position).getAddress());
+        holder.jiageHome.setText(desc.get(position).getPrice()+"");
+        holder.juliHome.setText(desc.get(position).getCoordX()+"");
+        Glide.with(context).load(desc.get(position).getUserImage()).into(holder.imgHomelv);
         return convertView;
     }
 
