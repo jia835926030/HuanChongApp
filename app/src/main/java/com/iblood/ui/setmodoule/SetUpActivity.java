@@ -119,8 +119,6 @@ public class SetUpActivity extends BaseActivity {
                 }else {
                     Toast.makeText(this, "退出登录", Toast.LENGTH_SHORT).show();
                     SharedPreferencesUtils.clear(SetUpActivity.this);
-                    Intent intent1=new Intent(SetUpActivity.this,HomeActivity.class);
-                    startActivity(intent1);
                     finish();
                 }
 

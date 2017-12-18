@@ -10,6 +10,7 @@ public class Urls {
     //拼接的网址
     public static final String LOGINURL ="user/login.jhtml";
     public static final String REGIS ="user/register.jhtml";
+    public static final String CHONGWULEIXING ="petType/getPetTypesByVO.jhtml";
     public static final String CHONGWU ="users/getUsersInfoByVO.jhtml";
     public static final String PERSONORDER ="orderInfo/getOrderInfoByUserId.jhtml";
     public static final String PERSONDATAUP ="user/getUserInfoByVO.jhtml";

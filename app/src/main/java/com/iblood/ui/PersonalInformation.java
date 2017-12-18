@@ -134,21 +134,23 @@ public class PersonalInformation extends BaseActivity {
         AppUtils.setAppContext(PersonalInformation.this);
         TokenUtil.init(PersonalInformation.this);
         String token = TokenUtil.createToken();
+        Log.e("token",token);
         Request.Builder request = new Request.Builder();
         String ip = ConnectionUtils.getIp(PersonalInformation.this);
         Map<String, Object> map = new HashMap<>();
-        map.put("Username", "qing");
+        map.put("userName", "qingchun");
         String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
         String s1 = CJSON.toJSONMap(map);
         Log.e("DA", s1);
-        Log.e("DA=========", ws);
+        //Log.e("DA=========", ws);
         builder.add("data", s1);
-        builder.add("userId",ws);
+        //builder.add("userId",ws);
         String linkString = SignUtil.createLinkString(map);
         request.addHeader("sign", linkString);
         request.addHeader("ip", ip);
         request.addHeader("token", token);
         request.addHeader("channel", "android");
+        //request.addHeader("userId",ws);
         Request build1 = request.url(Urls.BASE+Urls.PERSONDATAUP).post(builder.build()).build();
         okHttpClient.newCall(build1).enqueue(new Callback() {
             @Override

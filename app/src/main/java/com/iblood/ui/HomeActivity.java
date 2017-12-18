@@ -33,6 +33,7 @@ import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
+import com.iblood.entity.HomeChongwuBeen;
 import com.iblood.entity.Screen;
 import com.iblood.entity.UserInfo;
 import com.iblood.fellow.FellowActivity;
@@ -103,6 +104,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private static final int REQUEST_CODE_PICK_CITY = 233;
     private TextView cehua_name;
     private TextView cehua_dianhua;
+    private RadioGroup radiogroup;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -122,9 +124,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         String q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
         String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
         String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
-        Log.e("name=====",q);
-        Log.e("phone=====",w+"");
-        Log.e("1231231====",ws+"");
+//        Log.e("name=====",q);
+//        Log.e("phone=====",w+"");
+//        Log.e("1231231====",ws+"");
         if(q!=null){
             cehua_name.setText(q);
             cehua_dianhua.setText(w);
@@ -182,7 +184,54 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         dingweiHoem.setOnClickListener(this);
         cehuaShenqing.setOnClickListener(this);
     }
-    public void getdata() {
+    public void getChongWu(String str) {
+        OkHttpClient okHttpClient = new OkHttpClient();
+        FormBody.Builder builder = new FormBody.Builder();
+        AppUtils.setAppContext(HomeActivity.this);
+        TokenUtil.init(HomeActivity.this);
+        String token = TokenUtil.createToken();
+        Request.Builder request = new Request.Builder();
+        String ip = ConnectionUtils.getIp(HomeActivity.this);
+        Map<String, Object> map = new HashMap<>();
+        map.put("beginIndex", 0);
+  /*      map.put("coordX",40.116384);
+        map.put("coordY", 116.250374);*/
+        map.put("endIndex", 1);
+        map.put("petTypeCode", str);
+        String s1 = CJSON.toJSONMap(map);
+        //Log.e("DA", s1);
+        builder.add("data", s1);
+
+        String linkString = SignUtil.createLinkString(map);
+        request.addHeader("sign", linkString);
+        request.addHeader("ip", ip);
+        request.addHeader("token", token);
+        request.addHeader("channel", "android");
+        Request build1 = request.url(Urls.BASE+Urls.CHONGWULEIXING).post(builder.build()).build();
+        okHttpClient.newCall(build1).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                final String data = response.body().string();
+                Log.e("------------=====: ", data);
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Gson gson = new Gson();
+                        HomeChongwuBeen homeChongwuBeen = gson.fromJson(data, HomeChongwuBeen.class);
+                        List<HomeChongwuBeen.DescBean> desc = homeChongwuBeen.getDesc();
+                         HomeChongWuAdapter homeChongWuAdapter=new HomeChongWuAdapter(HomeActivity.this,desc);
+                         listHome.setAdapter(homeChongWuAdapter);
+                    }
+                });
+            }
+        });
+
+    }
+    public void getdata(String str) {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
         AppUtils.setAppContext(HomeActivity.this);
@@ -194,10 +243,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         map.put("beginIndex", 0);
         map.put("coordX",40.116384);
         map.put("coordY", 116.250374);
-        map.put("endIndex", 15);
-        map.put("orderBy", "distance asc");
+        map.put("endIndex", 20);
+        map.put("orderBy", str);
         String s1 = CJSON.toJSONMap(map);
-        Log.e("DA", s1);
+        //Log.e("DA", s1);
         builder.add("data", s1);
 
         String linkString = SignUtil.createLinkString(map);
@@ -214,7 +263,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String data = response.body().string();
-                Log.e("onResponse=====: ", data);
+                //Log.e("onResponse=====: ", data);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -232,12 +281,12 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     //主体ListView
     @Override
     protected void initData() {
-            getdata();
+            getdata("distance asc");
         final List<FellowBean> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(new FellowBean(R.mipmap.ic_launcher,"米妮捷豹的家"+i,"双井桥东北角东波街东南角天之蓝...","$50起","距 0.1km"));
         }
-
+getChongWu("xiaoxingquan");
 
 
         listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -263,9 +312,46 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             case R.id.mOLBtn:
                 Toast.makeText(this, "", Toast.LENGTH_SHORT).show();
                 popu1();
+                radiogroup = v1.findViewById(R.id.radiogroup);
+                radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        switch (checkedId){
+                            case R.id.fujinyouxian:
+                              getdata("distance asc");
+                                break;
+                            case R.id.haopingyouxian:
+                                getdata("score desc");
+                                break;
+                            case R.id.dingdanyouxian:
+                                getdata("orderCount desc");
+                                break;
+                            case R.id.jiageconggao:
+                                getdata("price desc");
+                                break;
+                            case R.id.jiagecongdi:
+                                getdata("price asc");
+                                break;
+
+
+                        }
+                    }
+                });
                 break;
             case R.id.mMangerBtn:
                 popu2();
+                RadioGroup chongwu = v2.findViewById(R.id.chongwu);
+                chongwu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(RadioGroup group, int checkedId) {
+                        switch (checkedId){
+                            case R.id.xiaoxingquan:
+                                getChongWu("");
+                                break;
+
+                        }
+                    }
+                });
                 break;
             case R.id.mPersonalBtn:
                 popu3();

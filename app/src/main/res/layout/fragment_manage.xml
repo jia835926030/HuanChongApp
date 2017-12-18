@@ -11,8 +11,10 @@
         android:background="@color/colorWhite"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:id="@+id/chongwu">
         <RadioButton
+            android:id="@+id/xiaoxingquan"
             android:text="小型犬"
             android:button="@null"
             android:textColor="#cd333333"

@@ -67,8 +67,6 @@ public class MyOrderActivity extends BaseActivity implements View.OnClickListene
         fragmentlist.add(evaluateFragment);
         fragmentlist.add(fosterFragment);
         MyOrderAdapter myOrderAdapter=new MyOrderAdapter(getSupportFragmentManager(),tablist,fragmentlist);
-        Log.e("initData========: ", fragmentlist.size()+"");
-        Log.e("initData========: ", tablist.size()+"");
         myorderViewpager.setAdapter(myOrderAdapter);
         myorderViewpager.setCurrentItem(0);
         myorderTab.setupWithViewPager(myorderViewpager);
