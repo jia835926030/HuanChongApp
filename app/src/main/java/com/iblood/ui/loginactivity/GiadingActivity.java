@@ -67,17 +67,11 @@ private Handler handler=new Handler(){
             JSONObject result = jsonObject.getJSONObject("result");
              String userName = result.getString("userName");
             String userId = result.getString("userId");
-            Log.e("us",userId+"userid");
-            Log.e("us",userName+"");
             Long userPhone = result.getLong("userPhone");
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone+"");
-            String q = (String) SharedPreferencesUtils.getParam(GiadingActivity.this, "userName", "");
-            String w = (String) SharedPreferencesUtils.getParam(GiadingActivity.this, "userPhone", "");
-            Log.e("name=====",q);
-            Log.e("name=====",w+"");
+            SharedPreferencesUtils.setParam(GiadingActivity.this,"userId",userId);
             if(ret.equals("true")){
-
                 Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
                 startActivity(intent);
             }else {

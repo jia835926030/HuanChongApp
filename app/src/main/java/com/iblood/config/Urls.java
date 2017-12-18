@@ -12,6 +12,7 @@ public class Urls {
     public static final String REGIS ="user/register.jhtml";
     public static final String CHONGWU ="users/getUsersInfoByVO.jhtml";
     public static final String PERSONORDER ="orderInfo/getOrderInfoByUserId.jhtml";
+    public static final String PERSONDATAUP ="user/getUserInfoByVO.jhtml";
 
 
 }

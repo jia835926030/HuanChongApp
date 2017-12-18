@@ -10,6 +10,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -118,14 +119,17 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         initView();
-        getdata();
-        String userName = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
-        String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
-        if(userName!=null){
-            cehua_name.setText(userName);
-            cehua_dianhua.setText(userPhone);
+        String q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
+        String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
+        String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
+        Log.e("name=====",q);
+        Log.e("phone=====",w+"");
+        Log.e("1231231====",ws+"");
+        if(q!=null){
+            cehua_name.setText(q);
+            cehua_dianhua.setText(w);
 
-        }else if (userPhone.equals("")){
+        }else if (w.equals("")){
             cehua_name.setText("还未登录");
         }
     }
@@ -181,16 +185,21 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void getdata() {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
+        AppUtils.setAppContext(HomeActivity.this);
         TokenUtil.init(HomeActivity.this);
         String token = TokenUtil.createToken();
         Request.Builder request = new Request.Builder();
-        String ip = ConnectionUtils.getIp(this);
+        String ip = ConnectionUtils.getIp(HomeActivity.this);
         Map<String, Object> map = new HashMap<>();
-
-        AppUtils.setAppContext(HomeActivity.this);
+        map.put("beginIndex", 0);
+        map.put("coordX",40.116384);
+        map.put("coordY", 116.250374);
+        map.put("endIndex", 15);
+        map.put("orderBy", "distance asc");
         String s1 = CJSON.toJSONMap(map);
         Log.e("DA", s1);
         builder.add("data", s1);
+
         String linkString = SignUtil.createLinkString(map);
         request.addHeader("sign", linkString);
         request.addHeader("ip", ip);
@@ -338,8 +347,13 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
                 Log.e("name=====",userName);
                 Log.e("name=====",userPhone);*/
+                if(activityHome.isDrawerOpen(Gravity.LEFT)){
+                    activityHome.closeDrawer(Gravity.LEFT);
 
-                startActivity(new Intent(this, GiadingActivity.class));
+                }else {
+                    activityHome.openDrawer(Gravity.LEFT);
+                }
+
 
 
                 break;
@@ -348,8 +362,23 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 break;
 
             case R.id.cehua_tou:
-                Intent intent1 = new Intent(HomeActivity.this, PersonalInformation.class);
-                startActivity(intent1);
+                String q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
+                String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
+                String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
+                Log.e("name=====",q);
+                Log.e("phone=====",w+"");
+                Log.e("1231231====",ws+"");
+                if(q.equals("")){
+
+                    Log.e("登录",q);
+                    Intent intent=new Intent(HomeActivity.this,GiadingActivity.class);
+                    startActivity(intent);
+                }else {
+                    Log.e("个人",q);
+                    Intent intent1 = new Intent(HomeActivity.this, PersonalInformation.class);
+                    startActivity(intent1);
+                }
+
                 break;
             case R.id.cehua_shenqing:
                 Toast.makeText(this, "不好使", Toast.LENGTH_SHORT).show();
