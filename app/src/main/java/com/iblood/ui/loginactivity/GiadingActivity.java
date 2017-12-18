@@ -71,6 +71,7 @@ private Handler handler=new Handler(){
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone+"");
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userId",userId);
+
             if(ret.equals("true")){
                 Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
                 startActivity(intent);

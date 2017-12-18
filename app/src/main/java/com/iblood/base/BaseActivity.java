@@ -2,8 +2,10 @@ package com.iblood.base;
 
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -40,7 +42,7 @@ import okhttp3.Response;
 
 public abstract class BaseActivity extends AutoLayoutActivity {
     private Unbinder unbinder;
-
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

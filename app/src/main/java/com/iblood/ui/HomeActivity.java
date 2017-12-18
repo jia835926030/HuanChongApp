@@ -1,5 +1,6 @@
 package com.iblood.ui;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -38,6 +39,8 @@ import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
+
+import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
@@ -153,7 +156,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                       startActivity(intent11);
                       break;
                     case R.id.cehua_chongwu:
-                        Toast.makeText(HomeActivity.this, "22222222222222", Toast.LENGTH_SHORT).show();
+                        //跳转到宠物列表
+                        startActivity(new Intent(HomeActivity.this,LateralspreadsPetActivity.class));
                         break;
                     case R.id.cehua_shezhi:
                         Intent intent = new Intent(HomeActivity.this, SetUpActivity.class);

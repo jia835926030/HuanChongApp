@@ -7,6 +7,7 @@ import com.google.gson.Gson;
 import com.iblood.app.App;
 import com.iblood.base.IBaseHttp;
 import com.iblood.model.net.NetWorkCallBack;
+import com.lzy.okhttputils.request.PostRequest;
 
 import java.io.File;
 import java.io.IOException;
@@ -215,4 +216,6 @@ public class OkHttpUtils implements IBaseHttp {
         T t = gson.fromJson(jsonData, type);
         return t;
     }
+
+
 }

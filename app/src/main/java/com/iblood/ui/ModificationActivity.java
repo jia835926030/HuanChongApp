@@ -54,6 +54,8 @@ public class ModificationActivity extends BaseActivity {
         //获取传过来的值
         String titletext = intent.getStringExtra("title");
         String hint = intent.getStringExtra("hint");
+
+
         text_title.setText(titletext);
         mEditText.setHint(hint);
     }

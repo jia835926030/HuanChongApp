@@ -27,6 +27,7 @@
     <color name="colorGreyBottom">#E3E3E3</color>
     <color name="colorGreyLight">#CCCCCC</color>
     <color name="colorGreyDark">#999999</color>
-
+    <!-- 自定义 -->
+    <color name="edit_font_color">#B7B7B7</color>
 
 </resources>
