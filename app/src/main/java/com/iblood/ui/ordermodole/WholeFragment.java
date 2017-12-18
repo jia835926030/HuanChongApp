@@ -28,12 +28,6 @@ public class WholeFragment extends BaseFragment {
     @Override
     protected void initView(View view) {
        listView =  (ListView) view .findViewById(R.id.listView);
-//         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//             @Override
-//             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-//               startActivity(  new Intent(getActivity(),ParticularsActivity.class));
-//             }
-//         });
     }
 
     @Override

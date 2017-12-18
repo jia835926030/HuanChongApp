@@ -7,7 +7,6 @@ import android.os.PersistableBundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
 import android.view.Gravity;
@@ -34,20 +33,16 @@ import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
 import com.iblood.entity.Screen;
-import com.iblood.entity.UserInfo;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
-import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
-import com.iblood.utils.FileUtil;
-import com.iblood.utils.OkHttpUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
@@ -381,7 +376,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
                 break;
             case R.id.cehua_shenqing:
-                Toast.makeText(this, "不好使", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this,PlayApForActivity.class));
+
                 break;
             case R.id.personal_chongzhi:
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();

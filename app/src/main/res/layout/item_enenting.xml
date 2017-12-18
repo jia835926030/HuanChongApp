@@ -4,8 +4,7 @@
     android:id="@+id/activity_user_evaluatio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="com.huanchong.pet.chat.UserEvaluatioActivity">
+    android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,14 +22,27 @@
             android:text="订单详情"
             android:gravity="center"/>
     </LinearLayout>
-    <EditText
-        android:id="@+id/userevaluation_numbering"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/userevaluation_numbering"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20px"
         android:layout_marginTop="20px"
-        android:hint="订单编号:bc98502a58fd3e57b9"
-        android:textSize="40px" />
+        android:hint="订单编号:"
+        android:textSize="30px" />
+        <TextView
+            android:layout_marginTop="20px"
+            android:textSize="30px"
+            android:text="1111111111"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,7 +55,7 @@
             android:layout_marginLeft="20px"
             android:layout_marginTop="20px"
             android:text="寄养宠物"
-            android:textSize="40px" />
+            android:textSize="30px" />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -56,7 +68,7 @@
                 android:id="@+id/userevaluation_image"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/ic_launcher_round" />
+                android:src="@mipmap/ic_launcher" />
 
             <TextView
                 android:id="@+id/userevaluation_name"
@@ -65,15 +77,17 @@
                 android:layout_marginLeft="10px"
                 android:layout_toRightOf="@id/userevaluation_image"
                 android:text="多吉"
-                android:textSize="40px" />
+                android:textSize="20px" />
 
             <ImageView
                 android:id="@+id/userevaluation_sex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20px"
-                android:layout_marginTop="10px"
-                android:layout_toRightOf="@id/userevaluation_name"
+                android:layout_above="@+id/userevaluation_introduction"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_toEndOf="@+id/userevaluation_name"
+                android:layout_toRightOf="@+id/userevaluation_name"
                 android:src="@drawable/male" />
 
             <TextView
@@ -84,7 +98,7 @@
                 android:layout_marginLeft="10px"
                 android:layout_toRightOf="@id/userevaluation_image"
                 android:text="身长约120cm，体毛粗硬"
-                android:textSize="40px" />
+                android:textSize="20px" />
         </RelativeLayout>
 
         <LinearLayout
@@ -99,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40px"
                 android:text="寄养时间：2016-03-31至2016-04-28"
-                android:textSize="45px" />
+                android:textSize="30px" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -119,7 +133,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="宠物"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
 
                     <TextView
                         android:id="@+id/userevaluation_petname"
@@ -128,7 +142,7 @@
                         android:layout_marginTop="20px"
                         android:layout_weight="1"
                         android:text="多吉"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
                 </LinearLayout>
 
 
@@ -144,7 +158,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="元/晚"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
 
                     <TextView
                         android:id="@+id/userevaluation_lement1"
@@ -152,7 +166,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="10"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
                 </LinearLayout>
 
 
@@ -168,7 +182,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="晚"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
 
                     <TextView
                         android:id="@+id/userevaluation_late1"
@@ -176,7 +190,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="28"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -190,8 +204,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="金额"
-                        android:textSize="40px" />
+                        android:text="20px"
+                        android:textSize="20px" />
 
                     <TextView
                         android:id="@+id/userevaluation_money1"
@@ -199,7 +213,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:text="280"
-                        android:textSize="40px" />
+                        android:textSize="20px" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -216,7 +230,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40px"
                     android:text="其他服务"
-                    android:textSize="50px" />
+                    android:textSize="30px" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -237,7 +251,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="项目"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
 
                         <TextView
                             android:id="@+id/userevaluation_huttle"
@@ -245,7 +259,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="接送"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
                     </LinearLayout>
 
 
@@ -261,7 +275,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="单价"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
 
                         <TextView
                             android:id="@+id/userevaluation_kilometres"
@@ -269,7 +283,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="10元/"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
                     </LinearLayout>
 
 
@@ -285,7 +299,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="数量"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
 
                         <TextView
                             android:id="@+id/userevaluation_next"
@@ -293,7 +307,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="1次"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
                     </LinearLayout>
 
                     <LinearLayout
@@ -308,7 +322,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="金额"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
 
                         <TextView
                             android:id="@+id/userevaluation_money2"
@@ -316,7 +330,7 @@
                             android:layout_height="wrap_content"
                             android:layout_weight="1"
                             android:text="10"
-                            android:textSize="40px" />
+                            android:textSize="20px" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -337,7 +351,7 @@
                     android:id="@+id/userevaluation_headportrait"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@mipmap/ic_launcher_round" />
+                    android:src="@mipmap/ic_launcher" />
 
                 <TextView
                     android:id="@+id/userevaluation_username"
@@ -345,7 +359,7 @@
                     android:layout_height="wrap_content"
                     android:layout_toRightOf="@id/userevaluation_headportrait"
                     android:text="帅比"
-                    android:textSize="40px" />
+                    android:textSize="30px" />
 
                 <RatingBar
                     android:id="@+id/userevaluation_ratingBar"
@@ -365,7 +379,7 @@
             android:layout_marginLeft="20px"
             android:layout_marginTop="20px"
             android:text="订单时间：2016-04-19 11:12:39"
-            android:textSize="40px" />
+            android:textSize="20px" />
 
         <TextView
             android:layout_width="match_parent"
@@ -373,7 +387,7 @@
             android:layout_marginLeft="20px"
             android:layout_marginTop="20px"
             android:text="订单金额：100"
-            android:textSize="40px" />
+            android:textSize="20px" />
 
         <TextView
             android:layout_width="match_parent"
@@ -381,7 +395,7 @@
             android:layout_marginLeft="20px"
             android:layout_marginTop="20px"
             android:text="应付金额：100"
-            android:textSize="40px" />
+            android:textSize="20px" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -394,7 +408,7 @@
                 android:layout_marginLeft="20px"
                 android:layout_marginTop="20px"
                 android:text="已同意"
-                android:textSize="40px" />
+                android:textSize="20px" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -403,7 +417,7 @@
                 android:layout_marginTop="20px"
                 android:text="《双方寄养服务协议》"
                 android:textColor="#3acafa"
-                android:textSize="40px" />
+                android:textSize="20px" />
         </LinearLayout>
     </LinearLayout>
 
@@ -411,15 +425,15 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <Button
-            android:id="@+id/userevaluation_button"
-            android:layout_width="200px"
-            android:layout_height="80px"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="20px"
-            android:background="#ffee33"
-            android:gravity="center"
-            android:text="带评价"
-            android:textSize="40px" />
+        <!--<Button-->
+            <!--android:id="@+id/userevaluation_button"-->
+            <!--android:layout_width="200px"-->
+            <!--android:layout_height="80px"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_marginRight="20px"-->
+            <!--android:background="#ffee33"-->
+            <!--android:gravity="center"-->
+            <!--android:text="评价"-->
+            <!--android:textSize="40px" />-->
     </RelativeLayout>
 </LinearLayout>

@@ -1,5 +1,8 @@
 package com.iblood.ui.ordermodole.activity;
 
+import android.content.Intent;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.iblood.R;
@@ -12,15 +15,18 @@ public class ParticularsActivity extends BaseActivity {
 
     private ListView listView_par;
   private List<String> mlist = new ArrayList<>();
-    @Override
+  private Button app_order;
+
+  @Override
     protected int getLayoutId() {
         //return R.layout.activity_particulars;
-        return  R.layout.item_appraise;
+           return  R.layout.item_appraise;
     }
 
     @Override
     protected void initView() {
      // listView_par =  (ListView) findViewById(R.id.listView_par);
+    app_order =   (Button)  findViewById(R.id.app_order);
     }
 
     @Override
@@ -31,6 +37,12 @@ public class ParticularsActivity extends BaseActivity {
 //
 //           }
 //       });
+      app_order.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+startActivity(new Intent(ParticularsActivity.this,RegoActibity.class));
+        }
+      });
     }
 
     @Override

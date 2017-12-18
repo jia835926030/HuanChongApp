@@ -2,8 +2,15 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/HuanChongApp.iml" filepath="$PROJECT_DIR$/HuanChongApp.iml" />
+      <module fileurl="file://H:\studioDaima\HuanChongDemo\HuanChong.iml" filepath="H:\studioDaima\HuanChongDemo\HuanChong.iml" />
+      <module fileurl="file://D:\HuanHuanApp\HuanChongAppa\HuanChongApp.iml" filepath="D:\HuanHuanApp\HuanChongAppa\HuanChongApp.iml" />
+      <module fileurl="file://H:\studioDaima\HuanChongDemo\HuanChongApp.iml" filepath="H:\studioDaima\HuanChongDemo\HuanChongApp.iml" />
+      <module fileurl="file://H:\studioDaima\HuanChongDemo\HuanChongAppa.iml" filepath="H:\studioDaima\HuanChongDemo\HuanChongAppa.iml" />
+      <module fileurl="file://D:\Android DaShiXun\HuanChong\HuanChongAppa.iml" filepath="D:\Android DaShiXun\HuanChong\HuanChongAppa.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HuanChongDemo.iml" filepath="$PROJECT_DIR$/HuanChongDemo.iml" />
+      <module fileurl="file://D:\Android DaShiXun\HuanChong\HuanChongDemo.iml" filepath="D:\Android DaShiXun\HuanChong\HuanChongDemo.iml" />
       <module fileurl="file://D:\HuanChongAp\HuanChongApp\HuanChongDemo.iml" filepath="D:\HuanChongAp\HuanChongApp\HuanChongDemo.iml" />
+      <module fileurl="file://D:\HuanHuanApp\HuanChongAppa\HuanChongDemo.iml" filepath="D:\HuanHuanApp\HuanChongAppa\HuanChongDemo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

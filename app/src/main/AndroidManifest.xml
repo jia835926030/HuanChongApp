@@ -51,12 +51,11 @@
         <activity android:name=".ui.MessageActivity" />
         <activity android:name=".ui.PetAddActivity" />
         <activity android:name=".ui.PetTypeActivity" />
+        <activity android:name=".ui.setmodoule.FunctionActivity" />
+        <activity android:name=".ui.setmodoule.OrderActivity" />
+        <activity android:name=".ui.setmodoule.ReagardActivity" />
+        <activity android:name=".ui.setmodoule.TiaokuanActivity" />
 
-
-        <activity android:name=".ui.setmodoule.FunctionActivity"></activity>
-        <activity android:name=".ui.setmodoule.OrderActivity"></activity>
-        <activity android:name=".ui.setmodoule.ReagardActivity"></activity>
-        <activity android:name=".ui.setmodoule.TiaokuanActivity"></activity>
         <!-- 城市筛选 -->
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"
@@ -69,14 +68,17 @@
             android:name="com.amap.api.v2.apikey"
             android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
 
-        <activity android:name=".ui.ImmunizingActivity"
-        android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
-
+        <activity
+            android:name=".ui.ImmunizingActivity"
+            android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
         <activity android:name=".fellow.FellowActivity" />
+        <activity android:name=".ui.ordermodole.activity.ParticularsActivity" />
+        <activity android:name=".ui.ordermodole.activity.AppPingActivity" />
         <activity android:name=".fellow.PingLunActivity" />
         <activity android:name=".fellow.SuccessActivity" />
         <activity android:name=".fellow.YuYueActivity" />
-        <activity android:name=".ui.ordermodole.activity.ParticularsActivity"></activity>
+        <activity android:name=".ui.ordermodole.activity.RegoActibity" />
+        <activity android:name=".ui.PlayApForActivity"></activity>
     </application>
 
 </manifest>

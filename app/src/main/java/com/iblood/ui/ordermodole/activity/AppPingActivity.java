@@ -1,13 +1,28 @@
 package com.iblood.ui.ordermodole.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import com.iblood.R;
+import com.iblood.base.BaseActivity;
 
-public class AppPingActivity extends AppCompatActivity {
+public class AppPingActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_ping);
+    protected int getLayoutId() {
+       // return R.layout.activity_app_ping;
+        return R.layout.item_enenting ;
+    }
+
+    @Override
+    protected void initView() {
+
+    }
+
+    @Override
+    protected void initData() {
+
+    }
+
+    @Override
+    protected void initListener() {
+
     }
 }
