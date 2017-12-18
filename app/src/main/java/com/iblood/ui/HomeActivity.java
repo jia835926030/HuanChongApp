@@ -103,6 +103,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView cehua_name;
     private TextView cehua_dianhua;
     private RadioGroup radiogroup;
+    private PopupWindow popu1;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -318,18 +319,23 @@ getChongWu("xiaoxingquan");
                         switch (checkedId){
                             case R.id.fujinyouxian:
                               getdata("distance asc");
+                              popu1.dismiss();
                                 break;
                             case R.id.haopingyouxian:
                                 getdata("score desc");
+                                popu1.dismiss();
                                 break;
                             case R.id.dingdanyouxian:
                                 getdata("orderCount desc");
+                                popu1.dismiss();
                                 break;
                             case R.id.jiageconggao:
                                 getdata("price desc");
+                                popu1.dismiss();
                                 break;
                             case R.id.jiagecongdi:
                                 getdata("price asc");
+                                popu1.dismiss();
                                 break;
 
 
@@ -363,7 +369,7 @@ getChongWu("xiaoxingquan");
         //显示popuwindow
         v1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_online, null);
         //创建一个popuwindow对象
-        PopupWindow popu1 = new PopupWindow(v1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popu1 = new PopupWindow(v1, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         //默认获取不到焦点，设置获取焦点
         popu1.setFocusable(true);
         //点击窗口以外区域，窗口消失

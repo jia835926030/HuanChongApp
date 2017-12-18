@@ -103,10 +103,6 @@ public class ModificationActivity extends BaseActivity {
                 String trim = mEditText.getText().toString().trim();
                 Log.e("TAG", trim);
                 postData(trim);
-                Intent intent = new Intent();
-                Intent rcode = intent.putExtra("rcode", trim);
-                Log.e("TAG", rcode.getStringExtra("rcode"));
-                setResult(200, rcode);
                 finish();
             }
         });

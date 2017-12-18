@@ -51,13 +51,12 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
+    <activity android:name=".ui.setmodoule.SetUpActivity"/>
         <activity android:name=".ui.loginactivity.DefilyActivity" />
         <activity android:name=".ui.loginactivity.GiadingActivity" />
         <activity android:name=".ui.loginactivity.ReginActivity" />
         <activity android:name=".ui.loginactivity.WxActivity" />
         <activity android:name=".ui.PersonalInformation" />
-        <activity android:name=".ui.setmodoule.SetUpActivity" />
         <activity android:name=".ui.setmodoule.ProposalActivity" />
         <activity android:name=".ui.ModificationActivity" />
         <activity android:name=".ui.personal.PersonalAddress" />
@@ -71,7 +70,7 @@
         <activity android:name=".ui.setmodoule.OrderActivity" />
         <activity android:name=".ui.setmodoule.ReagardActivity" />
         <activity android:name=".ui.setmodoule.TiaokuanActivity" />
-
+<activity android:name=".ui.postpersondata.BindWeChatActivity"/>
         <activity android:name=".fellow.PingLunActivity"/>
         <activity android:name=".ui.ordermodole.activity.ParticularsActivity"/>
         <activity android:name=".ui.ordermodole.activity.RegoActibity"/>

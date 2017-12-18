@@ -99,9 +99,9 @@ public class PetAddActivity extends BaseActivity {
                 break;
             case R.id.pet_name:
                 //跳转修改Pet名称
-                startActivityForResult(new Intent(PetAddActivity.this, ModificationActivity.class)
+                /*startActivityForResult(new Intent(PetAddActivity.this, ModificationActivity.class)
                         .putExtra("title", "宠物名")
-                        .putExtra("hint", "请填写宠物昵称"), PET_NAME_CODE);
+                        .putExtra("hint", "请填写宠物昵称"), PET_NAME_CODE);*/
                 break;
             case R.id.pet_types:
                 //宠物类型

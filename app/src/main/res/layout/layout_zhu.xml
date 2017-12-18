@@ -50,6 +50,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_gravity="center"
                 android:background="@null"
+                android:focusable="false"
                 android:hint="地区/街道/小区"
                 android:textSize="15sp" />
         </LinearLayout>

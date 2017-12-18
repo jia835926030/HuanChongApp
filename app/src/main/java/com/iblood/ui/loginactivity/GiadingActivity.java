@@ -67,14 +67,18 @@ private Handler handler=new Handler(){
             JSONObject result = jsonObject.getJSONObject("result");
              String userName = result.getString("userName");
             String userId = result.getString("userId");
+            String wechat = result.getString("wechat");
+            String qq = result.getString("qq");
             Long userPhone = result.getLong("userPhone");
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
+            SharedPreferencesUtils.setParam(GiadingActivity.this,"qq",qq);
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone+"");
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userId",userId);
-
+            SharedPreferencesUtils.setParam(GiadingActivity.this,"wechat",wechat);
             if(ret.equals("true")){
-                Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
-                startActivity(intent);
+                /*Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
+                startActivity(intent);*/
+                finish();
             }else {
                 Toast.makeText(GiadingActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
             }
@@ -173,7 +177,6 @@ private Handler handler=new Handler(){
                 break;
             case R.id.regin_zhu:
                 startActivity(new Intent(GiadingActivity.this, ReginActivity.class));
-                Toast.makeText(this, "注册", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.login_wang:
                 Toast.makeText(this, "忘记", Toast.LENGTH_SHORT).show();

@@ -52,7 +52,7 @@ dependencies {
     //日期选择
     compile 'cn.qqtheme.framework:AndroidPicker:latest.integration'
     implementation 'com.android.support:design:26.1.0'
-
+    compile 'org.greenrobot:eventbus:3.0.0'
     implementation files('libs/okhttpserver-0.1.2.jar')
     implementation files('libs/okhttputils-1.4.0.jar')
 }

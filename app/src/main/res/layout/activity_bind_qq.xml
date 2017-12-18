@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="50px" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorBlack"/>
+    <include layout="@layout/title_layout"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:background="@color/colorBlack"/>
+    <EditText
+        android:id="@+id/bindqq"
+        android:layout_width="match_parent"
+        android:layout_height="100px"
+        android:hint="请输入QQ号"/>
+</com.zhy.autolayout.AutoLinearLayout>
+

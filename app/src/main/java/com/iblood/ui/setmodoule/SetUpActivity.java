@@ -1,13 +1,17 @@
 package com.iblood.ui.setmodoule;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ToggleButton;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
@@ -16,6 +20,7 @@ import com.iblood.ui.HomeActivity;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.FileUtil;
+import com.iblood.utils.GlideCacheUtil;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.ToastUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
@@ -26,8 +31,10 @@ import butterknife.OnClick;
 
 public class SetUpActivity extends BaseActivity {
 
-    @BindView(R.id.return_img)
-    ImageView returnImg;
+    @BindView(R.id.button_backward)
+    Button button_backward;
+    @BindView(R.id.button_forward)
+    Button button_forward;
     @BindView(R.id.proposal_img)
     ImageView proposalImg;
     @BindView(R.id.product_proposal_text)
@@ -50,10 +57,16 @@ public class SetUpActivity extends BaseActivity {
     AutoRelativeLayout scavengingCache;
     @BindView(R.id.sign_out)
     Button signOut;
+    @BindView(R.id.textViewhua)
+    TextView textViewhua;
+    private ToggleButton toggleButton;
+    private GlideCacheUtil instance;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+            super.onCreate(savedInstanceState);
+
         ButterKnife.bind(this);
 
     }
@@ -67,8 +80,11 @@ public class SetUpActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-
-
+        toggleButton = findViewById(R.id.toggleButton);
+        instance = GlideCacheUtil.getInstance();
+        String cacheSize = instance.getCacheSize(SetUpActivity.this);
+        Log.e("tag===========",cacheSize+"");
+        textViewhua.setText(cacheSize+"");
 
     }
 
@@ -79,7 +95,33 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+        button_backward.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        button_forward.setVisibility(View.GONE);
+        String flag = (String) SharedPreferencesUtils.getParam(SetUpActivity.this, "flag3", "");
+        Log.e("fafa",flag);
+        if(flag.equals("ischeckd")){
+            toggleButton.setChecked(true);
+        }else {
+            toggleButton.setChecked(false);
+        }
+        toggleButton.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if(isChecked==true){
+                    SharedPreferencesUtils.setParam(SetUpActivity.this,"flag","noload");
 
+                   SharedPreferencesUtils.setParam(SetUpActivity.this,"flag3","ischeckd");
+                }else {
+                    SharedPreferencesUtils.setParam(SetUpActivity.this,"flag","load");
+                    SharedPreferencesUtils.setParam(SetUpActivity.this,"flag3","nocheckd");
+                }
+            }
+        });
     }
     @OnClick({R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
 
@@ -106,7 +148,12 @@ public class SetUpActivity extends BaseActivity {
                 break;
 
             case R.id.scavenging_cache:
-                Toast.makeText(this, "清除缓存", Toast.LENGTH_SHORT).show();
+                //清除缓存
+                instance.clearImageAllCache(SetUpActivity.this);
+                String cacheSize = instance.getCacheSize(SetUpActivity.this);
+                Log.e("tag===========",cacheSize+"");
+                textViewhua.setText(cacheSize+"");
+
                 break;
 
             case R.id.sign_out:

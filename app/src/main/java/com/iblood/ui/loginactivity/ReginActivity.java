@@ -133,8 +133,7 @@ public class ReginActivity extends BaseActivity {
         regin_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(ReginActivity.this,GiadingActivity.class);
-                startActivity(intent);
+              finish();
             }
         });
     }

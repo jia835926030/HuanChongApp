@@ -1,6 +1,7 @@
 package com.iblood.fellow;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,11 +12,15 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.iblood.R;
 import com.iblood.entity.Screen;
+import com.iblood.utils.LoadImgUtils;
+import com.iblood.utils.SharedPreferencesUtils;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static android.content.ContentValues.TAG;
 
 /**
  * Created by asus on 2017/12/12.
@@ -60,7 +65,18 @@ public class FellowAdapter extends BaseAdapter {
         holder.dizhiHome.setText(desc.get(position).getAddress());
         holder.jiageHome.setText(desc.get(position).getPrice()+"");
         holder.juliHome.setText(desc.get(position).getCoordX()+"");
-        Glide.with(context).load(desc.get(position).getUserImage()).into(holder.imgHomelv);
+        //String flag = (String) SharedPreferencesUtils.getParam(context, "flag", "");
+        String is = (String) SharedPreferencesUtils.getParam(context, "flag3", "");
+       // Log.e(TAG, "getView:"+is);
+
+        if(is.equals("ischeckd")){
+            LoadImgUtils loadImgUtils=new LoadImgUtils();
+            loadImgUtils.loadImg(context,desc.get(position).getUserImage(),holder.imgHomelv);
+            //Glide.with(context).load(R.drawable.a).into(holder.imgHomelv);
+
+        }else if(is.equals("nocheckd")){
+            Glide.with(context).load(desc.get(position).getUserImage()).into(holder.imgHomelv);
+        }
         return convertView;
     }
 

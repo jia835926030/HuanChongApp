@@ -1,16 +1,21 @@
 package com.iblood.base;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.iblood.app.App;
 import com.iblood.config.Urls;
 import com.iblood.ui.PersonalInformation;
@@ -42,6 +47,10 @@ import okhttp3.Response;
 
 public abstract class BaseActivity extends AutoLayoutActivity {
     private Unbinder unbinder;
+    // 获取网络管理信息
+    private static ConnectivityManager manager;
+    // 获取网络信息
+    private static NetworkInfo network = null;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -84,7 +93,29 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     public void textToast(String str){
         Toast.makeText(App.mBaseActivity,str,Toast.LENGTH_SHORT).show();
     }
+    public static boolean isWiFi(Context context) {
+        manager = (ConnectivityManager) context.getSystemService(context.CONNECTIVITY_SERVICE);
+        network = manager.getActiveNetworkInfo();
+        if (network != null && network.isAvailable()) {
+            // 是网
+            if (network.getType() == ConnectivityManager.TYPE_WIFI) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+        return false;
+    }
+    public void loadImg(Context context, String url, ImageView imageView){
+        boolean wiFi = isWiFi(context);
+        if(wiFi==true){
+            Glide.with(context).load(url).into(imageView);
 
+        }else {
+            Toast.makeText(context, "当前未连WIFI", Toast.LENGTH_SHORT).show();
+        }
+
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();
