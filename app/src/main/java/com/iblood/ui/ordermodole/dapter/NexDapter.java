@@ -49,6 +49,9 @@ private List<NexBean> mlist;
        view=  LayoutInflater.from(context).inflate(R.layout.item_mychals,null);
         horder.top_Image =  (ImageView)view.findViewById(R.id.my_topimage);
          horder.net_Image=  (ImageView)  view.findViewById(R.id.titleimage);
+         view.setTag(horder);
+     }else {
+       horder= (Horder) view.getTag();
      }
         Glide.with(context).load(mlist.get(i).getImage()).transform(new GlideCircleTransform(context)).into(horder.net_Image);
        Glide.with(context).load(mlist.get(i).getImage()).transform(new GlideCircleTransform(context)).into(horder.top_Image);

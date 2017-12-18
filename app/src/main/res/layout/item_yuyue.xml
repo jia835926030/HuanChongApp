@@ -11,6 +11,7 @@
     android:layout_height="50px" />
 
     <TextView
+        android:id="@+id/item_top"
         android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
