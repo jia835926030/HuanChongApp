@@ -55,7 +55,11 @@
         <activity android:name=".ui.setmodoule.OrderActivity" />
         <activity android:name=".ui.setmodoule.ReagardActivity" />
         <activity android:name=".ui.setmodoule.TiaokuanActivity" />
-
+        <activity android:name=".fellow.PingLunActivity"/>
+        <activity android:name=".ui.ordermodole.activity.ParticularsActivity"/>
+        <activity android:name=".ui.ordermodole.activity.RegoActibity"/>
+        <activity android:name=".ui.ordermodole.activity.AppPingActivity"/>
+        <activity android:name=".ui.PlayApForActivity"></activity>
         <!-- 城市筛选 -->
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"
@@ -72,13 +76,11 @@
             android:name=".ui.ImmunizingActivity"
             android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
         <activity android:name=".fellow.FellowActivity" />
-        <activity android:name=".ui.ordermodole.activity.ParticularsActivity" />
-        <activity android:name=".ui.ordermodole.activity.AppPingActivity" />
         <activity android:name=".fellow.PingLunActivity" />
         <activity android:name=".fellow.SuccessActivity" />
         <activity android:name=".fellow.YuYueActivity" />
-        <activity android:name=".ui.ordermodole.activity.RegoActibity" />
-        <activity android:name=".ui.PlayApForActivity"></activity>
+        <activity android:name=".ui.ordermodole.activity.ParticularsActivity" />
+        <activity android:name=".ui.BindWeChatActivity"></activity>
     </application>
 
 </manifest>

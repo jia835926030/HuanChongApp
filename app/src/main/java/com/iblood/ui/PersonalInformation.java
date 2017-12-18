@@ -28,9 +28,11 @@ import com.iblood.config.Urls;
 import com.iblood.ui.personal.PersonalAddress;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
+import com.iblood.utils.CharacterParser;
 import com.iblood.utils.ConnectionUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
+import com.iblood.utils.TableUtils;
 import com.iblood.utils.TokenUtil;
 
 import java.io.File;
@@ -121,14 +123,14 @@ public class PersonalInformation extends BaseActivity {
         button_forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                postData();
+                //postData();
             }
 
 
         });
     }
 
-    private void postData() {
+    private void postData(String o) {
         OkHttpClient okHttpClient=new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
         AppUtils.setAppContext(PersonalInformation.this);
@@ -138,20 +140,18 @@ public class PersonalInformation extends BaseActivity {
         Request.Builder request = new Request.Builder();
         String ip = ConnectionUtils.getIp(PersonalInformation.this);
         Map<String, Object> map = new HashMap<>();
-        map.put("userName", "qingchun");
         String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
+        map.put(TableUtils.UserInfo.USERID, ws);
+        map.put(TableUtils.UserInfo.USERSEX, o);
         String s1 = CJSON.toJSONMap(map);
         Log.e("DA", s1);
-        //Log.e("DA=========", ws);
         builder.add("data", s1);
-        //builder.add("userId",ws);
         String linkString = SignUtil.createLinkString(map);
         request.addHeader("sign", linkString);
         request.addHeader("ip", ip);
         request.addHeader("token", token);
         request.addHeader("channel", "android");
-        //request.addHeader("userId",ws);
-        Request build1 = request.url(Urls.BASE+Urls.PERSONDATAUP).post(builder.build()).build();
+        Request build1 = request.url(Urls.BASE+Urls.PERSONDATAUP1).post(builder.build()).build();
         okHttpClient.newCall(build1).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -197,16 +197,17 @@ public class PersonalInformation extends BaseActivity {
             case R.id.modification_sexy:
                 //性别弹窗
                 showSexyPop();
+
                 break;
             case R.id.modification_ddyymm:
                 //年月日弹窗
                 Date_selection(user_time);
 
+
                 break;
             case R.id.modification_wachat:
-                startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
-                        .putExtra("title", "微信")
-                        .putExtra("hint", "请输入您的微信账户（中文，数字，字母）"), WACHAT_CODE);
+               Intent intent=new Intent(PersonalInformation.this,BindWeChatActivity.class);
+               startActivity(intent);
                 break;
             case R.id.modification_QQ:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
@@ -227,6 +228,8 @@ public class PersonalInformation extends BaseActivity {
     }
 
 
+
+
     //展示性别窗口
     private void showSexyPop() {
         View view = View.inflate(this, R.layout.sexydialog, null);
@@ -242,6 +245,9 @@ public class PersonalInformation extends BaseActivity {
             public void onClick(View view) {
                 textToast("修改成功");
                 user_sexy.setText(men.getText().toString().trim());
+                CharacterParser instance = CharacterParser.getInstance();
+                int chsAscii = instance.getChsAscii(men.getText().toString());
+                postData(chsAscii+"");
                 window.dismiss();
             }
         });
@@ -251,6 +257,9 @@ public class PersonalInformation extends BaseActivity {
             public void onClick(View view) {
                 textToast("修改成功");
                 user_sexy.setText(women.getText().toString().trim());
+                CharacterParser instance = CharacterParser.getInstance();
+                int chsAscii = instance.getChsAscii(women.getText().toString());
+                postData(chsAscii+"");
                 window.dismiss();
             }
         });

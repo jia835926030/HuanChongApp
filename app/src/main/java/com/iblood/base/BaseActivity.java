@@ -4,17 +4,38 @@ import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.iblood.app.App;
+import com.iblood.config.Urls;
+import com.iblood.ui.PersonalInformation;
 import com.iblood.ui.PetAddActivity;
+import com.iblood.utils.AppUtils;
+import com.iblood.utils.CJSON;
+import com.iblood.utils.CharacterParser;
+import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.SharedPreferencesUtils;
+import com.iblood.utils.SignUtil;
+import com.iblood.utils.TableUtils;
+import com.iblood.utils.TokenUtil;
 import com.zhy.autolayout.AutoLayoutActivity;
+
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import cn.qqtheme.framework.picker.DatePicker;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 
 public abstract class BaseActivity extends AutoLayoutActivity {
@@ -37,8 +58,11 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         // ActivityCollector.getInstance().addActivity(this);
         initView();
         initData();
+
         initListener();
     }
+
+
 
     protected abstract int getLayoutId();
 
@@ -58,10 +82,45 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     public void textToast(String str){
         Toast.makeText(App.mBaseActivity,str,Toast.LENGTH_SHORT).show();
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();
         unbinder.unbind();
+    }
+    private void postDataSimple(String data) {
+        OkHttpClient okHttpClient=new OkHttpClient();
+        FormBody.Builder builder = new FormBody.Builder();
+        AppUtils.setAppContext(BaseActivity.this);
+        TokenUtil.init(BaseActivity.this);
+        String token = TokenUtil.createToken();
+        Log.e("token",token);
+        Request.Builder request = new Request.Builder();
+        String ip = ConnectionUtils.getIp(BaseActivity.this);
+        Map<String, Object> map = new HashMap<>();
+        String ws = (String) SharedPreferencesUtils.getParam(BaseActivity.this, "userId", "");
+        map.put(TableUtils.UserInfo.USERID, ws);
+        map.put(TableUtils.UserInfo.BIRTHDAY, data);
+        String s1 = CJSON.toJSONMap(map);
+        builder.add("data", s1);
+        String linkString = SignUtil.createLinkString(map);
+        request.addHeader("sign", linkString);
+        request.addHeader("ip", ip);
+        request.addHeader("token", token);
+        request.addHeader("channel", "android");
+        Request build1 = request.url(Urls.BASE+Urls.PERSONDATAUP1).post(builder.build()).build();
+        okHttpClient.newCall(build1).enqueue(new Callback() {
+            @Override
+            public void onFailure(Call call, IOException e) {
+
+            }
+
+            @Override
+            public void onResponse(Call call, Response response) throws IOException {
+                String string = response.body().string();
+                Log.e("data",string);
+            }
+        });
     }
 //选择日期
     public void Date_selection(final TextView view) {
@@ -77,6 +136,10 @@ public abstract class BaseActivity extends AutoLayoutActivity {
                 if (!year.isEmpty() || !month.isEmpty() || !day.isEmpty()) {
                     textToast("修改成功");
                     view.setText(year + "年" + month + "月" + day + "日");
+                    CharacterParser instance = CharacterParser.getInstance();
+                    int chsAscii = instance.getChsAscii(view.getText().toString());
+                    postDataSimple(chsAscii+"");
+                    //TODO sfsasfas
                 } else {
                     textToast("网络不佳,请稍后重试");
                 }
