@@ -107,6 +107,8 @@
         <activity android:name=".ui.UpdatePersonalInfo"></activity>
 
         <activity android:name=".ui.BindWeChatActivity"></activity>
+        <activity android:name=".ui.personal.ClipImageActivity"/>
+        <activity android:name=".ui.PreviewActivity"/>
     </application>
 
 </manifest>

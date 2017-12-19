@@ -28,6 +28,8 @@ public class PetAddActivity extends BaseActivity {
     TextView header_title;//头标题
     @BindView(R.id.button_forward)
     Button button_forward;
+    @BindView(R.id.button_backward)
+    Button button_backward;
     @BindView(R.id.pet_face)
     RelativeLayout pet_Face;
     @BindView(R.id.pet_name)
@@ -71,7 +73,7 @@ public class PetAddActivity extends BaseActivity {
         button_forward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                textToast("以保存(不好使)");
+                textToast(" 已保存(不好使)");
 
                 String pet_proFile = pet_Profile.getText().toString().trim();
 
@@ -91,7 +93,7 @@ public class PetAddActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.pet_face, R.id.pet_name, R.id.pet_types, R.id.pet_sterilization, R.id.pet_time, R.id.pet_weight, R.id.pet_immunizing, R.id.pet_profile})
+    @OnClick({R.id.pet_face, R.id.pet_name, R.id.pet_types, R.id.pet_sterilization, R.id.pet_time, R.id.pet_weight, R.id.pet_immunizing, R.id.pet_profile,R.id.button_backward})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.pet_face:
@@ -127,11 +129,12 @@ public class PetAddActivity extends BaseActivity {
                 //免疫情况
                 startActivity(new Intent(PetAddActivity.this, ImmunizingActivity.class));
                 break;
-//            case R.id.pet_profile:
-//                //
-//
-//
-//                break;
+            case R.id.pet_profile:
+
+                break;
+            case R.id.button_backward:
+                finish();
+                break;
         }
     }
 

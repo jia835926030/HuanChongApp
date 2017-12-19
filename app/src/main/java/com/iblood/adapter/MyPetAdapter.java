@@ -1,6 +1,7 @@
 package com.iblood.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.widget.RecyclerView;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.iblood.R;
 import com.iblood.entity.PetAddBean;
+import com.iblood.entity.PetInfo;
 
 import java.util.List;
 
@@ -25,20 +27,20 @@ import java.util.List;
 
 public class MyPetAdapter extends BaseAdapter {
     private Context context;
-    private List<PetAddBean> petList;
+    private List<PetInfo> petInfos;
 
     private RelativeLayout mItem;
 
 
-    public MyPetAdapter(Context context, List<PetAddBean> petList) {
+    public MyPetAdapter(Context context, List<PetInfo> petInfos) {
         super();
         this.context = context;
-        this.petList = petList;
+        this.petInfos = petInfos;
     }
 
     @Override
     public int getCount() {
-        return petList.size();
+        return petInfos.size();
     }
 
     @Override
@@ -62,35 +64,13 @@ public class MyPetAdapter extends BaseAdapter {
             vh = (ViewHolder) view.getTag();
         }
         //To Do
-        Glide.with(context).load(petList.get(i).getPetimgurl()).into(vh.imgface);
-        vh.petName.setText(petList.get(i).getPetname());
-        vh.petIntroduce.setText(petList.get(i).getPetsterilization());
-
-
-
-//        vh.petsexy.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//            }
-//        });
+        Glide.with(context).load(petInfos.get(i).getPetImage()).into(vh.imgface);
+        vh.petName.setText(petInfos.get(i).getPetName());
+        vh.petIntroduce.setText(petInfos.get(i).getIsSterilization());
         return view;
     }
 
-//    private void showTipPop(View v) {
-//        View inflate = View.inflate(context, R.layout.pet_sexy_pop, null);
-//        PopupWindow window = new PopupWindow(inflate, ActionBar.LayoutParams.MATCH_PARENT,
-//                android.support.v4.view.ViewPager.LayoutParams.WRAP_CONTENT,
-//                true);
-//        window.setAnimationStyle(R.style.style_dialog);
-//        window.setBackgroundDrawable(new BitmapDrawable());
-//        window.showAtLocation(v, Gravity.BOTTOM, 0, 0);
-//
-//
-//
-//
-//
-//    }
+
 
     public static class ViewHolder {
         public View rootView;

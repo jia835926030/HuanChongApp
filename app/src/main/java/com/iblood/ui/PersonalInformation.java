@@ -1,7 +1,10 @@
 package com.iblood.ui;
 
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Environment;
@@ -11,7 +14,12 @@ import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -20,16 +28,20 @@ import com.iblood.R;
 import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
+import com.iblood.tools.CircleImageView;
 import com.iblood.ui.personal.PersonalAddress;
 import com.iblood.ui.postpersondata.BindWeChatActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.CharacterParser;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.SDPathUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TableUtils;
 import com.iblood.utils.TokenUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
 import java.io.IOException;
@@ -87,6 +99,8 @@ public class PersonalInformation extends BaseActivity {
     TextView user_phone;
     @BindView(R.id.user_address)
     TextView user_address;
+    @BindView(R.id.iv_head)//头像
+    CircleImageView ivHeadLogo;
 
 
     private PopupWindow window;
@@ -102,7 +116,7 @@ public class PersonalInformation extends BaseActivity {
 
     private TextView men;
     private TextView women;
-
+    private String localImg;
 
     @Override
     protected int getLayoutId() {
@@ -275,89 +289,51 @@ public class PersonalInformation extends BaseActivity {
 
     //当点击头像时
     private void showTipPop() {
-
-        View view = View.inflate(this, R.layout.choosepicturedialog, null);
-
-        window = new PopupWindow(view, ActionBar.LayoutParams.MATCH_PARENT,
-                android.support.v4.view.ViewPager.LayoutParams.WRAP_CONTENT,
-                true);
-        window.setAnimationStyle(R.style.style_dialog);
-        window.setBackgroundDrawable(new BitmapDrawable());
-        //出现位置
-        window.showAtLocation(modification_face, Gravity.BOTTOM, 0, 0);
-        //拍照
-        TextView mTake_pictures = view.findViewById(R.id.but_Take_pictures);
-        mTake_pictures.setOnClickListener(new View.OnClickListener() {
+        View view = getLayoutInflater().inflate(R.layout.choosepicturedialog, null);
+        final Dialog dialog = new Dialog(this, R.style.transparentFrameWindowStyle);
+        dialog.setContentView(view, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.WRAP_CONTENT));
+        Window window = dialog.getWindow();
+        window.setWindowAnimations(R.style.main_menu_animstyle);
+        WindowManager.LayoutParams wl = window.getAttributes();
+        wl.x = 0;
+        wl.y = getWindowManager().getDefaultDisplay().getHeight();
+        wl.width = ViewGroup.LayoutParams.MATCH_PARENT;
+        wl.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        dialog.onWindowAttributesChanged(wl);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+        TextView btnCamera = (TextView) view.findViewById(R.id.btn_to_camera);
+        btnCamera.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myTakePictures();
+                dialog.dismiss();
+//
+                Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(SDPathUtils.getCachePath(), "temp.jpg")));
+                startActivityForResult(openCameraIntent, 2);
+//                    }
             }
         });
-        //相册
-        TextView mAlbum = view.findViewById(R.id.but_album);
-        mAlbum.setOnClickListener(new View.OnClickListener() {
+        TextView btnPhoto = (TextView) view.findViewById(R.id.btn_to_photo);
+        btnPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myAlbum();
+
+                Intent intent = new Intent(Intent.ACTION_PICK, null);
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
+                startActivityForResult(intent, 1);
+                dialog.dismiss();
             }
         });
-        //取消
-        TextView mCancel = view.findViewById(R.id.but_cancel);
-        mCancel.setOnClickListener(new View.OnClickListener() {
+        TextView btnCancel = (TextView) view.findViewById(R.id.btn_to_cancel);
+        btnCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                window.dismiss();
+                dialog.dismiss();
             }
         });
-    }
-
-
-    //拍照
-    private void myTakePictures() {
-//        Intent openCameraIntent = new Intent(
-//                MediaStore.ACTION_IMAGE_CAPTURE);
-//        Uri tempUri = Uri.fromFile(new File(Environment
-//                .getExternalStorageDirectory(), "image.jpg"));
-//        // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-//        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, tempUri);
-//        startActivityForResult(openCameraIntent, TAKE_PICTURE);
-//只用来拍照 android7.0
-        File file = new File(Environment.getExternalStorageDirectory(), "/temp/" + System.currentTimeMillis() + ".jpg");
-        if (!file.getParentFile().exists()) file.getParentFile().mkdirs();
-        Uri imageUri = FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider", file);//通过FileProvider创建一个content类型的Uri
-        Log.e("uuu", imageUri + "");
-        Intent intent = new Intent();
-        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION); //添加这一句表示对目标应用临时授权该Uri所代表的文件
-        intent.setAction(MediaStore.ACTION_IMAGE_CAPTURE);//设置Action为拍照
-        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);//将拍取的照片保存到指定URI
-        startActivityForResult(intent, TAKE_PICTURE);
-
-//        //拍照并裁剪 Android7.0
-//        File file=new File(Environment.getExternalStorageDirectory(), "/temp/"+System.currentTimeMillis() + ".jpg");
-//        if (!file.getParentFile().exists())file.getParentFile().mkdirs();
-//        Uri outputUri = FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider",file);
-//        //通过FileProvider创建一个content类型的Uri
-//        Uri imageUri=FileProvider.getUriForFile(App.mBaseActivity, "com.jph.takephoto.fileprovider", new File("/storage/emulated/0/temp/1474960080319.jpg"));
-//        Intent intent = new Intent("com.android.camera.action.CROP");
-//        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-//        intent.setDataAndType(imageUri, "image/*");
-//        intent.putExtra("crop", "true");
-//        intent.putExtra("aspectX", 1);
-//        intent.putExtra("aspectY", 1);
-//        intent.putExtra("scale", true);
-//        intent.putExtra(MediaStore.EXTRA_OUTPUT, outputUri);
-//        intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
-//        intent.putExtra("noFaceDetection", true); // no face detection
-//        startActivityForResult(intent,TAKE_PICTURE);
-    }
-
-    //相册
-    private void myAlbum() {
-
-        Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
-        openAlbumIntent.setType("image/*");
-        startActivityForResult(openAlbumIntent, CHOOSE_PICTURE);
-
 
     }
 
@@ -384,22 +360,65 @@ public class PersonalInformation extends BaseActivity {
         if (requestCode == 7 && resultCode == 200) {
             user_address.setText(data.getStringExtra("rcode"));
         }
-
-        if (resultCode == RESULT_OK) { // 如果返回码是可以用的
-            switch (requestCode) {
-                case CHOOSE_PICTURE:
-//                    startPhotoZoom(tempUri); // 开始对图片进行裁剪处理
-                    break;
-                case TAKE_PICTURE:
-//                    startPhotoZoom(tempUri);
-                    break;
-                case CROP_SMALL_PICTURE:
-                    if (data != null) {
-//                        setImageToView(data); // 让刚才选择裁剪得到的图片显示在界面上
-                    }
-                    break;
-
+        if (requestCode == 1 && data != null) {
+            startPhotoZoom(data.getData());
+        } else if (requestCode == 2) {
+            File temp = new File(SDPathUtils.getCachePath(), "temp.jpg");
+            startPhotoZoom(Uri.fromFile(temp));
+        } else if (requestCode == 3) {
+            if (data != null) {
+                setPicToView(data);
             }
         }
+    }
+
+    /**
+     * 裁剪图片方法实现
+     *
+     * @param uri
+     */
+    public void startPhotoZoom(Uri uri) {
+        Intent intent = new Intent(PersonalInformation.this, PreviewActivity.class);
+        intent.setDataAndType(uri, "image/*");
+        startActivityForResult(intent, 3);
+    }
+
+    /**
+     * 保存裁剪之后的图片数据
+     *
+     * @param picdata
+     */
+    private void setPicToView(Intent picdata) {
+        Bitmap bitmap = null;
+        byte[] bis = picdata.getByteArrayExtra("bitmap");
+        bitmap = BitmapFactory.decodeByteArray(bis, 0, bis.length);
+        localImg = System.currentTimeMillis() + ".JPEG";
+
+        if (bitmap != null) {
+
+            SDPathUtils.saveBitmap(bitmap, localImg);
+            Log.e("本地图片绑定", SDPathUtils.getCachePath() + localImg);
+            setImageUrl(ivHeadLogo, "file:/" + SDPathUtils.getCachePath() + localImg, R.mipmap.head_logo);
+        }
+    }
+    private DisplayImageOptions options;
+
+    public void setImageUrl(ImageView ivId, String imageUrl, int emptyImgId) {
+        if (options == null) {
+//            options = new DisplayImageOptions.Builder()
+//                    .showImageOnLoading(emptyImgId)
+//                    .showImageForEmptyUri(emptyImgId)
+//                    .showImageOnFail(emptyImgId).cacheInMemory(true)
+//                    .cacheOnDisk(true).considerExifParams(true)
+//                    .bitmapConfig(Bitmap.Config.RGB_565)
+//                    .displayer(new RoundedBitmapDisplayer(RoundNum)).build();
+            options = new DisplayImageOptions.Builder()
+                    .showImageOnLoading(emptyImgId)
+                    .showImageForEmptyUri(emptyImgId)
+                    .showImageOnFail(emptyImgId).cacheInMemory(true)
+                    .cacheOnDisk(true).considerExifParams(true)
+                    .bitmapConfig(Bitmap.Config.RGB_565).build();
+        }
+        ImageLoader.getInstance().displayImage(imageUrl, ivId, options);
     }
 }

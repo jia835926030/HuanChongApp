@@ -31,6 +31,8 @@ import com.iblood.utils.TokenUtil;
 import com.zhy.autolayout.AutoLayoutActivity;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -159,7 +161,9 @@ public abstract class BaseActivity extends AutoLayoutActivity {
     public void Date_selection(final TextView view) {
 
         DatePicker picker = new DatePicker(App.mBaseActivity);
-        picker.setRange(1990, 2030);//年份范围
+        SimpleDateFormat df = new SimpleDateFormat("yyyy");//设置日期格式
+        String date = df.format(new Date());
+        picker.setRange(1990, Integer.parseInt(date));//年份范围
         picker.setSubmitTextColor(Color.BLUE);
         picker.setCancelTextColor(Color.BLUE);
         picker.setTextColor(Color.BLACK);
