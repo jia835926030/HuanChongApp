@@ -75,7 +75,7 @@ public class FellowAdapter extends BaseAdapter {
             //Glide.with(context).load(R.drawable.a).into(holder.imgHomelv);
 
         }else if(is.equals("nocheckd")){
-            Glide.with(context).load(desc.get(position).getUserImage()).into(holder.imgHomelv);
+            Glide.with(context).load(desc.get(position).getUserImage()).error(R.mipmap.ic_launcher).into(holder.imgHomelv);
         }
         return convertView;
     }

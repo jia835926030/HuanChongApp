@@ -1,100 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:id="@+id/ll_fellow"
+    android:layout_height="wrap_content"
     tools:context="com.iblood.fellow.FellowActivity">
 
-    <RelativeLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:id="@+id/ll_fellow">
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0px"
         android:layout_weight="1">
 
-        <ImageView
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:src="@drawable/photos" />
+            android:layout_height="wrap_content">
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="430px"
+                android:src="@drawable/pikaqiu" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="100px"
+
+                android:text="用户姓名" />
+
+            <LinearLayout
+                android:layout_marginLeft="100px"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10px">
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@drawable/star" />
+
+                <ImageView
+                    android:layout_width="30px"
+                    android:layout_height="30px"
+                    android:src="@drawable/star" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/imageView2"
+
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20px"
+            android:layout_marginRight="20px"
+            android:layout_marginBottom="50px"
+            android:src="@mipmap/pet_icon" />
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="50px"
             android:layout_height="50px"
-            android:layout_alignLeft="@+id/imageView2"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/imageView2"
-            android:layout_marginTop="14dp"
+            android:layout_margin="15dp"
             android:src="@drawable/return_back" />
-
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/textView12"
-            android:layout_marginLeft="14dp"
-            android:layout_marginStart="14dp"
-            android:src="@mipmap/pet_icon" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            android:layout_toEndOf="@+id/imageView2"
-            android:layout_toRightOf="@+id/imageView2"
-            android:background="#ffff"
-            android:text="用户姓名" />
-
-        <LinearLayout
-            android:background="#ffff"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="23dp"
-            android:layout_marginStart="23dp"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/imageView2"
-            android:layout_toRightOf="@+id/imageView2">
-
-            <ImageView
-                android:layout_width="30px"
-                android:layout_height="30px"
-                android:src="@drawable/star" />
-            <ImageView
-                android:layout_width="30px"
-                android:layout_height="30px"
-                android:src="@drawable/star" />
-            <ImageView
-                android:layout_width="30px"
-                android:layout_height="30px"
-                android:src="@drawable/star" />
-            <ImageView
-                android:layout_width="30px"
-                android:layout_height="30px"
-                android:src="@drawable/star" />
-            <ImageView
-                android:layout_width="30px"
-                android:layout_height="30px"
-                android:src="@drawable/star" />
-
-        </LinearLayout>
-    </RelativeLayout>
+    </FrameLayout>
     <TextView
-        android:layout_marginTop="10px"
         android:layout_marginBottom="10px"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="#57867878"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -116,6 +111,7 @@
                     android:src="@drawable/evaluate" />
 
                 <TextView
+                    android:id="@+id/pingluntv_fellow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10px"
@@ -155,10 +151,16 @@
                     android:text="大型犬" />
 
                 <TextView
+                    android:id="@+id/jiage1_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="40.00" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorGreyLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -180,10 +182,16 @@
                     android:text="中兴犬" />
 
                 <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="30px"
-                android:text="10.00" />
+                    android:id="@+id/jiage2_fellow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30px"
+                    android:text="10.00" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorGreyLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -205,6 +213,7 @@
                     android:text="猫" />
 
                 <TextView
+                    android:id="@+id/jiage3_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="60.00" />
@@ -237,10 +246,16 @@
                     android:text="洗澡（大型犬）" />
 
                 <TextView
+                    android:id="@+id/jiage4_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="20.00" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorGreyLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -262,10 +277,16 @@
                     android:text="洗澡（中型犬）" />
 
                 <TextView
+                    android:id="@+id/jiage5_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="40.00" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorGreyLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -287,10 +308,16 @@
                     android:text="洗澡（小型犬）" />
 
                 <TextView
+                    android:id="@+id/jiage6_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="111.00" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorGreyLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -312,10 +339,16 @@
                     android:text="接送（猫）" />
 
                 <TextView
+                    android:id="@+id/jiage7_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="45.00" />
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/colorGreyLight" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -337,6 +370,7 @@
                     android:text="学习（小型犬）" />
 
                 <TextView
+                    android:id="@+id/jiage8_fellow"
                     android:layout_width="wrap_content"
                     android:layout_height="30px"
                     android:text="11.00" />
@@ -362,6 +396,7 @@
                     android:src="@drawable/location" />
 
                 <TextView
+                    android:id="@+id/dizhi_fellow"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10px"
@@ -376,24 +411,29 @@
                 android:background="#57c7b3b3"
                 android:padding="10px"
                 android:text="寄养家庭简介" />
+
             <TextView
-                android:layout_margin="10px"
+                android:id="@+id/jianjie_fellow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="10px"
                 android:layout_marginLeft="10px"
                 android:layout_weight="1"
                 android:text="你瞅啥，瞅你咋地" />
+
             <LinearLayout
-                android:background="#57c7b3b3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10px"
+                android:background="#57c7b3b3"
                 android:gravity="center"
                 android:orientation="horizontal">
+
                 <ImageView
                     android:layout_width="30px"
                     android:layout_height="30px"
                     android:src="@drawable/contact" />
+
                 <TextView
                     android:id="@+id/lianxi_fellow"
                     android:layout_width="match_parent"
@@ -403,14 +443,14 @@
                     android:text="联系他" />
 
                 <TextView
-                    android:text="预约寄养"
-                    android:background="#e59707"
                     android:id="@+id/queding_fellow"
                     android:layout_width="250px"
+                    android:layout_height="50px"
+                    android:background="#e59707"
                     android:gravity="center"
-                    android:layout_height="50px" />
+                    android:text="预约寄养" />
             </LinearLayout>
 
         </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

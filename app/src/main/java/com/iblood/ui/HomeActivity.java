@@ -30,6 +30,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.hyphenate.EMCallBack;
+import com.hyphenate.chat.EMClient;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
@@ -39,6 +41,9 @@ import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
+
+import com.iblood.ui.map.MapActivity;
+import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
@@ -102,6 +107,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private TextView cehua_dianhua;
     private RadioGroup radiogroup;
     private PopupWindow popu1;
+    private String q;
+    private String w;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -118,8 +125,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         initView();
-        String q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
-        String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
+        q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
+        w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
         String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
 //        Log.e("name=====",q);
 //        Log.e("phone=====",w+"");
@@ -151,8 +158,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 item.setCheckable(true);
                 switch (item.getItemId()) {
                     case R.id.cehua_xiaoxi:
-                      Intent intent11=new Intent(HomeActivity.this,MessageActivity.class);
-                      startActivity(intent11);
+                        //跳转环信消息
+                        xiaoxi();
                       break;
                     case R.id.cehua_chongwu:
                         //跳转到宠物列表
@@ -182,6 +189,46 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         dingweiHoem.setOnClickListener(this);
         cehuaShenqing.setOnClickListener(this);
     }
+
+    //环信
+    private void xiaoxi() {
+        EMClient.getInstance().login(q, w, new EMCallBack() {//回调
+            @Override
+            public void onSuccess() {
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(HomeActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
+                        //进入聊天界面
+                        startActivity(new Intent(HomeActivity.this, MessageActivity.class));
+                    }
+                });
+            }
+
+            @Override
+            public void onProgress(int progress, String status) {
+
+            }
+
+            @Override
+            public void onError(int code, String message) {
+                EMClient.getInstance().groupManager().loadAllGroups();
+                EMClient.getInstance().chatManager().loadAllConversations();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(HomeActivity.this, "登陆失败！", Toast.LENGTH_SHORT).show();
+//                        //进入聊天界面
+//                        startActivity(new Intent(HomeActivity.this, MessageActivity.class));
+//                        finish();
+                    }
+                });
+            }
+        });
+    }
+
     public void getChongWu(String str) {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
@@ -267,9 +314,19 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                     public void run() {
                         Gson gson = new Gson();
                         Screen dAta = gson.fromJson(data, Screen.class);
-                        List<Screen.DescBean> desc = dAta.getDesc();
+                        final List<Screen.DescBean> desc = dAta.getDesc();
                         FellowAdapter adapter = new FellowAdapter(HomeActivity.this,desc);
                         listHome.setAdapter(adapter);
+
+                        listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                                Intent intent = new Intent(HomeActivity.this, FellowActivity.class);
+                                intent.putExtra("name",desc.get(position).getUsersId());
+                                Toast.makeText(HomeActivity.this, desc.get(position).getUsersId(), Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
+                            }
+                        });
                     }
                 });
             }
@@ -279,23 +336,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     //主体ListView
     @Override
     protected void initData() {
-            getdata("distance asc");
-        final List<FellowBean> list = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            list.add(new FellowBean(R.mipmap.ic_launcher,"米妮捷豹的家"+i,"双井桥东北角东波街东南角天之蓝...","$50起","距 0.1km"));
-        }
-getChongWu("xiaoxingquan");
-
-
-        listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(HomeActivity.this, FellowActivity.class);
-                intent.putExtra("name",list.get(position).getName());
-                Toast.makeText(HomeActivity.this, list.get(position).getName(), Toast.LENGTH_SHORT).show();
-                startActivity(intent);
-            }
-        });
+        getdata("distance asc");
+        getChongWu("xiaoxingquan");
     }
 
     @Override
@@ -383,7 +425,7 @@ getChongWu("xiaoxingquan");
         //显示popuwindow
         v2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_manage, null);
         //创建一个popuwindow对象
-        PopupWindow popu1 = new PopupWindow(v2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        PopupWindow popu1 = new PopupWindow(v2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         //默认获取不到焦点，设置获取焦点
         popu1.setFocusable(true);
         //点击窗口以外区域，窗口消失
@@ -399,7 +441,7 @@ getChongWu("xiaoxingquan");
         //显示popuwindow
         v3 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_personal, null);
         //创建一个popuwindow对象
-        PopupWindow popu1 = new PopupWindow(v3, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        PopupWindow popu1 = new PopupWindow(v3, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         //默认获取不到焦点，设置获取焦点
         popu1.setFocusable(true);
         //点击窗口以外区域，窗口消失
@@ -448,7 +490,8 @@ getChongWu("xiaoxingquan");
 
                 break;
             case R.id.dingwei_hoem:
-                Toast.makeText(this, "ddddddddddd", Toast.LENGTH_SHORT).show();
+                Intent in =new Intent(HomeActivity.this, MapActivity.class);
+                startActivity(in);
                 break;
 
             case R.id.cehua_tou:

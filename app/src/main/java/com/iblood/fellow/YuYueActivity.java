@@ -110,6 +110,7 @@ public class YuYueActivity extends BaseActivity implements View.OnClickListener 
         tianjiaYuyue.setOnClickListener(this);
         shanchuYuyue.setOnClickListener(this);
         quedingYuyue.setOnClickListener(this);
+        domFanhui.setOnClickListener(this);
 
         //Activity的onCreate方法中获取当时的年 ，月，日
         Calendar calendar = Calendar.getInstance();
@@ -298,9 +299,10 @@ public class YuYueActivity extends BaseActivity implements View.OnClickListener 
                 }else {
                     Toast.makeText(YuYueActivity.this, "日期不能少哟", Toast.LENGTH_SHORT).show();
                 }
-
                 break;
-
+            case R.id.dom_fanhui:
+                finish();
+                break;
         }
     }
 }

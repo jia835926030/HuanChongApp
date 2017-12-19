@@ -15,6 +15,9 @@ public class Urls {
     public static final String PERSONORDER ="orderInfo/getOrderInfoByUserId.jhtml";
     public static final String PERSONDATAUP ="user/getUserInfoByVO.jhtml";
     public static final String PERSONDATAUP1 ="user/updateUserInfo.jhtml";
+    public static final String JIYANGSI = "users/getUsersInfos.jhtml";
+
+
 
 
 }
