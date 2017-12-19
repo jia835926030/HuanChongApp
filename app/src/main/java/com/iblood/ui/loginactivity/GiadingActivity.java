@@ -65,20 +65,20 @@ private Handler handler=new Handler(){
             JSONObject jsonObject=new JSONObject(data);
             String ret = jsonObject.getString("ret");
             JSONObject result = jsonObject.getJSONObject("result");
-             String userName = result.getString("userName");
+            String userName = result.getString("userName");
             String userId = result.getString("userId");
-            String wechat = result.getString("wechat");
-            String qq = result.getString("qq");
             Long userPhone = result.getLong("userPhone");
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userName",userName);
-            SharedPreferencesUtils.setParam(GiadingActivity.this,"qq",qq);
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userPhone",userPhone+"");
             SharedPreferencesUtils.setParam(GiadingActivity.this,"userId",userId);
-            SharedPreferencesUtils.setParam(GiadingActivity.this,"wechat",wechat);
+            Log.e("dasasa",ret);
             if(ret.equals("true")){
-                /*Intent intent=new Intent(GiadingActivity.this, HomeActivity.class);
-                startActivity(intent);*/
                 finish();
+                String wechat = result.getString("wechat");
+                String qq = result.getString("qq");
+                SharedPreferencesUtils.setParam(GiadingActivity.this,"qq",qq);
+                SharedPreferencesUtils.setParam(GiadingActivity.this,"wechat",wechat);
+
             }else {
                 Toast.makeText(GiadingActivity.this, "登录失败", Toast.LENGTH_SHORT).show();
             }

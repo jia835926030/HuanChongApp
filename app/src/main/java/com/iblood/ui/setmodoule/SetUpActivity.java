@@ -79,7 +79,6 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
         toggleButton = findViewById(R.id.toggleButton);
         instance = GlideCacheUtil.getInstance();
         String cacheSize = instance.getCacheSize(SetUpActivity.this);
