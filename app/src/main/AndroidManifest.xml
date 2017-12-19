@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-
     package="com.iblood">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -51,7 +50,8 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-    <activity android:name=".ui.setmodoule.SetUpActivity"/>
+
+        <activity android:name=".ui.setmodoule.SetUpActivity" />
         <activity android:name=".ui.loginactivity.DefilyActivity" />
         <activity android:name=".ui.loginactivity.GiadingActivity" />
         <activity android:name=".ui.loginactivity.ReginActivity" />
@@ -70,12 +70,12 @@
         <activity android:name=".ui.setmodoule.OrderActivity" />
         <activity android:name=".ui.setmodoule.ReagardActivity" />
         <activity android:name=".ui.setmodoule.TiaokuanActivity" />
-<activity android:name=".ui.postpersondata.BindWeChatActivity"/>
-        <activity android:name=".fellow.PingLunActivity"/>
-        <activity android:name=".ui.ordermodole.activity.ParticularsActivity"/>
-        <activity android:name=".ui.ordermodole.activity.RegoActibity"/>
-        <activity android:name=".ui.ordermodole.activity.AppPingActivity"/>
-        <activity android:name=".ui.PlayApForActivity"></activity>
+        <activity android:name=".ui.postpersondata.BindWeChatActivity" />
+        <activity android:name=".fellow.PingLunActivity" />
+        <activity android:name=".ui.ordermodole.activity.ParticularsActivity" />
+        <activity android:name=".ui.ordermodole.activity.RegoActibity" />
+        <activity android:name=".ui.ordermodole.activity.AppPingActivity" />
+        <activity android:name=".ui.PlayApForActivity" />
         <!-- 城市筛选 -->
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"
@@ -93,7 +93,6 @@
             android:value="138e5cf1e8961ae326ff0908c03d1ae1" />
         <activity android:name=".fellow.FellowActivity" />
 
-
         <!-- MapKey -->
         <!-- <meta-data -->
         <!-- android:name="com.amap.api.v2.apikey" -->
@@ -104,11 +103,11 @@
 
         <activity android:name=".fellow.SuccessActivity" />
         <activity android:name=".fellow.YuYueActivity" />
-        <activity android:name=".ui.UpdatePersonalInfo"></activity>
-
-        <activity android:name=".ui.BindWeChatActivity"></activity>
-        <activity android:name=".ui.personal.ClipImageActivity"/>
-        <activity android:name=".ui.PreviewActivity"/>
+        <activity android:name=".ui.UpdatePersonalInfo" />
+        <activity android:name=".ui.BindWeChatActivity" />
+        <activity android:name=".ui.personal.ClipImageActivity" />
+        <activity android:name=".ui.PreviewActivity" />
+        <activity android:name=".ui.ordermodole.activity.SelectPicPopupWindow"></activity>
     </application>
 
 </manifest>

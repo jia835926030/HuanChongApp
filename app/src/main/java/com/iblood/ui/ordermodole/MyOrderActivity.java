@@ -1,10 +1,10 @@
 package com.iblood.ui.ordermodole;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -34,6 +34,7 @@ public class MyOrderActivity extends BaseActivity implements View.OnClickListene
     @BindView(R.id.myorder_viewpager)
     ViewPager myorderViewpager;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

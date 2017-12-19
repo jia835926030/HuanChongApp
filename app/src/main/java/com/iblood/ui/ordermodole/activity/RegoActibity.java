@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.iblood.R;
@@ -25,8 +24,6 @@ public class RegoActibity extends AppCompatActivity {
   ImageView lvimage;
     @BindView(R.id.tv_name)
     TextView tvName;
-    @BindView(R.id.lv_bar)
-    RatingBar lvBar;
     @BindView(R.id.lv_ping)
     EditText lvPing;
 
@@ -37,7 +34,7 @@ public class RegoActibity extends AppCompatActivity {
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.iv_back, R.id.lv_tijiao, R.id.iv_myImage, R.id.tv_name, R.id.lv_bar, R.id.lv_ping})
+    @OnClick({R.id.iv_back, R.id.lv_tijiao, R.id.iv_myImage, R.id.tv_name, R.id.lv_ping})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.iv_back:
@@ -48,8 +45,6 @@ public class RegoActibity extends AppCompatActivity {
             case R.id.iv_myImage:
                 break;
             case R.id.tv_name:
-                break;
-            case R.id.lv_bar:
                 break;
             case R.id.lv_ping:
                 break;

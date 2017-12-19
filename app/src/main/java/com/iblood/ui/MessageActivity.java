@@ -1,5 +1,6 @@
 package com.iblood.ui;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
     @BindView(R.id.message_listview)
     ListView messageListview;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

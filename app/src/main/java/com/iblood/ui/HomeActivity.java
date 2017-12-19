@@ -39,8 +39,6 @@ import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
 import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
-
-import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
@@ -423,6 +421,7 @@ getChongWu("xiaoxingquan");
     }
 
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -434,10 +433,10 @@ getChongWu("xiaoxingquan");
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.my_home:
-              /*  String userName = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
-                String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
-                Log.e("name=====",userName);
-                Log.e("name=====",userPhone);*/
+//                String userName = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
+//                String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
+//                Log.e("name=====",userName);
+//                Log.e("name=====",userPhone);
                 if(activityHome.isDrawerOpen(Gravity.LEFT)){
                     activityHome.closeDrawer(Gravity.LEFT);
 

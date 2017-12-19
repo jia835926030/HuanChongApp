@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_height="wrap_content">
     <LinearLayout
@@ -20,6 +21,11 @@
             android:text="订单详情"
             android:gravity="center"/>
     </LinearLayout>
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#B7B7B7"
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -39,7 +45,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
-
+    <TextView
+        android:layout_marginTop="10dp"
+        android:background="#D4D4D4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp" />
 
 
     <LinearLayout
@@ -52,7 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="20px"
             android:layout_marginTop="20px"
-            android:text="寄养宠物"
+            android:text="寄养宠物:"
             android:textSize="30px" />
 
         <RelativeLayout
@@ -69,6 +79,7 @@
                 android:src="@mipmap/ic_launcher" />
 
             <TextView
+                android:layout_marginTop="20px"
                 android:id="@+id/userevaluation_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -89,6 +100,7 @@
                 android:src="@drawable/male" />
 
             <TextView
+                android:layout_marginTop="25px"
                 android:id="@+id/userevaluation_introduction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,7 +110,11 @@
                 android:text="身长约120cm，体毛粗硬"
                 android:textSize="20px" />
         </RelativeLayout>
-
+        <TextView
+            android:layout_marginTop="10dp"
+            android:background="#D4D4D4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -112,7 +128,11 @@
                 android:layout_marginTop="40px"
                 android:text="寄养时间：2016-03-31至2016-04-28"
                 android:textSize="30px" />
-
+            <TextView
+                android:layout_marginTop="10dp"
+                android:background="#D4D4D4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,7 +152,10 @@
                         android:layout_height="wrap_content"
                         android:text="宠物"
                         android:textSize="20px" />
-
+                    <TextView
+                        android:textColor="#D4D4D4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
                     <TextView
                         android:id="@+id/userevaluation_petname"
                         android:layout_width="wrap_content"
@@ -157,8 +180,12 @@
                         android:layout_weight="1"
                         android:text="元/晚"
                         android:textSize="20px" />
-
                     <TextView
+                        android:textColor="#D4D4D4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+                    <TextView
+                        android:layout_marginTop="20px"
                         android:id="@+id/userevaluation_lement1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -181,8 +208,12 @@
                         android:layout_weight="1"
                         android:text="晚"
                         android:textSize="20px" />
-
                     <TextView
+                        android:textColor="#D4D4D4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+                    <TextView
+                        android:layout_marginTop="20px"
                         android:id="@+id/userevaluation_late1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -202,10 +233,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="20px"
+                        android:text="金额"
                         android:textSize="20px" />
-
                     <TextView
+                        android:textColor="#D4D4D4"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp" />
+                    <TextView
+                        android:layout_marginTop="20px"
                         android:id="@+id/userevaluation_money1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -215,7 +250,11 @@
                 </LinearLayout>
 
             </LinearLayout>
-
+            <TextView
+                android:layout_marginTop="20dp"
+                android:background="#D4D4D4"
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -226,7 +265,7 @@
                     android:id="@+id/userevaluation_Other"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="40px"
+                    android:layout_marginTop="30px"
                     android:text="其他服务"
                     android:textSize="30px" />
 
@@ -252,6 +291,7 @@
                             android:textSize="20px" />
 
                         <TextView
+                            android:layout_marginTop="20px"
                             android:id="@+id/userevaluation_huttle"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -276,6 +316,7 @@
                             android:textSize="20px" />
 
                         <TextView
+                            android:layout_marginTop="20px"
                             android:id="@+id/userevaluation_kilometres"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -300,6 +341,7 @@
                             android:textSize="20px" />
 
                         <TextView
+                            android:layout_marginTop="20px"
                             android:id="@+id/userevaluation_next"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -323,6 +365,7 @@
                             android:textSize="20px" />
 
                         <TextView
+                            android:layout_marginTop="20px"
                             android:id="@+id/userevaluation_money2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -334,9 +377,10 @@
             </LinearLayout>
 
             <View
+
                 android:layout_width="match_parent"
                 android:layout_height="8px"
-                android:layout_marginTop="10px"
+                android:layout_marginTop="10dp"
                 android:background="#cecdcd" />
 
             <RelativeLayout
@@ -346,12 +390,15 @@
                 android:layout_marginTop="20px">
 
                 <ImageView
+                    android:layout_marginTop="25dp"
                     android:id="@+id/userevaluation_headportrait"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/ic_launcher" />
 
                 <TextView
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20px"
                     android:id="@+id/userevaluation_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -359,18 +406,32 @@
                     android:text="帅比"
                     android:textSize="30px" />
 
-                <RatingBar
-                    android:id="@+id/userevaluation_ratingBar"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                <com.iblood.ui.ordermodole.xing.RatingBar
                     android:layout_below="@+id/userevaluation_username"
                     android:layout_toEndOf="@+id/userevaluation_headportrait"
-                    android:layout_toRightOf="@+id/userevaluation_headportrait" />
+                    android:layout_toRightOf="@+id/userevaluation_headportrait"
+                    android:id="@+id/star"
+                    android:paddingTop="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:paddingLeft="10dp"
+                    app:starCount="5"
+                    app:starEmpty="@drawable/rating_small_empty"
+                    app:starFill="@drawable/rating_small_full"
+                    app:starHalf="@drawable/rating_small_half"
+                    app:starImageSize="35dp"
+                    app:starPadding="1dp"
+                    app:starStep="2.5"
+                    app:stepSize="Half"/>
 
             </RelativeLayout>
 
         </LinearLayout>
-
+        <TextView
+            android:layout_marginTop="10dp"
+            android:background="#D4D4D4"
+            android:layout_width="match_parent"
+            android:layout_height="1dp" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -418,11 +479,9 @@
                 android:textSize="20px" />
         </LinearLayout>
     </LinearLayout>
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-
         <Button
             android:id="@+id/app_order"
             android:layout_width="200px"

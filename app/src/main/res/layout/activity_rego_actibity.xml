@@ -81,13 +81,23 @@
         android:gravity="center"
         android:orientation="horizontal" >
 
-        <RatingBar
-            android:id="@+id/lv_bar"
+        <com.iblood.ui.ordermodole.xing.RatingBar
+            android:layout_below="@+id/userevaluation_username"
+            android:layout_toEndOf="@+id/userevaluation_headportrait"
+            android:layout_toRightOf="@+id/userevaluation_headportrait"
+            android:id="@+id/star"
+            android:paddingTop="15dp"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:numStars="5"
-            android:stepSize = "0.5"
-            android:rating="0" />
+            android:layout_height="50dp"
+            android:paddingLeft="10dp"
+            app:starCount="5"
+            app:starEmpty="@drawable/rating_small_empty"
+            app:starFill="@drawable/rating_small_full"
+            app:starHalf="@drawable/rating_small_half"
+            app:starImageSize="35dp"
+            app:starPadding="1dp"
+            app:starStep="2.5"
+            app:stepSize="Half"/>
     </LinearLayout>
 
     <RelativeLayout
