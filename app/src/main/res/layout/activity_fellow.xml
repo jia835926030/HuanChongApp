@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.iblood.fellow.FellowActivity">
 
     <LinearLayout
@@ -30,41 +31,18 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginLeft="100px"
-
                 android:text="用户姓名" />
 
-            <LinearLayout
+            <com.iblood.ui.ordermodole.xing.RatingBar
+                android:id="@+id/star"
+                app:starEmpty="@drawable/rating_small_empty"
+                app:starFill="@drawable/rating_small_full"
+                app:starHalf="@drawable/rating_small_half"
+                android:layout_marginTop="10px"
                 android:layout_marginLeft="100px"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10px">
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></com.iblood.ui.ordermodole.xing.RatingBar>
 
-                <ImageView
-                    android:layout_width="30px"
-                    android:layout_height="30px"
-                    android:src="@drawable/star" />
-
-                <ImageView
-                    android:layout_width="30px"
-                    android:layout_height="30px"
-                    android:src="@drawable/star" />
-
-                <ImageView
-                    android:layout_width="30px"
-                    android:layout_height="30px"
-                    android:src="@drawable/star" />
-
-                <ImageView
-                    android:layout_width="30px"
-                    android:layout_height="30px"
-                    android:src="@drawable/star" />
-
-                <ImageView
-                    android:layout_width="30px"
-                    android:layout_height="30px"
-                    android:src="@drawable/star" />
-
-            </LinearLayout>
         </LinearLayout>
 
         <ImageView

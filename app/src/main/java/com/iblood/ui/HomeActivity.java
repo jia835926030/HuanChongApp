@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
+import android.preference.TwoStatePreference;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -18,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -42,6 +44,7 @@ import com.iblood.fellow.FellowAdapter;
 import com.iblood.ui.loginactivity.GiadingActivity;
 import com.iblood.ui.map.MapActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
+import com.iblood.ui.ordermodole.xing.RatingBar;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
 import com.iblood.utils.AppUtils;
@@ -53,6 +56,7 @@ import com.iblood.utils.TokenUtil;
 import com.zaaach.citypicker.CityPickerActivity;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -97,7 +101,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private View v1;
     private View v2;
     private View v3;
-    private TextView personal_dizhi;
     private static final int REQUEST_CODE_PICK_CITY = 233;
     private TextView cehua_name;
     private TextView cehua_dianhua;
@@ -105,6 +108,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private PopupWindow popu1;
     private String q;
     private String w;
+    private List<CheckBox> checkBoxList;
+    private TextView personalDizhi;
+    private RatingBar mRatingBar;
     private PopupWindow popu2;
 
     @Override
@@ -130,7 +136,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             cehua_name.setText(q);
             cehua_dianhua.setText(w);
 
-        }else if (w.equals("")){
+        } else if (w.equals("")) {
             cehua_name.setText("还未登录");
         }
     }
@@ -158,7 +164,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                       break;
                     case R.id.cehua_chongwu:
                         //跳转到宠物列表
-                        startActivity(new Intent(HomeActivity.this,LateralspreadsPetActivity.class));
+                        startActivity(new Intent(HomeActivity.this, LateralspreadsPetActivity.class));
                         break;
                     case R.id.cehua_shezhi:
                         Intent intent = new Intent(HomeActivity.this, SetUpActivity.class);
@@ -170,10 +176,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         break;
                     case R.id.cehua_dingdan:
 
-                        Intent intent2=new Intent(HomeActivity.this,MyOrderActivity.class);
+                        Intent intent2 = new Intent(HomeActivity.this, MyOrderActivity.class);
                         startActivity(intent2);
                         break;
-                    case  R.id.cehua_xuzhi:
+                    case R.id.cehua_xuzhi:
                         startActivity(new Intent(HomeActivity.this, OrderActivity.class));
                         break;
                 }
@@ -217,9 +223,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                     public void run() {
                         textToast("登陆成功！");
 
-//                        //进入聊天界面
-                       startActivity(new Intent(HomeActivity.this, MessageActivity.class));
-//                        finish();
+//                        进入聊天界面
+                        startActivity(new Intent(HomeActivity.this, MessageActivity.class));
                     }
                 });
             }
@@ -246,7 +251,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         request.addHeader("ip", ip);
         request.addHeader("token", token);
         request.addHeader("channel", "android");
-        Request build1 = request.url(Urls.BASE+Urls.CHONGWULEIXING).post(builder.build()).build();
+        Request build1 = request.url(Urls.BASE + Urls.CHONGWULEIXING).post(builder.build()).build();
         okHttpClient.newCall(build1).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -261,8 +266,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         Gson gson = new Gson();
                         HomeChongwuBeen homeChongwuBeen = gson.fromJson(data, HomeChongwuBeen.class);
                         List<HomeChongwuBeen.DescBean> desc = homeChongwuBeen.getDesc();
-                         HomeChongWuAdapter homeChongWuAdapter=new HomeChongWuAdapter(HomeActivity.this,desc);
-                         listHome.setAdapter(homeChongWuAdapter);
+                        HomeChongWuAdapter homeChongWuAdapter = new HomeChongWuAdapter(HomeActivity.this, desc);
+                        listHome.setAdapter(homeChongWuAdapter);
                     }
                 });
             }
@@ -279,7 +284,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         String ip = ConnectionUtils.getIp(HomeActivity.this);
         Map<String, Object> map = new HashMap<>();
         map.put("beginIndex", 0);
-        map.put("coordX",40.116384);
+        map.put("coordX", 40.116384);
         map.put("coordY", 116.250374);
         map.put("endIndex", 20);
         map.put("orderBy", str);
@@ -291,7 +296,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         request.addHeader("ip", ip);
         request.addHeader("token", token);
         request.addHeader("channel", "android");
-        Request build1 = request.url(Urls.BASE+Urls.CHONGWU).post(builder.build()).build();
+        Request build1 = request.url(Urls.BASE + Urls.CHONGWU).post(builder.build()).build();
         okHttpClient.newCall(build1).enqueue(new Callback() {
             @Override
             public void onFailure(Call call, IOException e) {
@@ -306,14 +311,14 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         Gson gson = new Gson();
                         Screen dAta = gson.fromJson(data, Screen.class);
                         final List<Screen.DescBean> desc = dAta.getDesc();
-                        FellowAdapter adapter = new FellowAdapter(HomeActivity.this,desc);
+                        FellowAdapter adapter = new FellowAdapter(HomeActivity.this, desc);
                         listHome.setAdapter(adapter);
 
                         listHome.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 Intent intent = new Intent(HomeActivity.this, FellowActivity.class);
-                                intent.putExtra("name",desc.get(position).getUsersId());
+                                intent.putExtra("name", desc.get(position).getUsersId());
                                 Toast.makeText(HomeActivity.this, desc.get(position).getUsersId(), Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
                             }
@@ -347,10 +352,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 radiogroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        switch (checkedId){
+                        switch (checkedId) {
                             case R.id.fujinyouxian:
-                              getdata("distance asc");
-                              popu1.dismiss();
+                                getdata("distance asc");
+                                popu1.dismiss();
                                 break;
                             case R.id.haopingyouxian:
                                 getdata("score desc");
@@ -380,7 +385,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 chongwu.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                     @Override
                     public void onCheckedChanged(RadioGroup group, int checkedId) {
-                        switch (checkedId){
+                        switch (checkedId) {
                             case R.id.xiaoxingquan:
                                 getChongWu("");
                                 popu2.dismiss();
@@ -443,15 +448,36 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         popu1.showAsDropDown(mBottomGroup, 0, 0);
 
-        //ImageView personal_saixuan = v3.findViewById(R.id.personal_saixuan);
+        personalDizhi = v3.findViewById(R.id.personal_dizhi);
+        ImageView personalTiaozhuan = v3.findViewById(R.id.personal_tiaozhuan);
+        Button personalChongzhi = v3.findViewById(R.id.personal_chongzhi);
+        Button personalQueding = v3.findViewById(R.id.personal_queding);
+        CheckBox personalXizao = v3.findViewById(R.id.personal_xizao);
+        CheckBox personalJiesong = v3.findViewById(R.id.personal_jiesong);
+        CheckBox personalWeiyang = v3.findViewById(R.id.personal_weiyang);
+        CheckBox personalYuandan = v3.findViewById(R.id.personal_yuandan);
+        CheckBox personalCunjie = v3.findViewById(R.id.personal_cunjie);
+        CheckBox personalQingming = v3.findViewById(R.id.personal_qingming);
+        CheckBox personalLaodong = v3.findViewById(R.id.personal_laodong);
+        CheckBox personalDuanwu = v3.findViewById(R.id.personal_duanwu);
+        CheckBox personalZhongqiu = v3.findViewById(R.id.personal_zhongqiu);
+        CheckBox personalGuoqing = v3.findViewById(R.id.personal_guoqing);
 
-        Button personal_chongzhi = v3.findViewById(R.id.personal_chongzhi);
-        Button personal_queding = v3.findViewById(R.id.personal_queding);
-        ImageView personal_tiaozhuan = v3.findViewById(R.id.personal_tiaozhuan);
-        personal_dizhi = v3.findViewById(R.id.personal_dizhi);
-        personal_tiaozhuan.setOnClickListener(this);
-        personal_chongzhi.setOnClickListener(this);
-        personal_queding.setOnClickListener(this);
+
+        checkBoxList = new ArrayList<>();
+        checkBoxList.add(personalXizao);
+        checkBoxList.add(personalJiesong);
+        checkBoxList.add(personalWeiyang);
+        checkBoxList.add(personalYuandan);
+        checkBoxList.add(personalCunjie);
+        checkBoxList.add(personalQingming);
+        checkBoxList.add(personalLaodong);
+        checkBoxList.add(personalDuanwu);
+        checkBoxList.add(personalZhongqiu);
+        checkBoxList.add(personalGuoqing);
+        personalTiaozhuan.setOnClickListener(this);
+        personalChongzhi.setOnClickListener(this);
+        personalQueding.setOnClickListener(this);
     }
 
 
@@ -462,23 +488,19 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         ButterKnife.bind(this);
     }
 
-    //侧滑栏点击事件
+    //点击事件
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.my_home:
-                if(activityHome.isDrawerOpen(Gravity.LEFT)){
+                if (activityHome.isDrawerOpen(Gravity.LEFT)) {
                     activityHome.closeDrawer(Gravity.LEFT);
-
-                }else {
+                } else {
                     activityHome.openDrawer(Gravity.LEFT);
                 }
-
-
-
                 break;
             case R.id.dingwei_hoem:
-                Intent in =new Intent(HomeActivity.this, MapActivity.class);
+                Intent in = new Intent(HomeActivity.this, MapActivity.class);
                 startActivity(in);
                 break;
 
@@ -486,23 +508,27 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 String q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
                 String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
                 String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
+
                 if(q.equals("")){
+
                     Log.e("登录",q);
                     Intent intent=new Intent(HomeActivity.this,GiadingActivity.class);
                     startActivity(intent);
-                }else {
-                    Log.e("个人",q);
+                } else {
+                    Log.e("个人", q);
                     Intent intent1 = new Intent(HomeActivity.this, PersonalInformation.class);
                     startActivity(intent1);
                 }
-
                 break;
             case R.id.cehua_shenqing:
-                startActivity(new Intent(HomeActivity.this,PlayApForActivity.class));
+                startActivity(new Intent(HomeActivity.this, PlayApForActivity.class));
 
                 break;
             case R.id.personal_chongzhi:
-                Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
+                for(CheckBox checkbox:checkBoxList){
+                    checkbox.setChecked(false);
+                }
+                v3.invalidate();
                 break;
             case R.id.personal_queding:
                 Toast.makeText(HomeActivity.this, "1111111111111", Toast.LENGTH_SHORT).show();
@@ -517,10 +543,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     //城市筛选
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK){
-            if (data != null){
+        if (requestCode == REQUEST_CODE_PICK_CITY && resultCode == RESULT_OK) {
+            if (data != null) {
                 String city = data.getStringExtra(CityPickerActivity.KEY_PICKED_CITY);
-                personal_dizhi.setText(city);
+                personalDizhi.setText(city);
             }
         }
     }
