@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iblood.R;
+import com.iblood.ui.ordermodole.dapter.GlideCircleTransform;
 
 import java.util.List;
 
@@ -22,9 +23,9 @@ import butterknife.ButterKnife;
 
 public class PingLunAdapter extends BaseAdapter {
     private Context context;
-    private List<PingLunBean> list;
+    private List<PingLunBean.DescBean> list;
 
-    public PingLunAdapter(Context context, List<PingLunBean> list) {
+    public PingLunAdapter(Context context, List<PingLunBean.DescBean> list) {
         this.context = context;
         this.list = list;
     }
@@ -54,11 +55,11 @@ public class PingLunAdapter extends BaseAdapter {
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
-        holder.namePinglun.setText(list.get(position).getName());
-        holder.pingjiaPinglun.setText(list.get(position).getText());
-        holder.leixingPinglun.setText(list.get(position).getZhonglei());
-        holder.shijianPinglun.setText(list.get(position).getShiian());
-        Glide.with(context).load(list.get(position).getImg()).into(holder.imgPinglun);
+        holder.namePinglun.setText(list.get(position).getUserName());
+        holder.pingjiaPinglun.setText(list.get(position).getDescription());
+        holder.leixingPinglun.setText(list.get(position).getPetDuration());
+        holder.shijianPinglun.setText(list.get(position).getCreateTime());
+        Glide.with(context).load(list.get(position).getUserImage()).transform(new GlideCircleTransform(context)).error(R.mipmap.ic_launcher).into(holder.imgPinglun);
         return convertView;
     }
 

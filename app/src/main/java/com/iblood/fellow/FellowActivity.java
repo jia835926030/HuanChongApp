@@ -22,6 +22,8 @@ import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
+import com.iblood.ui.ordermodole.dapter.GlideCircleTransform;
+import com.iblood.ui.ordermodole.xing.RatingBar;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
@@ -78,11 +80,14 @@ public class FellowActivity extends BaseActivity implements View.OnClickListener
     TextView dizhiFellow;
     @BindView(R.id.jianjie_fellow)
     TextView jianjieFellow;
+    @BindView(R.id.star)
+    RatingBar star;
     private View v1;
     private PopupWindow popu1;
     private FellowBean.DescBean desc;
     private String name;
     private String userId;
+    private RatingBar mRB;
 
 
     @Override
@@ -96,6 +101,9 @@ public class FellowActivity extends BaseActivity implements View.OnClickListener
         lianxiFellow.setOnClickListener(this);
         quedingFellow.setOnClickListener(this);
         imageView3.setOnClickListener(this);
+        mRB = (RatingBar)findViewById(R.id.star);
+        mRB.setClickable(true);
+
     }
 
     @Override
@@ -145,10 +153,13 @@ public class FellowActivity extends BaseActivity implements View.OnClickListener
                             userId = desc.getFosterInfo().getUserId();
                             if (userId.equals(name)) {
                                 textView12.setText(desc.getFosterInfo().getUserName());
-                                pingluntvFellow.setText("寄养评价-"+desc.getFosterCommentCount());
+                                pingluntvFellow.setText("寄养评价-" + desc.getFosterCommentCount());
                                 jianjieFellow.setText(desc.getFosterInfo().getIntro());
                                 dizhiFellow.setText(desc.getFosterInfo().getAddress());
-                                Glide.with(FellowActivity.this).load(desc.getFosterInfo().getUserImage()).error(R.mipmap.ic_launcher).into(imageView2);
+
+                                float v = Float.parseFloat(desc.getFosterGrade()+"");
+                                mRB.setStar(v);
+                                Glide.with(FellowActivity.this).load(desc.getFosterInfo().getUserImage()).transform(new GlideCircleTransform(FellowActivity.this)).error(R.mipmap.ic_launcher).into(imageView2);
                             }
                         } else {
                             Toast.makeText(FellowActivity.this, "网络连接失败", Toast.LENGTH_SHORT).show();
@@ -178,6 +189,7 @@ public class FellowActivity extends BaseActivity implements View.OnClickListener
         switch (v.getId()) {
             case R.id.pinglun_fellow:
                 Intent intent = new Intent(FellowActivity.this, PingLunActivity.class);
+                intent.putExtra("usersId ",userId);
                 startActivity(intent);
                 break;
             case R.id.lianxi_fellow:

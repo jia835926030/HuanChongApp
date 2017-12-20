@@ -1,41 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_margin="20px"
+    android:layout_height="wrap_content"
     android:id="@+id/cehua_tou"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <ImageView
-        android:id="@+id/iv"
-        android:layout_margin="10px"
-        android:layout_gravity="center"
-        android:layout_width="80px"
-        android:layout_height="80px"
-        android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"/>
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_width="0px"
-        android:layout_weight="1"
+        android:padding="20px"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/iv"
+            android:layout_margin="10px"
+            android:layout_gravity="center"
+            android:layout_width="80px"
+            android:layout_height="80px"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"/>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            android:layout_width="0px"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
 
-        <TextView
-            android:text="name"
-            android:id="@+id/cehua_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text="phone"
-            android:id="@+id/cehua_dianhua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:text="name"
+                android:id="@+id/cehua_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text="phone"
+                android:id="@+id/cehua_dianhua"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+        <ImageView
+            android:src="@drawable/enter"
+            android:layout_width="30px"
+            android:layout_height="30px"
+            android:layout_gravity="center"/>
     </LinearLayout>
-    <ImageView
-        android:src="@drawable/enter"
-        android:layout_width="30px"
-        android:layout_height="30px"
-        android:layout_gravity="center"/>
+
+    <View
+        android:background="@color/colorGreyLight"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
 
 </LinearLayout>

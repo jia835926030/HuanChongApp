@@ -104,6 +104,7 @@
             android:text="喂养"
             android:button="@null"
             android:gravity="center"
+            android:id="@+id/personal_weiyang"
             android:background="@drawable/fuwu_personal"
             android:layout_margin="15px"
             android:layout_weight="1"
