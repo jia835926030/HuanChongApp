@@ -1,11 +1,14 @@
 package com.iblood.ui.postpersondata;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,11 +41,12 @@ import okhttp3.Response;
 public class BindQQActivity extends BaseActivity implements View.OnClickListener {
 
     private TextView text_title;
-    private Button button_backward;
-    private Button button_forward;
+    private ImageView button_backward;
+    private TextView button_forward;
     private AutoRelativeLayout layout_titlebar;
     private EditText bindqq;
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,9 +62,9 @@ public class BindQQActivity extends BaseActivity implements View.OnClickListener
 
         text_title = (TextView) findViewById(R.id.text_title);
         text_title.setOnClickListener(this);
-        button_backward = (Button) findViewById(R.id.button_backward);
+        button_backward = (ImageView) findViewById(R.id.button_backward);
         button_backward.setOnClickListener(this);
-        button_forward = (Button) findViewById(R.id.button_forward);
+        button_forward = (TextView) findViewById(R.id.button_forward);
         button_forward.setOnClickListener(this);
         layout_titlebar = (AutoRelativeLayout) findViewById(R.id.layout_titlebar);
         layout_titlebar.setOnClickListener(this);
@@ -135,21 +139,18 @@ public class BindQQActivity extends BaseActivity implements View.OnClickListener
                 finish();
                 break;
             case R.id.button_forward:
-            postData(bindqq.getText().toString());
-            finish();
+                String trim = bindqq.getText().toString().trim();
+                if (!TextUtils.isEmpty(trim)){
+                postData(trim);
+                Intent intent = new Intent();
+                intent.putExtra("rcode",trim);
+                setResult(200,intent);
+                finish();
+                }else {
+                    textToast("请输入QQ号");
+                }
                 break;
         }
     }
 
-    private void submit() {
-        // validate
-        String bindqqString = bindqq.getText().toString().trim();
-        if (TextUtils.isEmpty(bindqqString)) {
-            Toast.makeText(this, "请输入QQ号", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-
-
-    }
 }

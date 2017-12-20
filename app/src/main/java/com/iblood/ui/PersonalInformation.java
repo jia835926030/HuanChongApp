@@ -116,7 +116,7 @@ public class PersonalInformation extends BaseActivity {
     protected static final int CHOOSE_PICTURE = 0;
     protected static final int TAKE_PICTURE = 1;
     private static final int CROP_SMALL_PICTURE = 2;
-    protected static final int NAME_CODE = 3;
+    protected static final int NAME_CODE = 88;
     protected static final int WACHAT_CODE = 4;
     protected static final int QQ_CODE = 5;
     protected static final int PHONE_CODE = 6;
@@ -250,12 +250,12 @@ public class PersonalInformation extends BaseActivity {
                 break;
             case R.id.modification_wachat:
                 Intent intent = new Intent(PersonalInformation.this, BindWeChatActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent,WACHAT_CODE);
                 break;
 
             case R.id.modification_QQ:
                 Intent intent1=new Intent(PersonalInformation.this,BindQQActivity.class);
-                startActivity(intent1);
+                startActivityForResult(intent1,QQ_CODE);
                 break;
             case R.id.modification_phone:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
@@ -373,28 +373,28 @@ public class PersonalInformation extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (requestCode == 3 && resultCode == 200) {
+        if (requestCode == 88 && resultCode == 200) {
             user_name.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
         //微信
         if (requestCode == 4 && resultCode == 200) {
-//            user_wachat.setText(data.getStringExtra("rcode"));
+            user_wachat.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
         //QQ
         if (requestCode == 5 && resultCode == 200) {
-//            user_qq.setText(data.getStringExtra("rcode"));
+            user_qq.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
         //电话
         if (requestCode == 6 && resultCode == 200) {
-//            user_phone.setText(data.getStringExtra("rcode"));
+            user_phone.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
         //住址
         if (requestCode == 7 && resultCode == 200) {
-//            user_address.setText(data.getStringExtra("rcode"));
+            user_address.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
         if (requestCode == 1 && data != null) {

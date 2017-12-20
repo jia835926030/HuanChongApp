@@ -31,16 +31,11 @@ import butterknife.OnClick;
 
 public class SetUpActivity extends BaseActivity {
 
-    @BindView(R.id.button_backward)
-    ImageView button_backward;
-    @BindView(R.id.button_forward)
-    TextView button_forward;
 
     @BindView(R.id.proposal_img)
     ImageView proposalImg;
     @BindView(R.id.product_proposal_text)
     TextView productProposalText;
-
     @BindView(R.id.proposal)
     AutoRelativeLayout proposal;
     @BindView(R.id.introduce)
@@ -64,19 +59,12 @@ public class SetUpActivity extends BaseActivity {
     private ToggleButton toggleButton;
     private GlideCacheUtil instance;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
 
-        ButterKnife.bind(this);
-
-    }
 
     @Override
     protected int getLayoutId() {
-
         return R.layout.activity_set_up;
+
     }
 
     @Override
@@ -116,17 +104,22 @@ public class SetUpActivity extends BaseActivity {
             }
         });
     }
-    @OnClick({R.id.button_backward,R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
-
+    @OnClick({
+            R.id.proposal
+            ,R.id.introduce
+            ,R.id.score
+            ,R.id.about
+            ,R.id.wifi_display
+            ,R.id.cache
+            ,R.id.scavenging_cache
+            ,R.id.sign_out})
     public void onViewClicked(View view){
         switch (view.getId()){
             case R.id.proposal:
                 Intent intent=new Intent(SetUpActivity.this,ProposalActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.button_backward:
-                finish();
-                break;
+
             case R.id.introduce:
               startActivity(new Intent(SetUpActivity.this,FunctionActivity.class));
                 break;
@@ -140,7 +133,7 @@ public class SetUpActivity extends BaseActivity {
 
 
             case  R.id.cache:
-                Toast.makeText(this, "图片缓存，文件缓存", Toast.LENGTH_SHORT).show();
+                textToast("图片缓存，文件缓存");
                 break;
 
             case R.id.scavenging_cache:
@@ -158,16 +151,16 @@ public class SetUpActivity extends BaseActivity {
              /*   Log.e("name=====",q);
                 Log.e("name=====",w+"");*/
                 if(q==null){
-                    Toast.makeText(this, "您还未登录", Toast.LENGTH_SHORT).show();
+                    textToast("您还未登录");
                 }else {
-                    Toast.makeText(this, "退出登录", Toast.LENGTH_SHORT).show();
+                    textToast("退出登录");
                     SharedPreferencesUtils.clear(SetUpActivity.this);
                     finish();
                 }
 
                 break;
             case R.id.wifi_display:
-                Toast.makeText(this, "仅在WIFI下显示图片", Toast.LENGTH_SHORT).show();
+                textToast("仅在WIFI下显示图片");
                 break;
 
 

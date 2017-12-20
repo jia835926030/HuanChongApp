@@ -1,4 +1,5 @@
 package com.iblood.ui;
+
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -25,7 +26,6 @@ import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
@@ -37,10 +37,10 @@ import com.iblood.ui.shenqing.MyDialog;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
+
 import com.iblood.utils.PulldataHandler;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -48,7 +48,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Call;

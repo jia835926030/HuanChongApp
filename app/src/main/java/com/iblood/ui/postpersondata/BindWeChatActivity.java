@@ -1,12 +1,16 @@
 package com.iblood.ui.postpersondata;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.iblood.R;
 import com.iblood.config.Urls;
@@ -33,8 +37,8 @@ import okhttp3.Response;
 public class BindWeChatActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView text_title;
-    private Button button_backward;
-    private Button button_forward;
+    private ImageView button_backward;
+    private TextView button_forward;
     private AutoRelativeLayout layout_titlebar;
     private EditText bindwechat;
 
@@ -82,8 +86,8 @@ public class BindWeChatActivity extends AppCompatActivity implements View.OnClic
     }
     private void initView() {
         text_title = (TextView) findViewById(R.id.text_title);
-        button_backward = (Button) findViewById(R.id.button_backward);
-        button_forward = (Button) findViewById(R.id.button_forward);
+        button_backward = (ImageView) findViewById(R.id.button_backward);
+        button_forward = (TextView) findViewById(R.id.button_forward);
         layout_titlebar = (AutoRelativeLayout) findViewById(R.id.layout_titlebar);
         bindwechat = (EditText) findViewById(R.id.bindwechat);
 
@@ -98,8 +102,16 @@ public class BindWeChatActivity extends AppCompatActivity implements View.OnClic
 
                 break;
             case R.id.button_forward:
-                postData(bindwechat.getText().toString());
-                finish();
+                String trim = bindwechat.getText().toString().trim();
+                if (!TextUtils.isEmpty(trim)) {
+                    postData(trim);
+                    Intent intent = new Intent();
+                    intent.putExtra("rcode", trim);
+                    setResult(200, intent);
+                    finish();
+                }else {
+                    Toast.makeText(this,"请输入微信账号",Toast.LENGTH_SHORT).show();
+                }
                 break;
         }
     }

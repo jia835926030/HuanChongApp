@@ -85,12 +85,10 @@
                 android:id="@+id/user_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="62dp"
-                android:visibility="gone"
-                android:layout_marginStart="62dp"
-                android:layout_toEndOf="@+id/textView6"
-                android:layout_toRightOf="@+id/textView6"
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView25"
                 android:text="" />
 
 
@@ -100,7 +98,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@mipmap/personal_enter_img" />
+                android:background="@mipmap/personal_enter_img"
+                android:id="@+id/textView25" />
 
 
         </RelativeLayout>
@@ -133,12 +132,10 @@
                 android:id="@+id/user_sexy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="63dp"
-                android:layout_marginStart="63dp"
-                android:visibility="gone"
-                android:layout_toEndOf="@+id/textView9"
-                android:layout_toRightOf="@+id/textView9"
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView26"
                 android:text="" />
 
 
@@ -149,7 +146,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@mipmap/personal_enter_img" />
+                android:background="@mipmap/personal_enter_img"
+                android:id="@+id/textView26" />
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -180,12 +178,10 @@
                 android:id="@+id/user_time"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="36dp"
-                android:layout_marginStart="36dp"
-                android:visibility="gone"
-                android:layout_toEndOf="@+id/textView10"
-                android:layout_toRightOf="@+id/textView10"
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView27"
                 android:text="" />
 
             <TextView
@@ -194,7 +190,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@mipmap/personal_enter_img" />
+                android:background="@mipmap/personal_enter_img"
+                android:id="@+id/textView27" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -231,12 +228,10 @@
                 android:id="@+id/user_phone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="64dp"
-                android:layout_marginStart="64dp"
-                android:visibility="gone"
-                android:layout_toEndOf="@+id/textView11"
-                android:layout_toRightOf="@+id/textView11"
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView28"
                 android:text="" />
 
             <TextView
@@ -245,7 +240,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@mipmap/personal_enter_img" />
+                android:background="@mipmap/personal_enter_img"
+                android:id="@+id/textView28" />
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -276,11 +272,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="64dp"
-                android:layout_marginStart="64dp"
-                android:visibility="gone"
-                android:layout_toEndOf="@+id/textView14"
-                android:layout_toRightOf="@+id/textView14"
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView29"
                 android:text="" />
             <TextView
                 android:layout_width="wrap_content"
@@ -288,7 +281,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@mipmap/personal_enter_img" />
+                android:background="@mipmap/personal_enter_img"
+                android:id="@+id/textView29" />
         </RelativeLayout>
         <View
             android:layout_width="match_parent"
@@ -363,12 +357,10 @@
                 android:id="@+id/user_address"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="35dp"
-                android:layout_marginStart="35dp"
-                android:visibility="gone"
-                android:layout_toEndOf="@+id/textView16"
-                android:layout_toRightOf="@+id/textView16"
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView30"
                 android:text="" />
             <TextView
                 android:layout_width="wrap_content"
@@ -376,7 +368,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                android:background="@mipmap/personal_enter_img" />
+                android:background="@mipmap/personal_enter_img"
+                android:id="@+id/textView30" />
         </RelativeLayout>
         <View
             android:layout_width="match_parent"

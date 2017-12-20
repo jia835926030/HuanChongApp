@@ -1,9 +1,10 @@
 package com.iblood.ui;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -46,6 +47,7 @@ public class ModificationActivity extends BaseActivity {
     TextView button_forward;
     @BindView(R.id.button_backward)
     ImageView button_backward;
+    private String hint;
 
     @Override
     protected int getLayoutId() {
@@ -58,7 +60,7 @@ public class ModificationActivity extends BaseActivity {
         Intent intent = getIntent();
         //获取传过来的值
         String titletext = intent.getStringExtra("title");
-        String hint = intent.getStringExtra("hint");
+        hint = intent.getStringExtra("hint");
         text_title.setText(titletext);
         mEditText.setHint(hint);
     }
@@ -102,16 +104,7 @@ public class ModificationActivity extends BaseActivity {
     @Override
     protected void initView() {
 
-        button_forward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String trim = mEditText.getText().toString().trim();
-                CharacterParser instance = CharacterParser.getInstance();
-                int chsAscii = instance.getChsAscii(trim);
-                postData(chsAscii);
-                finish();
-            }
-        });
+
 
     }
 
@@ -125,10 +118,17 @@ public class ModificationActivity extends BaseActivity {
                 break;
             case R.id.button_forward:
                 String trim = mEditText.getText().toString().trim();
-                CharacterParser instance = CharacterParser.getInstance();
-                int chsAscii = instance.getChsAscii(trim);
-                postData(chsAscii);
-                finish();
+                if (!TextUtils.isEmpty(trim)) {
+                    CharacterParser instance = CharacterParser.getInstance();
+                    int chsAscii = instance.getChsAscii(trim);
+                    postData(chsAscii);
+                    Intent intent = new Intent();
+                    intent.putExtra("rcode", trim);
+                    setResult(200, intent);
+                    finish();
+                }else {
+                    textToast(hint);
+                }
                 break;
         }
     }
