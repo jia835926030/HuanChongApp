@@ -37,11 +37,17 @@ public class LoadImgUtils {
     }
     public void loadImg(Context context, String url, ImageView imageView){
         boolean wiFi = isWiFi(context);
+        String param = (String) SharedPreferencesUtils.getParam(context, "flag3", "");
         if(wiFi==true){
             Glide.with(context).load(url).into(imageView);
         }else if(wiFi==false){
-            Toast.makeText(context, "当前未连WIFI", Toast.LENGTH_SHORT).show();
-            Glide.with(context).load(R.mipmap.about).into(imageView);
+            if(param.equals("nocheckd")){
+                Glide.with(context).load(url).into(imageView);
+            }else {
+                Toast.makeText(context, "当前未连WIFI", Toast.LENGTH_SHORT).show();
+                Glide.with(context).load(R.mipmap.about).into(imageView);
+            }
+
         }
 
     }

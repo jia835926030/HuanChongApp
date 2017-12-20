@@ -77,6 +77,7 @@
         <activity android:name=".ui.loginactivity.WxActivity" />
         <activity android:name=".ui.PersonalInformation" />
         <activity android:name=".ui.setmodoule.ProposalActivity" />
+        <activity android:name=".ui.postpersondata.BindQQActivity"/>
         <activity android:name=".ui.ModificationActivity" />
         <activity android:name=".ui.personal.PersonalAddress" />
         <activity android:name=".ui.WalletActivity" />

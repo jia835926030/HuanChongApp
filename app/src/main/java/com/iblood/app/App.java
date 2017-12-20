@@ -10,6 +10,8 @@ import com.hyphenate.chat.EMClient;
 import com.hyphenate.chat.EMOptions;
 import com.iblood.base.BaseActivity;
 import com.iblood.base.BaseFragment;
+import com.iblood.ui.setmodoule.SetUpActivity;
+import com.iblood.utils.SharedPreferencesUtils;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -41,7 +43,7 @@ public class App extends BaseApplication implements Thread.UncaughtExceptionHand
         //轮播图小型库
         preferences = getSharedPreferences("dome", MODE_PRIVATE);
         editor = preferences.edit();
-
+        SharedPreferencesUtils.setParam(this,"flag3","ischeckd");
         //设备的物理高度进行百分比化：
         AutoLayoutConifg.getInstance().useDeviceSize();
 

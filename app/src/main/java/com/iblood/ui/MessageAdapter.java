@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.iblood.R;
-import com.iblood.ui.MessageBean;
+import com.iblood.entity.MessageBean;
 
 import java.util.List;
 

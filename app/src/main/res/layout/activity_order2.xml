@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.iblood.ui.ordermodole.OrderActivity">
-    <RelativeLayout
+    >
+    <com.zhy.autolayout.AutoRelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="80px"
         android:padding="10dp" >
 
         <ImageView
             android:id="@+id/iv_back"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="50px"
+            android:layout_height="50px"
             android:layout_centerVertical="true"
             android:src="@drawable/back_gray" />
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="40px"
             android:layout_centerInParent="true"
             android:text="寄养须知"
-            android:textSize="20sp" />
+            android:textSize="25px" />
 
-    </RelativeLayout>
+    </com.zhy.autolayout.AutoRelativeLayout>
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
@@ -50,4 +50,4 @@
         android:text="3.据宠物医院的工作人员介绍,寄养对宠物来说,或多或少有一些心理影响,尤其是猫、狗。因为它们是群居动物,比较通人性,与主人接触时间长了,突然到一个陌生的环境,肯定会有一些不适的反应,因此寄养时间一般不要超过5天。如果所养的小动物在平时就有过分认生的表现建议还是不要选寄养。因为这期间动物是非常容易生病的,个别宠物还会出现绝食的情况甚至死亡。"
         />
 
-</LinearLayout>
+</com.zhy.autolayout.AutoLinearLayout>

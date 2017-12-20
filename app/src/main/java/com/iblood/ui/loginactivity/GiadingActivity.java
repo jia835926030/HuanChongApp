@@ -76,8 +76,12 @@ private Handler handler=new Handler(){
                 finish();
                 String wechat = result.getString("wechat");
                 String qq = result.getString("qq");
+                String address = result.getString("address");
+                int userSex = result.getInt("userSex");
                 SharedPreferencesUtils.setParam(GiadingActivity.this,"qq",qq);
                 SharedPreferencesUtils.setParam(GiadingActivity.this,"wechat",wechat);
+                SharedPreferencesUtils.setParam(GiadingActivity.this,"address",address);
+                SharedPreferencesUtils.setParam(GiadingActivity.this,"userSex",userSex);
 
             }else {
                 Toast.makeText(GiadingActivity.this, "登录失败", Toast.LENGTH_SHORT).show();

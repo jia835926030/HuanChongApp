@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.iblood.ui.setmodoule.ProposalActivity">7
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        />
 <com.zhy.autolayout.AutoRelativeLayout
     android:layout_width="match_parent"
     android:layout_height="60px"

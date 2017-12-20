@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
+import com.iblood.entity.MessageBean;
 import com.iblood.ui.xiaoxi.LiaoTianActivity;
 import com.zhy.autolayout.AutoRelativeLayout;
 

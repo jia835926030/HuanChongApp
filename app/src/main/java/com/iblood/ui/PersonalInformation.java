@@ -30,11 +30,13 @@ import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
 import com.iblood.tools.CircleImageView;
 import com.iblood.ui.personal.PersonalAddress;
+import com.iblood.ui.postpersondata.BindQQActivity;
 import com.iblood.ui.postpersondata.BindWeChatActivity;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.CharacterParser;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.PostBitmapUtils;
 import com.iblood.utils.SDPathUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
@@ -42,6 +44,7 @@ import com.iblood.utils.TableUtils;
 import com.iblood.utils.TokenUtil;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
 import java.io.File;
 import java.io.IOException;
@@ -53,8 +56,11 @@ import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
+import okhttp3.RequestBody;
 import okhttp3.Response;
 
 /**
@@ -145,13 +151,27 @@ public class PersonalInformation extends BaseActivity {
         String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
         String wechat = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "wechat", "");
         String qq = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "qq", "");
+        int sex = (int) SharedPreferencesUtils.getParam(PersonalInformation.this, "userSex", 0);
+        String address = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "address", "");
+        if(sex==1){
+            user_sexy.setText("男");
+        }else {
+            user_sexy.setText("女");
+        }
+        Log.e("da",q);
+        Log.e("da",sex+"");
+        Log.e("da",w);
+        Log.e("da",ws);
+        Log.e("da",qq);
+        Log.e("da",wechat);
         user_name.setText(q);
         user_phone.setText(w);
         user_wachat.setText(wechat);
+        user_address.setText(address+"");
         user_qq.setText(qq);
     }
 
-    private void postData(String o) {
+    private void postData(int o) {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
         AppUtils.setAppContext(PersonalInformation.this);
@@ -230,16 +250,15 @@ public class PersonalInformation extends BaseActivity {
                 Intent intent = new Intent(PersonalInformation.this, BindWeChatActivity.class);
                 startActivity(intent);
                 break;
-         /*   case R.id.modification_QQ:
-                startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
-                        .putExtra("title", "QQ")
-                        .putExtra("hint", "请输入您的QQ账户（数字）"), QQ_CODE);
-                break;*/
-            case R.id.modification_phone:
+            case R.id.modification_QQ:
+                Intent intent1=new Intent(PersonalInformation.this,BindQQActivity.class);
+                startActivity(intent1);
+                break;
+         /*   case R.id.modification_phone:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "手机号码")
                         .putExtra("hint", "请输入您的手机号码"), PHONE_CODE);
-                break;
+                break;*/
 
             case R.id.modification_address:
                 //联系地址
@@ -266,8 +285,9 @@ public class PersonalInformation extends BaseActivity {
                 textToast("修改成功");
                 user_sexy.setText(men.getText().toString().trim());
                 CharacterParser instance = CharacterParser.getInstance();
-                int chsAscii = instance.getChsAscii(men.getText().toString());
-                postData(chsAscii + "");
+                //int chsAscii = instance.getChsAscii(men.getText().toString());
+                postData(1);
+                SharedPreferencesUtils.setParam(PersonalInformation.this,"sex",1);
                 window.dismiss();
             }
         });
@@ -279,7 +299,8 @@ public class PersonalInformation extends BaseActivity {
                 user_sexy.setText(women.getText().toString().trim());
                 CharacterParser instance = CharacterParser.getInstance();
                 int chsAscii = instance.getChsAscii(women.getText().toString());
-                postData(chsAscii + "");
+                postData(2);
+                SharedPreferencesUtils.setParam(PersonalInformation.this,"sex",2);
                 window.dismiss();
             }
         });
@@ -368,6 +389,8 @@ public class PersonalInformation extends BaseActivity {
         } else if (requestCode == 3) {
             if (data != null) {
                 setPicToView(data);
+
+
             }
         }
     }
@@ -395,7 +418,6 @@ public class PersonalInformation extends BaseActivity {
         localImg = System.currentTimeMillis() + ".JPEG";
 
         if (bitmap != null) {
-
             SDPathUtils.saveBitmap(bitmap, localImg);
             Log.e("本地图片绑定", SDPathUtils.getCachePath() + localImg);
             setImageUrl(ivHeadLogo, "file:/" + SDPathUtils.getCachePath() + localImg, R.mipmap.head_logo);
@@ -405,13 +427,6 @@ public class PersonalInformation extends BaseActivity {
 
     public void setImageUrl(ImageView ivId, String imageUrl, int emptyImgId) {
         if (options == null) {
-//            options = new DisplayImageOptions.Builder()
-//                    .showImageOnLoading(emptyImgId)
-//                    .showImageForEmptyUri(emptyImgId)
-//                    .showImageOnFail(emptyImgId).cacheInMemory(true)
-//                    .cacheOnDisk(true).considerExifParams(true)
-//                    .bitmapConfig(Bitmap.Config.RGB_565)
-//                    .displayer(new RoundedBitmapDisplayer(RoundNum)).build();
             options = new DisplayImageOptions.Builder()
                     .showImageOnLoading(emptyImgId)
                     .showImageForEmptyUri(emptyImgId)

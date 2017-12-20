@@ -20,6 +20,9 @@ import com.iblood.utils.Md5Encrypt;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
@@ -105,7 +108,17 @@ public class ReginActivity extends BaseActivity {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(ReginActivity.this, data, Toast.LENGTH_SHORT).show();
+                        try {
+                            JSONObject jsonObject=new JSONObject(data);
+                            String ret = jsonObject.getString("ret");
+                            if(ret.equals("true")){
+                                finish();
+                            }else {
+                                Toast.makeText(ReginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 });
 

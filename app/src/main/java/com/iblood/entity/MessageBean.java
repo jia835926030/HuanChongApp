@@ -1,4 +1,4 @@
-package com.iblood.ui;
+package com.iblood.entity;
 
 /**
  * Created by asus on 2017/12/11.

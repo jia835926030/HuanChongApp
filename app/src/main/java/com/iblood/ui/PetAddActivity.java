@@ -97,7 +97,6 @@ public class PetAddActivity extends BaseActivity {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.pet_face:
-
                 break;
             case R.id.pet_name:
                 //跳转修改Pet名称

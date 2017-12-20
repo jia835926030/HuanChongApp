@@ -155,7 +155,8 @@ public class LateralspreadsPetActivity extends BaseActivity {
         String ip = ConnectionUtils.getIp(LateralspreadsPetActivity.this);
         Map<String, Object> map = new HashMap<>();
         String ws = (String) SharedPreferencesUtils.getParam(LateralspreadsPetActivity.this, "userId", "");
-        map.put("userId ",ws);
+        map.put(TableUtils.UserInfo.USERID,ws);
+
         String s1 = CJSON.toJSONMap(map);
         //Log.e("DA", s1);
         builder.add("data", s1);

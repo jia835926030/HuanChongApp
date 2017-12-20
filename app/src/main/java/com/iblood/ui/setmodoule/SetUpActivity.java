@@ -30,15 +30,14 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SetUpActivity extends BaseActivity {
-
-    @BindView(R.id.button_backward)
-    Button button_backward;
-    @BindView(R.id.button_forward)
-    Button button_forward;
+    @BindView(R.id.set_back)
+    ImageView set_back;
     @BindView(R.id.proposal_img)
     ImageView proposalImg;
     @BindView(R.id.product_proposal_text)
     TextView productProposalText;
+    @BindView(R.id.set_send)
+    TextView set_send;
     @BindView(R.id.proposal)
     AutoRelativeLayout proposal;
     @BindView(R.id.introduce)
@@ -84,7 +83,6 @@ public class SetUpActivity extends BaseActivity {
         String cacheSize = instance.getCacheSize(SetUpActivity.this);
         Log.e("tag===========",cacheSize+"");
         textViewhua.setText(cacheSize+"");
-
     }
 
     @Override
@@ -94,13 +92,7 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
-        button_backward.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        button_forward.setVisibility(View.GONE);
+
         String flag = (String) SharedPreferencesUtils.getParam(SetUpActivity.this, "flag3", "");
         Log.e("fafa",flag);
         if(flag.equals("ischeckd")){
@@ -113,7 +105,6 @@ public class SetUpActivity extends BaseActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked==true){
                     SharedPreferencesUtils.setParam(SetUpActivity.this,"flag","noload");
-
                    SharedPreferencesUtils.setParam(SetUpActivity.this,"flag3","ischeckd");
                 }else {
                     SharedPreferencesUtils.setParam(SetUpActivity.this,"flag","load");
@@ -122,13 +113,16 @@ public class SetUpActivity extends BaseActivity {
             }
         });
     }
-    @OnClick({R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
+    @OnClick({R.id.set_back,R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
 
     public void onViewClicked(View view){
         switch (view.getId()){
             case R.id.proposal:
                 Intent intent=new Intent(SetUpActivity.this,ProposalActivity.class);
                 startActivity(intent);
+                break;
+            case R.id.set_back:
+                finish();
                 break;
             case R.id.introduce:
               startActivity(new Intent(SetUpActivity.this,FunctionActivity.class));

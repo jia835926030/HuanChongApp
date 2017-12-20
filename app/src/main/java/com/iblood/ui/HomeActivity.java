@@ -109,6 +109,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     private PopupWindow popu1;
     private String q;
     private String w;
+    private PopupWindow popu2;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
@@ -125,6 +126,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     protected void onResume() {
         super.onResume();
         initView();
+        getdata("distance asc");
         q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
         w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
         String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
@@ -392,6 +394,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         switch (checkedId){
                             case R.id.xiaoxingquan:
                                 getChongWu("");
+                                popu2.dismiss();
                                 break;
 
                         }
@@ -425,15 +428,15 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         //显示popuwindow
         v2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.fragment_manage, null);
         //创建一个popuwindow对象
-        PopupWindow popu1 = new PopupWindow(v2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        popu2 = new PopupWindow(v2, ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
         //默认获取不到焦点，设置获取焦点
-        popu1.setFocusable(true);
+        popu2.setFocusable(true);
         //点击窗口以外区域，窗口消失
-        popu1.setBackgroundDrawable(new BitmapDrawable());
+        popu2.setBackgroundDrawable(new BitmapDrawable());
         //弹出或者消失的时候带动画效果
 //                popu.setAnimationStyle(R.style.mypopu);
         //显示popuwindow
-        popu1.showAsDropDown(mBottomGroup, 0, 0);
+        popu2.showAsDropDown(mBottomGroup, 0, 0);
     }
 
     //筛选城市

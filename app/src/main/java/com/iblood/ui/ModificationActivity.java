@@ -12,6 +12,7 @@ import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
+import com.iblood.utils.CharacterParser;
 import com.iblood.utils.ConnectionUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -59,7 +61,7 @@ public class ModificationActivity extends BaseActivity {
         text_title.setText(titletext);
         mEditText.setHint(hint);
     }
-    private void postData(String name) {
+    private void postData(int name) {
         OkHttpClient okHttpClient=new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
         AppUtils.setAppContext(ModificationActivity.this);
@@ -102,7 +104,10 @@ public class ModificationActivity extends BaseActivity {
             public void onClick(View view) {
                 String trim = mEditText.getText().toString().trim();
                 Log.e("TAG", trim);
-                postData(trim);
+                CharacterParser instance = CharacterParser.getInstance();
+                int chsAscii = instance.getChsAscii(trim);
+
+                postData(chsAscii);
                 finish();
             }
         });
@@ -117,6 +122,15 @@ public class ModificationActivity extends BaseActivity {
 
     @Override
     protected void initListener() {
+
+    }
+    @OnClick({R.id.button_backward})
+    public void onClicked(View view){
+        switch (view.getId()){
+            case R.id.button_backward:
+                finish();
+
+        }
 
     }
 }

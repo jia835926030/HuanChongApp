@@ -71,7 +71,6 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         // ActivityCollector.getInstance().addActivity(this);
         initView();
         initData();
-
         initListener();
     }
 

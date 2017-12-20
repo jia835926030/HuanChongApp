@@ -76,7 +76,7 @@ public class MyOrderActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initListener() {
         textTitle.setText("我的订单");
-  textTitle.setOnClickListener(this);
+        textTitle.setOnClickListener(this);
     }
 
     @Override
