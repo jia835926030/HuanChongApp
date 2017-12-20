@@ -25,7 +25,7 @@
     <dimen name="sp16">16sp</dimen>
     <dimen name="dp18">18dp</dimen>
     <dimen name="sp18">18sp</dimen>
-    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp10">10px</dimen>
     <dimen name="dp110">110dp</dimen>
     <dimen name="dp160">160dp</dimen>
 

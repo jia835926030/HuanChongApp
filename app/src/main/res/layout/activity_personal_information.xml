@@ -34,7 +34,7 @@
             android:layout_width="100px"
             android:layout_height="100px"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/textView5"
+            android:layout_marginEnd="13dp"
             android:layout_toStartOf="@+id/textView5"
             android:background="@mipmap/user_defaults" />
 
@@ -87,10 +87,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="62dp"
+                android:visibility="gone"
                 android:layout_marginStart="62dp"
                 android:layout_toEndOf="@+id/textView6"
                 android:layout_toRightOf="@+id/textView6"
-                android:text="数据加载中..." />
+                android:text="" />
 
 
             <TextView
@@ -135,9 +136,10 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="63dp"
                 android:layout_marginStart="63dp"
+                android:visibility="gone"
                 android:layout_toEndOf="@+id/textView9"
                 android:layout_toRightOf="@+id/textView9"
-                android:text="数据加载中..." />
+                android:text="" />
 
 
 
@@ -181,9 +183,10 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="36dp"
                 android:layout_marginStart="36dp"
+                android:visibility="gone"
                 android:layout_toEndOf="@+id/textView10"
                 android:layout_toRightOf="@+id/textView10"
-                android:text="数据加载中..." />
+                android:text="" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -231,9 +234,10 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="64dp"
                 android:layout_marginStart="64dp"
+                android:visibility="gone"
                 android:layout_toEndOf="@+id/textView11"
                 android:layout_toRightOf="@+id/textView11"
-                android:text="数据加载中..." />
+                android:text="" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -274,9 +278,10 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="64dp"
                 android:layout_marginStart="64dp"
+                android:visibility="gone"
                 android:layout_toEndOf="@+id/textView14"
                 android:layout_toRightOf="@+id/textView14"
-                android:text="数据加载中..." />
+                android:text="" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -289,14 +294,16 @@
             android:layout_width="match_parent"
             android:layout_height="2px"
             android:background="@color/colorGreyDark"></View>
+
         <RelativeLayout
             android:id="@+id/modification_QQ"
             android:layout_width="match_parent"
             android:layout_height="0px"
-            android:divider="@color/colorBlack"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:divider="@color/colorBlack">
 
             <TextView
+                android:id="@+id/textView15"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
@@ -305,21 +312,21 @@
                 android:layout_marginLeft="21dp"
                 android:layout_marginStart="21dp"
                 android:text="@string/QQ"
-                android:textSize="@dimen/text_title"
                 android:textColor="@color/colorBlack"
-                android:id="@+id/textView15" />
+                android:textSize="@dimen/text_title" />
 
             <TextView
                 android:id="@+id/user_QQ"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
-                android:layout_marginLeft="73dp"
-                android:layout_marginStart="73dp"
-                android:layout_toEndOf="@+id/textView15"
-                android:layout_toRightOf="@+id/textView15"
-                android:text="数据加载中..." />
+                android:layout_marginEnd="13dp"
+                android:layout_toStartOf="@+id/textView24"
+                android:textColor="@color/colorBlack"
+                android:text="未完善信息" />
+
             <TextView
+                android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
@@ -359,9 +366,10 @@
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="35dp"
                 android:layout_marginStart="35dp"
+                android:visibility="gone"
                 android:layout_toEndOf="@+id/textView16"
                 android:layout_toRightOf="@+id/textView16"
-                android:text="数据加载中..." />
+                android:text="" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

@@ -30,14 +30,17 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SetUpActivity extends BaseActivity {
-    @BindView(R.id.set_back)
-    ImageView set_back;
+
+    @BindView(R.id.button_backward)
+    ImageView button_backward;
+    @BindView(R.id.button_forward)
+    TextView button_forward;
+
     @BindView(R.id.proposal_img)
     ImageView proposalImg;
     @BindView(R.id.product_proposal_text)
     TextView productProposalText;
-    @BindView(R.id.set_send)
-    TextView set_send;
+
     @BindView(R.id.proposal)
     AutoRelativeLayout proposal;
     @BindView(R.id.introduce)
@@ -113,7 +116,7 @@ public class SetUpActivity extends BaseActivity {
             }
         });
     }
-    @OnClick({R.id.set_back,R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
+    @OnClick({R.id.button_backward,R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
 
     public void onViewClicked(View view){
         switch (view.getId()){
@@ -121,7 +124,7 @@ public class SetUpActivity extends BaseActivity {
                 Intent intent=new Intent(SetUpActivity.this,ProposalActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.set_back:
+            case R.id.button_backward:
                 finish();
                 break;
             case R.id.introduce:

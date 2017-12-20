@@ -1,171 +1,116 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.zhy.autolayout.AutoLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="match_parent">
-<include layout="@layout/title_layout"/>
-
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical" >
+    <include layout="@layout/title_layout"/>
     <RelativeLayout
-
-        android:layout_marginTop="10px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textSize="20sp"
-            android:text="以前是否免疫过"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:layout_width="70px"
-            android:layout_height="50px"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginEnd="15px"
-            android:layout_marginRight="15px"/>
-           <!-- android:src="@mipmap/on"-->
-    </RelativeLayout>
-    <TextView
-        android:layout_marginTop="20px"
-        android:background="#B5B3B4"
-        android:layout_width="match_parent"
-        android:layout_height="60px" />
-
-    <RelativeLayout
-        android:layout_marginTop="20px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textSize="17sp"
-            android:text="上次免疫时间"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-        <ImageView
-            android:layout_width="50px"
-            android:layout_height="50px"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:src="@mipmap/enter" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:layout_marginTop="20px"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <TextView
-            android:textSize="17sp"
-            android:text="上次免疫时间"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </RelativeLayout>
-
-    <TextView
-        android:textColor="#D1D1D1"
-        android:layout_marginTop="10px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="请如实选择宠物已免疫病毒类型" />
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_marginLeft="20px"
-            android:background="@drawable/bg_welcome"
-            android:layout_marginTop="20px"
-            android:layout_width="230px"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:src="@mipmap/imm_check"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:id="@+id/imageView2" />
+        android:gravity="center_vertical" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
-                android:layout_toEndOf="@+id/imageView2"
-                android:layout_toRightOf="@+id/imageView2"
-                android:text="犬瘟疫苗"
-                android:textSize="15sp" />
-        </RelativeLayout>
-        <RelativeLayout
-            android:layout_marginLeft="380px"
-            android:background="@drawable/bg_welcome"
-            android:layout_marginTop="20px"
-            android:layout_width="230px"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:src="@mipmap/exclamation"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:id="@+id/imageView8" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingTop="@dimen/dp10"
+            android:text="以前是否免疫过"
+            android:textSize="@dimen/dp20" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
-                android:layout_toEndOf="@+id/imageView8"
-                android:layout_toRightOf="@+id/imageView8"
-                android:text="犬细小病毒"
-                android:textSize="15sp" />
-        </RelativeLayout>
+        <CheckBox
+            android:id="@+id/cb_imm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/btn_off_or_open"
+            android:button="@null"
+            android:paddingRight="@dimen/dp10"
+            android:paddingTop="@dimen/dp10" />
     </RelativeLayout>
-    <RelativeLayout
+
+    <LinearLayout
+        android:id="@+id/add_pet_immune"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
         <RelativeLayout
-            android:layout_marginLeft="20px"
-            android:background="@drawable/bg_welcome"
-            android:layout_marginTop="20px"
-            android:layout_width="230px"
-            android:layout_height="wrap_content">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:onClick="click" >
+
             <ImageView
-                android:src="@mipmap/exclamation"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:id="@+id/imageView6" />
+                android:id="@+id/iv_immune_go"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:src="@mipmap/img_go" />
+
+            <TextView
+                android:id="@+id/tv_pet_immune_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15px"
+                android:layout_toLeftOf="@+id/iv_immune_go" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
-                android:layout_toEndOf="@+id/imageView6"
-                android:layout_toRightOf="@+id/imageView6"
-                android:text="犬腺疫苗"
-                android:textSize="15sp" />
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginBottom="10dp"
+                android:layout_marginTop="10dp"
+                android:padding="10px"
+                android:text="上次免疫时间"
+                android:textSize="@dimen/dp20" />
         </RelativeLayout>
-        <RelativeLayout
-            android:layout_marginLeft="380px"
-            android:background="@drawable/bg_welcome"
-            android:layout_marginTop="20px"
-            android:layout_width="230px"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:src="@mipmap/exclamation"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:id="@+id/imageView1" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="5px"
+            android:background="#BEBEBE" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:orientation="vertical"
+            android:padding="5px" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="13dp"
-                android:layout_marginStart="13dp"
-                android:layout_toEndOf="@+id/imageView1"
-                android:layout_toRightOf="@+id/imageView1"
-                android:text="狂犬病病毒"
-                android:textSize="15sp" />
-        </RelativeLayout>
-    </RelativeLayout>
+                android:text="上次免疫时间"
+                android:textSize="@dimen/dp20" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5px"
+                android:text="请如实选择宠物已免疫病毒类型"
+                android:textColor="#BEBEBE"
+                android:textSize="@dimen/dp15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <GridView
+                android:id="@+id/immgrid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10px"
+                android:numColumns="2"
+                android:padding="10px" >
+            </GridView>
+        </LinearLayout>
+    </LinearLayout>
 
 </com.zhy.autolayout.AutoLinearLayout>

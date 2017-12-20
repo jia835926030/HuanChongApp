@@ -1,15 +1,17 @@
 package com.iblood.ui;
 
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
+import android.provider.Settings;
 import android.support.v7.app.ActionBar;
 import android.util.Log;
 import android.view.Gravity;
@@ -23,9 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.iblood.R;
-import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
 import com.iblood.tools.CircleImageView;
@@ -46,11 +46,12 @@ import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Call;
@@ -63,6 +64,8 @@ import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 
+import static android.Manifest.permission.WRITE_APN_SETTINGS;
+
 /**
  * Created by 刘贵河 on 2017/12/6.
  * 个人信息
@@ -72,9 +75,9 @@ public class PersonalInformation extends BaseActivity {
     @BindView(R.id.text_title)
     TextView header_title;//头标题
     @BindView(R.id.button_forward)
-    Button button_forward;
+    TextView button_forward;
     @BindView(R.id.button_backward)
-    Button button_backward;
+    ImageView button_backward;
     @BindView(R.id.modification_face)//修改头像
             RelativeLayout modification_face;
     @BindView(R.id.modification_name)//名称
@@ -217,7 +220,8 @@ public class PersonalInformation extends BaseActivity {
 
 
     @OnClick({R.id.modification_face, R.id.modification_name, R.id.modification_sexy, R.id.modification_ddyymm,
-            R.id.modification_phone, R.id.modification_QQ, R.id.modification_wachat, R.id.modification_address})
+            R.id.modification_phone, R.id.modification_QQ, R.id.modification_wachat, R.id.modification_address,
+            R.id.button_backward})
     public void onViewClicked(View view) {
         switch (view.getId()) {
 
@@ -240,7 +244,7 @@ public class PersonalInformation extends BaseActivity {
                 break;
             case R.id.modification_ddyymm:
                 //年月日弹窗
-                Date_selection(user_time);
+                Date_selection(user_time,1970);
 
 
                 break;
@@ -248,6 +252,7 @@ public class PersonalInformation extends BaseActivity {
                 Intent intent = new Intent(PersonalInformation.this, BindWeChatActivity.class);
                 startActivity(intent);
                 break;
+
             case R.id.modification_QQ:
                 Intent intent1=new Intent(PersonalInformation.this,BindQQActivity.class);
                 startActivity(intent1);
@@ -262,6 +267,9 @@ public class PersonalInformation extends BaseActivity {
                 //联系地址
                 startActivityForResult(new Intent(PersonalInformation.this, PersonalAddress.class)
                         .putExtra("title", "联系地址"), ADDRESS_CODE);
+                break;
+            case R.id.button_backward:
+                finish();
                 break;
         }
     }
@@ -307,6 +315,7 @@ public class PersonalInformation extends BaseActivity {
 
 
     //当点击头像时
+    @SuppressLint("NewApi")
     private void showTipPop() {
         View view = getLayoutInflater().inflate(R.layout.choosepicturedialog, null);
         final Dialog dialog = new Dialog(this, R.style.transparentFrameWindowStyle);
@@ -324,15 +333,19 @@ public class PersonalInformation extends BaseActivity {
         dialog.show();
         TextView btnCamera = (TextView) view.findViewById(R.id.btn_to_camera);
         btnCamera.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("NewApi")
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
 //
                 Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(SDPathUtils.getCachePath(), "temp.jpg")));
-                startActivityForResult(openCameraIntent, 2);
-//                    }
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                        openCameraIntent.putExtra(Settings.ACTION_APN_SETTINGS,"");
+                            openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(SDPathUtils.getCachePath(), "temp.jpg")));
+                            startActivityForResult(openCameraIntent, 2);
+
+
+                    }
             }
         });
         TextView btnPhoto = (TextView) view.findViewById(R.id.btn_to_photo);
@@ -362,22 +375,27 @@ public class PersonalInformation extends BaseActivity {
 
         if (requestCode == 3 && resultCode == 200) {
             user_name.setText(data.getStringExtra("rcode"));
+            textToast("修改成功");
         }
         //微信
         if (requestCode == 4 && resultCode == 200) {
-            user_wachat.setText(data.getStringExtra("rcode"));
+//            user_wachat.setText(data.getStringExtra("rcode"));
+            textToast("修改成功");
         }
         //QQ
         if (requestCode == 5 && resultCode == 200) {
-            user_qq.setText(data.getStringExtra("rcode"));
+//            user_qq.setText(data.getStringExtra("rcode"));
+            textToast("修改成功");
         }
         //电话
         if (requestCode == 6 && resultCode == 200) {
-            user_phone.setText(data.getStringExtra("rcode"));
+//            user_phone.setText(data.getStringExtra("rcode"));
+            textToast("修改成功");
         }
         //住址
         if (requestCode == 7 && resultCode == 200) {
-            user_address.setText(data.getStringExtra("rcode"));
+//            user_address.setText(data.getStringExtra("rcode"));
+            textToast("修改成功");
         }
         if (requestCode == 1 && data != null) {
             startPhotoZoom(data.getData());
@@ -416,11 +434,32 @@ public class PersonalInformation extends BaseActivity {
         localImg = System.currentTimeMillis() + ".JPEG";
 
         if (bitmap != null) {
+
             SDPathUtils.saveBitmap(bitmap, localImg);
+
+            Log.e("bitmap",localImg+"");
             Log.e("本地图片绑定", SDPathUtils.getCachePath() + localImg);
-            setImageUrl(ivHeadLogo, "file:/" + SDPathUtils.getCachePath() + localImg, R.mipmap.head_logo);
+            textToast("修改成功");
+            setImageUrl(ivHeadLogo, "file:/" + SDPathUtils.getCachePath() + localImg, R.mipmap.user_defaults);
+            Log.e("path","file:/" + SDPathUtils.getCachePath() + localImg);
+
+//            try {
+//                File myCaptureFile = new File("file:/" + SDPathUtils.getCachePath() + localImg);
+//                Log.e("file",myCaptureFile+"");
+//                BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(myCaptureFile));
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 80, bos);
+//                bos.flush();
+//                bos.close();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+
         }
+
     }
+
+
+
     private DisplayImageOptions options;
 
     public void setImageUrl(ImageView ivId, String imageUrl, int emptyImgId) {

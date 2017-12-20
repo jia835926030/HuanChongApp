@@ -36,7 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -45,6 +47,12 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 public class PlayApForActivity extends BaseActivity {
+    @BindView(R.id.text_title)
+    TextView header_title;//头标题
+    @BindView(R.id.button_forward)
+    TextView button_forward;
+    @BindView(R.id.button_backward)
+    ImageView button_backward;
     private PulldataHandler handler;
     private TextView item_top;
     private EditText name;
@@ -78,8 +86,20 @@ public class PlayApForActivity extends BaseActivity {
             handler.destroy();
         }
     }
+    @OnClick({R.id.button_backward})
+    public void onViewClicked(View view){
+        switch (view.getId()){
+            case R.id.button_backward:
+                finish();
+                break;
+        }
+    }
     @Override
     protected void initView() {
+        button_forward.setVisibility(View.GONE);
+        header_title.setText("预约寄养");
+        button_backward.setMaxHeight(50);
+        button_backward.setMaxHeight(50);
         name = (EditText) findViewById(R.id.fosterapply_name);
         phone = (EditText) findViewById(R.id.fosterapply_phones);
         city = (EditText) findViewById(R.id.fosterapply_city);

@@ -4,29 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="3dp"
-        android:paddingTop="3dp" >
-
-        <ImageView
-            android:id="@+id/iv_save"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:onClick="click"
-            android:padding="@dimen/dp7"
-            android:src="@drawable/back_gray" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:text="修改名称"
-            android:textSize="@dimen/sp18" />
-    </RelativeLayout>
+    <include layout="@layout/title_layout"/>
     <EditText
         android:id="@+id/et_update_name"
         android:layout_width="match_parent"

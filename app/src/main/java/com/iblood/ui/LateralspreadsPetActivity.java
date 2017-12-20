@@ -1,34 +1,34 @@
 package com.iblood.ui;
 
-import android.app.ActivityOptions;
+
 import android.content.Intent;
 import android.os.Build;
-import android.support.annotation.Nullable;
+
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.adapter.MyPetAdapter;
 import com.iblood.base.BaseActivity;
-import com.iblood.config.Urls;
-import com.iblood.db.DaoManager;
-import com.iblood.entity.PetAddBean;
+
 import com.iblood.entity.PetInfo;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
+
 import com.iblood.utils.FileUtil;
 import com.iblood.utils.OkHttpUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
+
 import com.iblood.utils.TableUtils;
 import com.iblood.utils.TokenUtil;
-import com.lzy.okhttputils.callback.StringCallback;
-import com.lzy.okhttputils.request.PostRequest;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,9 +53,9 @@ public class LateralspreadsPetActivity extends BaseActivity {
     @BindView(R.id.text_title)
     TextView header_title;//头标题
     @BindView(R.id.button_forward)
-    Button add_pet;
+    TextView add_pet;
     @BindView(R.id.button_backward)
-    Button button_backward;
+    ImageView button_backward;
     @BindView(R.id.mPetTabulation)
     ListView m_Pet_Tabulation;
     private List<PetInfo> petList = new ArrayList<>();

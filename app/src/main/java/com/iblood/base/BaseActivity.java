@@ -163,12 +163,12 @@ public abstract class BaseActivity extends AutoLayoutActivity {
         });
     }
 //选择日期
-    public void Date_selection(final TextView view) {
+    public void Date_selection(final TextView view,int data) {
 
         DatePicker picker = new DatePicker(App.mBaseActivity);
         SimpleDateFormat df = new SimpleDateFormat("yyyy");//设置日期格式
         String date = df.format(new Date());
-        picker.setRange(1900, Integer.parseInt(date));//年份范围
+        picker.setRange(data, Integer.parseInt(date));//年份范围
         picker.setSubmitTextColor(Color.BLUE);
         picker.setCancelTextColor(Color.BLUE);
         picker.setTextColor(Color.BLACK);

@@ -4,6 +4,7 @@
     android:orientation="vertical"
     android:background="#f8f9f6"
     xmlns:android="http://schemas.android.com/apk/res/android">
+<include layout="@layout/title_layout"/>
     <View
         android:layout_width="match_parent"
         android:layout_height="10dp"

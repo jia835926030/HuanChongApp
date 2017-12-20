@@ -4,6 +4,8 @@ package com.iblood.ui;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
@@ -31,7 +33,12 @@ import butterknife.OnClick;
 public class UpdatePersonalInfo extends BaseActivity {
     @BindView(R.id.et_update_name)
     EditText et_update_name;
-    ;
+    ;@BindView(R.id.text_title)
+    TextView header_title;//头标题
+    @BindView(R.id.button_forward)
+    TextView button_forward;
+    @BindView(R.id.button_backward)
+    ImageView button_backward;
 
     @Override
     protected int getLayoutId() {
@@ -40,18 +47,27 @@ public class UpdatePersonalInfo extends BaseActivity {
 
     @Override
     protected void initView() {
+        header_title.setText("名称");
+
         String q = (String) SharedPreferencesUtils.getParam(UpdatePersonalInfo.this, "userName", "");
        et_update_name.setText(q);
 
     }
 
-    @OnClick({R.id.et_update_name})
+    @OnClick({R.id.et_update_name,R.id.button_backward,R.id.button_forward})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.et_update_name:
                 if (et_update_name.getText().toString().trim() != null) {
                     UpdateName();
                 }
+                break;
+            case R.id.button_backward:
+                finish();
+                break;
+            case R.id.button_forward:
+                //
+                UpdateName();
                 break;
         }
     }

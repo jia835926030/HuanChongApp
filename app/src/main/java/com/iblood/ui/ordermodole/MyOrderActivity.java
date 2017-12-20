@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,15 +19,16 @@ import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-public class MyOrderActivity extends BaseActivity implements View.OnClickListener {
+public class MyOrderActivity extends BaseActivity  {
 
     @BindView(R.id.text_title)
     TextView textTitle;
     @BindView(R.id.button_backward)
-    Button buttonBackward;
+    ImageView buttonBackward;
     @BindView(R.id.button_forward)
-    Button buttonForward;
+    TextView buttonForward;
     @BindView(R.id.layout_titlebar)
     AutoRelativeLayout layoutTitlebar;
     @BindView(R.id.myorder_tab)
@@ -49,6 +51,8 @@ public class MyOrderActivity extends BaseActivity implements View.OnClickListene
 
     @Override
     protected void initView() {
+        textTitle.setText("我的订单");
+        buttonForward.setVisibility(View.GONE);
     }
 
     @Override
@@ -76,20 +80,21 @@ public class MyOrderActivity extends BaseActivity implements View.OnClickListene
     @Override
     protected void initListener() {
         textTitle.setText("我的订单");
-        textTitle.setOnClickListener(this);
+
     }
 
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()){
-            case  R.id.text_title:
-                break;
-            case  R.id.button_backward:
+
+
+    @OnClick({R.id.button_backward})
+    public void onViewClicked(View view) {
+        switch (view.getId()) {
+
+            case R.id.button_backward:
                 finish();
                 break;
-            case R.id.button_forward:
-                Toast.makeText(MyOrderActivity.this,"提交",Toast.LENGTH_SHORT).show();
-                break;
+
         }
     }
+
+
 }

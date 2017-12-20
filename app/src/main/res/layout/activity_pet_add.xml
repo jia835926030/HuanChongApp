@@ -86,17 +86,17 @@
                 android:textSize="@dimen/text_title"
                 android:textColor="@color/colorBlack" />
 
-            <TextView
-                android:id="@+id/pet_user_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView6"
-                android:layout_alignBottom="@+id/textView6"
-                android:layout_marginEnd="14px"
-                android:layout_marginRight="14px"
-                android:layout_toLeftOf="@+id/textView12"
-                android:layout_toStartOf="@+id/textView12"
-                android:text="数据加载中..." />
+            <!--<TextView-->
+                <!--android:id="@+id/pet_user_name"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignBaseline="@+id/textView6"-->
+                <!--android:layout_alignBottom="@+id/textView6"-->
+                <!--android:layout_marginEnd="14px"-->
+                <!--android:layout_marginRight="14px"-->
+                <!--android:layout_toLeftOf="@+id/textView12"-->
+                <!--android:layout_toStartOf="@+id/textView12"-->
+                <!--android:text="数据加载中..." />-->
 
 
             <TextView
@@ -137,17 +137,17 @@
                 android:textSize="@dimen/text_title"
                 android:textColor="@color/colorBlack" />
 
-            <TextView
-                android:id="@+id/pet_user_sexy"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView9"
-                android:layout_alignBottom="@+id/textView9"
-                android:layout_marginEnd="14px"
-                android:layout_marginRight="14px"
-                android:layout_toLeftOf="@+id/textView13"
-                android:layout_toStartOf="@+id/textView13"
-                android:text="数据加载中..." />
+            <!--<TextView-->
+                <!--android:id="@+id/pet_user_sexy"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignBaseline="@+id/textView9"-->
+                <!--android:layout_alignBottom="@+id/textView9"-->
+                <!--android:layout_marginEnd="14px"-->
+                <!--android:layout_marginRight="14px"-->
+                <!--android:layout_toLeftOf="@+id/textView13"-->
+                <!--android:layout_toStartOf="@+id/textView13"-->
+                <!--android:text="数据加载中..." />-->
 
 
             <TextView
@@ -186,17 +186,17 @@
                 android:textColor="@color/colorBlack" />
 
 
-            <TextView
-                android:id="@+id/pet_user_steri"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignBaseline="@+id/textView10"
-                android:layout_alignBottom="@+id/textView10"
-                android:layout_marginEnd="14px"
-                android:layout_marginRight="14px"
-                android:layout_toLeftOf="@+id/textView17"
-                android:layout_toStartOf="@+id/textView17"
-                android:text="数据加载中..." />
+            <!--<TextView-->
+                <!--android:id="@+id/pet_user_steri"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_alignBaseline="@+id/textView10"-->
+                <!--android:layout_alignBottom="@+id/textView10"-->
+                <!--android:layout_marginEnd="14px"-->
+                <!--android:layout_marginRight="14px"-->
+                <!--android:layout_toLeftOf="@+id/textView17"-->
+                <!--android:layout_toStartOf="@+id/textView17"-->
+                <!--android:text="数据加载中..." />-->
 
             <TextView
                 android:id="@+id/textView17"
@@ -237,6 +237,7 @@
 
             <TextView
                 android:id="@+id/topTime"
+                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBaseline="@+id/textView18"
@@ -337,16 +338,16 @@
                     android:textColor="@color/colorBlack" />
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignBaseline="@+id/textView20"
-                    android:layout_alignBottom="@+id/textView20"
-                    android:layout_marginEnd="14px"
-                    android:layout_marginRight="14px"
-                    android:layout_toLeftOf="@+id/textView21"
-                    android:layout_toStartOf="@+id/textView21"
-                    android:text="数据加载中..." />
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignBaseline="@+id/textView20"-->
+                    <!--android:layout_alignBottom="@+id/textView20"-->
+                    <!--android:layout_marginEnd="14px"-->
+                    <!--android:layout_marginRight="14px"-->
+                    <!--android:layout_toLeftOf="@+id/textView21"-->
+                    <!--android:layout_toStartOf="@+id/textView21"-->
+                    <!--android:text="数据加载中..." />-->
 
                 <TextView
                     android:id="@+id/textView21"

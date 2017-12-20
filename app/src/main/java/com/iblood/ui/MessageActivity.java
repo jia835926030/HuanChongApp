@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,9 +27,9 @@ public class MessageActivity extends BaseActivity implements View.OnClickListene
     @BindView(R.id.text_title)
     TextView textTitle;
     @BindView(R.id.button_backward)
-    Button buttonBackward;
+    ImageView buttonBackward;
     @BindView(R.id.button_forward)
-    Button buttonForward;
+    TextView buttonForward;
     @BindView(R.id.layout_titlebar)
     AutoRelativeLayout layoutTitlebar;
     @BindView(R.id.message_listview)

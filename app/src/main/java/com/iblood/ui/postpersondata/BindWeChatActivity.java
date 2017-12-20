@@ -104,4 +104,10 @@ public class BindWeChatActivity extends AppCompatActivity implements View.OnClic
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        text_title.setText("微信");
+        bindwechat.setHint("请输入微信账号");
+    }
 }

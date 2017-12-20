@@ -199,8 +199,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(HomeActivity.this, "登陆成功！", Toast.LENGTH_SHORT).show();
-                        //进入聊天界面
+                        textToast("登陆失败！");
+
+//                        //进入聊天界面
                         startActivity(new Intent(HomeActivity.this, MessageActivity.class));
                     }
                 });
@@ -218,7 +219,8 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(HomeActivity.this, "登陆失败！", Toast.LENGTH_SHORT).show();
+                        textToast("登陆成功！");
+
 //                        //进入聊天界面
 //                        startActivity(new Intent(HomeActivity.this, MessageActivity.class));
 //                        finish();
