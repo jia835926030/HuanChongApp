@@ -3,7 +3,10 @@
 
     xmlns:tools="http://schemas.android.com/tools"
     package="com.iblood">
-
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-sdk
+        android:minSdkVersion="8"
+        android:targetSdkVersion="18" />
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 允许程序设置内置sd卡的写权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -76,6 +79,8 @@
         </provider>
 
         <activity android:name=".ui.setmodoule.SetUpActivity" />
+<activity android:name=".ui.ordermodole.activity.SelectPicPopupWindow"></activity>
+
         <activity android:name=".ui.loginactivity.DefilyActivity" />
         <activity android:name=".ui.loginactivity.GiadingActivity" />
         <activity android:name=".ui.loginactivity.ReginActivity" />
@@ -101,6 +106,7 @@
         <activity android:name=".ui.ordermodole.activity.AppPingActivity" />
         <activity android:name=".ui.PlayApForActivity" />
         <activity android:name=".ui.postpersondata.BindWeChatActivity" />
+     <activity android:name=".ui.ordermodole.activity.Yingye"></activity>
         <!-- 城市筛选 -->
         <activity
             android:name="com.zaaach.citypicker.CityPickerActivity"
@@ -124,7 +130,8 @@
         <activity android:name=".ui.map.MapActivity" />
         <activity android:name=".ui.personal.ClipImageActivity" />
         <activity android:name=".ui.PreviewActivity" />
-        <activity android:name=".ui.ordermodole.activity.SelectPicPopupWindow" />
+
+
 
         <!-- 设置环信应用的AppKey -->
         <meta-data

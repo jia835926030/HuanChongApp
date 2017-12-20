@@ -39,11 +39,8 @@ import com.iblood.entity.HomeChongwuBeen;
 import com.iblood.entity.Screen;
 import com.iblood.fellow.FellowActivity;
 import com.iblood.fellow.FellowAdapter;
-import com.iblood.fellow.FellowBean;
 import com.iblood.ui.loginactivity.GiadingActivity;
-
 import com.iblood.ui.map.MapActivity;
-import com.iblood.ui.menu.MainActivity;
 import com.iblood.ui.ordermodole.MyOrderActivity;
 import com.iblood.ui.setmodoule.OrderActivity;
 import com.iblood.ui.setmodoule.SetUpActivity;
@@ -56,7 +53,6 @@ import com.iblood.utils.TokenUtil;
 import com.zaaach.citypicker.CityPickerActivity;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -222,7 +218,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                         textToast("登陆成功！");
 
 //                        //进入聊天界面
-//                        startActivity(new Intent(HomeActivity.this, MessageActivity.class));
+                       startActivity(new Intent(HomeActivity.this, MessageActivity.class));
 //                        finish();
                     }
                 });

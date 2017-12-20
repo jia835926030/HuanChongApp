@@ -100,21 +100,17 @@
                     android:textSize="18sp" />
 
                 <EditText
+                    android:hint="请输入所在的城市"
                     android:id="@+id/fosterapply_city"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="15dp"
                     android:layout_weight="4"
                     android:background="@null"
-                    android:focusable="false"
+                    android:maxLength="20"
+                    android:maxLines="1"
                     android:textColor="#BFBFBF"
                     android:textColorHint="#BFBFBF" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@mipmap/enter"
-                    />
             </LinearLayout>
 
             <View
@@ -205,8 +201,8 @@
                     android:adjustViewBounds="true"
                 android:scaleType="fitXY"
                 android:id="@+id/fosterapply_shenfenzheng_icon"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_width="250dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:background="@mipmap/add_photos" />
             </LinearLayout>
@@ -233,8 +229,8 @@
                 <ImageView
 
                     android:id="@+id/fosterapply_yingye_icon"
-                    android:layout_width="match_parent"
-                    android:layout_height="300dp"
+                    android:layout_width="250dp"
+                    android:layout_height="200dp"
                     android:layout_marginTop="10dp"
                     android:adjustViewBounds="true"
                     android:background="@mipmap/add_photos"
@@ -422,14 +418,18 @@
                 android:padding="15dp"
                 android:text="上传照片"
                 android:textSize="20sp" />
-            <ImageView
-                android:adjustViewBounds="true"
-                android:scaleType="fitXY"
-                android:id="@+id/fosterapply_shangchuan_icon"
-                android:layout_width="match_parent"
+            <com.iblood.ui.shenqing.MyGridView
+                android:id="@+id/gridView"
+                android:layout_width="300dp"
                 android:layout_height="300dp"
-                android:layout_marginTop="10dp"
-                android:background="@mipmap/add_photos" />
+                android:layout_margin="5dp"
+                android:layout_weight="0"
+                android:columnWidth="90dp"
+                android:gravity="center"
+                android:horizontalSpacing="5dp"
+                android:numColumns="4"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="5dp" />
 
 
             <LinearLayout

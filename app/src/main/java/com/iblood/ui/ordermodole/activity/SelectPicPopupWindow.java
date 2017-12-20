@@ -86,7 +86,7 @@ public class SelectPicPopupWindow extends AppCompatActivity implements View.OnCl
                     Intent intent = new Intent();
                     intent.setType("image/*");
                     intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(intent, 2);
+                    startActivityForResult(intent, 1);
                 } catch (ActivityNotFoundException e) {
 
                 }
