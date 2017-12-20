@@ -6,6 +6,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -185,6 +186,7 @@ public class PlayApForActivity extends BaseActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
     }
+    @NonNull
     private Boolean VerificationData() {
         if (name.getText().toString().trim().isEmpty()) {
        ToastUtil.show("真实姓名不能为空!");

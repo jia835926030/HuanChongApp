@@ -56,8 +56,6 @@ public class ModificationActivity extends BaseActivity {
         //获取传过来的值
         String titletext = intent.getStringExtra("title");
         String hint = intent.getStringExtra("hint");
-
-
         text_title.setText(titletext);
         mEditText.setHint(hint);
     }
@@ -92,7 +90,7 @@ public class ModificationActivity extends BaseActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
-                Log.e("data",string);
+                //Log.e("data",string);
             }
         });
     }
@@ -103,10 +101,8 @@ public class ModificationActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 String trim = mEditText.getText().toString().trim();
-                Log.e("TAG", trim);
                 CharacterParser instance = CharacterParser.getInstance();
                 int chsAscii = instance.getChsAscii(trim);
-
                 postData(chsAscii);
                 finish();
             }

@@ -130,9 +130,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
         w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
         String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
-//        Log.e("name=====",q);
-//        Log.e("phone=====",w+"");
-//        Log.e("1231231====",ws+"");
         if(q!=null){
             cehua_name.setText(q);
             cehua_dianhua.setText(w);
@@ -241,12 +238,9 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         String ip = ConnectionUtils.getIp(HomeActivity.this);
         Map<String, Object> map = new HashMap<>();
         map.put("beginIndex", 0);
-  /*      map.put("coordX",40.116384);
-        map.put("coordY", 116.250374);*/
         map.put("endIndex", 1);
         map.put("petTypeCode", str);
         String s1 = CJSON.toJSONMap(map);
-        //Log.e("DA", s1);
         builder.add("data", s1);
 
         String linkString = SignUtil.createLinkString(map);
@@ -263,7 +257,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String data = response.body().string();
-                Log.e("------------=====: ", data);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -293,7 +286,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         map.put("endIndex", 20);
         map.put("orderBy", str);
         String s1 = CJSON.toJSONMap(map);
-        //Log.e("DA", s1);
         builder.add("data", s1);
 
         String linkString = SignUtil.createLinkString(map);
@@ -310,7 +302,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 final String data = response.body().string();
-                //Log.e("onResponse=====: ", data);
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
@@ -478,10 +469,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.my_home:
-//                String userName = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
-//                String userPhone = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
-//                Log.e("name=====",userName);
-//                Log.e("name=====",userPhone);
                 if(activityHome.isDrawerOpen(Gravity.LEFT)){
                     activityHome.closeDrawer(Gravity.LEFT);
 
@@ -501,11 +488,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 String q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
                 String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
                 String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
-                Log.e("name=====",q);
-                Log.e("phone=====",w+"");
-                Log.e("1231231====",ws+"");
                 if(q.equals("")){
-
                     Log.e("登录",q);
                     Intent intent=new Intent(HomeActivity.this,GiadingActivity.class);
                     startActivity(intent);

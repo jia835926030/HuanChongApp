@@ -21,6 +21,7 @@ import com.iblood.entity.PetInfo;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.FileUtil;
 import com.iblood.utils.OkHttpUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
@@ -74,6 +75,11 @@ public class LateralspreadsPetActivity extends BaseActivity {
     protected void initView() {
         header_title.setText("宠物列表");
         add_pet.setText("添加");
+        AppUtils.setAppContext(this);
+        TokenUtil.init(this);
+        String token = TokenUtil.createToken();
+        FileUtil.saveToken();
+        initListView();
 /**
  * 判断集合里面是否有数据，如果没有就直接跳转到添加宠物页
  */
@@ -81,10 +87,10 @@ public class LateralspreadsPetActivity extends BaseActivity {
 
         if (petList.size() == 0) {
             textToast("请添加您的宠物");
-            startActivity(new Intent(LateralspreadsPetActivity.this, PetAddActivity.class)
+            //startActivity(new Intent(LateralspreadsPetActivity.this, PetAddActivity.class)
                     //释放模拟器运行不了要求android5.0 以上
 //                    , ActivityOptions.makeSceneTransitionAnimation(LateralspreadsPetActivity.this).toBundle()
-            );
+          //  );
 
         } else {
             return;
@@ -97,7 +103,7 @@ public class LateralspreadsPetActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+        initListView();
     }
 
     @Override
@@ -139,7 +145,7 @@ public class LateralspreadsPetActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        initListView();
+        //initListView();
     }
 
 
@@ -158,8 +164,8 @@ public class LateralspreadsPetActivity extends BaseActivity {
         map.put(TableUtils.UserInfo.USERID,ws);
 
         String s1 = CJSON.toJSONMap(map);
-        //Log.e("DA", s1);
-        builder.add("data", s1);
+        Log.e("DA", s1);
+        builder.add(CJSON.DATA, s1);
         String linkString = SignUtil.createLinkString(map);
         request.addHeader("sign",linkString)
                 .addHeader("ip",ip)
@@ -178,7 +184,7 @@ public class LateralspreadsPetActivity extends BaseActivity {
             @Override
             public void onResponse(Call call, Response response) throws IOException {
                 String string = response.body().string();
-//                Log.e("TAG",string);
+                Log.e("宠物",string);
                 if (CJSON.getRET(string)) {
                     petInfos = CJSON.parseArray(CJSON.getDESC(string),
                             PetInfo.class);

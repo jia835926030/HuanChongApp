@@ -177,7 +177,6 @@ public class PersonalInformation extends BaseActivity {
         AppUtils.setAppContext(PersonalInformation.this);
         TokenUtil.init(PersonalInformation.this);
         String token = TokenUtil.createToken();
-        Log.e("token", token);
         Request.Builder request = new Request.Builder();
         String ip = ConnectionUtils.getIp(PersonalInformation.this);
         Map<String, Object> map = new HashMap<>();
@@ -185,7 +184,6 @@ public class PersonalInformation extends BaseActivity {
         map.put(TableUtils.UserInfo.USERID, ws);
         map.put(TableUtils.UserInfo.USERSEX, o);
         String s1 = CJSON.toJSONMap(map);
-        Log.e("DA", s1);
         builder.add("data", s1);
         String linkString = SignUtil.createLinkString(map);
         request.addHeader("sign", linkString);
@@ -254,11 +252,11 @@ public class PersonalInformation extends BaseActivity {
                 Intent intent1=new Intent(PersonalInformation.this,BindQQActivity.class);
                 startActivity(intent1);
                 break;
-         /*   case R.id.modification_phone:
+            case R.id.modification_phone:
                 startActivityForResult(new Intent(PersonalInformation.this, ModificationActivity.class)
                         .putExtra("title", "手机号码")
                         .putExtra("hint", "请输入您的手机号码"), PHONE_CODE);
-                break;*/
+                break;
 
             case R.id.modification_address:
                 //联系地址

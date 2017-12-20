@@ -1,9 +1,10 @@
 package com.iblood.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
- * 
+ *
  * @Description:(宠物信息实体)
  * @ClassName: PetInfo
  * @author zf zhangfeng@tctogether.com

@@ -35,7 +35,6 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
-
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -70,14 +69,15 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-        <activity android:name=".ui.setmodoule.SetUpActivity"/>
+
+        <activity android:name=".ui.setmodoule.SetUpActivity" />
         <activity android:name=".ui.loginactivity.DefilyActivity" />
         <activity android:name=".ui.loginactivity.GiadingActivity" />
         <activity android:name=".ui.loginactivity.ReginActivity" />
         <activity android:name=".ui.loginactivity.WxActivity" />
         <activity android:name=".ui.PersonalInformation" />
         <activity android:name=".ui.setmodoule.ProposalActivity" />
-        <activity android:name=".ui.postpersondata.BindQQActivity"/>
+        <activity android:name=".ui.postpersondata.BindQQActivity" />
         <activity android:name=".ui.ModificationActivity" />
         <activity android:name=".ui.personal.PersonalAddress" />
         <activity android:name=".ui.WalletActivity" />
@@ -119,7 +119,7 @@
         <activity android:name=".ui.map.MapActivity" />
         <activity android:name=".ui.personal.ClipImageActivity" />
         <activity android:name=".ui.PreviewActivity" />
-        <activity android:name=".ui.ordermodole.activity.SelectPicPopupWindow"></activity>
+        <activity android:name=".ui.ordermodole.activity.SelectPicPopupWindow" />
 
         <!-- 设置环信应用的AppKey -->
         <meta-data
@@ -147,7 +147,8 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.xiaoxi.LiaoTianActivity"></activity>
+        <activity android:name=".ui.xiaoxi.LiaoTianActivity" />
+        <activity android:name=".ui.BIndPhoneActivity"></activity>
     </application>
 
 </manifest>

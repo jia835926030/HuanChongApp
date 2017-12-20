@@ -24,6 +24,7 @@ import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.CharacterParser;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.FileUtil;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TableUtils;
@@ -64,6 +65,11 @@ public abstract class BaseActivity extends AutoLayoutActivity {
 
         setContentView(getLayoutId());
         App.mBaseActivity = this;
+        AppUtils.setAppContext(this);
+        TokenUtil.init(this);
+        String token = TokenUtil.createToken();
+
+        FileUtil.saveToken();
         unbinder = ButterKnife.bind(this);
 
         //注意以下方法仅在Activity创建的时候调用一次
