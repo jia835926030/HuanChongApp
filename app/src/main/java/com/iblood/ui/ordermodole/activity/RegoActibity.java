@@ -41,6 +41,7 @@ public class RegoActibity extends AppCompatActivity {
                 finish();
                 break;
             case R.id.lv_tijiao:
+                finish();
                 break;
             case R.id.iv_myImage:
                 break;

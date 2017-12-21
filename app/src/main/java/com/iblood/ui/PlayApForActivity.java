@@ -26,6 +26,7 @@ import android.widget.RadioButton;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
@@ -37,10 +38,10 @@ import com.iblood.ui.shenqing.MyDialog;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
-
 import com.iblood.utils.PulldataHandler;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -48,6 +49,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import butterknife.BindView;
 import butterknife.OnClick;
 import okhttp3.Call;
@@ -102,6 +104,7 @@ public class PlayApForActivity extends BaseActivity implements 	MyDialog.OnButto
     private Bitmap bmp;
     private ArrayList<HashMap<String, Object>> imageItem;
     private SimpleAdapter simpleAdapter;
+    private HashMap<String, Object> params;
 
     @Override
     protected int getLayoutId() {
@@ -252,6 +255,7 @@ public class PlayApForActivity extends BaseActivity implements 	MyDialog.OnButto
             @Override
             public void onClick(View arg0) {
                 VerificationData();
+
             }
         });
     }
@@ -323,17 +327,19 @@ public class PlayApForActivity extends BaseActivity implements 	MyDialog.OnButto
             Toast.makeText(this, "请上传营业照", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (desc1.size() == 0) {
-            Toast.makeText(this, "请选择宠物", Toast.LENGTH_SHORT).show();
-            return false;
+        if (imageItem.size()<=3){
+            Toast.makeText(this,"环境照片不能少于三张",Toast.LENGTH_SHORT).show();
+            return  false;
         }
+   finish();
+        Toast.makeText(PlayApForActivity.this,"提交成功，请等待审核.",Toast.LENGTH_SHORT).show();
         return true;
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (resultCode == NONE)
             return;
         if (requestCode == PHOTOHRAPH) {
@@ -383,8 +389,6 @@ public class PlayApForActivity extends BaseActivity implements 	MyDialog.OnButto
             startPhotoZoom(data.getData());
         }
         super.onActivityResult(requestCode, resultCode, data);
-
-
         switch (resultCode) {
             case 1:
                 if (data != null) {
@@ -510,8 +514,8 @@ public class PlayApForActivity extends BaseActivity implements 	MyDialog.OnButto
         if (imageItem.size() == 10) {
             Toast.makeText(PlayApForActivity.this, "图片九张已满",
                     Toast.LENGTH_SHORT).show();
-        } else if (position == 0) {
-            // ѡ��ͼƬ
+        }   else if (position == 0) {
+            //
             dialog.show();
 
             // ͨ��onResume()ˢ������

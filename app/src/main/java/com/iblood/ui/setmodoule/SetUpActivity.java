@@ -1,35 +1,26 @@
 package com.iblood.ui.setmodoule;
 
 import android.content.Intent;
-import android.os.Build;
-import android.os.Bundle;
-import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
-import com.iblood.entity.UserInfo;
-import com.iblood.ui.HomeActivity;
-import com.iblood.ui.loginactivity.GiadingActivity;
-import com.iblood.utils.AppUtils;
-import com.iblood.utils.FileUtil;
+import com.iblood.ui.ordermodole.activity.PingjiaApActivity;
 import com.iblood.utils.GlideCacheUtil;
 import com.iblood.utils.SharedPreferencesUtils;
-import com.iblood.utils.ToastUtil;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SetUpActivity extends BaseActivity {
+
 
 
     @BindView(R.id.proposal_img)
@@ -58,7 +49,7 @@ public class SetUpActivity extends BaseActivity {
     TextView textViewhua;
     private ToggleButton toggleButton;
     private GlideCacheUtil instance;
-
+    private ImageView setBack;
 
 
     @Override
@@ -78,7 +69,13 @@ public class SetUpActivity extends BaseActivity {
 
     @Override
     protected void initData() {
-
+      setBack =  (ImageView)  findViewById(R.id.set_back);
+     setBack.setOnClickListener(new View.OnClickListener() {
+         @Override
+         public void onClick(View view) {
+             finish();
+         }
+     });
     }
 
     @Override
@@ -104,15 +101,8 @@ public class SetUpActivity extends BaseActivity {
             }
         });
     }
-    @OnClick({
-            R.id.proposal
-            ,R.id.introduce
-            ,R.id.score
-            ,R.id.about
-            ,R.id.wifi_display
-            ,R.id.cache
-            ,R.id.scavenging_cache
-            ,R.id.sign_out})
+    @OnClick({R.id.proposal,R.id.introduce,R.id.score,R.id.about,R.id.wifi_display,R.id.cache,R.id.scavenging_cache,R.id.sign_out})
+
     public void onViewClicked(View view){
         switch (view.getId()){
             case R.id.proposal:
@@ -124,7 +114,7 @@ public class SetUpActivity extends BaseActivity {
               startActivity(new Intent(SetUpActivity.this,FunctionActivity.class));
                 break;
             case R.id.score:
-                Toast.makeText(this, "去评分", Toast.LENGTH_SHORT).show();
+          startActivity(new Intent(SetUpActivity.this, PingjiaApActivity.class));
                 break;
 
             case R.id.about:
