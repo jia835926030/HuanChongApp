@@ -119,6 +119,7 @@ public class ModificationActivity extends BaseActivity {
             case R.id.button_forward:
                 String trim = mEditText.getText().toString().trim();
                 if (!TextUtils.isEmpty(trim)) {
+                    //回传的值
                     Intent intent = new Intent();
                     intent.putExtra("rcode", trim);
                     setResult(200, intent);

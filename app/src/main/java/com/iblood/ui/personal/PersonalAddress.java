@@ -1,17 +1,19 @@
 package com.iblood.ui.personal;
 
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
 
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
-import com.iblood.ui.PersonalInformation;
+
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.CharacterParser;
@@ -44,9 +46,13 @@ public class PersonalAddress extends BaseActivity {
     @BindView(R.id.text_title)
     TextView header_title;//头标题
     @BindView(R.id.button_forward)
-    Button button_forward;
+    TextView button_forward;
+    @BindView(R.id.button_backward)
+    ImageView button_backward;
     @BindView(R.id.myaddress)
     EditText myAddress;
+    @BindView(R.id.city_name)
+    TextView city_name;
     @Override
     protected int getLayoutId() {
         return R.layout.activity_personal_address;
@@ -56,6 +62,7 @@ public class PersonalAddress extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        city_name.setText("北京");
 
         header_title.setText(getIntent().getStringExtra("title"));
     }
@@ -131,9 +138,19 @@ public class PersonalAddress extends BaseActivity {
             case R.id.button_backward:
                 finish();
                 break;
-           /* case R.id.button_forward:
-                Toast.makeText(this, "dasdsada", Toast.LENGTH_SHORT).show();
-                break;*/
+            case R.id.button_forward:
+                String trim = myAddress.getText().toString().trim();
+                if (!TextUtils.isEmpty(trim)) {
+                    //回传的值
+                    Intent intent = new Intent();
+                    intent.putExtra("rcode", trim);
+                    setResult(200, intent);
+                    finish();
+                }else {
+                    textToast("请输入地址");
+                }
+                break;
+
 
         }
 

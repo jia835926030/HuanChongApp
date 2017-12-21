@@ -348,7 +348,6 @@ public class PetAddActivity extends BaseActivity {
 
     public void setImageUrl(ImageView ivId, String imageUrl, int emptyImgId) {
         if (options == null) {
-
             options = new DisplayImageOptions.Builder()
                     .showImageOnLoading(emptyImgId)
                     .showImageForEmptyUri(emptyImgId)

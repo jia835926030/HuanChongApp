@@ -378,7 +378,6 @@
         android:textSize="@dimen/text_title"
         android:textColor="@color/colorBlack" />
 
-
     <EditText
         android:id="@+id/pet_profile"
         android:layout_width="fill_parent"

@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:orientation="vertical" >
+
     <include layout="@layout/title_layout"/>
 
     <RelativeLayout
@@ -109,7 +110,6 @@
             android:id="@+id/mian_gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-
             <GridView
                 android:id="@+id/immgrid"
                 android:layout_width="match_parent"

@@ -61,10 +61,10 @@ public class ImmunizingActivity extends BaseActivity {
     protected void initData() {
 
     }
-
     @Override
     protected void onResume() {
         super.onResume();
+        //因为默认false 所以进来是看不到这些
         add_pet_immune.setVisibility(View.GONE);
         pet_mian_time.setVisibility(View.GONE);
         pet_re_time.setVisibility(View.GONE);
@@ -77,15 +77,12 @@ public class ImmunizingActivity extends BaseActivity {
         cb_imm.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean isChecked) {
-
                 if (isChecked) {
                     textToast("true");
                     add_pet_immune.setVisibility(View.VISIBLE);
                     pet_mian_time.setVisibility(View.VISIBLE);
                     pet_re_time.setVisibility(View.VISIBLE);
                     mian_gridView.setVisibility(View.VISIBLE);
-
-
                 } else {
                     textToast("false");
                     add_pet_immune.setVisibility(View.GONE);
