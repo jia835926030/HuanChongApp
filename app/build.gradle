@@ -64,4 +64,5 @@ dependencies {
     implementation files('libs/hyphenatechat_3.2.3.jar')
     compile 'com.android.support:cardview-v7:26.1.0'
     compile 'com.android.support:recyclerview-v7:26.1.0'
+    implementation files('libs/alipaySdk-20170922.jar')
 }
