@@ -94,7 +94,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="上次免疫时间"
+                android:text="上次免疫种类"
                 android:textSize="@dimen/dp20" />
 
             <TextView
@@ -108,16 +108,61 @@
 
         <LinearLayout
             android:id="@+id/mian_gridView"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
-            <GridView
-                android:id="@+id/immgrid"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10px"
-                android:numColumns="2"
-                android:padding="10px" >
-            </GridView>
+            <CheckBox
+                android:id="@+id/but1"
+                android:text="犬瘟病毒"
+                android:button="@null"
+                android:gravity="center"
+                android:layout_margin="20px"
+                android:padding="10px"
+                android:checked="true"
+                android:drawableLeft="@drawable/bingdu_a"
+                android:background="@drawable/bg_corners"
+                android:layout_width="300px"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/but2"
+                android:text="犬细小病毒"
+                android:button="@null"
+                android:gravity="center"
+                android:layout_margin="20px"
+                android:padding="10px"
+                android:drawableLeft="@drawable/bingdu_a"
+                android:background="@drawable/bg_corners"
+                android:layout_width="300px"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <CheckBox
+                android:id="@+id/but3"
+                android:text="犬腺病毒"
+                android:button="@null"
+                android:gravity="center"
+                android:layout_margin="20px"
+                android:padding="10px"
+                android:background="@drawable/bg_corners"
+                android:layout_width="300px"
+                android:drawableLeft="@drawable/bingdu_a"
+                android:layout_height="wrap_content" />
+            <CheckBox
+                android:id="@+id/but4"
+                android:text="狂犬病病毒"
+                android:button="@null"
+                android:gravity="center"
+                android:layout_margin="20px"
+                android:padding="10px"
+                android:background="@drawable/bg_corners"
+                android:layout_width="300px"
+                android:drawableLeft="@drawable/bingdu_a"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
     </LinearLayout>
 

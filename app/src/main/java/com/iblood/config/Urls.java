@@ -18,6 +18,7 @@ public class Urls {
     public static final String JIYANGSI = "users/getUsersInfos.jhtml";
     public static final String PINGLUN = "usersEvaluatedInfo/getUsersEvaluatedInfoByVO.jhtml";
     public static final String SETPETDATA = "petInfo/savePetInfo.jhtml";
+    public static final String BINGDU = "petImmuneInfo/getImmuneInfos.jhtml";
 
 
 

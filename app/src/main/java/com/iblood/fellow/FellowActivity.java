@@ -209,12 +209,21 @@ public class FellowActivity extends BaseActivity implements View.OnClickListener
                 Toast.makeText(this, "打电话", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.xiaoxi_call:
+                duanxin();
                 Toast.makeText(this, "发消息", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.quxiao_call:
                 popu1.dismiss();
                 break;
         }
+    }
+
+    //发短信
+    private void duanxin() {
+        Uri smsToUri = Uri.parse("smsto:1008611");
+        Intent intent = new Intent(Intent.ACTION_SENDTO, smsToUri);
+        intent.putExtra("sms_body", "测试发送短信");
+        startActivity(intent);
     }
 
     //拨号页面

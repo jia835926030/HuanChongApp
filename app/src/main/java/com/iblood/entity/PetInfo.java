@@ -7,11 +7,6 @@ import java.util.Date;
  *
  * @Description:(宠物信息实体)
  * @ClassName: PetInfo
- * @author zf zhangfeng@tctogether.com
- * @date 2016-03-14 15:14:37
- *       <p>
- *       北京天成合科�??有限公司版权�??�??
- *       </p>
  */
 public class PetInfo implements Serializable {
 	private long id;

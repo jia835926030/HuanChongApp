@@ -93,7 +93,7 @@ public class SetUpActivity extends BaseActivity {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(isChecked==true){
                     SharedPreferencesUtils.setParam(SetUpActivity.this,"flag","noload");
-                   SharedPreferencesUtils.setParam(SetUpActivity.this,"flag3","ischeckd");
+                    SharedPreferencesUtils.setParam(SetUpActivity.this,"flag3","ischeckd");
                 }else {
                     SharedPreferencesUtils.setParam(SetUpActivity.this,"flag","load");
                     SharedPreferencesUtils.setParam(SetUpActivity.this,"flag3","nocheckd");

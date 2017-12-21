@@ -132,7 +132,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         q = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userName", "");
         w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
         String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
-        if(q!=null){
+        if (q != null) {
             cehua_name.setText(q);
             cehua_dianhua.setText(w);
 
@@ -161,7 +161,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                     case R.id.cehua_xiaoxi:
                         //跳转环信消息
                         xiaoxi();
-                      break;
+                        break;
                     case R.id.cehua_chongwu:
                         //跳转到宠物列表
                         startActivity(new Intent(HomeActivity.this, LateralspreadsPetActivity.class));
@@ -274,6 +274,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         });
 
     }
+
     public void getdata(String str) {
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
@@ -329,6 +330,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
         });
 
     }
+
     //主体ListView
     @Override
     protected void initData() {
@@ -341,7 +343,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
     }
 
-    //弹出popu
+    //弹出popu点击事件
     @OnClick({R.id.mOLBtn, R.id.mMangerBtn, R.id.mPersonalBtn})
     public void onViewClicked(View view) {
         switch (view.getId()) {
@@ -373,8 +375,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                                 getdata("price asc");
                                 popu1.dismiss();
                                 break;
-
-
                         }
                     }
                 });
@@ -390,7 +390,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                                 getChongWu("");
                                 popu2.dismiss();
                                 break;
-
                         }
                     }
                 });
@@ -509,10 +508,10 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                 String w = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userPhone", "");
                 String ws = (String) SharedPreferencesUtils.getParam(HomeActivity.this, "userId", "");
 
-                if(q.equals("")){
+                if (q.equals("")) {
 
-                    Log.e("登录",q);
-                    Intent intent=new Intent(HomeActivity.this,GiadingActivity.class);
+                    Log.e("登录", q);
+                    Intent intent = new Intent(HomeActivity.this, GiadingActivity.class);
                     startActivity(intent);
                 } else {
                     Log.e("个人", q);
@@ -525,7 +524,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 
                 break;
             case R.id.personal_chongzhi:
-                for(CheckBox checkbox:checkBoxList){
+                for (CheckBox checkbox : checkBoxList) {
                     checkbox.setChecked(false);
                 }
                 v3.invalidate();
@@ -550,6 +549,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     }
+
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
         if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
