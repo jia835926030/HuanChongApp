@@ -389,6 +389,7 @@ public class PersonalInformation extends BaseActivity {
         }
         //电话
         if (requestCode == 6 && resultCode == 200) {
+
             user_phone.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }

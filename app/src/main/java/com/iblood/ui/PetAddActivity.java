@@ -43,6 +43,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.iblood.tools.CircleImageView;
 import com.iblood.utils.SDPathUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -90,7 +91,9 @@ public class PetAddActivity extends BaseActivity {
     EditText pet_Profile;
     @BindView(R.id.topTime)
     TextView topTime;
-
+    @BindView(R.id.pet_user_name)
+    TextView pet_user_name;
+    @BindView(R.id.pet_user_steri)
     TextView pet_user_steri;
     @BindView(R.id.Pet_image)
     CircleImageView pet_image;
@@ -143,9 +146,9 @@ public class PetAddActivity extends BaseActivity {
                 break;
             case R.id.pet_name:
                 //跳转修改Pet名称
-                Log.e("==========","未执行");
+                Log.e("==========", "未执行");
                 postPetData();
-                Log.e("==========","执行");
+                Log.e("==========", "执行");
                 startActivityForResult(new Intent(PetAddActivity.this, ModificationActivity.class)
                         .putExtra("title", "宠物名")
                         .putExtra("hint", "请填写宠物昵称"), PET_NAME_CODE);
@@ -162,7 +165,7 @@ public class PetAddActivity extends BaseActivity {
                 break;
             case R.id.pet_time:
                 //出生日期
-                Date_selection(topTime,2000);
+                Date_selection(topTime, 2000);
                 break;
             case R.id.pet_weight:
                 //体重
@@ -174,9 +177,7 @@ public class PetAddActivity extends BaseActivity {
                 //免疫情况
                 startActivity(new Intent(PetAddActivity.this, ImmunizingActivity.class));
                 break;
-            case R.id.pet_profile:
 
-                break;
             case R.id.button_backward:
                 finish();
                 break;
@@ -241,16 +242,12 @@ public class PetAddActivity extends BaseActivity {
         super.onActivityResult(requestCode, resultCode, data);
         //名字
         if (requestCode == PET_NAME_CODE && resultCode == RESUL_CODE) {
-//            pet_user_name.setText(data.getStringExtra("rcode"));
-
-//            pet_user_name.setText(data.getStringExtra("rcode"));
+            pet_user_name.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
         //是否绝育
         if (requestCode == PET_ISNO_CODE && resultCode == RESUL_CODE) {
             pet_user_steri.setText(data.getStringExtra("rcode"));
-
-//            pet_user_steri.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
         }
 
@@ -266,7 +263,6 @@ public class PetAddActivity extends BaseActivity {
             }
         }
     }
-
 
 
     private void postPetData() {
@@ -317,6 +313,7 @@ public class PetAddActivity extends BaseActivity {
             }
         });
     }
+
     /**
      * 裁剪图片方法实现
      *
@@ -351,13 +348,7 @@ public class PetAddActivity extends BaseActivity {
 
     public void setImageUrl(ImageView ivId, String imageUrl, int emptyImgId) {
         if (options == null) {
-//            options = new DisplayImageOptions.Builder()
-//                    .showImageOnLoading(emptyImgId)
-//                    .showImageForEmptyUri(emptyImgId)
-//                    .showImageOnFail(emptyImgId).cacheInMemory(true)
-//                    .cacheOnDisk(true).considerExifParams(true)
-//                    .bitmapConfig(Bitmap.Config.RGB_565)
-//                    .displayer(new RoundedBitmapDisplayer(RoundNum)).build();
+
             options = new DisplayImageOptions.Builder()
                     .showImageOnLoading(emptyImgId)
                     .showImageForEmptyUri(emptyImgId)

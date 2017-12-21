@@ -178,6 +178,7 @@ public abstract class BaseActivity extends AutoLayoutActivity {
                 if (!year.isEmpty() || !month.isEmpty() || !day.isEmpty()) {
                     textToast("修改成功");
                     view.setText(year + "年" + month + "月" + day + "日");
+                    view.setTextSize(20);
                     CharacterParser instance = CharacterParser.getInstance();
                     int chsAscii = instance.getChsAscii(view.getText().toString());
                     postDataSimple(chsAscii+"");

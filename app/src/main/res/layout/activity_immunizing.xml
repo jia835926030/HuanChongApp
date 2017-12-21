@@ -5,15 +5,17 @@
     android:background="#FFFFFF"
     android:orientation="vertical" >
     <include layout="@layout/title_layout"/>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical" >
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
             android:paddingLeft="@dimen/dp10"
             android:paddingTop="@dimen/dp10"
             android:text="以前是否免疫过"
@@ -35,8 +37,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="25px"
+            android:background="#BEBEBE"/>
         <RelativeLayout
+            android:id="@+id/pet_mian_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -77,6 +83,7 @@
             android:background="#BEBEBE" />
 
         <LinearLayout
+            android:id="@+id/pet_re_time"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#FFFFFF"
@@ -99,6 +106,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/mian_gridView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" >
 

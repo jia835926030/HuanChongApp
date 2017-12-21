@@ -119,9 +119,6 @@ public class ModificationActivity extends BaseActivity {
             case R.id.button_forward:
                 String trim = mEditText.getText().toString().trim();
                 if (!TextUtils.isEmpty(trim)) {
-                    CharacterParser instance = CharacterParser.getInstance();
-                    int chsAscii = instance.getChsAscii(trim);
-                    postData(chsAscii);
                     Intent intent = new Intent();
                     intent.putExtra("rcode", trim);
                     setResult(200, intent);
