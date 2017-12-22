@@ -83,10 +83,12 @@ public class PingLunActivity extends BaseActivity {
             public void onResponse(Call call, final Response response) throws IOException {
                 final String string = response.body().string();
                 Log.e("TAG", "sssssss"+string);
-                Toast.makeText(PingLunActivity.this, string, Toast.LENGTH_SHORT).show();
+
+
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
+                        Toast.makeText(PingLunActivity.this, string, Toast.LENGTH_SHORT).show();
                         Gson gson = new Gson();
                         PingLunBean pingLunBean = gson.fromJson(string, PingLunBean.class);
                         List<PingLunBean.DescBean> list = pingLunBean.getDesc();

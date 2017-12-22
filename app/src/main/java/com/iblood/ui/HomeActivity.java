@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.PersistableBundle;
-import android.preference.TwoStatePreference;
+
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
@@ -203,7 +203,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                     public void run() {
                         textToast("登陆失败！");
 
-//                        //进入聊天界面
+                       //进入聊天界面
                         startActivity(new Intent(HomeActivity.this, MessageActivity.class));
                     }
                 });
@@ -222,7 +222,6 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
                     @Override
                     public void run() {
                         textToast("登陆成功！");
-
 //                        进入聊天界面
                         startActivity(new Intent(HomeActivity.this, MessageActivity.class));
                     }
@@ -430,6 +429,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
 //                popu.setAnimationStyle(R.style.mypopu);
         //显示popuwindow
         popu2.showAsDropDown(mBottomGroup, 0, 0);
+
     }
 
     //筛选城市
