@@ -1,37 +1,37 @@
 package com.iblood.ui;
 
+import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.google.gson.Gson;
 import com.iblood.R;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
-import com.iblood.entity.HomeChongwuBeen;
-import com.iblood.utils.AppUtils;
+import com.iblood.ui.mianyi.Imm;
+import com.iblood.ui.mianyi.PetImmuneInfo;
 import com.iblood.utils.CJSON;
-import com.iblood.utils.ConnectionUtils;
-import com.iblood.utils.SignUtil;
-import com.iblood.utils.TokenUtil;
+import com.iblood.utils.TableUtils;
+import com.iblood.utils.ToastUtil;
+import com.lzy.okhttputils.OkHttpUtils;
+import com.lzy.okhttputils.callback.StringCallback;
+import com.lzy.okhttputils.request.PostRequest;
 
-import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.FormBody;
-import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -67,6 +67,10 @@ public class ImmunizingActivity extends BaseActivity implements View.OnClickList
     CheckBox but3;
     @BindView(R.id.but4)
     CheckBox but4;
+    private List<Imm> valueslist = null, datalist = null;
+    private List<PetImmuneInfo> jiulist;
+    private Drawable leftdeawable;
+    private String s;
 
     @Override
     protected int getLayoutId() {
@@ -132,7 +136,24 @@ public class ImmunizingActivity extends BaseActivity implements View.OnClickList
                 Date_selection(tv_pet_immune_data, 2015);
                 break;
             case R.id.button_forward:
-                textToast("不好使");
+                s = tv_pet_immune_data.getText().toString();
+                if (cb_imm.isChecked()){
+                    if (s.equals("")){
+                        textToast("时间不能为空");
+                        break;
+                    }
+                    if (but1.isChecked()||but2.isChecked()||but3.isChecked()||but4.isChecked()){
+                        textToast("免疫情况已完善");
+                        finish();
+                    }else {
+                        textToast("请选择已免疫的种类");
+                        break;
+                    }
+                }else {
+                    textToast("该宠物未做过免疫");
+                    finish();
+                }
+
                 break;
 //
         }
@@ -180,11 +201,13 @@ public class ImmunizingActivity extends BaseActivity implements View.OnClickList
 //
 //    }
 
+    @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+
     }
 
     @Override

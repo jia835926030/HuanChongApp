@@ -1,6 +1,7 @@
 package com.iblood.ui;
 
 import android.annotation.SuppressLint;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -549,17 +551,49 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
             }
         }
     }
+//
+//    @Override
+//    public boolean dispatchKeyEvent(KeyEvent event) {
+//        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
+//            if (event.getAction() == KeyEvent.ACTION_DOWN
+//                    && event.getRepeatCount() == 0) {
+//                setResult(1);
+//                finish();
+//            }
+//            return true;
+//        }
+//        return super.dispatchKeyEvent(event);
+//    }
 
+    //返回键监听
     @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK) {
-            if (event.getAction() == KeyEvent.ACTION_DOWN
-                    && event.getRepeatCount() == 0) {
-                setResult(1);
-                finish();
-            }
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+            builder.setIcon(R.drawable.lalala);
+
+            builder.setTitle("退出程序");
+            builder.setMessage("主人真的要退出吗?再考虑考虑....");
+            builder.setNegativeButton("残忍退出", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    finish();
+                }
+            });
+            builder.setPositiveButton("再玩一会", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.dismiss();
+                    Toast.makeText(HomeActivity.this, "谢谢您喜欢我们的产品", Toast.LENGTH_SHORT).show();
+                }
+            });
+            builder.create();
+            builder.show();
+
+
             return true;
+        } else {
+            return super.onKeyDown(keyCode, event);
         }
-        return super.dispatchKeyEvent(event);
     }
 }

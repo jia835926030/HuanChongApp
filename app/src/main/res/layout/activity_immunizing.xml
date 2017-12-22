@@ -6,8 +6,13 @@
     android:orientation="vertical" >
 
     <include layout="@layout/title_layout"/>
+    <View
+        android:background="@color/colorGreen"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
 
     <RelativeLayout
+        android:layout_margin="20px"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_vertical">
@@ -40,8 +45,8 @@
         android:orientation="vertical" >
         <View
             android:layout_width="match_parent"
-            android:layout_height="25px"
-            android:background="#BEBEBE"/>
+            android:layout_height="35px"
+            android:background="@color/colorGreyLight"/>
         <RelativeLayout
             android:id="@+id/pet_mian_time"
             android:layout_width="match_parent"

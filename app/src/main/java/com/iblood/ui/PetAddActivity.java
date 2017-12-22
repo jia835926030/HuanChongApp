@@ -5,55 +5,44 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.net.Uri;
-import android.provider.MediaStore;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.iblood.R;
-import com.iblood.app.App;
 import com.iblood.base.BaseActivity;
 import com.iblood.config.Urls;
-import com.iblood.entity.HomeChongwuBeen;
 import com.iblood.entity.PetInfo;
+import com.iblood.tools.CircleImageView;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
 import com.iblood.utils.FileUtil;
+import com.iblood.utils.SDPathUtils;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
-
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import com.iblood.tools.CircleImageView;
-import com.iblood.utils.SDPathUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.io.File;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
-import cn.qqtheme.framework.picker.DatePicker;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
@@ -98,11 +87,15 @@ public class PetAddActivity extends BaseActivity {
     @BindView(R.id.Pet_image)
     CircleImageView pet_image;
     TextView userName;
+    protected static final int PET_BINGDU_CODE = 10;
     protected static final int PET_NAME_CODE = 11;
     protected static final int PET_ISNO_CODE = 12;
     protected static final int PET_WEIGHT_CODE = 13;
 
+
     protected static final int RESUL_CODE = 200;
+    @BindView(R.id.mianyi_petadd)
+    TextView mianyiPetadd;
     private String localImg;
 
     @Override
@@ -175,7 +168,8 @@ public class PetAddActivity extends BaseActivity {
                 break;
             case R.id.pet_immunizing:
                 //免疫情况
-                startActivity(new Intent(PetAddActivity.this, ImmunizingActivity.class));
+                Intent intent = new Intent(PetAddActivity.this, ImmunizingActivity.class);
+                startActivityForResult(intent,PET_BINGDU_CODE);
                 break;
 
             case R.id.button_backward:
@@ -356,5 +350,18 @@ public class PetAddActivity extends BaseActivity {
                     .bitmapConfig(Bitmap.Config.RGB_565).build();
         }
         ImageLoader.getInstance().displayImage(imageUrl, ivId, options);
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        mianyiPetadd.setText("已完善");
+    }
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        // TODO: add setContentView(...) invocation
+        ButterKnife.bind(this);
     }
 }
