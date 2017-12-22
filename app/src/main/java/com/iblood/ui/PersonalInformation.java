@@ -336,7 +336,7 @@ public class PersonalInformation extends BaseActivity {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
-//相机
+                    //相机
                 Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                     if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
                         openCameraIntent.putExtra(Settings.ACTION_APN_SETTINGS,"");
@@ -351,7 +351,7 @@ public class PersonalInformation extends BaseActivity {
         btnPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//相册
+                //相册
                 Intent intent = new Intent(Intent.ACTION_PICK, null);
                 intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, "image/*");
                 startActivityForResult(intent, 1);

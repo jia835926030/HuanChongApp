@@ -17,11 +17,17 @@ public class MapActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+
+
         TextView viewById = findViewById(R.id.button_forward);
+
         TextView text_title = findViewById(R.id.text_title);
+
         ImageView button_backward = findViewById(R.id.button_backward);
+
         viewById.setVisibility(View.GONE);
         text_title.setVisibility(View.GONE);
+
         WebView byId = (WebView)findViewById(R.id.my_Map);
 
         byId.setWebViewClient(new WebViewClient() {
