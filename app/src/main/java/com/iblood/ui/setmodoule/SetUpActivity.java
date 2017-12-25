@@ -1,12 +1,14 @@
 package com.iblood.ui.setmodoule;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ToggleButton;
 
 import com.iblood.R;
@@ -17,6 +19,7 @@ import com.iblood.utils.SharedPreferencesUtils;
 import com.zhy.autolayout.AutoRelativeLayout;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class SetUpActivity extends BaseActivity {
@@ -53,9 +56,16 @@ public class SetUpActivity extends BaseActivity {
 
 
     @Override
-    protected int getLayoutId() {
-        return R.layout.activity_set_up;
+    protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+        ButterKnife.bind(this);
 
+    }
+
+    @Override
+    protected int getLayoutId() {
+
+        return R.layout.activity_set_up;
     }
 
     @Override
@@ -109,7 +119,6 @@ public class SetUpActivity extends BaseActivity {
                 Intent intent=new Intent(SetUpActivity.this,ProposalActivity.class);
                 startActivity(intent);
                 break;
-
             case R.id.introduce:
               startActivity(new Intent(SetUpActivity.this,FunctionActivity.class));
                 break;
@@ -123,7 +132,7 @@ public class SetUpActivity extends BaseActivity {
 
 
             case  R.id.cache:
-                textToast("图片缓存，文件缓存");
+                Toast.makeText(this, "图片缓存，文件缓存", Toast.LENGTH_SHORT).show();
                 break;
 
             case R.id.scavenging_cache:
@@ -141,16 +150,16 @@ public class SetUpActivity extends BaseActivity {
              /*   Log.e("name=====",q);
                 Log.e("name=====",w+"");*/
                 if(q==null){
-                    textToast("您还未登录");
+                    Toast.makeText(this, "您还未登录", Toast.LENGTH_SHORT).show();
                 }else {
-                    textToast("退出登录");
+                    Toast.makeText(this, "退出登录", Toast.LENGTH_SHORT).show();
                     SharedPreferencesUtils.clear(SetUpActivity.this);
                     finish();
                 }
 
                 break;
             case R.id.wifi_display:
-                textToast("仅在WIFI下显示图片");
+                Toast.makeText(this, "仅在WIFI下显示图片", Toast.LENGTH_SHORT).show();
                 break;
 
 

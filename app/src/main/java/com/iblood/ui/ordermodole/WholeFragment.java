@@ -12,10 +12,12 @@ import com.iblood.ui.ordermodole.bean.NexBean;
 import com.iblood.utils.AppUtils;
 import com.iblood.utils.CJSON;
 import com.iblood.utils.ConnectionUtils;
+import com.iblood.utils.FileUtil;
 import com.iblood.utils.SharedPreferencesUtils;
 import com.iblood.utils.SignUtil;
 import com.iblood.utils.TokenUtil;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,14 +53,10 @@ public class WholeFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-//        mlist.clear();
-//        for (int i = 0; i <6 ; i++) {
-//            mlist.add(new NexBean(R.drawable.jia));
-//        }
-//
         OkHttpClient okHttpClient = new OkHttpClient();
         FormBody.Builder builder = new FormBody.Builder();
         AppUtils.setAppContext(getActivity());
+        FileUtil.saveToken();
         TokenUtil.init(getActivity());
         String token = TokenUtil.createToken();
         Request.Builder request = new Request.Builder();
@@ -67,7 +65,7 @@ public class WholeFragment extends BaseFragment {
         String userID = (String) SharedPreferencesUtils.getParam(getActivity(), "userId", "");
         Log.e("id=====",userID+"");
         map.put("userId  ", userID);
-        map.put("orderState  ", 45);
+        map.put("orderState  ", null);
         String s1 = CJSON.toJSONMap(map);
         Log.e("TAG", s1 + "++++++++++++++++++++++++");
         builder.add("data", s1);

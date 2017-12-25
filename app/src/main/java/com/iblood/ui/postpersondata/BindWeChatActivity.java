@@ -104,7 +104,7 @@ public class BindWeChatActivity extends AppCompatActivity implements View.OnClic
             case R.id.button_forward:
                 String trim = bindwechat.getText().toString().trim();
                 if (!TextUtils.isEmpty(trim)) {
-                    postData(trim);
+
                     Intent intent = new Intent();
                     intent.putExtra("rcode", trim);
                     setResult(200, intent);

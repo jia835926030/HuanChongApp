@@ -147,7 +147,6 @@ public class FellowActivity extends BaseActivity implements View.OnClickListener
                     public void run() {
                         Gson gson = new Gson();
                         FellowBean fellowBean = gson.fromJson(data, FellowBean.class);
-
                         if (fellowBean.isRet()) {
                             desc = fellowBean.getDesc();
                             userId = desc.getFosterInfo().getUserId();

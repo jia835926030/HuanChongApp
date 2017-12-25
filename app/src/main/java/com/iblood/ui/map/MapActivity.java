@@ -1,5 +1,6 @@
 package com.iblood.ui.map;
 
+import android.annotation.SuppressLint;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import com.iblood.R;
 
 public class MapActivity extends AppCompatActivity {
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,10 +41,7 @@ public class MapActivity extends AppCompatActivity {
             }
         });
         byId.getSettings().setJavaScriptEnabled(true);  //设置WebView属性,运行执行js脚本
-        Log.e("map","执行了MAP");
-        byId.loadUrl("http://map.baidu.com/");
-
-
+        byId.loadUrl("http://www.gaode.com/");
         button_backward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

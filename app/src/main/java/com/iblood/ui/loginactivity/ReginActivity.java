@@ -38,8 +38,6 @@ public class ReginActivity extends BaseActivity {
     private TextView reg_fnishi;
        private TextView regin_login;
     private EditText regin_phone;
-    private EditText regin_yan;
-    private TextView regin_huoqu;
     private EditText regin_photo;
     private EditText regin_password;
     private Button regin_star;
@@ -57,10 +55,6 @@ public class ReginActivity extends BaseActivity {
      regin_login =   (TextView) findViewById(R.id.regin_login);
       //手机号
       regin_phone =  (EditText)  findViewById(R.id.regin_phone);
-        //验证码
-        regin_yan =  (EditText) findViewById(R.id.regin_yan);
-       //获取验证码
-        regin_huoqu = (TextView) findViewById(R.id.regin_huo);
        //用户名
       regin_photo =  (EditText)   findViewById(R.id.regin_photo);
       regin_password =  (EditText) findViewById(R.id.regin_paswd);
@@ -111,7 +105,12 @@ public class ReginActivity extends BaseActivity {
                         try {
                             JSONObject jsonObject=new JSONObject(data);
                             String ret = jsonObject.getString("ret");
+                            String desc = jsonObject.getString("desc");
                             if(ret.equals("true")){
+                                finish();
+                            }else if(desc.equals("用户已存在,请登录!")){
+
+                                Toast.makeText(ReginActivity.this, desc, Toast.LENGTH_SHORT).show();
                                 finish();
                             }else {
                                 Toast.makeText(ReginActivity.this, "注册失败", Toast.LENGTH_SHORT).show();
@@ -147,6 +146,12 @@ public class ReginActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
               finish();
+            }
+        });
+        reg_fnishi.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }

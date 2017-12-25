@@ -1,8 +1,8 @@
-package com.iblood.ui;
+package com.iblood.ui.personal;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -48,6 +48,7 @@ public class BIndPhoneActivity extends AppCompatActivity implements View.OnClick
 
     }
 
+    @SuppressLint("WrongViewCast")
     private void initView() {
         text_title = (TextView) findViewById(R.id.text_title);
         button_backward = (Button) findViewById(R.id.button_backward);

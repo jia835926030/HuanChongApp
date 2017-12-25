@@ -61,23 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32px"
         android:hint="请输入手机号码" />
-<TextView
-    android:id="@+id/regin_huo"
-    android:textColor="#FFD600"
-    android:textSize="20sp"
-    android:text="获取验证码"
-    android:gravity="center"
-    android:background="@drawable/bg_welcome"
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent" />
 </LinearLayout>
-    <EditText
-        android:id="@+id/regin_yan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/regin_phone"
-        android:hint="请输入验证码" />
-
     <EditText
         android:id="@+id/regin_photo"
         android:layout_width="match_parent"

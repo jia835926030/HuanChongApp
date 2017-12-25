@@ -292,6 +292,9 @@ public class YuYueActivity extends BaseActivity implements View.OnClickListener 
                 break;
 
             case R.id.queding_yuyue:
+
+
+                postData();
                 if (days>0){
                     Intent intent = new Intent(YuYueActivity.this,SuccessActivity.class);
                     intent.putExtra("qian",tianshuqian+tian1*60.00+tian2*50.00+"元");
@@ -304,5 +307,9 @@ public class YuYueActivity extends BaseActivity implements View.OnClickListener 
                 finish();
                 break;
         }
+    }
+
+    private void postData() {
+
     }
 }

@@ -109,7 +109,7 @@ public class PersonalInformation extends BaseActivity {
     @BindView(R.id.user_address)
     TextView user_address;
     @BindView(R.id.iv_head)//头像
-    CircleImageView ivHeadLogo;
+            CircleImageView ivHeadLogo;
 
 
     private PopupWindow window;
@@ -161,7 +161,7 @@ public class PersonalInformation extends BaseActivity {
         }else {
             user_sexy.setText("女");
         }
-        Log.e("da",q);
+      /*  Log.e("da",q);
         Log.e("da",sex+"");
         Log.e("da",w);
         Log.e("da",ws);
@@ -171,7 +171,7 @@ public class PersonalInformation extends BaseActivity {
         user_phone.setText(w);
         user_wachat.setText(wechat);
         user_address.setText(address+"");
-        user_qq.setText(qq);
+        user_qq.setText(qq);*/
     }
 
     private void postData(int o) {
@@ -338,13 +338,13 @@ public class PersonalInformation extends BaseActivity {
                 dialog.dismiss();
                     //相机
                 Intent openCameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
-                        openCameraIntent.putExtra(Settings.ACTION_APN_SETTINGS,"");
-                            openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(SDPathUtils.getCachePath(), "temp.jpg")));
-                            startActivityForResult(openCameraIntent, 2);
+                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.N) {
+                    openCameraIntent.putExtra(Settings.ACTION_APN_SETTINGS,"");
+                    openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(SDPathUtils.getCachePath(), "temp.jpg")));
+                    startActivityForResult(openCameraIntent, 2);
 
 
-                    }
+                }
             }
         });
         TextView btnPhoto = (TextView) view.findViewById(R.id.btn_to_photo);
@@ -376,33 +376,205 @@ public class PersonalInformation extends BaseActivity {
         if (requestCode == 88 && resultCode == 200) {
             user_name.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
+            OkHttpClient okHttpClient=new OkHttpClient();
+            FormBody.Builder builder = new FormBody.Builder();
+            AppUtils.setAppContext(PersonalInformation.this);
+            TokenUtil.init(PersonalInformation.this);
+            String token = TokenUtil.createToken();
+            Log.e("token", token);
+            Request.Builder request = new Request.Builder();
+            String ip = ConnectionUtils.getIp(PersonalInformation.this);
+            Map<String, Object> map = new HashMap<>();
+            String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
+            map.put(TableUtils.UserInfo.USERID, ws);
+            map.put(TableUtils.UserInfo.USERNAME, data.getStringExtra("rcode"));
+            String s1 = CJSON.toJSONMap(map);
+            Log.e("DA", s1);
+            builder.add("data", s1);
+            String linkString = SignUtil.createLinkString(map);
+            request.addHeader("sign", linkString);
+            request.addHeader("ip", ip);
+            request.addHeader("token", token);
+            request.addHeader("channel", "android");
+            Request build1 = request.url(Urls.BASE + Urls.PERSONDATAUP1).post(builder.build()).build();
+            okHttpClient.newCall(build1).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("data",string);
+
+                }
+            });
         }
         //微信
         if (requestCode == 4 && resultCode == 200) {
             user_wachat.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
+            OkHttpClient okHttpClient=new OkHttpClient();
+            FormBody.Builder builder = new FormBody.Builder();
+            AppUtils.setAppContext(PersonalInformation.this);
+            TokenUtil.init(PersonalInformation.this);
+            String token = TokenUtil.createToken();
+            Log.e("token", token);
+            Request.Builder request = new Request.Builder();
+            String ip = ConnectionUtils.getIp(PersonalInformation.this);
+            Map<String, Object> map = new HashMap<>();
+            String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
+            map.put(TableUtils.UserInfo.USERID, ws);
+            map.put(TableUtils.UserInfo.USERNAME, data.getStringExtra("rcode"));
+            String s1 = CJSON.toJSONMap(map);
+            Log.e("DA", s1);
+            builder.add("data", s1);
+            String linkString = SignUtil.createLinkString(map);
+            request.addHeader("sign", linkString);
+            request.addHeader("ip", ip);
+            request.addHeader("token", token);
+            request.addHeader("channel", "android");
+            Request build1 = request.url(Urls.BASE + Urls.PERSONDATAUP1).post(builder.build()).build();
+            okHttpClient.newCall(build1).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("data",string);
+
+                }
+            });
         }
         //QQ
         if (requestCode == 5 && resultCode == 200) {
             user_qq.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
+            OkHttpClient okHttpClient=new OkHttpClient();
+            FormBody.Builder builder = new FormBody.Builder();
+            AppUtils.setAppContext(PersonalInformation.this);
+            TokenUtil.init(PersonalInformation.this);
+            String token = TokenUtil.createToken();
+            Log.e("token", token);
+            Request.Builder request = new Request.Builder();
+            String ip = ConnectionUtils.getIp(PersonalInformation.this);
+            Map<String, Object> map = new HashMap<>();
+            String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
+            map.put(TableUtils.UserInfo.USERID, ws);
+            map.put(TableUtils.UserInfo.USERNAME, data.getStringExtra("rcode"));
+            String s1 = CJSON.toJSONMap(map);
+            Log.e("DA", s1);
+            builder.add("data", s1);
+            String linkString = SignUtil.createLinkString(map);
+            request.addHeader("sign", linkString);
+            request.addHeader("ip", ip);
+            request.addHeader("token", token);
+            request.addHeader("channel", "android");
+            Request build1 = request.url(Urls.BASE + Urls.PERSONDATAUP1).post(builder.build()).build();
+            okHttpClient.newCall(build1).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("data",string);
+
+                }
+            });
         }
         //电话
         if (requestCode == 6 && resultCode == 200) {
 
             user_phone.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
+            OkHttpClient okHttpClient=new OkHttpClient();
+            FormBody.Builder builder = new FormBody.Builder();
+            AppUtils.setAppContext(PersonalInformation.this);
+            TokenUtil.init(PersonalInformation.this);
+            String token = TokenUtil.createToken();
+            Log.e("token", token);
+            Request.Builder request = new Request.Builder();
+            String ip = ConnectionUtils.getIp(PersonalInformation.this);
+            Map<String, Object> map = new HashMap<>();
+            String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
+            map.put(TableUtils.UserInfo.USERID, ws);
+            map.put(TableUtils.UserInfo.USERNAME, data.getStringExtra("rcode"));
+            String s1 = CJSON.toJSONMap(map);
+            Log.e("DA", s1);
+            builder.add("data", s1);
+            String linkString = SignUtil.createLinkString(map);
+            request.addHeader("sign", linkString);
+            request.addHeader("ip", ip);
+            request.addHeader("token", token);
+            request.addHeader("channel", "android");
+            Request build1 = request.url(Urls.BASE + Urls.PERSONDATAUP1).post(builder.build()).build();
+            okHttpClient.newCall(build1).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("data",string);
+
+                }
+            });
         }
         //住址
         if (requestCode == 7 && resultCode == 200) {
             user_address.setText(data.getStringExtra("rcode"));
             textToast("修改成功");
+            OkHttpClient okHttpClient=new OkHttpClient();
+            FormBody.Builder builder = new FormBody.Builder();
+            AppUtils.setAppContext(PersonalInformation.this);
+            TokenUtil.init(PersonalInformation.this);
+            String token = TokenUtil.createToken();
+            Log.e("token", token);
+            Request.Builder request = new Request.Builder();
+            String ip = ConnectionUtils.getIp(PersonalInformation.this);
+            Map<String, Object> map = new HashMap<>();
+            String ws = (String) SharedPreferencesUtils.getParam(PersonalInformation.this, "userId", "");
+            map.put(TableUtils.UserInfo.USERID, ws);
+            map.put(TableUtils.UserInfo.USERNAME, data.getStringExtra("rcode"));
+            String s1 = CJSON.toJSONMap(map);
+            Log.e("DA", s1);
+            builder.add("data", s1);
+            String linkString = SignUtil.createLinkString(map);
+            request.addHeader("sign", linkString);
+            request.addHeader("ip", ip);
+            request.addHeader("token", token);
+            request.addHeader("channel", "android");
+            Request build1 = request.url(Urls.BASE + Urls.PERSONDATAUP1).post(builder.build()).build();
+            okHttpClient.newCall(build1).enqueue(new Callback() {
+                @Override
+                public void onFailure(Call call, IOException e) {
+
+                }
+
+                @Override
+                public void onResponse(Call call, Response response) throws IOException {
+                    String string = response.body().string();
+                    Log.e("data",string);
+
+                }
+            });
         }
         if (requestCode == 1 && data != null) {
             startPhotoZoom(data.getData());
         } else if (requestCode == 2) {
             File temp = new File(SDPathUtils.getCachePath(), "temp.jpg");
             startPhotoZoom(Uri.fromFile(temp));
+
+
         } else if (requestCode == 3) {
             if (data != null) {
                 setPicToView(data);

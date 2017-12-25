@@ -141,7 +141,7 @@ public class BindQQActivity extends BaseActivity implements View.OnClickListener
             case R.id.button_forward:
                 String trim = bindqq.getText().toString().trim();
                 if (!TextUtils.isEmpty(trim)){
-                postData(trim);
+
                 Intent intent = new Intent();
                 intent.putExtra("rcode",trim);
                 setResult(200,intent);

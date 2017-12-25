@@ -95,7 +95,7 @@
         android:supportsRtl="true"
         android:theme="@style/BaseAppTheme">
 
-        <!-- <service android:name="com.amap.api.location.APSService"></service> -->
+         <service android:name="com.amap.api.location.APSService"></service>
         <activity android:name=".ui.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -169,7 +169,8 @@
         <activity android:name=".fellow.SuccessActivity" />
         <activity android:name=".fellow.YuYueActivity" />
         <activity android:name=".ui.UpdatePersonalInfo" />
-        <activity android:name=".ui.BindWeChatActivity" />
+        <activity android:name=".ui.postpersondata.BindWeChatActivity"
+            tools:ignore="DuplicateActivity" />
         <activity android:name=".ui.map.MapActivity" />
         <activity android:name=".ui.personal.ClipImageActivity" />
         <activity android:name=".ui.PreviewActivity" />
@@ -201,6 +202,7 @@
         </receiver>
 
         <activity android:name=".ui.xiaoxi.LiaoTianActivity" />
+        <activity android:name=".ui.personal.BIndPhoneActivity"></activity>
         <activity android:name=".ui.BIndPhoneActivity" />
 
         <!-- 支付宝 -->
