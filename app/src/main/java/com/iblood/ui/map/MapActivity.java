@@ -14,7 +14,6 @@ import com.iblood.R;
 
 public class MapActivity extends AppCompatActivity {
 
-    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
